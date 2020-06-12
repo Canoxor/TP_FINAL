@@ -2,10 +2,10 @@
 -- CREACION DE LA BD + TABLAS
 -- DROP TABLE PARCIAL_LAB_3_Version_4
 
-CREATE DATABASE PARCIAL_LAB_3_Version_7
+CREATE DATABASE PARCIAL_LAB_3_Version_9
 GO
 
-USE PARCIAL_LAB_3_Version_7
+USE PARCIAL_LAB_3_Version_9
 GO
 
 CREATE TABLE Juegos
@@ -134,7 +134,8 @@ CREATE TABLE Usuarios
 	U_Apellido varchar(50) null,
 	U_Direccion varchar(100) null,
 	U_Telefono varchar(25) null,
-	U_Admin bit not null
+	U_Admin bit not null,
+	U_Contrasenia varchar(20) not null
 )
 GO
 
@@ -288,10 +289,10 @@ INSERT INTO Prov_X_Juego (PJ_Codigo_Proveedor,PJ_Codigo_Juego,PJ_PrecioCompra)
 	SELECT '3','5',6000 
 GO
 
-INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin)
-	SELECT '1','1000','Nicolas','Rodriguez',1 UNION
-	SELECT '2','1001','Mateo','De Benedictis Maza',1 UNION
-	SELECT '3','1002','Ezequiel','Rickert',1
+INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin,U_Contrasenia)
+	SELECT '1','1000','Nicolas','Rodriguez',1,'1111' UNION
+	SELECT '2','1001','Mateo','De Benedictis Maza',1,'2222' UNION
+	SELECT '3','1002','Ezequiel','Rickert',1,'2222'
 GO
 
 INSERT INTO CodigosDeDescuento (CD_Codigo_CodDescuento,CD_Descripcion,CD_Habilitado,CD_Usos)
@@ -337,6 +338,26 @@ INSERT INTO Juegos
 	@J_PrecioUnitario
 GO
 
+CREATE PROCEDURE SP_Delete_Juegos
+(
+	@J_Codigo_Juego varchar(5)
+)
+AS
+DELETE FROM Juegos
+WHERE J_Codigo_Juego = @J_Codigo_Juego
+GO
+
+CREATE PROCEDURE SP_Update_Juegos
+(
+	@J_Codigo_Juego varchar(5),
+	@J_PrecioNuevo decimal(18,2)
+)
+AS
+UPDATE Juegos
+SET J_PrecioUnitario = @J_PrecioNuevo
+WHERE J_Codigo_Juego = @J_Codigo_Juego
+GO
+
 -- PERIFERICOS
 
 CREATE PROCEDURE SP_Insert_Perifericos
@@ -367,6 +388,26 @@ INSERT INTO Perifericos
 	@PE_Descripcion,
 	@PE_Stock,
 	@PE_PrecioUnitario
+GO
+
+CREATE PROCEDURE SP_Delete_Perifericos
+(
+	@PE_Codigo_Periferico varchar(5)
+)
+AS
+DELETE FROM Perifericos
+WHERE PE_Codigo_Periferico = @PE_Codigo_Periferico
+GO
+
+CREATE PROCEDURE SP_Update_Perifericos
+(
+	@PE_Codigo_Periferico varchar(5),
+	@PE_PrecioNuevo decimal(18,2)
+)
+AS
+UPDATE Perifericos
+SET PE_PrecioUnitario = @PE_PrecioNuevo
+WHERE PE_Codigo_Periferico = @PE_Codigo_Periferico
 GO
 
 -- PROVEEDORES
@@ -411,6 +452,26 @@ INSERT INTO Proveedores
 	@P_Email
 GO
 
+CREATE PROCEDURE SP_Delete_Proveedores
+(
+	@P_Codigo_Proveedor varchar(5)
+)
+AS
+DELETE FROM Proveedores
+WHERE P_Codigo_Proveedor = @P_Codigo_Proveedor
+GO
+
+CREATE PROCEDURE SP_Update_Proveedores
+(
+	@P_Codigo_Proveedor varchar(5),
+	@P_WebNueva decimal(18,2)
+)
+AS
+UPDATE Proveedores
+SET P_Web = @P_WebNueva
+WHERE P_Codigo_Proveedor = @P_Codigo_Proveedor
+GO
+
 -- MARCAS
 
 CREATE PROCEDURE SP_Insert_Marcas
@@ -429,7 +490,61 @@ INSERT INTO Marcas
 	@M_Nombre
 GO
 
--- 
+-- USUARIOS
+
+CREATE PROCEDURE SP_Insert_Usuarios
+(
+	@U_Codigo_Usuario varchar(5),
+	@U_Dni_Usuario varchar(25),
+	@U_Nombre varchar(50),
+	@U_Apellido varchar(50),
+	@U_Direccion varchar(100),
+	@U_Telefono varchar(25),
+	@U_Admin bit,
+	@U_Contrasenia varchar(20)
+)
+AS
+INSERT INTO Usuarios
+(
+	U_Codigo_Usuario,
+	U_Dni_Usuario,
+	U_Nombre,
+	U_Apellido,
+	U_Direccion,
+	U_Telefono,
+	U_Admin,
+	U_Contrasenia
+)
+SELECT 
+	@U_Codigo_Usuario,
+	@U_Dni_Usuario,
+	@U_Nombre,
+	@U_Apellido,
+	@U_Direccion,
+	@U_Telefono,
+	@U_Admin,
+	@U_Contrasenia
+GO
+
+CREATE PROCEDURE SP_Delete_Usuarios
+(
+	@U_Codigo_Usuario varchar(5)
+)
+AS
+DELETE FROM Usuarios
+WHERE U_Codigo_Usuario = @U_Codigo_Usuario
+GO
+
+CREATE PROCEDURE SP_Update_Usuarios
+(
+	@U_Codigo_Usuario varchar(5),
+	@U_ContraseñaNueva varchar(20)
+)
+AS
+UPDATE Usuarios
+SET U_Contrasenia = @U_ContraseñaNueva
+WHERE U_Codigo_Usuario = @U_Codigo_Usuario
+GO
 
 
 -- Eliminar registro
