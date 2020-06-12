@@ -302,7 +302,141 @@ GO
 
 -- PROCEDIMIENTOS ALMACENADOS
 
--- Insertar registro
+-- PROCEDIMIENTOS ALMACENADOS
+
+-- JUEGOS
+
+CREATE PROCEDURE SP_Insert_Juegos
+(
+	@J_Codigo_Juego varchar(5),
+	@J_Codigo_Genero varchar(5),
+	@J_Codigo_PEGI varchar(5),
+	@J_Nombre varchar(50),
+	@J_Descripcion varchar(1000),
+	@J_Stock int,
+	@J_PrecioUnitario decimal(18,2)
+)
+AS
+INSERT INTO Juegos 
+(
+	J_Codigo_Juego,
+	J_Codigo_Genero,
+	J_Codigo_PEGI,
+	J_Nombre,
+	J_Descripcion,
+	J_Stock,
+	J_PrecioUnitario
+)
+	SELECT 
+	@J_Codigo_Juego,
+	@J_Codigo_Genero,
+	@J_Codigo_PEGI,
+	@J_Nombre,
+	@J_Descripcion,
+	@J_Stock,
+	@J_PrecioUnitario
+GO
+
+-- PERIFERICOS
+
+CREATE PROCEDURE SP_Insert_Perifericos
+(
+	@PE_Codigo_Periferico varchar(5),
+	@PE_Codigo_TipoPerif varchar(5),
+	@PE_Codigo_Marca varchar(5),
+	@PE_Nombre varchar(50),
+	@PE_Descripcion varchar(1000),
+	@PE_Stock int,
+	@PE_PrecioUnitario decimal(18,2)
+)
+AS
+INSERT INTO Perifericos
+(
+	PE_Codigo_Periferico,
+	PE_Codigo_TipoPerif,
+	PE_Nombre,PE_Codigo_Marca,
+	PE_Descripcion,
+	PE_Stock,
+	PE_PrecioUnitario
+)
+	SELECT 
+	@PE_Codigo_Periferico,
+	@PE_Codigo_TipoPerif,
+	@PE_Codigo_Marca,
+	@PE_Nombre,
+	@PE_Descripcion,
+	@PE_Stock,
+	@PE_PrecioUnitario
+GO
+
+-- PROVEEDORES
+
+CREATE PROCEDURE SP_Insert_Proveedores
+(
+	@P_Codigo_Proveedor varchar (5),
+	@P_RazonSocial varchar(50),
+	@P_Direccion varchar(50),
+	@P_Ciudad varchar(50),
+	@P_Provincia varchar(50),
+	@P_Cuil varchar(25),
+	@P_Telefono varchar(25),
+	@P_Contacto varchar(50),
+	@P_Web varchar(50),
+	@P_Email varchar(50)
+)
+AS
+INSERT INTO Proveedores
+(
+	P_Codigo_Proveedor,
+	P_RazonSocial,
+	P_Direccion,
+	P_Ciudad,
+	P_Provincia,
+	P_Cuil,
+	P_Telefono,
+	P_Contacto,
+	P_Web,
+	P_Email
+)
+	SELECT 
+	@P_Codigo_Proveedor,
+	@P_RazonSocial,
+	@P_Direccion,
+	@P_Ciudad,
+	@P_Provincia,
+	@P_Cuil,
+	@P_Telefono,
+	@P_Contacto,
+	@P_Web,
+	@P_Email
+GO
+
+-- MARCAS
+
+CREATE PROCEDURE SP_Insert_Marcas
+(
+	@M_Codigo_Marca varchar(5),
+	@M_Nombre varchar(50)
+)
+AS
+INSERT INTO Marcas
+(
+	M_Codigo_Marca,
+	M_Nombre
+)
+	SELECT
+	@M_Codigo_Marca,
+	@M_Nombre
+GO
+
+-- 
+
+
+-- Eliminar registro
+
+-- Modificar registro
+
+-- SCRIPTS
 
 -- Eliminar registro
 
