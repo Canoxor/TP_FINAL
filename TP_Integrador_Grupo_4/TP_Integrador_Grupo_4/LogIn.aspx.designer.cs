@@ -15,13 +15,13 @@ namespace TP_Integrador_Grupo_4
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control formLogIn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formLogIn;
 
         /// <summary>
         /// Control txtEmail_LogIn.
@@ -58,5 +58,14 @@ namespace TP_Integrador_Grupo_4
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCrearCuenta_LogIn;
+
+        /// <summary>
+        /// Control btnInicio_LogIn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInicio_LogIn;
     }
 }

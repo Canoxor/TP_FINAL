@@ -31,7 +31,7 @@
 </head>
 <body>
 
-    <form id="form1" runat="server">
+    <form id="formSignIn" runat="server">
         &nbsp
         <div style="text-align: center">
             <h2 style="position: center; color: #ffd800">True Games</h2>
@@ -104,6 +104,10 @@
         &nbsp
         <div style="text-align: center">
             <asp:Button class="btn btn-secondary btn-m" ID="btnCuentaExistente" runat="server" Style="position: center" Text="¿Ya tienes una cuenta?" OnClick="btnCuentaExistente_Click" />
+        </div>
+        &nbsp
+        <div style="text-align: center">
+            <asp:Button class="btn btn-dark btn-m" ID="btnInicio" runat="server" Style="position: center" Text="Volver al Inicio" OnClick="btnInicio_Click"/>
         </div>
 
 

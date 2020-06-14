@@ -21,11 +21,11 @@
     <title>True Games</title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="formPerifericos" runat="server">
         <!-- Navbar -->
 
         <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 sticky-top">
-            <a href="#" class="navbar-brand">
+            <a href="LandingPage.aspx" class="navbar-brand">
                 <img src="imgs/LogoPagina.png" />
                 True Games</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
                         <a href="Juegos.aspx" class="nav-link">Juegos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Noticias</a>
+                        <a href="Noticias.aspx" class="nav-link">Noticias</a>
                     </li>
                     <li class="nav-item">
                         <a href="Perifericos.aspx" class="nav-link" style="color:#8B8C91">Perifericos</a>

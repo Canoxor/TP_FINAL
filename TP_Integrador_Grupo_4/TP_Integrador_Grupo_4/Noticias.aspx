@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Juegos.aspx.cs" Inherits="TP_Integrador_Grupo_4.Juegos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Noticias.aspx.cs" Inherits="TP_Integrador_Grupo_4.Noticias" %>
 
 <!DOCTYPE html>
 
@@ -21,7 +21,7 @@
     <title>True Games</title>
 </head>
 <body>
-    <form id="formJuegos" runat="server">
+    <form id="formNoticias" runat="server">
         <!-- Navbar -->
 
         <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 sticky-top">
@@ -34,10 +34,10 @@
             <div class="collapse navbar-collapse justify-content-between blurb" id="navLinks">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="Juegos.aspx" class="nav-link" style="color:#8B8C91">Juegos</a>
+                        <a href="Juegos.aspx" class="nav-link">Juegos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Noticias.aspx" class="nav-link">Noticias</a>
+                        <a href="Noticias.aspx" class="nav-link" style="color:#8B8C91">Noticias</a>
                     </li>
                     <li class="nav-item">
                         <a href="Perifericos.aspx" class="nav-link">Perifericos</a>
@@ -58,25 +58,22 @@
         &nbsp
         <table class="w-100">
             <tr>
-                <td style="width: 34%; text-align: center">
-                    <a style="color: white">Buscar Juegos:</a>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:Button class="btn btn-primary btn-sm" ID="Button1" runat="server" Style="position: center" Text="Buscar" />
-                </td>
                 <td style="width: 33%; text-align: center">
+                    
+                </td>
+                <td style="width: 34%; text-align: center">
                     <div class="btn-group dropdown">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Filtar Juegos
+                            Filtar Noticias
                         </button>
                         <div class="dropdown-menu">
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="Button2" runat="server" Style="position: center" Text="Categoria" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="Button3" runat="server" Style="position: center" Text="Desarrollador" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="Button4" runat="server" Style="position: center" Text="Etiquetas PEGI" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarJuegosN" runat="server" Style="position: center" Text="Juegos" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarFecha" runat="server" Style="position: center" Text="Fecha" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnPPP" runat="server" Style="position: center" Text="Algo mas" />
                         </div>
                     </div>
                 </td>
                 <td style="width: 33%; text-align: center">
-                    <asp:Button class="btn btn-secondary" ID="Button5" runat="server" Style="position: center" Text="Lista de deseos" />
                 </td>
             </tr>
         </table>
@@ -85,14 +82,14 @@
             <tr>
                 <td style="width: 10%; text-align: center"></td>
                 <td style="width: 80%; text-align: center">
-                    <asp:ListView ID="ListView1" runat="server" style="position: center" >
+                    <asp:ListView ID="lvNoticias" runat="server" style="position: center" >
                     </asp:ListView>
                 </td>
                 <td style="width: 10%; text-align: center"></td>
             </tr>
         </table>
         &nbsp;
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataNoticias" runat="server"></asp:SqlDataSource>
 
 
 

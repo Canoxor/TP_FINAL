@@ -78,6 +78,7 @@
     <Content Include="Juegos.aspx" />
     <Content Include="LandingPage.aspx" />
     <Content Include="LogIn.aspx" />
+    <Content Include="Noticias.aspx" />
     <Content Include="Perifericos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -109,6 +110,13 @@
     </Compile>
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Noticias.aspx.cs">
+      <DependentUpon>Noticias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Noticias.aspx.designer.cs">
+      <DependentUpon>Noticias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Perifericos.aspx.cs">
       <DependentUpon>Perifericos.aspx</DependentUpon>

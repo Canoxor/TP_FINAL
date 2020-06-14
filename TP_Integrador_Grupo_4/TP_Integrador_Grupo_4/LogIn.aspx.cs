@@ -18,5 +18,10 @@ namespace TP_Integrador_Grupo_4
         {
             Response.Redirect("CrearNuevaCuenta.aspx");
         }
+
+        protected void btnInicio_LogIn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LandingPage.aspx");
+        }
     }
 }

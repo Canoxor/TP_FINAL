@@ -22,12 +22,12 @@
 </head>
 
 <body>
-    <form id="form1" runat="server">
+    <!--<form id="form1" runat="server">-->
 
         <!-- Navbar -->
 
         <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 sticky-top">
-            <a href="#" class="navbar-brand">
+            <a href="LandingPage.aspx" class="navbar-brand">
                 <img src="imgs/LogoPagina.png" />
                 True Games</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
@@ -36,20 +36,20 @@
             <div class="collapse navbar-collapse justify-content-between blurb" id="navLinks">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="https://www.facebook.com" class="nav-link">Juegos</a>
+                        <a href="Juegos.aspx" class="nav-link">Juegos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Noticias</a>
+                        <a href="Noticias.aspx" class="nav-link">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">Perifericos</a>
+                        <a href="Perifericos.aspx" class="nav-link">Perifericos</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right:30px">
                     <li class="nav-item dropdown align-content-lg-end">
-                        <!--<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Cuenta
-                    </a>-->
-                        <asp:Label ID="lblNavbarUsuario" runat="server" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Text="Usuario"></asp:Label>
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Cuenta
+                    </a>
+                       <!-- <asp:Label ID="lblNavbarUsuario" runat="server" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Text="Usuario"></asp:Label>-->
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item nav-link btn btn-primary btn-l active" style="text-align: center" role="button" href="LogIn.aspx"><i class="fas fa-sign-in-alt"></i> Iniciar sesion</a>
                             <div class="dropdown-divider"></div>
@@ -182,7 +182,7 @@
                 </div>
             </div>
         </section>
-    </form>
+   <!-- </form>-->
     <!-- jQuery primero, despues Popper.js, despues Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

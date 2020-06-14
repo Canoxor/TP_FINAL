@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="formLogIn" runat="server">
         &nbsp
         <div style="text-align: center">
             <h2 style="position: center; color: #ffd800">True Games</h2>
@@ -64,6 +64,10 @@
         &nbsp
         <div style="text-align: center">
             <asp:Button class="btn btn-secondary btn-m" ID="btnCrearCuenta_LogIn" runat="server" Style="position: center" OnClick="btnCrearCuenta_LogIn_Click" Text="¿No tienes una cuenta?"/>
+        </div>
+        &nbsp
+        <div style="text-align: center">
+            <asp:Button class="btn btn-dark btn-m" ID="btnInicio_LogIn" runat="server" Style="position: center" Text="Volver al Inicio" OnClick="btnInicio_LogIn_Click"/>
         </div>
     </form>
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
