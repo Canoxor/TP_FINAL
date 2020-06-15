@@ -21,10 +21,11 @@
     <title>True Games</title>
     <style type="text/css">
         .auto-style1 {
-            width: 410px;
+            width: 20%;
         }
+
         .auto-style2 {
-            width: 913px;
+            width: 60%;
         }
     </style>
 </head>
@@ -32,7 +33,7 @@
     <form id="formNoticias" runat="server">
         <!-- Navbar -->
 
-        <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 sticky-top">
+        <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 sticky-top" style="background: rgb(42, 40, 48)">
             <a href="LandingPage.aspx" class="navbar-brand">
                 <img src="imgs/LogoPagina.png" />
                 True Games</a>
@@ -45,7 +46,7 @@
                         <a href="Juegos.aspx" class="nav-link">Juegos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Noticias.aspx" class="nav-link" style="color:#8B8C91">Noticias</a>
+                        <a href="Noticias.aspx" class="nav-link" style="color: #8B8C91">Noticias</a>
                     </li>
                     <li class="nav-item">
                         <a href="Perifericos.aspx" class="nav-link">Perifericos</a>
@@ -55,7 +56,7 @@
                     <li class="nav-item dropdown align-content-lg-end">
                         <asp:Label ID="lblNavbarUsuario" runat="server" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Text="Usuario"></asp:Label>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="#">Mi Cuenta</a>
+                            <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="Usuarios.aspx">Mi Cuenta</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item nav-link" style="text-align: center" href="#"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
                         </div>
@@ -66,9 +67,7 @@
         &nbsp
         <table class="w-100">
             <tr>
-                <td style="width: 33%; text-align: center">
-                    
-                </td>
+                <td style="width: 33%; text-align: center"></td>
                 <td style="width: 34%; text-align: center">
                     <div class="btn-group dropdown">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,53 +80,30 @@
                         </div>
                     </div>
                 </td>
-                <td style="width: 33%; text-align: center">
-                    &nbsp;</td>
+                <td style="width: 33%; text-align: center">&nbsp;</td>
             </tr>
-            <tr>
-                <td style="width: 33%; text-align: center">
-                    
-                    &nbsp;</td>
-                <td style="width: 34%; text-align: center">
-                    &nbsp;</td>
-                <td style="width: 33%; text-align: center">
-                    &nbsp;</td>
-            </tr>
-        </table>
-        <table class="w-100">
+            </table>
+        &nbsp
+        <table class="w-100" >
             <tr>
                 <td class="auto-style1">&nbsp;</td>
                 <td class="auto-style2">
-                    <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataNoticias">
-                        <AlternatingItemTemplate>
-                            <span style=""><span class="text-white">
-                            <asp:Label ID="N_NombreLabel" runat="server" Text='<%# Eval("N_Nombre") %>'></asp:Label>
-                            <br />
-                            &nbsp;</span><br />
-                            <asp:Image ID="Image1" runat="server" Height="300px" ImageUrl='<%# Eval("N_Imagen") %>' Width="500px" />
-                            <br />
-                            <span class="text-white">&nbsp;<br />
-                            <asp:Label ID="N_DescripcionLabel" runat="server" Text='<%# Eval("N_Descripcion") %>'></asp:Label>
-                            <br />
-                                <br />
-                            </span>
-                            <br />
-                            </span>
-                        </AlternatingItemTemplate>
+                    <asp:ListView ID="lvNoticias" runat="server" DataSourceID="SqlDataNoticias">
+
                         <EditItemTemplate>
                             <span style="">N_Nombre:
                             <asp:TextBox ID="N_NombreTextBox" runat="server" Text='<%# Bind("N_Nombre") %>' />
-                            <br />
-                            N_Imagen:
+                                <br />
+                                N_Imagen:
                             <asp:TextBox ID="N_ImagenTextBox" runat="server" Text='<%# Bind("N_Imagen") %>' />
-                            <br />
-                            N_Descripcion:
+                                <br />
+                                N_Descripcion:
                             <asp:TextBox ID="N_DescripcionTextBox" runat="server" Text='<%# Bind("N_Descripcion") %>' />
-                            <br />
-                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                            <br />
-                            <br />
+                                <br />
+                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
+                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
+                                <br />
+                                <br />
                             </span>
                         </EditItemTemplate>
                         <EmptyDataTemplate>
@@ -136,31 +112,34 @@
                         <InsertItemTemplate>
                             <span style="">N_Nombre:
                             <asp:TextBox ID="N_NombreTextBox0" runat="server" Text='<%# Bind("N_Nombre") %>' />
-                            <br />
-                            N_Imagen:
+                                <br />
+                                N_Imagen:
                             <asp:TextBox ID="N_ImagenTextBox0" runat="server" Text='<%# Bind("N_Imagen") %>' />
-                            <br />
-                            N_Descripcion:
+                                <br />
+                                N_Descripcion:
                             <asp:TextBox ID="N_DescripcionTextBox0" runat="server" Text='<%# Bind("N_Descripcion") %>' />
-                            <br />
-                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                            <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
-                            <br />
-                            <br />
+                                <br />
+                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
+                                <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
+                                <br />
+                                <br />
                             </span>
                         </InsertItemTemplate>
+
                         <ItemTemplate>
-                            <span style=""><span class="text-white">
-                            <asp:Label ID="N_NombreLabel0" runat="server" Text='<%# Eval("N_Nombre") %>'></asp:Label>
-                            <br />
-                            &nbsp;</span><br />
-                            <asp:Image ID="Image2" runat="server" Height="300px" ImageUrl='<%# Eval("N_Imagen") %>' Width="500px" />
-                            <br />
-                            <span class="text-white">&nbsp;<br />
-                            <asp:Label ID="N_DescripcionLabel0" runat="server" Text='<%# Eval("N_Descripcion") %>'></asp:Label>
-                                <br />
-                                <br />
-                            </span></span>
+                            <!-- Este es el item que se usa -->
+                            <div class="card mb-3" style="width: 530px; align-content: center; align-items: center; padding-top:1%; background-color:#CFCDD4; margin-left:20%">
+                                <asp:Image class="card-img-top" ID="Image1" runat="server" Height="300px" ImageUrl='<%# Eval("N_Imagen") %>' Width="500px" />
+                                <div class="card-body">
+                                    <asp:Label ID="Label1" class="card-title" runat="server" Style="font-size: 1.5em; width: 500px" Text='<%# Eval("N_Nombre") %>'></asp:Label>
+                                    <br />
+                                    <asp:Label class="card-text" ID="Label2" runat="server" Text='<%# Eval("N_Descripcion") %>'></asp:Label>
+                                    <br />
+                                    <br />
+                                    <asp:Button class="btn btn-secondary" ID="btnSeleccionNoticia" runat="server" CommandName="NoticiaSeleccionada" Text="Ver Mas" />
+                                </div>
+                            </div>
+
                         </ItemTemplate>
                         <LayoutTemplate>
                             <div style="" id="itemPlaceholderContainer" runat="server" class="text-center">
@@ -172,14 +151,14 @@
                         <SelectedItemTemplate>
                             <span style="">N_Nombre:
                             <asp:Label ID="N_NombreLabel1" runat="server" Text='<%# Eval("N_Nombre") %>' />
-                            <br />
-                            N_Imagen:
+                                <br />
+                                N_Imagen:
                             <asp:Label ID="N_ImagenLabel" runat="server" Text='<%# Eval("N_Imagen") %>' />
-                            <br />
-                            N_Descripcion:
+                                <br />
+                                N_Descripcion:
                             <asp:Label ID="N_DescripcionLabel1" runat="server" Text='<%# Eval("N_Descripcion") %>' />
-                            <br />
-                            <br />
+                                <br />
+                                <br />
                             </span>
                         </SelectedItemTemplate>
                     </asp:ListView>
@@ -189,22 +168,8 @@
                 </td>
             </tr>
         </table>
-        <div class="text-center">
-            <br />
-            <br />
-        </div>
-        <table class="w-100">
-            <tr>
-                <td style="width: 10%; text-align: center"></td>
-                <td style="width: 80%; text-align: center">
-                    &nbsp;</td>
-                <td style="width: 10%; text-align: center"></td>
-            </tr>
-        </table>
         &nbsp;
-        <asp:SqlDataSource ID="SqlDataNoticias" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString %>" SelectCommand="SELECT [N_Nombre], [N_Imagen], [N_Descripcion] FROM [Noticias]"></asp:SqlDataSource>
-
-
+        <asp:SqlDataSource ID="SqlDataNoticias" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [N_Nombre], [N_Imagen], [N_Descripcion] FROM [Noticias]"></asp:SqlDataSource>
 
     </form>
     <script>

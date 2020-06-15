@@ -24,7 +24,7 @@
             width: 11%;
         }
         .auto-style2 {
-            width: 26%
+            width: 20%
         }
     </style>
 </head>
@@ -32,7 +32,7 @@
     <form id="formJuegos" runat="server">
         <!-- Navbar -->
 
-        <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 sticky-top">
+        <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 sticky-top" style="background: rgb(42, 40, 48)">
             <a href="LandingPage.aspx" class="navbar-brand">
                 <img src="imgs/LogoPagina.png" />
                 True Games</a>
@@ -55,7 +55,7 @@
                     <li class="nav-item dropdown align-content-lg-end">
                         <asp:Label ID="lblNavbarUsuario" runat="server" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Text="Usuario"></asp:Label>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="#">Mi Cuenta</a>
+                            <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="Usuarios.aspx">Mi Cuenta</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item nav-link" style="text-align: center" href="#"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
                         </div>
@@ -84,7 +84,7 @@
                     </div>
                 </td>
                 <td style="width: 33%; text-align: center">
-                    <asp:Button class="btn btn-secondary" ID="Button5" runat="server" Style="position: center" Text="Lista de deseos" />
+                    <asp:Button class="btn btn-secondary" ID="btnCarrito" runat="server" Style="position: center" Text="Ir a mi carrito" />
                 </td>
             </tr>
         </table>
@@ -96,23 +96,7 @@
                     <br />
                     <br />
             <asp:ListView ID="ListView2" runat="server" style="position: center" DataSourceID="SqlDataSource1" GroupItemCount="3" >
-                <AlternatingItemTemplate>
-                    <td runat="server" class="text-center" style="">&nbsp;&nbsp;&nbsp;
-                        <asp:Image ID="J_Imagen" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <br />
-                        <br />
-                        <span class="text-white">
-
-                        </span>
-                        <asp:Label ID="J_NombreLabel" runat="server" ForeColor="White" Text='<%# Eval("J_Nombre") %>' />
-                        <br />
-                        <br />
-                        <span class="text-white">$</span><asp:Label ID="J_PrecioUnitarioLabel" runat="server" ForeColor="White" Text='<%# Eval("J_PrecioUnitario") %>' />
-                        <br />
-                        <br />
-                        &nbsp;<br /></td>
-                </AlternatingItemTemplate>
+               
                 <EditItemTemplate>
                     <td runat="server" style="">J_Imagen:
                         <asp:TextBox ID="J_ImagenTextBox" runat="server" Text='<%# Bind("J_Imagen") %>' />
@@ -162,7 +146,7 @@
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <td runat="server" class="text-center" style="">&nbsp;&nbsp;&nbsp;
-                        <asp:Image ID="J_Imagen0" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
+                        <asp:Image ID="J_Imagen0" style="border-radius:20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <br />
                         <br />
@@ -224,7 +208,7 @@
         &nbsp;<br />
         <br />
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario] FROM [Juegos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario] FROM [Juegos]"></asp:SqlDataSource>
 
 
 

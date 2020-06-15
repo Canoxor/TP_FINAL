@@ -78,13 +78,13 @@ namespace TP_Integrador_Grupo_4
         protected global::System.Web.UI.WebControls.Button btnPPP;
 
         /// <summary>
-        /// Control btnListaDeseosP.
+        /// Control btnCarrito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnListaDeseosP;
+        protected global::System.Web.UI.WebControls.Button btnCarrito;
 
         /// <summary>
         /// Control lvPerifericos.
