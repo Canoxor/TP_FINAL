@@ -1,0 +1,9 @@
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Datos.dll
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Datos.pdb
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Entidades.dll
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Entidades.pdb
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csproj.CopyComplete
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.dll
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.pdb
