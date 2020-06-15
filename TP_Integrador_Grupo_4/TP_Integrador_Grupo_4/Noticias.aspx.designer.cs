@@ -60,13 +60,13 @@ namespace TP_Integrador_Grupo_4
         protected global::System.Web.UI.WebControls.Button btnPPP;
 
         /// <summary>
-        /// Control lvNoticias.
+        /// Control ListView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvNoticias;
+        protected global::System.Web.UI.WebControls.ListView ListView1;
 
         /// <summary>
         /// Control SqlDataNoticias.

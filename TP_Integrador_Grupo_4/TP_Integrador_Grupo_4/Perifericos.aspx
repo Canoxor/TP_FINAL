@@ -56,7 +56,7 @@
             </div>
         </nav>
         &nbsp
-        <table class="w-100">
+       <table class="w-100">
             <tr>
                 <td style="width: 34%; text-align: center">
                     <a style="color: white">Buscar Perifericos:</a>
@@ -79,20 +79,127 @@
                     <asp:Button class="btn btn-secondary" ID="btnListaDeseosP" runat="server" Style="position: center" Text="Lista de deseos" />
                 </td>
             </tr>
+            <tr>
+                <td style="text-align: center" colspan="3">
+                    &nbsp;</td>
+            </tr>
         </table>
         &nbsp
         &nbsp<table class="w-100">
             <tr>
-                <td style="width: 10%; text-align: center"></td>
-                <td style="width: 80%; text-align: center">
-                    <asp:ListView ID="lvPerifericos" runat="server" style="position: center" >
+                <td class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                <td>
+                    <asp:ListView ID="lvPerifericos" runat="server" style="position: center" DataSourceID="SqlDataPerifericos" GroupItemCount="3" >
+                        <AlternatingItemTemplate>
+                            <td runat="server" class="text-center" style="">&nbsp;&nbsp; &nbsp;
+                                <asp:Image ID="Image1" runat="server" Height="250px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="250px" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <br />
+                                <br />
+                                <span class="text-white">
+                                <asp:Label ID="PE_NombreLabel" runat="server" Text='<%# Eval("PE_Nombre") %>'></asp:Label>
+                                <br />
+                                <br />
+                                <asp:Label ID="PE_PrecioUnitarioLabel" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
+                                <br />
+                                <br />
+                                </span>&nbsp;<br /></td>
+                        </AlternatingItemTemplate>
+                        <EditItemTemplate>
+                            <td runat="server" style="">PE_Imagen:
+                                <asp:TextBox ID="PE_ImagenTextBox" runat="server" Text='<%# Bind("PE_Imagen") %>' />
+                                <br />PE_Nombre:
+                                <asp:TextBox ID="PE_NombreTextBox" runat="server" Text='<%# Bind("PE_Nombre") %>' />
+                                <br />PE_PrecioUnitario:
+                                <asp:TextBox ID="PE_PrecioUnitarioTextBox" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
+                                <br />
+                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
+                                <br />
+                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
+                                <br /></td>
+                        </EditItemTemplate>
+                        <EmptyDataTemplate>
+                            <table runat="server" style="">
+                                <tr>
+                                    <td>No se han devuelto datos.</td>
+                                </tr>
+                            </table>
+                        </EmptyDataTemplate>
+                        <EmptyItemTemplate>
+<td runat="server" />
+                        </EmptyItemTemplate>
+                        <GroupTemplate>
+                            <tr id="itemPlaceholderContainer" runat="server">
+                                <td id="itemPlaceholder" runat="server"></td>
+                            </tr>
+                        </GroupTemplate>
+                        <InsertItemTemplate>
+                            <td runat="server" style="">PE_Imagen:
+                                <asp:TextBox ID="PE_ImagenTextBox0" runat="server" Text='<%# Bind("PE_Imagen") %>' />
+                                <br />PE_Nombre:
+                                <asp:TextBox ID="PE_NombreTextBox0" runat="server" Text='<%# Bind("PE_Nombre") %>' />
+                                <br />PE_PrecioUnitario:
+                                <asp:TextBox ID="PE_PrecioUnitarioTextBox0" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
+                                <br />
+                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
+                                <br />
+                                <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
+                                <br /></td>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <td runat="server" class="text-center" style="">&nbsp;&nbsp;&nbsp;
+                                <asp:Image ID="Image1" runat="server" Height="250px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="250px" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <br />
+                                <br />
+                                <span class="text-white">
+                                <asp:Label ID="PE_NombreLabel0" runat="server" Text='<%# Eval("PE_Nombre") %>'></asp:Label>
+                                <br />
+                                <br />
+                                <asp:Label ID="PE_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
+                                <br />
+                                <br />
+                                </span>&nbsp;<br /></td>
+                        </ItemTemplate>
+                        <LayoutTemplate>
+                            <table runat="server">
+                                <tr runat="server">
+                                    <td runat="server">
+                                        <table id="groupPlaceholderContainer" runat="server" border="0" style="">
+                                            <tr id="groupPlaceholder" runat="server">
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr runat="server">
+                                    <td runat="server" style=""></td>
+                                </tr>
+                            </table>
+                        </LayoutTemplate>
+                        <SelectedItemTemplate>
+                            <td runat="server" style="">PE_Imagen:
+                                <asp:Label ID="PE_ImagenLabel" runat="server" Text='<%# Eval("PE_Imagen") %>' />
+                                <br />PE_Nombre:
+                                <asp:Label ID="PE_NombreLabel1" runat="server" Text='<%# Eval("PE_Nombre") %>' />
+                                <br />PE_PrecioUnitario:
+                                <asp:Label ID="PE_PrecioUnitarioLabel1" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>' />
+                                <br /></td>
+                        </SelectedItemTemplate>
                     </asp:ListView>
                 </td>
+            </tr>
+        </table>
+        <br />
+        <table class="w-100">
+            <tr>
+                <td style="width: 10%; text-align: center"></td>
+                <td style="width: 80%; text-align: center">
+                    &nbsp;</td>
                 <td style="width: 10%; text-align: center"></td>
             </tr>
         </table>
         &nbsp;
-        <asp:SqlDataSource ID="SqlDataPerifericos" runat="server"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataPerifericos" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario] FROM [Perifericos]"></asp:SqlDataSource>
 
 
 

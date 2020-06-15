@@ -19,6 +19,14 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games</title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 410px;
+        }
+        .auto-style2 {
+            width: 913px;
+        }
+    </style>
 </head>
 <body>
     <form id="formNoticias" runat="server">
@@ -74,22 +82,127 @@
                     </div>
                 </td>
                 <td style="width: 33%; text-align: center">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 33%; text-align: center">
+                    
+                    &nbsp;</td>
+                <td style="width: 34%; text-align: center">
+                    &nbsp;</td>
+                <td style="width: 33%; text-align: center">
+                    &nbsp;</td>
+            </tr>
+        </table>
+        <table class="w-100">
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataNoticias">
+                        <AlternatingItemTemplate>
+                            <span style=""><span class="text-white">
+                            <asp:Label ID="N_NombreLabel" runat="server" Text='<%# Eval("N_Nombre") %>'></asp:Label>
+                            <br />
+                            &nbsp;</span><br />
+                            <asp:Image ID="Image1" runat="server" Height="300px" ImageUrl='<%# Eval("N_Imagen") %>' Width="500px" />
+                            <br />
+                            <span class="text-white">&nbsp;<br />
+                            <asp:Label ID="N_DescripcionLabel" runat="server" Text='<%# Eval("N_Descripcion") %>'></asp:Label>
+                            <br />
+                                <br />
+                            </span>
+                            <br />
+                            </span>
+                        </AlternatingItemTemplate>
+                        <EditItemTemplate>
+                            <span style="">N_Nombre:
+                            <asp:TextBox ID="N_NombreTextBox" runat="server" Text='<%# Bind("N_Nombre") %>' />
+                            <br />
+                            N_Imagen:
+                            <asp:TextBox ID="N_ImagenTextBox" runat="server" Text='<%# Bind("N_Imagen") %>' />
+                            <br />
+                            N_Descripcion:
+                            <asp:TextBox ID="N_DescripcionTextBox" runat="server" Text='<%# Bind("N_Descripcion") %>' />
+                            <br />
+                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
+                            <br />
+                            <br />
+                            </span>
+                        </EditItemTemplate>
+                        <EmptyDataTemplate>
+                            <span>No se han devuelto datos.</span>
+                        </EmptyDataTemplate>
+                        <InsertItemTemplate>
+                            <span style="">N_Nombre:
+                            <asp:TextBox ID="N_NombreTextBox0" runat="server" Text='<%# Bind("N_Nombre") %>' />
+                            <br />
+                            N_Imagen:
+                            <asp:TextBox ID="N_ImagenTextBox0" runat="server" Text='<%# Bind("N_Imagen") %>' />
+                            <br />
+                            N_Descripcion:
+                            <asp:TextBox ID="N_DescripcionTextBox0" runat="server" Text='<%# Bind("N_Descripcion") %>' />
+                            <br />
+                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
+                            <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
+                            <br />
+                            <br />
+                            </span>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <span style=""><span class="text-white">
+                            <asp:Label ID="N_NombreLabel0" runat="server" Text='<%# Eval("N_Nombre") %>'></asp:Label>
+                            <br />
+                            &nbsp;</span><br />
+                            <asp:Image ID="Image2" runat="server" Height="300px" ImageUrl='<%# Eval("N_Imagen") %>' Width="500px" />
+                            <br />
+                            <span class="text-white">&nbsp;<br />
+                            <asp:Label ID="N_DescripcionLabel0" runat="server" Text='<%# Eval("N_Descripcion") %>'></asp:Label>
+                                <br />
+                                <br />
+                            </span></span>
+                        </ItemTemplate>
+                        <LayoutTemplate>
+                            <div style="" id="itemPlaceholderContainer" runat="server" class="text-center">
+                                <span runat="server" id="itemPlaceholder" />
+                            </div>
+                            <div style="">
+                            </div>
+                        </LayoutTemplate>
+                        <SelectedItemTemplate>
+                            <span style="">N_Nombre:
+                            <asp:Label ID="N_NombreLabel1" runat="server" Text='<%# Eval("N_Nombre") %>' />
+                            <br />
+                            N_Imagen:
+                            <asp:Label ID="N_ImagenLabel" runat="server" Text='<%# Eval("N_Imagen") %>' />
+                            <br />
+                            N_Descripcion:
+                            <asp:Label ID="N_DescripcionLabel1" runat="server" Text='<%# Eval("N_Descripcion") %>' />
+                            <br />
+                            <br />
+                            </span>
+                        </SelectedItemTemplate>
+                    </asp:ListView>
+                </td>
+                <td>
+                    <br />
                 </td>
             </tr>
         </table>
-        &nbsp
-        &nbsp<table class="w-100">
+        <div class="text-center">
+            <br />
+            <br />
+        </div>
+        <table class="w-100">
             <tr>
                 <td style="width: 10%; text-align: center"></td>
                 <td style="width: 80%; text-align: center">
-                    <asp:ListView ID="lvNoticias" runat="server" style="position: center" >
-                    </asp:ListView>
-                </td>
+                    &nbsp;</td>
                 <td style="width: 10%; text-align: center"></td>
             </tr>
         </table>
         &nbsp;
-        <asp:SqlDataSource ID="SqlDataNoticias" runat="server"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataNoticias" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString %>" SelectCommand="SELECT [N_Nombre], [N_Imagen], [N_Descripcion] FROM [Noticias]"></asp:SqlDataSource>
 
 
 
