@@ -1,0 +1,6 @@
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\bin\Debug\Entidades.dll
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\bin\Debug\Entidades.pdb
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.dll
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.pdb
