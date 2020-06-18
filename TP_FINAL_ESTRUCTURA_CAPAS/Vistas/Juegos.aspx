@@ -1,6 +1,21 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Juegos.aspx.cs" Inherits="TP_Integrador_Grupo_4.Juegos" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+
+    protected void btnInfo_Command(object sender, CommandEventArgs e)
+    {
+        int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
+        Session["CodJuego"] = ""+id_seleccionado+"";
+        lbl_Codigo.Text = Session["CodJuego"].ToString();
+        //Server.Transfer("DetalleJuego.aspx");
+    }
+</script>
+
+
+
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -25,6 +40,9 @@
         }
         .auto-style2 {
             width: 20%
+        }
+        .auto-style3 {
+            font-size: large;
         }
     </style>
 </head>
@@ -91,7 +109,9 @@
         &nbsp
         &nbsp<table class="w-100">
             <tr>
-                <td style="text-align: center" class="auto-style2"></td>
+                <td style="text-align: center" class="auto-style2">
+                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label invisible" Visible="False"></asp:Label>
+                </td>
                 <td style="width: 80%; text-align: center">
                     <br />
                     <br />
@@ -151,13 +171,15 @@
                         <br />
                         <br />
                         <span class="text-white">
-                        <asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>'></asp:Label>
+                        <asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3"></asp:Label>
                         </span>
                         <br />
                         <br />
-                        <span class="text-white">$<asp:Label ID="J_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("J_PrecioUnitario") %>'></asp:Label>
+                        <span class="text-white">Precio: $ <asp:Label ID="J_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("J_PrecioUnitario") %>'></asp:Label>
                         </span>
                         <br />
+                        <br />
+                        <asp:Button ID="btn_DetalleJuego" runat="server" Text='Ir al juego' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btnInfo_Command" PostBackUrl="~/DetalleJuego.aspx" />
                         <br />
 &nbsp;<br /></td>
                 </ItemTemplate>
@@ -208,7 +230,7 @@
         &nbsp;<br />
         <br />
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario] FROM [Juegos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos]"></asp:SqlDataSource>
 
 
 
