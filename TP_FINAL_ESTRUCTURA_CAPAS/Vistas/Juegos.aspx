@@ -3,19 +3,13 @@
 <!DOCTYPE html>
 <script runat="server">
 
-
     protected void btnInfo_Command(object sender, CommandEventArgs e)
     {
         int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
         Session["CodJuego"] = ""+id_seleccionado+"";
         lbl_Codigo.Text = Session["CodJuego"].ToString();
-        //Server.Transfer("DetalleJuego.aspx");
     }
 </script>
-
-
-
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">

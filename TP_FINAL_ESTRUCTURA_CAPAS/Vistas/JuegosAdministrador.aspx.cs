@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TP_Integrador_Grupo_4
 {
-    public partial class JuegosAdministrador : System.Web.UI.Page
+    public partial class Juegos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
