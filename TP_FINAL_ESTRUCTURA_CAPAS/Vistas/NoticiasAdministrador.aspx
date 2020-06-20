@@ -1,6 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NoticiasAdministrador.aspx.cs" Inherits="TP_Integrador_Grupo_4.NoticiasAdministrador" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+    protected void btn_Modificar_Command(object sender, CommandEventArgs e)
+    {
+        int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
+        Session["CodNoticia"] = ""+id_seleccionado+"";
+        lbl_Codigo.Text = Session["CodNoticia"].ToString();
+    }
+
+</script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -61,12 +71,13 @@
         &nbsp
         <table class="w-100">
             <tr>
-                <td style="width: 33%; text-align: center"></td>
+                <td style="width: 33%; text-align: center">
+                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white"></asp:Label>
+                </td>
                 <td style="width: 34%; text-align: center">
-                    <div class="btn-group dropdown" style="height: 30px; width: 503px">
+                    <div class="btn-group dropdown">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Filtar Noticias
-                        </button>
+                            Filtar Noticias</button>
                         <div class="dropdown-menu">
                             <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarJuegosN" runat="server" Style="position: center" Text="Juegos" />
                             <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarFecha" runat="server" Style="position: center" Text="Fecha" />
@@ -77,7 +88,7 @@
                 <td style="width: 33%; text-align: center">&nbsp;</td>
             </tr>
             </table>
-        <br />
+        &nbsp<br />
         <table class="w-100" >
             <tr>
                 <td class="auto-style1">&nbsp;</td>
@@ -130,7 +141,9 @@
                                     <asp:Label class="card-text" ID="Label2" runat="server" Text='<%# Eval("N_Descripcion") %>'></asp:Label>
                                     <br />
                                     <br />
-                                    <asp:Button class="btn btn-secondary" ID="btnSeleccionNoticia" runat="server" CommandName="NoticiaSeleccionada" Text="Ver Mas" />
+                                    <asp:Button class="btn btn-secondary" ID="btnSeleccionNoticia" runat="server"  CommandArgument='<%# Eval("N_Codigo_Noticia") %>' 
+                                        OnCommand="btn_Modificar_Command" PostBackUrl="~/NoticiaModificar.aspx"  Text="Modificar" />
+                                                                   
                                 </div>
                             </div>
 
@@ -163,7 +176,7 @@
             </tr>
         </table>
         &nbsp;
-        <asp:SqlDataSource ID="SqlDataNoticias" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [N_Nombre], [N_Imagen], [N_Descripcion] FROM [Noticias]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataNoticias" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [N_Nombre], [N_Imagen], [N_Descripcion], [N_Codigo_Noticia] FROM [Noticias]"></asp:SqlDataSource>
 
         <br />
     </form>

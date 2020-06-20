@@ -78,7 +78,7 @@
         <br />
         <table class="w-100">
             <tr>
-                <td class="auto-style1"><span class="text-white"><strong>Codigo Seleccionado:<br />
+                <td class="auto-style1"><span class="text-white"><strong>Codigo de periférico seleccionado:<br />
                     </strong></span><strong>&nbsp; </strong></td>
                 <td>&nbsp;&nbsp;
                     <asp:Label ID="lbl_CodigoSeleccionado" runat="server" CssClass="text-white"></asp:Label>
