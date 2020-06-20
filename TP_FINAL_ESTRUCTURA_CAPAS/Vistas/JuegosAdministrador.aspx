@@ -6,14 +6,11 @@
     protected void btn_Modificar_Command(object sender, CommandEventArgs e)
     {
         int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
-        Session["CodJuego"] = ""+id_seleccionado+"";
+        Session["CodJuego"] = "" + id_seleccionado + "";
         lbl_Codigo.Text = Session["CodJuego"].ToString();
     }
 
 </script>
-
-
-
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -35,16 +32,15 @@
     <title>True Games Administrador</title>
     <style type="text/css">
         .auto-style3 {
-            width: 646px;
+            width: 11%;
             text-align: right;
         }
+
         .auto-style5 {
-            width: 379px;
+            width: 20%;
         }
-        .auto-style6 {
-            width: 64%;
-            margin-left: 160px;
-        }
+
+
     </style>
 </head>
 <body>
@@ -81,7 +77,7 @@
             </div>
         </nav>
         &nbsp<br />
-&nbsp;<table class="w-100">
+        &nbsp;<table class="w-100">
             <tr>
                 <td style="width: 34%; text-align: center">
                     <a style="color: white">Buscar Juegos:</a>
@@ -108,106 +104,114 @@
         &nbsp
         &nbsp<table class="w-100">
             <tr>
-                <td style="text-align: center" class="auto-style5">
+                <td style="text-align: center" class="auto-style3">
                     <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label invisible" Visible="False"></asp:Label>
                 </td>
-                <td style="text-align: center" class="auto-style6">
-            <asp:ListView ID="ListView2" runat="server" style="position: center" DataSourceID="SqlDataSource1" GroupItemCount="3" >
-               
-                <EditItemTemplate>
-                    <td runat="server" style="">J_Imagen:
+                <td style="text-align: center" class="auto-style5">
+                    <asp:ListView ID="ListView2" runat="server" Style="position: center" DataSourceID="SqlDataSource1" GroupItemCount="3">
+
+                        <EditItemTemplate>
+                            <td runat="server" style="">J_Imagen:
                         <asp:TextBox ID="J_ImagenTextBox" runat="server" Text='<%# Bind("J_Imagen") %>' />
-                        <br />
-                        J_Nombre:
+                                <br />
+                                J_Nombre:
                         <asp:TextBox ID="J_NombreTextBox" runat="server" Text='<%# Bind("J_Nombre") %>' />
-                        <br />
-                        J_PrecioUnitario:
+                                <br />
+                                J_PrecioUnitario:
                         <asp:TextBox ID="J_PrecioUnitarioTextBox" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
-                        <br />
-                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                        <br />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                        <br />
-                    </td>
-                </EditItemTemplate>
-                <EmptyDataTemplate>
-                    <table runat="server" style="">
-                        <tr>
-                            <td>No se han devuelto datos.</td>
-                        </tr>
-                    </table>
-                </EmptyDataTemplate>
-                <EmptyItemTemplate>
-                    <td runat="server" />
-                </EmptyItemTemplate>
-                <GroupTemplate>
-                    <tr id="itemPlaceholderContainer" runat="server">
-                        <td id="itemPlaceholder" runat="server"></td>
-                    </tr>
-                </GroupTemplate>
-                <InsertItemTemplate>
-                    <td runat="server" style="">J_Imagen:
-                        <asp:TextBox ID="J_ImagenTextBox0" runat="server" Text='<%# Bind("J_Imagen") %>' />
-                        <br />
-                        J_Nombre:
-                        <asp:TextBox ID="J_NombreTextBox0" runat="server" Text='<%# Bind("J_Nombre") %>' />
-                        <br />
-                        J_PrecioUnitario:
-                        <asp:TextBox ID="J_PrecioUnitarioTextBox0" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
-                        <br />
-                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                        <br />
-                        <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
-                        <br />
-                    </td>
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    <td runat="server" class="text-center" style="">&nbsp;&nbsp;&nbsp;
-                        <asp:Image ID="J_Imagen0" style="border-radius:20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <br />
-                        <br />
-                        <span class="text-white">
-                        <asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3"></asp:Label>
-                        </span>
-                        <br />
-                        <br />
-                        <span class="text-white">Precio: $ <asp:Label ID="J_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("J_PrecioUnitario") %>'></asp:Label>
-                        </span>
-                        <br />
-                        <br />
-                        <asp:Button ID="btn_Modificar" runat="server" Text='Modificar' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btn_Modificar_Command" PostBackUrl="~/JuegosModificar.aspx" />
-                        <br />
-&nbsp;<br /></td>
-                </ItemTemplate>
-                <LayoutTemplate>
-                    <table runat="server">
-                        <tr runat="server">
-                            <td runat="server">
-                                <table id="groupPlaceholderContainer" runat="server" border="0" style="">
-                                    <tr id="groupPlaceholder" runat="server">
-                                    </tr>
-                                </table>
+                                <br />
+                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
+                                <br />
+                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
+                                <br />
                             </td>
-                        </tr>
-                        <tr runat="server">
-                            <td runat="server" style=""></td>
-                        </tr>
-                    </table>
-                </LayoutTemplate>
-                <SelectedItemTemplate>
-                    <td runat="server" style="">J_Imagen:
+                        </EditItemTemplate>
+                        <EmptyDataTemplate>
+                            <table runat="server" style="">
+                                <tr>
+                                    <td>No se han devuelto datos.</td>
+                                </tr>
+                            </table>
+                        </EmptyDataTemplate>
+                        <EmptyItemTemplate>
+                            <td runat="server" />
+                        </EmptyItemTemplate>
+                        <GroupTemplate>
+                            <tr id="itemPlaceholderContainer" runat="server">
+                                <td id="itemPlaceholder" runat="server"></td>
+                            </tr>
+                        </GroupTemplate>
+                        <InsertItemTemplate>
+                            <td runat="server" style="">J_Imagen:
+                        <asp:TextBox ID="J_ImagenTextBox0" runat="server" Text='<%# Bind("J_Imagen") %>' />
+                                <br />
+                                J_Nombre:
+                        <asp:TextBox ID="J_NombreTextBox0" runat="server" Text='<%# Bind("J_Nombre") %>' />
+                                <br />
+                                J_PrecioUnitario:
+                        <asp:TextBox ID="J_PrecioUnitarioTextBox0" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
+                                <br />
+                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
+                                <br />
+                                <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
+                                <br />
+                            </td>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <td runat="server" class="text-center" style="">&nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <asp:Image ID="J_Imagen0" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <br />
+                                <br />
+                                <span class="text-white">
+                                    <asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3"></asp:Label>
+                                </span>
+                                <br />
+                                <br />
+                                <span class="text-white">Precio: $
+                                    <asp:Label ID="J_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("J_PrecioUnitario") %>'></asp:Label>
+                                </span>
+                                <br />
+                                <br />
+                                <asp:Button ID="btn_Modificar" runat="server" Text='Modificar' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btn_Modificar_Command" PostBackUrl="~/JuegosModificar.aspx" />
+                                <br />
+                                &nbsp;
+                                <br />
+                            </td>
+                        </ItemTemplate>
+                        <LayoutTemplate>
+                            <table runat="server">
+                                <tr runat="server">
+                                    <td runat="server">
+                                        <table id="groupPlaceholderContainer" runat="server" border="0" style="">
+                                            <tr id="groupPlaceholder" runat="server">
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr runat="server">
+                                    <td runat="server" style=""></td>
+                                </tr>
+                            </table>
+                        </LayoutTemplate>
+                        <SelectedItemTemplate>
+                            <td runat="server" style="">J_Imagen:
                         <asp:Label ID="J_ImagenLabel" runat="server" Text='<%# Eval("J_Imagen") %>' />
-                        <br />
-                        J_Nombre:
+                                <br />
+                                J_Nombre:
                         <asp:Label ID="J_NombreLabel1" runat="server" Text='<%# Eval("J_Nombre") %>' />
-                        <br />
-                        J_PrecioUnitario:
+                                <br />
+                                J_PrecioUnitario:
                         <asp:Label ID="J_PrecioUnitarioLabel1" runat="server" Text='<%# Eval("J_PrecioUnitario") %>' />
-                        <br />
-                    </td>
-                </SelectedItemTemplate>
-            </asp:ListView>
+                                <br />
+                            </td>
+                        </SelectedItemTemplate>
+                    </asp:ListView>
                 </td>
                 <td style="width: 10%; text-align: center"></td>
             </tr>
@@ -219,8 +223,7 @@
         <table class="w-100">
             <tr>
                 <td style="width: 10%; text-align: center"></td>
-                <td style="width: 80%; text-align: center">
-                    &nbsp;</td>
+                <td style="width: 80%; text-align: center">&nbsp;</td>
                 <td style="width: 10%; text-align: center"></td>
             </tr>
         </table>
@@ -228,9 +231,6 @@
         <br />
         <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos]"></asp:SqlDataSource>
-
-
-
 
 
     </form>

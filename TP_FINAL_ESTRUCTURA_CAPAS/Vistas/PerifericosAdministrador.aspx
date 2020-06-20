@@ -27,6 +27,17 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games Administrador</title>
+        <style type="text/css">
+        .auto-style11 {
+            width: 9.5%;
+        }
+        .auto-style21 {
+            width: 20%
+        }
+        .auto-style31 {
+            font-size: large;
+        }
+    </style>
 </head>
 <body>
     <form id="formPerifericosAdministrador" runat="server">
@@ -91,12 +102,13 @@
            </tr>
        </table>
         &nbsp
-        &nbsp<table class="w-100">
+        &nbsp
+        <table class="w-100">
             <tr>
-                <td class="auto-style10">
-                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label Invisible"></asp:Label>
+                <td class="auto-style11">
+                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label Invisible" Visible="false"></asp:Label>
                 </td>
-                <td class="auto-style20">
+                <td class="auto-style21">
                     <asp:ListView ID="lvPerifericos" runat="server" Style="position: center" DataSourceID="DS_PerifericoAdmin" GroupItemCount="3">
                         <EditItemTemplate>
                             <td runat="server" style="">PE_Imagen:

@@ -13,7 +13,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <script src="https://kit.fontawesome.com/ccd9a07f5e.js" crossorigin="anonymous"></script>
 
@@ -30,9 +30,10 @@
     <title>True Games Administrador</title>
     <style type="text/css">
         .auto-style1 {
-            width: 710px;
+            width: 36%;
             text-align: right;
         }
+
         .auto-style2 {
             text-align: right;
             width: 808px;
@@ -79,44 +80,62 @@
         <table class="w-100">
             <tr>
                 <td class="auto-style1"><span class="text-white"><strong>Codigo Seleccionado:<br />
-                    </strong></span><strong>&nbsp; </strong></td>
+                </strong></span><strong>&nbsp; </strong></td>
                 <td>&nbsp;&nbsp;
                     <asp:Label ID="lbl_CodigoSeleccionado" runat="server" CssClass="text-white"></asp:Label>
                     <br />
-&nbsp;</td>
+                    &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style1"><span class="text-white"><strong>URL Imagen:<br /></strong></span>&nbsp;</td>
+                <td class="auto-style1">
+                    <span class="text-white"><strong>URL Imagen:<br />
+                </strong></span>&nbsp;</td>
                 <td>&nbsp;&nbsp;
                     <asp:TextBox ID="txt_Imagen" runat="server" Width="400px"></asp:TextBox>
-&nbsp;&nbsp;
+                    &nbsp;&nbsp;
                     <asp:CheckBox ID="ch_Imagen" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                    <br />&nbsp;</td>
+                    <br />
+                    &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style1"><span class="text-white"><strong>Nombre:</strong></span><strong><br /></strong>&nbsp;</td>
+                <td class="auto-style1"><span class="text-white"><strong>Nombre:</strong></span><strong><br />
+                </strong>&nbsp;</td>
                 <td>&nbsp;&nbsp;
                     <asp:TextBox ID="txt_Nombre" runat="server" Width="400px"></asp:TextBox>
-&nbsp;&nbsp;
+                    &nbsp;&nbsp;
                     <asp:CheckBox ID="ch_Nombre" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                    <br />&nbsp;</td>
+                    <br />
+                    &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style1"><span class="text-white"><strong>Precio:</strong></span><strong><br /></strong>&nbsp;</td>
+                <td class="auto-style1"><span class="text-white"><strong>Precio:</strong></span><strong><br />
+                </strong>&nbsp;</td>
                 <td>&nbsp;&nbsp;
                     <asp:TextBox ID="txt_Precio" runat="server" Width="400px"></asp:TextBox>
-&nbsp;&nbsp;
+                    &nbsp;&nbsp;
                     <asp:CheckBox ID="ch_Precio" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                    <br />&nbsp;</td>
+                    <br />
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style1"><span class="text-white"><strong>Descripción:<br />
-                    </strong></span>&nbsp;</td>
+                </strong></span>&nbsp;</td>
                 <td>&nbsp;&nbsp;
                     <asp:TextBox ID="txt_Descripcion" runat="server" Width="400px"></asp:TextBox>
-&nbsp;&nbsp;
+                    &nbsp;&nbsp;
                     <asp:CheckBox ID="ch_Precio0" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                    <br />&nbsp;&nbsp;</td>
+                    <br />
+                    &nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style1"><span class="text-white"><strong>Stock:<br />
+                </strong></span>
+                </td>
+                <td>
+                    <asp:TextBox ID="txt_StockPerifericos" runat="server" Width="400px"></asp:TextBox>
+                    &nbsp;
+                    <asp:CheckBox ID="ch_Stock" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
+                </td>
             </tr>
         </table>
         <br />
@@ -124,7 +143,7 @@
             <tr>
                 <td class="auto-style2">
                     <asp:Button runat="server" CommandName="Update" Text="Actualizar" ID="btn_Actualizar"></asp:Button>
-&nbsp;&nbsp; </td>
+                    &nbsp;&nbsp; </td>
                 <td>&nbsp;&nbsp;&nbsp;
                     <asp:Button runat="server" CommandName="Cancel" Text="Cancelar" ID="btn_Cancelar" PostBackUrl="~/PerifericosAdministrador.aspx"></asp:Button>
                 </td>

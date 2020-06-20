@@ -29,7 +29,7 @@
     <title>True Games</title>
     <style type="text/css">
         .auto-style1 {
-            width: 11%;
+            width: 9.5%;
         }
         .auto-style2 {
             width: 20%
@@ -103,12 +103,13 @@
            </tr>
        </table>
         &nbsp
-        &nbsp<table class="w-100">
+        &nbsp
+        <table class="w-100">
             <tr>
-                <td class="auto-style10">
-                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label Invisible"></asp:Label>
+                <td class="auto-style1">
+                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label Invisible" Visible="False"></asp:Label>
                 </td>
-                <td class="auto-style20">
+                <td class="auto-style2">
                     <asp:ListView ID="lvPerifericos" runat="server" Style="position: center" DataSourceID="SqlDataPerifericos" GroupItemCount="3">
                         <EditItemTemplate>
                             <td runat="server" style="">PE_Imagen:
