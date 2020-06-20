@@ -1,14 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JuegosModificar.aspx.cs" Inherits="TP_Integrador_Grupo_4.JuegosAdministrador" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NoticiaModificar.aspx.cs" Inherits="NoticiaModificar" %>
 
 <!DOCTYPE html>
-<script runat="server">
 
+<script runat="server">
     protected void Page_Load(object sender, EventArgs e)
     {
-        lbl_CodigoSeleccionado.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
+        if (!IsPostBack)
+        {
+            lbl_CodigoSeleccionado.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
+        }
     }
 </script>
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -28,18 +30,18 @@
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games Administrador</title>
     <style type="text/css">
-        .auto-style3 {
-            width: 646px;
+        .auto-style1 {
+            width: 696px;
             text-align: right;
         }
-        .auto-style4 {
-            width: 769px;
+        .auto-style2 {
             text-align: right;
+            width: 790px;
         }
     </style>
 </head>
 <body>
-    <form id="formJuegosAdministrador" runat="server">
+    <form id="formNoticiasAdministrador" runat="server">
         <!-- Navbar -->
 
         <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0" style="background: rgb(42, 40, 48)">
@@ -52,10 +54,10 @@
             <div class="collapse navbar-collapse justify-content-between blurb" id="navLinks">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="JuegosAdministrador.aspx" class="nav-link" style="color: #8B8C91">Juegos</a>
+                        <a href="JuegosAdministrador.aspx" class="nav-link">Juegos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="NoticiasAdministrador.aspx" class="nav-link">Noticias</a>
+                        <a href="NoticiasAdministrador.aspx" class="nav-link" style="color: #8B8C91">Noticias</a>
                     </li>
                     <li class="nav-item">
                         <a href="PerifericosAdministrador.aspx" class="nav-link">Perifericos</a>
@@ -71,13 +73,14 @@
                 </ul>
             </div>
         </nav>
-        &nbsp<br />
-        <br />
+</head>
+<body>
+    <div>
         <br />
         <br />
         <table class="w-100">
             <tr>
-                <td class="auto-style3"><span class="text-white"><strong>Codigo de juego seleccionado:<br />
+                <td class="auto-style1"><span class="text-white"><strong>Codigo de notícia seleccionado:<br />
                     </strong></span><strong>&nbsp; </strong></td>
                 <td>&nbsp;&nbsp;
                     <asp:Label ID="lbl_CodigoSeleccionado" runat="server" CssClass="text-white"></asp:Label>
@@ -85,7 +88,7 @@
 &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style3"><span class="text-white"><strong>URL Imagen:<br /></strong></span>&nbsp;</td>
+                <td class="auto-style1"><span class="text-white"><strong>URL Imagen:<br /></strong></span>&nbsp;</td>
                 <td>&nbsp;&nbsp;
                     <asp:TextBox ID="txt_Imagen" runat="server" Width="400px"></asp:TextBox>
 &nbsp;&nbsp;
@@ -93,7 +96,7 @@
                     <br />&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style3"><span class="text-white"><strong>Nombre:</strong></span><strong><br /></strong>&nbsp;</td>
+                <td class="auto-style1"><span class="text-white"><strong>Nombre:</strong></span><strong><br /></strong>&nbsp;</td>
                 <td>&nbsp;&nbsp;
                     <asp:TextBox ID="txt_Nombre" runat="server" Width="400px"></asp:TextBox>
 &nbsp;&nbsp;
@@ -101,15 +104,7 @@
                     <br />&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style3"><span class="text-white"><strong>Precio:</strong></span><strong><br /></strong>&nbsp;</td>
-                <td>&nbsp;&nbsp;
-                    <asp:TextBox ID="txt_Precio" runat="server" Width="400px"></asp:TextBox>
-&nbsp;&nbsp;
-                    <asp:CheckBox ID="ch_Precio" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                    <br />&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style3"><span class="text-white"><strong>Descripción:<br />
+                <td class="auto-style1"><span class="text-white"><strong>Descripción:<br />
                     </strong></span>&nbsp;</td>
                 <td>&nbsp;&nbsp;
                     <asp:TextBox ID="txt_Descripcion" runat="server" Width="400px"></asp:TextBox>
@@ -121,7 +116,7 @@
         <br />
         <table class="w-100">
             <tr>
-                <td class="auto-style4">
+                <td class="auto-style2">
                     <asp:Button runat="server" CommandName="Update" Text="Actualizar" ID="btn_Actualizar"></asp:Button>
 &nbsp;&nbsp; </td>
                 <td>&nbsp;&nbsp;&nbsp;
@@ -129,7 +124,13 @@
                 </td>
             </tr>
         </table>
-        <br />
-    </form>
-    </body>
+        </div>
+        </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
 </html>
