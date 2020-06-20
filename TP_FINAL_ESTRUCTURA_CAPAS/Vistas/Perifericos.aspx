@@ -1,6 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Perifericos.aspx.cs" Inherits="TP_Integrador_Grupo_4.Perifericos" %>
 
 <!DOCTYPE html>
+<script runat="server">
+    protected void btn_Detalle_Command(object sender, CommandEventArgs e)
+    {
+        int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
+        Session["CodPeriferico"] = ""+id_seleccionado+"";
+        lbl_Codigo.Text = Session["CodPeriferico"].ToString();
+    }
+</script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -20,17 +28,19 @@
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games</title>
     <style type="text/css">
-        .auto-style10 {
-            width: 17%;
+        .auto-style1 {
+            width: 11%;
         }
-
-        .auto-style20 {
-            width: 60%;
+        .auto-style2 {
+            width: 20%
+        }
+        .auto-style3 {
+            font-size: large;
         }
     </style>
 </head>
 <body>
-    <form id="formPerifericos" runat="server">
+    <form id="formJuegos" runat="server">
         <!-- Navbar -->
 
         <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0 sticky-top" style="background: rgb(42, 40, 48)">
@@ -43,13 +53,13 @@
             <div class="collapse navbar-collapse justify-content-between blurb" id="navLinks">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="Juegos.aspx" class="nav-link">Juegos</a>
+                        <a href="Juegos.aspx" class="nav-link" style="color:#8B8C91">Juegos</a>
                     </li>
                     <li class="nav-item">
                         <a href="Noticias.aspx" class="nav-link">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Perifericos.aspx" class="nav-link" style="color: #8B8C91">Perifericos</a>
+                        <a href="Perifericos.aspx" class="nav-link">Perifericos</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
@@ -95,7 +105,9 @@
         &nbsp
         &nbsp<table class="w-100">
             <tr>
-                <td class="auto-style10"></td>
+                <td class="auto-style10">
+                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label Invisible"></asp:Label>
+                </td>
                 <td class="auto-style20">
                     <asp:ListView ID="lvPerifericos" runat="server" Style="position: center" DataSourceID="SqlDataPerifericos" GroupItemCount="3">
                         <EditItemTemplate>
@@ -158,8 +170,9 @@
                                     <asp:Label ID="PE_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
                                     <br />
                                     <br />
-                                </span>&nbsp;<br />
-                            </td>
+                                <asp:Button ID="btn_Detalle" runat="server" Text="Ir al periferico" OnCommand="btn_Detalle_Command" CommandArgument='<%# Eval("PE_Codigo_Periferico") %>' PostBackUrl="~/DetallePeriferico.aspx" />
+                                    <br />
+                                </span>&nbsp;<br /></td>
                         </ItemTemplate>
                         <LayoutTemplate>
                             <table runat="server">
@@ -201,11 +214,10 @@
             </tr>
         </table>
         &nbsp;
-        <asp:SqlDataSource ID="SqlDataPerifericos" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario] FROM [Perifericos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataPerifericos" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario], [PE_Codigo_Periferico] FROM [Perifericos]"></asp:SqlDataSource>
 
 
 
-    </form>
     <script>
         $(function () {
             $(document).scroll(function () {
@@ -220,5 +232,13 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+
+
+
+    </form>
 </body>
 </html>
