@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace TP_Integrador_Grupo_4
+namespace Vistas
 {
     public partial class LandingPage : System.Web.UI.Page
     {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LandingPageAdministrador.aspx.cs" Inherits="TP_Integrador_Grupo_4.LandingPageAdministrador" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LandingPageAdministrador.aspx.cs" Inherits="Vistas.LandingPageAdministrador" %>
 
 <!DOCTYPE html>
 

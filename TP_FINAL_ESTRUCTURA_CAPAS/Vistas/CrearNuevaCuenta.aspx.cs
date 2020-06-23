@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace TP_Integrador_Grupo_4
+namespace Vistas
 {
     public partial class CrearNuevaCuenta : System.Web.UI.Page
     {
@@ -13,7 +13,6 @@ namespace TP_Integrador_Grupo_4
         {
 
         }
-
         protected void btnCuentaExistente_Click(object sender, EventArgs e)
         {
             Response.Redirect("LogIn.aspx");

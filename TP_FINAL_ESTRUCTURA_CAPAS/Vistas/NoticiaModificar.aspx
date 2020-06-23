@@ -1,16 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NoticiaModificar.aspx.cs" Inherits="NoticiaModificar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NoticiaModificar.aspx.cs" Inherits="Vistas.NoticiaModificar" %>
 
 <!DOCTYPE html>
-
-<script runat="server">
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (!IsPostBack)
-        {
-            lbl_CodigoSeleccionado.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
-        }
-    }
-</script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -134,3 +124,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+

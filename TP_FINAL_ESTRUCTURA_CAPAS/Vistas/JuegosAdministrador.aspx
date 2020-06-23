@@ -1,17 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Juegos.aspx.cs" Inherits="TP_Integrador_Grupo_4.Juegos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JuegosAdministrador.aspx.cs" Inherits="Vistas.JuegosAdministrador" %>
 
 <!DOCTYPE html>
-<script runat="server">
-
-    protected void btn_Modificar_Command(object sender, CommandEventArgs e)
-    {
-        int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
-        Session["CodJuego"] = "" + id_seleccionado + "";
-        lbl_Codigo.Text = Session["CodJuego"].ToString();
-    }
-
-</script>
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -250,3 +239,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+

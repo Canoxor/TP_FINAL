@@ -1,15 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PerifericosModificar.aspx.cs" Inherits="TP_Integrador_Grupo_4.PerifericosAdministrador" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PerifericosModificar.aspx.cs" Inherits="Vistas.PerifericosModificar" %>
 
 <!DOCTYPE html>
-<script runat="server">
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (!IsPostBack)
-        {
-            lbl_CodigoSeleccionado.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
-        }
-    }
-</script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -89,7 +80,7 @@
             <tr>
                 <td class="auto-style1">
                     <span class="text-white"><strong>URL Imagen:<br />
-                </strong></span>&nbsp;</td>
+                    </strong></span>&nbsp;</td>
                 <td>&nbsp;&nbsp;
                     <asp:TextBox ID="txt_Imagen" runat="server" Width="400px"></asp:TextBox>
                     &nbsp;&nbsp;

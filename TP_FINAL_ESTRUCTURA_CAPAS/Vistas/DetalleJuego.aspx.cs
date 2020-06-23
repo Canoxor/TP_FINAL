@@ -5,13 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class DetalleJuego : System.Web.UI.Page
+namespace Vistas
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class DetalleJuego : System.Web.UI.Page
     {
-        if (!IsPostBack)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            lbl_Mensaje.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
+            if (!IsPostBack)
+            {
+                lbl_Mensaje.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
+            }
         }
     }
 }

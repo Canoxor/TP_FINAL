@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LandingPage.aspx.cs" Inherits="TP_Integrador_Grupo_4.LandingPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LandingPage.aspx.cs" Inherits="Vistas.LandingPage" %>
 
 <!DOCTYPE html>
 

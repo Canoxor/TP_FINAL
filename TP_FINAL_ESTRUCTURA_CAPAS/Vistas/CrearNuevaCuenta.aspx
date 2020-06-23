@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CrearNuevaCuenta.aspx.cs" Inherits="TP_Integrador_Grupo_4.CrearNuevaCuenta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CrearNuevaCuenta.aspx.cs" Inherits="Vistas.CrearNuevaCuenta" %>
 
 <!DOCTYPE html>
 

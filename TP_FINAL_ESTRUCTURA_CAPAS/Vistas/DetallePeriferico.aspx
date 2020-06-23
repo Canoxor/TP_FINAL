@@ -1,16 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DetallePeriferico.aspx.cs" Inherits="DetallePeriferico" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetallePeriferico.aspx.cs" Inherits="Vistas.DetallePeriferico" %>
 
 <!DOCTYPE html>
-<script runat="server">
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if(!IsPostBack)
-        {
-            lbl_Codigo.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
-        }
-    }
-</script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">

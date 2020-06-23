@@ -1,14 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Perifericos.aspx.cs" Inherits="TP_Integrador_Grupo_4.Perifericos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Perifericos.aspx.cs" Inherits="Vistas.Perifericos" %>
 
 <!DOCTYPE html>
-<script runat="server">
-    protected void btn_Detalle_Command(object sender, CommandEventArgs e)
-    {
-        int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
-        Session["CodPeriferico"] = ""+id_seleccionado+"";
-        lbl_Codigo.Text = Session["CodPeriferico"].ToString();
-    }
-</script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">

@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace TP_Integrador_Grupo_4
+namespace Vistas
 {
-    public partial class JuegosAdministrador : System.Web.UI.Page
+    public partial class JuegosModificar : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lbl_CodigoSeleccionado.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
         }
     }
 }

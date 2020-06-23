@@ -3,31 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vistas", "Vistas\", "{56774A9B-6F62-4EB7-9F65-8EE250480A0D}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_49930"
-		Debug.AspNetCompiler.PhysicalPath = "Vistas\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49930\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_49930"
-		Release.AspNetCompiler.PhysicalPath = "Vistas\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49930\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "49930"
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{977392DB-8B2B-47EB-98CB-7B894AE5C17D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{70701080-5D30-4F6B-B7C9-3466D67153B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{698777DA-C772-47CF-BAA7-4F5556C0E8BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vistas", "Vistas\Vistas.csproj", "{2CA31AAA-46E3-4C41-9424-E1C1323AA5C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{56774A9B-6F62-4EB7-9F65-8EE250480A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56774A9B-6F62-4EB7-9F65-8EE250480A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56774A9B-6F62-4EB7-9F65-8EE250480A0D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{56774A9B-6F62-4EB7-9F65-8EE250480A0D}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{977392DB-8B2B-47EB-98CB-7B894AE5C17D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{977392DB-8B2B-47EB-98CB-7B894AE5C17D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{977392DB-8B2B-47EB-98CB-7B894AE5C17D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +29,10 @@ Global
 		{698777DA-C772-47CF-BAA7-4F5556C0E8BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{698777DA-C772-47CF-BAA7-4F5556C0E8BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{698777DA-C772-47CF-BAA7-4F5556C0E8BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA31AAA-46E3-4C41-9424-E1C1323AA5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA31AAA-46E3-4C41-9424-E1C1323AA5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA31AAA-46E3-4C41-9424-E1C1323AA5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA31AAA-46E3-4C41-9424-E1C1323AA5C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

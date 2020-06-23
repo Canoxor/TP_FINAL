@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="TP_Integrador_Grupo_4.Usuarios" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="Vistas.Usuarios" %>
 
 <!DOCTYPE html>
 
@@ -85,3 +85,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+

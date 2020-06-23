@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LogIn.aspx.cs" Inherits="TP_Integrador_Grupo_4.LogIn" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LogIn.aspx.cs" Inherits="Vistas.LogIn" %>
 
 <!DOCTYPE html>
 

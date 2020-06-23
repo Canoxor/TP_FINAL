@@ -5,10 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class NoticiaModificar : System.Web.UI.Page
+namespace Vistas
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class NoticiaModificar : System.Web.UI.Page
     {
-
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                lbl_CodigoSeleccionado.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
+            }
+        }
     }
 }

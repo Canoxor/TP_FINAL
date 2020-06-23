@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{56774A9B-6F62-4EB7-9F65-8EE250480A0D}</ProjectGuid>
+    <ProjectGuid>{2CA31AAA-46E3-4C41-9424-E1C1323AA5C0}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TP_Integrador_Grupo_4</RootNamespace>
-    <AssemblyName>TP_Integrador_Grupo_4</AssemblyName>
+    <RootNamespace>Vistas</RootNamespace>
+    <AssemblyName>Vistas</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44317</IISExpressSSLPort>
+    <IISExpressSSLPort>44372</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -70,21 +70,23 @@
     <Content Include="app.css" />
     <Content Include="Carrito.aspx" />
     <Content Include="CrearNuevaCuenta.aspx" />
-    <Content Include="imgs\COD_4S.jpg" />
+    <Content Include="DetalleJuego.aspx" />
+    <Content Include="DetallePeriferico.aspx" />
     <Content Include="imgs\crearUsuario.png" />
     <Content Include="imgs\LogoPagina.png" />
     <Content Include="imgs\LogoPagina_M.png" />
-    <Content Include="imgs\MixFotosJuegos.png" />
-    <Content Include="imgs\RazerPerifericos.png" />
     <Content Include="Juegos.aspx" />
     <Content Include="JuegosAdministrador.aspx" />
+    <Content Include="JuegosModificar.aspx" />
     <Content Include="LandingPage.aspx" />
     <Content Include="LandingPageAdministrador.aspx" />
     <Content Include="LogIn.aspx" />
+    <Content Include="NoticiaModificar.aspx" />
     <Content Include="Noticias.aspx" />
     <Content Include="NoticiasAdministrador.aspx" />
     <Content Include="Perifericos.aspx" />
     <Content Include="PerifericosAdministrador.aspx" />
+    <Content Include="PerifericosModificar.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="UsuariosAdministrador.aspx" />
     <Content Include="Web.config" />
@@ -104,6 +106,20 @@
     <Compile Include="CrearNuevaCuenta.aspx.designer.cs">
       <DependentUpon>CrearNuevaCuenta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetalleJuego.aspx.cs">
+      <DependentUpon>DetalleJuego.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleJuego.aspx.designer.cs">
+      <DependentUpon>DetalleJuego.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetallePeriferico.aspx.cs">
+      <DependentUpon>DetallePeriferico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallePeriferico.aspx.designer.cs">
+      <DependentUpon>DetallePeriferico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Juegos.aspx.cs">
       <DependentUpon>Juegos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -117,6 +133,13 @@
     </Compile>
     <Compile Include="JuegosAdministrador.aspx.designer.cs">
       <DependentUpon>JuegosAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JuegosModificar.aspx.cs">
+      <DependentUpon>JuegosModificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JuegosModificar.aspx.designer.cs">
+      <DependentUpon>JuegosModificar.aspx</DependentUpon>
     </Compile>
     <Compile Include="LandingPage.aspx.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
@@ -138,6 +161,13 @@
     </Compile>
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NoticiaModificar.aspx.cs">
+      <DependentUpon>NoticiaModificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NoticiaModificar.aspx.designer.cs">
+      <DependentUpon>NoticiaModificar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Noticias.aspx.cs">
       <DependentUpon>Noticias.aspx</DependentUpon>
@@ -167,6 +197,13 @@
     <Compile Include="PerifericosAdministrador.aspx.designer.cs">
       <DependentUpon>PerifericosAdministrador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PerifericosModificar.aspx.cs">
+      <DependentUpon>PerifericosModificar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerifericosModificar.aspx.designer.cs">
+      <DependentUpon>PerifericosModificar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
@@ -193,11 +230,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\Entidades.csproj">
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{698777da-c772-47cf-baa7-4f5556c0e8bb}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\Negocio.csproj">
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{977392db-8b2b-47eb-98cb-7b894ae5c17d}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
@@ -215,9 +252,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>53260</DevelopmentServerPort>
+          <DevelopmentServerPort>61110</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44317/</IISUrl>
+          <IISUrl>https://localhost:44372/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

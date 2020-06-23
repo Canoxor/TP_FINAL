@@ -1,16 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NoticiasAdministrador.aspx.cs" Inherits="TP_Integrador_Grupo_4.NoticiasAdministrador" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NoticiasAdministrador.aspx.cs" Inherits="Vistas.NoticiasAdministrador" %>
 
 <!DOCTYPE html>
-<script runat="server">
-
-    protected void btn_Modificar_Command(object sender, CommandEventArgs e)
-    {
-        int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
-        Session["CodNoticia"] = ""+id_seleccionado+"";
-        lbl_Codigo.Text = Session["CodNoticia"].ToString();
-    }
-
-</script>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
