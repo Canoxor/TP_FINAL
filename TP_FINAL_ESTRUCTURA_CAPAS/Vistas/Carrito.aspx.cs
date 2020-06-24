@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entidades;
 
 namespace Vistas
 {
@@ -13,5 +14,7 @@ namespace Vistas
         {
 
         }
+
+        public Juegos 
     }
 }

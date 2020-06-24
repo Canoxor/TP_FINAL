@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Periferico
+    public class Periferico
     {
         int codigo_Periferico;
         int codigo_TipoPerif;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Juego
+    public class Juego
     {
         int codigo_Juego;
         int codigo_Genero;

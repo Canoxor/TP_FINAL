@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Usuario
+    public class Usuario
     {
 
         int codigo_Usuario;
@@ -16,11 +16,12 @@ namespace Entidades
         String direccion;
         int telefono;
         bool admin;
+        String email;
         String contraseña;
 
         public Usuario() { }
 
-        public Usuario(int codigo_Usuario, int dni, string nombre, string apellido, string direccion, int telefono, bool admin, string contraseña)
+        public Usuario(int codigo_Usuario, int dni, string nombre, string apellido, string direccion, int telefono, bool admin, String email, string contraseña)
         {
             this.Codigo_Usuario = codigo_Usuario;
             this.Dni = dni;
@@ -29,6 +30,7 @@ namespace Entidades
             this.Direccion = direccion;
             this.Telefono = telefono;
             this.Admin = admin;
+            this.email = email;
             this.Contraseña = contraseña;
         }
 
@@ -40,5 +42,6 @@ namespace Entidades
         public int Telefono { get => telefono; set => telefono = value; }
         public bool Admin { get => admin; set => admin = value; }
         public string Contraseña { get => contraseña; set => contraseña = value; }
+        public string Email { get => email; set => email = value; }
     }
 }

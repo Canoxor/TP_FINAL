@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Factura
+    public class Factura
     {
 
         int codigo_Factura;
