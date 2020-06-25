@@ -9,13 +9,27 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    class DatosPeriferico
+    public class DatosPeriferico
     {
         AccesoDatos ds = new AccesoDatos();
 
-        public bool existePeriferico(Periferico p)
+        public Periferico llenarCamposPeriferico(Periferico E_Periferico)
         {
-            String consulta = "Select * from Perifericos where PE_Nombre='" + p.Nombre + "'";
+            DataTable tabla = ds.ObtenerTabla("Periferico", "Select * from Perifericos where PE_Codigo_Periferico=" + E_Periferico.Codigo_Periferico);
+            E_Periferico.Codigo_TipoPerif = (Convert.ToInt32(tabla.Rows[0][1].ToString()));
+            E_Periferico.Codigo_Marca = (Convert.ToInt32(tabla.Rows[0][2].ToString()));
+            E_Periferico.Nombre = (tabla.Rows[0][3].ToString());
+            E_Periferico.Descripcion = (tabla.Rows[0][4].ToString());
+            E_Periferico.Stock = (Convert.ToInt32(tabla.Rows[0][5].ToString()));
+            E_Periferico.Precio_Unitario = (Convert.ToInt32(tabla.Rows[0][6].ToString()));
+            E_Periferico.Imagen_Url = (tabla.Rows[0][7].ToString());
+
+            return E_Periferico;
+        }
+
+        public bool existePeriferico(Periferico E_Periferico)
+        {
+            String consulta = "Select * from Perifericos where PE_Nombre='" + E_Periferico.Nombre + "'";
             return ds.existe(consulta);
         }
 

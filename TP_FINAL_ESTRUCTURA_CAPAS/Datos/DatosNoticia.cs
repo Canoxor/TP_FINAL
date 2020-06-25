@@ -9,9 +9,28 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    class DatosNoticia
+    public class DatosNoticia
     {
         AccesoDatos ds = new AccesoDatos();
+
+        public Noticia llenarCamposNoticia(Noticia E_Noticia)
+        {
+            if (E_Noticia.Codigo_Juego == 0)
+            {
+                DataTable tabla = ds.ObtenerTabla("Noticia", "Select * from Noticias where N_Codigo_Juego = MAX(N_Codigo_Juego)");
+                E_Noticia.Nombre = (tabla.Rows[0][1].ToString());
+                E_Noticia.Descripcion = (tabla.Rows[0][2].ToString());
+                E_Noticia.Imagen_Url = (tabla.Rows[0][3].ToString());
+            }
+            else
+            {
+                DataTable tabla = ds.ObtenerTabla("Noticia", "Select * from Noticias where N_Codigo_Juego =" + E_Noticia.Codigo_Juego);
+                E_Noticia.Nombre = (tabla.Rows[0][1].ToString());
+                E_Noticia.Descripcion = (tabla.Rows[0][2].ToString());
+                E_Noticia.Imagen_Url = (tabla.Rows[0][3].ToString());
+            }
+            return E_Noticia;
+        }
 
         public bool existeNoticia(Noticia n)
         {

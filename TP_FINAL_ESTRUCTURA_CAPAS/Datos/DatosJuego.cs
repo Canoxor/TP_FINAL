@@ -12,6 +12,19 @@ namespace Datos
     public class DatosJuego
     {
         AccesoDatos ds = new AccesoDatos();
+        public Juego llenarCamposJuego(Juego E_Juego)
+        {
+            DataTable tabla = ds.ObtenerTabla("Juego", "Select * from Juegos where J_Codigo_Juego=" + E_Juego.Codigo_Juego);
+            E_Juego.Codigo_Genero = (Convert.ToInt32(tabla.Rows[0][1].ToString()));
+            E_Juego.Codigo_PEGI = (Convert.ToInt32(tabla.Rows[0][2].ToString()));
+            E_Juego.Nombre = (tabla.Rows[0][3].ToString());
+            E_Juego.Descripcion = (tabla.Rows[0][4].ToString());
+            E_Juego.Stock = (Convert.ToInt32(tabla.Rows[0][5].ToString()));
+            E_Juego.Precio_Unitario = (Convert.ToInt32(tabla.Rows[0][6].ToString()));
+            E_Juego.Imagen_Url = (tabla.Rows[0][7].ToString());
+
+            return E_Juego;
+        }
 
         public bool existeJuego(Juego juegoBuscado)
         {

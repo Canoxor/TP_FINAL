@@ -9,11 +9,24 @@ using System.Data.SqlClient;
 
 namespace Datos
 {
-    class DatosUsuario
+    public class DatosUsuario
     {
         AccesoDatos ds = new AccesoDatos();
 
-        public Usuario getUsuario(Usuario u)
+        public Usuario ObtenerUsuario(Usuario E_Usuario)
+        {
+            DataTable tabla = ds.ObtenerTabla("Usuario", "select * from Usuarios where U_Codigo_Usuario ="+ E_Usuario.Codigo_Usuario);
+            E_Usuario.Dni = Convert.ToInt32(tabla.Rows[0][1].ToString());
+            E_Usuario.Nombre = tabla.Rows[0][2].ToString();
+            E_Usuario.Apellido = tabla.Rows[0][3].ToString();
+            E_Usuario.Direccion = tabla.Rows[0][4].ToString();
+            E_Usuario.Telefono = Convert.ToInt32(tabla.Rows[0][5].ToString());
+            E_Usuario.Admin = Convert.ToBoolean(tabla.Rows[0][6].ToString());
+
+            return E_Usuario;
+        }
+
+        public Usuario getUsuarioLogin(Usuario u)
         {
             DataTable tabla = ds.ObtenerTabla("Usuario", "select * from Usuarios where U_Email = '" + u.Email + "' and U_Contrasenia = '" + u.Contraseña + "'");
             u.Codigo_Usuario = Convert.ToInt32(tabla.Rows[0][0].ToString());
@@ -71,7 +84,7 @@ namespace Datos
 
         //Hay que cambiarle el nombre del procedimiento almacenado por el real
 
-        public int agregarJuego(Usuario u)
+        public int agregarUsuario(Usuario u)
         {
             u.Codigo_Usuario = ds.ObtenerUltimoId("Select max(U_Codigo_Usuario) from Usuarios") + 1;
             SqlCommand comando = new SqlCommand();
