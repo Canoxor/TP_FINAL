@@ -17,7 +17,8 @@ CREATE TABLE Juegos
 	J_Descripcion varchar(1000) null,
 	J_Stock int not null,
 	J_PrecioUnitario decimal(18,2) not null,
-	J_Imagen varchar(200) not null
+	J_Imagen varchar(200) not null,
+	J_Estado bit
 )
 GO
 
@@ -27,7 +28,8 @@ CREATE TABLE Noticias
 	N_Codigo_Juego varchar(5) not null,
 	N_Nombre varchar(200) not null,
 	N_Descripcion varchar(1000) null,
-	N_Imagen varchar(200) not null
+	N_Imagen varchar(200) not null,
+	N_Estado bit
 )
 GO
 
@@ -47,7 +49,8 @@ CREATE TABLE Perifericos
 	PE_Descripcion varchar(1000) not null,
 	PE_Stock int null,
 	PE_PrecioUnitario decimal(18,2) not null,
-	PE_Imagen varchar(200) not null
+	PE_Imagen varchar(200) not null,
+	PE_Estado bit
 )
 GO
 
@@ -62,7 +65,8 @@ CREATE TABLE Proveedores
 	P_Telefono varchar(25) null,
 	P_Contacto varchar(50) null,
 	P_Web varchar(50) not null,
-	P_Email varchar(50) null
+	P_Email varchar(50) null,
+	P_Estado bit
 )
 GO
 
@@ -147,7 +151,9 @@ CREATE TABLE Usuarios
 	U_Direccion varchar(100) null,
 	U_Telefono varchar(25) null,
 	U_Admin bit not null,
-	U_Contrasenia varchar(20) not null
+	U_Email varchar(100) not null,
+	U_Contrasenia varchar(20) not null,
+	U_Estado bit
 )
 GO
 
@@ -211,12 +217,12 @@ GO
 
 -- REGISTROS
 
-INSERT INTO Proveedores(P_Codigo_Proveedor,P_RazonSocial,P_Direccion,P_Ciudad,P_Provincia,P_Cuil,P_Telefono,P_Contacto,P_Web,P_Email)
-	SELECT '1','RazonS1','Calle100','Tigre','Buenos Aires','20.00000001.0','12123434','Luis Garcia','www.InfoGaming.com','InfoGaming@live.com' UNION
-	SELECT '2','RazonS2','Calle200','San Fernando','Buenos Aires','20.00000002.0','34341212','Carolina Mendez','www.RealGames.com','RealGames@live.com' UNION
-	SELECT '3','RazonS3','Calle300','Garin','Buenos Aires','20.00000003.0','13132424','Alfredo Rodriguez','www.ZonaGaming.com','ZonaGaming@live.com' UNION
-	SELECT '4','RazonS4','Calle400','Rosario','Buenos Aires','20.00000004.0','24243131','Hernan Cabezas','www.zGames.com','zGames@live.com' UNION
-	SELECT '5','RazonS5','Calle500','Palermo','Buenos Aires','20.00000005.0','44332211','Lucia Montenegro','www.Playings.com','Playings@live.com'
+INSERT INTO Proveedores(P_Codigo_Proveedor,P_RazonSocial,P_Direccion,P_Ciudad,P_Provincia,P_Cuil,P_Telefono,P_Contacto,P_Web,P_Email,P_Estado)
+	SELECT '1','RazonS1','Calle100','Tigre','Buenos Aires','20.00000001.0','12123434','Luis Garcia','www.InfoGaming.com','InfoGaming@live.com','1' UNION
+	SELECT '2','RazonS2','Calle200','San Fernando','Buenos Aires','20.00000002.0','34341212','Carolina Mendez','www.RealGames.com','RealGames@live.com','1' UNION
+	SELECT '3','RazonS3','Calle300','Garin','Buenos Aires','20.00000003.0','13132424','Alfredo Rodriguez','www.ZonaGaming.com','ZonaGaming@live.com','1' UNION
+	SELECT '4','RazonS4','Calle400','Rosario','Buenos Aires','20.00000004.0','24243131','Hernan Cabezas','www.zGames.com','zGames@live.com','1' UNION
+	SELECT '5','RazonS5','Calle500','Palermo','Buenos Aires','20.00000005.0','44332211','Lucia Montenegro','www.Playings.com','Playings@live.com','1'
 GO
 
 INSERT INTO PEGI (PG_Codigo_PEGI,PG_Nombre,PG_Descripcion)
@@ -239,12 +245,12 @@ INSERT INTO Generos (G_Codigo_Genero,G_Nombre,G_Descripcion)
 	SELECT '8','Rol','Emparentados con los de aventura, los videojuegos de rol, o RPG, se caracterizan por la interacción con el personaje, una historia profunda y una evolución del personaje a medida que la historia avanza. Para lograr la evolución generalmente se hace que el jugador se enfrasque en una aventura donde irá conociendo nuevos personajes, explorando el mundo para ir juntando armas, experiencia, aliados e incluso magia. Es habitual, desde la aparición del CD-ROM, la inclusión de videos (cinemáticas) durante el juego, que complementan la narración de la historia y hacen que el jugador se sienta como dentro de una película.'
 GO
 
-INSERT INTO Juegos (J_Imagen,J_Codigo_Juego,J_Codigo_Genero,J_Codigo_PEGI,J_Nombre,J_Descripcion,J_Stock,J_PrecioUnitario)
-	SELECT 'https://cdn-products.eneba.com/resized-products/PHQ5ei2mYthRdM-FhrUqQkUIcKOxYNP6sN_-BSfxp5A_390x400_1x-0.jpeg','1','2','5','Metro Exodus','Un poderoso videojuego basado en las novelas superventas de Dmitri Glujovski. El shooter en primera persona vuelve a apostar por una ambientación postapocalítica muy cuidada, y por mezclar lugares angustiosos, claustrofóbicos y lúgubres con secciones mucho más abiertas.',100,2000 UNION
-	SELECT 'https://http2.mlstatic.com/mafia-3-ps4-fisico-nuevo-sellado-original-D_NQ_NP_764140-MLA31041880928_062019-F.jpg','2','1','5','Mafia 3','un juego de mundo abierto y acción en tercera persona, El juego está ambientado en la ciudad ficticia de New Bordeaux, basada en la Nueva Orleans de 1968, con un diseño de mundo abierto que permite explorar a los jugadores libremente en el juego.',80,3100 UNION
-	SELECT 'https://store-images.s-microsoft.com/image/apps.18799.14047496556148589.9fda5cef-7995-4dbb-a626-66d2ab3feb4f.1e167626-8b7d-47b4-9fe5-d06a43ac6677','3','7','2','Ori and the Will of the Wisps','Embárcate en una aventura totalmente nueva dentro de un inmenso mundo repleto de nuevos amigos y enemigos que cobran vida gracias a un impecable trabajo de diseño artesanal.',40,150 UNION
-	SELECT 'https://hipertextual.com/files/2020/03/hipertextual-call-of-duty-modern-warfare-2-remastered-es-real-se-filtra-su-primera-imagen-2020296416.jpg','4','2','5','Call of Duty Modern Warfare 2 Remaster','Es una edición remasterizada sobre el modo historia del exitoso FPS que garantiza texturas y animaciones mejoradas, renderizado físico, iluminación HDR y otras mejoras gráficas.',105,2800 UNION
-	SELECT 'https://cdn-cms.bnea.io/sites/default/files/games/boxart/196040508899500.jpg','5','8','3','Dragon Ball Z Kakarot','Es un juego de acción y rol y acción a cargo de Cyberconnect y Bandai Namco basado en la conocida marca Dragon Ball, que nos propone revivir los mejores momentos de la serie de Akira Toriyama con una gran aventura de rol que incluye, claro, emocionantes combates contra personajes tan icónicos como Vegeta, Raditz o Freezer. De hecho, el arco de Buu se incluirá en el juego.',55,7000
+INSERT INTO Juegos (J_Imagen,J_Codigo_Juego,J_Codigo_Genero,J_Codigo_PEGI,J_Nombre,J_Descripcion,J_Stock,J_PrecioUnitario,J_Estado)
+	SELECT 'https://cdn-products.eneba.com/resized-products/PHQ5ei2mYthRdM-FhrUqQkUIcKOxYNP6sN_-BSfxp5A_390x400_1x-0.jpeg','1','2','5','Metro Exodus','Un poderoso videojuego basado en las novelas superventas de Dmitri Glujovski. El shooter en primera persona vuelve a apostar por una ambientación postapocalítica muy cuidada, y por mezclar lugares angustiosos, claustrofóbicos y lúgubres con secciones mucho más abiertas.',100,2000,'1' UNION
+	SELECT 'https://http2.mlstatic.com/mafia-3-ps4-fisico-nuevo-sellado-original-D_NQ_NP_764140-MLA31041880928_062019-F.jpg','2','1','5','Mafia 3','un juego de mundo abierto y acción en tercera persona, El juego está ambientado en la ciudad ficticia de New Bordeaux, basada en la Nueva Orleans de 1968, con un diseño de mundo abierto que permite explorar a los jugadores libremente en el juego.',80,3100,'1' UNION
+	SELECT 'https://store-images.s-microsoft.com/image/apps.18799.14047496556148589.9fda5cef-7995-4dbb-a626-66d2ab3feb4f.1e167626-8b7d-47b4-9fe5-d06a43ac6677','3','7','2','Ori and the Will of the Wisps','Embárcate en una aventura totalmente nueva dentro de un inmenso mundo repleto de nuevos amigos y enemigos que cobran vida gracias a un impecable trabajo de diseño artesanal.',40,150,'1' UNION
+	SELECT 'https://hipertextual.com/files/2020/03/hipertextual-call-of-duty-modern-warfare-2-remastered-es-real-se-filtra-su-primera-imagen-2020296416.jpg','4','2','5','Call of Duty Modern Warfare 2 Remaster','Es una edición remasterizada sobre el modo historia del exitoso FPS que garantiza texturas y animaciones mejoradas, renderizado físico, iluminación HDR y otras mejoras gráficas.',105,2800,'1' UNION
+	SELECT 'https://cdn-cms.bnea.io/sites/default/files/games/boxart/196040508899500.jpg','5','8','3','Dragon Ball Z Kakarot','Es un juego de acción y rol y acción a cargo de Cyberconnect y Bandai Namco basado en la conocida marca Dragon Ball, que nos propone revivir los mejores momentos de la serie de Akira Toriyama con una gran aventura de rol que incluye, claro, emocionantes combates contra personajes tan icónicos como Vegeta, Raditz o Freezer. De hecho, el arco de Buu se incluirá en el juego.',55,7000,'1'
 GO
 
 INSERT INTO TipoPerif(T_Codigo_TipoPerif,T_Nombre,T_Descripcion)
@@ -265,17 +271,17 @@ INSERT INTO Marcas (M_Codigo_Marca,M_Nombre)
 	SELECT '5','LG'
 GO
 
-INSERT INTO Perifericos(PE_Imagen,PE_Codigo_Periferico,PE_Codigo_TipoPerif,PE_Nombre,PE_Codigo_Marca,PE_Descripcion,PE_Stock,PE_PrecioUnitario)
-	SELECT 'https://pampahogar.com.ar/media/catalog/product/cache/1/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/t/e/teclado-logitech-g413-gamming-carbon-2.jpg','1','1','G Series G413 Romer-G','1','',100,12000 UNION
-	SELECT 'https://d34zlyc2cp9zm7.cloudfront.net/products/2ae26b68321c607bb07097001e56eb92b26a11ac35698e7b70f10461e189a340.jpg_500','2','2','G Series G502 Black','1','',100,6300 UNION
-	SELECT 'https://http2.mlstatic.com/auriculares-gamer-logitech-g-series-g432-black-D_Q_NP_861149-MLA41107813935_032020-F.webp','3','7','G Series G432 Black','1','',100,11500 UNION
-	SELECT 'https://http2.mlstatic.com/D_NQ_NP_671235-MLA32722390894_102019-O.jpg','4','1','Orbweaver Chroma Green Black','2','',60,14000 UNION
-	SELECT 'https://http2.mlstatic.com/mouse-gamer-razer-krait-4g-6400-dpi-3-bot-ambidiestro-pc-D_Q_NP_433625-MLA25482744873_042017-F.webp','5','2','Krait Black','2','',90,11000 UNION
-	SELECT 'https://http2.mlstatic.com/auriculares-gamer-razer-manowar-tournament-edition-overwatch-D_NQ_NP_641836-MLA26238153076_102017-F.jpg','6','7','Mano War, Tournament Edition','2','',100,7000 UNION
-	SELECT 'https://http2.mlstatic.com/teclado-asus-xa02-rog-strix-scope-cherry-rgb-D_NQ_NP_821109-MLA40024192180_122019-F.jpg','7','1','Xa02 Rog Strix Scope Cherry Rgb','3','',70,23900 UNION
-	SELECT 'https://www.excaliberpc.com/images/685630_2/large.jpg','8','2','Rog Gladius li Aura Sync','3','',100,10300 UNION
-	SELECT 'https://http2.mlstatic.com/monitor-acer-kg241q-pbiip-236-fhd-tn-144hz-1ms-freesync-D_NQ_NP_802255-MLA31790837645_082019-F.jpg','9','5','KG1 KG241 led 24" Black','4','',100,48500 UNION
-	SELECT 'https://images.samsung.com/is/image/samsung/ar-f350fhlxzb-ls22f350fhlxzb-frontblack-89957838?$PD_GALLERY_L_JPG$','10','5','Full HD led 22"','5','',100,31000 
+INSERT INTO Perifericos(PE_Imagen,PE_Codigo_Periferico,PE_Codigo_TipoPerif,PE_Nombre,PE_Codigo_Marca,PE_Descripcion,PE_Stock,PE_PrecioUnitario,PE_Estado)
+	SELECT 'https://pampahogar.com.ar/media/catalog/product/cache/1/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/t/e/teclado-logitech-g413-gamming-carbon-2.jpg','1','1','G Series G413 Romer-G','1','',100,12000,'1' UNION
+	SELECT 'https://d34zlyc2cp9zm7.cloudfront.net/products/2ae26b68321c607bb07097001e56eb92b26a11ac35698e7b70f10461e189a340.jpg_500','2','2','G Series G502 Black','1','',100,6300,'1' UNION
+	SELECT 'https://http2.mlstatic.com/auriculares-gamer-logitech-g-series-g432-black-D_Q_NP_861149-MLA41107813935_032020-F.webp','3','7','G Series G432 Black','1','',100,11500,'1' UNION
+	SELECT 'https://http2.mlstatic.com/D_NQ_NP_671235-MLA32722390894_102019-O.jpg','4','1','Orbweaver Chroma Green Black','2','',60,14000,'1' UNION
+	SELECT 'https://http2.mlstatic.com/mouse-gamer-razer-krait-4g-6400-dpi-3-bot-ambidiestro-pc-D_Q_NP_433625-MLA25482744873_042017-F.webp','5','2','Krait Black','2','',90,11000,'1' UNION
+	SELECT 'https://http2.mlstatic.com/auriculares-gamer-razer-manowar-tournament-edition-overwatch-D_NQ_NP_641836-MLA26238153076_102017-F.jpg','6','7','Mano War, Tournament Edition','2','',100,7000,'1' UNION
+	SELECT 'https://http2.mlstatic.com/teclado-asus-xa02-rog-strix-scope-cherry-rgb-D_NQ_NP_821109-MLA40024192180_122019-F.jpg','7','1','Xa02 Rog Strix Scope Cherry Rgb','3','',70,23900,'1' UNION
+	SELECT 'https://www.excaliberpc.com/images/685630_2/large.jpg','8','2','Rog Gladius li Aura Sync','3','',100,10300,'1' UNION
+	SELECT 'https://http2.mlstatic.com/monitor-acer-kg241q-pbiip-236-fhd-tn-144hz-1ms-freesync-D_NQ_NP_802255-MLA31790837645_082019-F.jpg','9','5','KG1 KG241 led 24" Black','4','',100,48500,'1' UNION
+	SELECT 'https://images.samsung.com/is/image/samsung/ar-f350fhlxzb-ls22f350fhlxzb-frontblack-89957838?$PD_GALLERY_L_JPG$','10','5','Full HD led 22"','5','',100,31000,'1' 
 GO
 
 INSERT INTO Prov_X_Perif(PP_Codigo_Proveedor,PP_Codigo_Periferico,PP_PrecioCompra)
@@ -306,10 +312,9 @@ INSERT INTO Prov_X_Juego (PJ_Codigo_Proveedor,PJ_Codigo_Juego,PJ_PrecioCompra)
 	SELECT '3','5',6000 
 GO
 
-INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin,U_Contrasenia)
-	SELECT '1','1000','Nicolas','Rodriguez',1,'1111' UNION
-	SELECT '2','1001','Mateo','De Benedictis Maza',1,'2222' UNION
-	SELECT '3','1002','Ezequiel','Rickert',1,'2222'
+INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin, U_Email,U_Contrasenia,U_Estado)
+	SELECT '1','1000','Nicolas','Rodriguez',1,'Nico@gmail.com','1111','1' UNION
+	SELECT '2','1001','Mateo','De Benedictis Maza',1,'Mateo@gmail.com','2222','1'
 GO
 
 INSERT INTO CodigosDeDescuento (CD_Codigo_CodDescuento,CD_Descripcion,CD_Habilitado,CD_Usos)
@@ -318,12 +323,12 @@ INSERT INTO CodigosDeDescuento (CD_Codigo_CodDescuento,CD_Descripcion,CD_Habilit
 	SELECT '3','Descuento del 15% en todos nuestros productos',0,0 
 GO
 
-INSERT INTO Noticias (N_Imagen,N_Codigo_Noticia,N_Codigo_Juego,N_Nombre,N_Descripcion)
+INSERT INTO Noticias (N_Imagen,N_Codigo_Noticia,N_Codigo_Juego,N_Nombre,N_Descripcion,N_Estado)
 	SELECT 'https://as.com/meristation/imagenes/2018/12/28/noticias/1545998865_939497_1545998958_noticia_normal.jpg','1','1','Metro Exodus y las aterradoras criaturas de su mundo','El capítulo ¿final? de la saga Metro cada día luce mejor, mostrando nuevas imágenes que le hacen postularse como uno de los grandes shooters de 2019.
-Metro Exodus tiene tantas ganas de mostrarse al mundo que lo último que hemos sabido del juego es que ha adelantado su fecha de lanzamiento. El tercer y presumiblemente último juego de la saga se ha mostrado en cinco nuevas imágenes sobre los habitantes humanos —y los "no tan humanos"— que nos aguardarán (y acompañarán) en nuestro regreso a la Rusia post-nuclear.' UNION
+Metro Exodus tiene tantas ganas de mostrarse al mundo que lo último que hemos sabido del juego es que ha adelantado su fecha de lanzamiento. El tercer y presumiblemente último juego de la saga se ha mostrado en cinco nuevas imágenes sobre los habitantes humanos —y los "no tan humanos"— que nos aguardarán (y acompañarán) en nuestro regreso a la Rusia post-nuclear.','1' UNION
 	SELECT 'https://as01.epimg.net/meristation/imagenes/2019/03/01/noticias/1551419963_392862_1551420039_noticia_normal.jpg','2','4','Call of Duty: Modern Warfare 2 Remastered debuta con cifras millonarias','El modo campaña relanzado del segundo Modern Warfare pone de manifiesto que sigue habiendo interés en experiencias single player.
-La saga Call of Duty se encuentra en su mejor momento de los últimos diez años. Tras el éxito cosechado por Call of Duty: Modern Warfare y su vertiente battle royale comercializada de forma independiente y gratuita (free to play), Warzone, desde SuperData reflejan ahora el exitoso debut que ha tenido Call of Duty: Modern Warfare 2 Remastered, el relanzamiento remasterizado de la campaña para un solo jugador de dicha entrega, que ha sumado solo en abril 3.4 millones de copias en formato digital en todo el mundo; 4 millones en total si sumamos las del último día de marzo.' UNION
-	SELECT 'https://media.vandal.net/i/1024x576/5-2020/2020541224503_1.jpg','3','5','Desafía al Dios de la destrucción en Dragon Ball Z Kakarot','Dragon Ball Z Kakarot presenta con El despertar de un nuevo poder - Parte 1 su primer DLC de historia. En él, conoceremos a Whis y Bills (Beerus en el original), y tendremos que despertar un nuevo nivel de poder saiyan para poder afrontar el desafío. Para llegar a ello, Whis nos propondrá una serie de misiones que sirven de entrenamiento.' 
+La saga Call of Duty se encuentra en su mejor momento de los últimos diez años. Tras el éxito cosechado por Call of Duty: Modern Warfare y su vertiente battle royale comercializada de forma independiente y gratuita (free to play), Warzone, desde SuperData reflejan ahora el exitoso debut que ha tenido Call of Duty: Modern Warfare 2 Remastered, el relanzamiento remasterizado de la campaña para un solo jugador de dicha entrega, que ha sumado solo en abril 3.4 millones de copias en formato digital en todo el mundo; 4 millones en total si sumamos las del último día de marzo.','1' UNION
+	SELECT 'https://media.vandal.net/i/1024x576/5-2020/2020541224503_1.jpg','3','5','Desafía al Dios de la destrucción en Dragon Ball Z Kakarot','Dragon Ball Z Kakarot presenta con El despertar de un nuevo poder - Parte 1 su primer DLC de historia. En él, conoceremos a Whis y Bills (Beerus en el original), y tendremos que despertar un nuevo nivel de poder saiyan para poder afrontar el desafío. Para llegar a ello, Whis nos propondrá una serie de misiones que sirven de entrenamiento.','1' 
 GO
 
 -- PROCEDIMIENTOS ALMACENADOS
@@ -368,7 +373,8 @@ CREATE PROCEDURE SP_Delete_Juegos
 	@J_Codigo_Juego varchar(5)
 )
 AS
-DELETE FROM Juegos
+UPDATE Juegos
+SET J_Estado = '0'
 WHERE J_Codigo_Juego = @J_Codigo_Juego
 GO
 
@@ -420,7 +426,8 @@ CREATE PROCEDURE SP_Delete_Perifericos
 	@PE_Codigo_Periferico varchar(5)
 )
 AS
-DELETE FROM Perifericos
+UPDATE Perifericos
+SET PE_Estado = '0'
 WHERE PE_Codigo_Periferico = @PE_Codigo_Periferico
 GO
 
@@ -482,7 +489,8 @@ CREATE PROCEDURE SP_Delete_Proveedores
 	@P_Codigo_Proveedor varchar(5)
 )
 AS
-DELETE FROM Proveedores
+UPDATE Proveedores
+SET P_Estado = '0'
 WHERE P_Codigo_Proveedor = @P_Codigo_Proveedor
 GO
 
@@ -556,7 +564,8 @@ CREATE PROCEDURE SP_Delete_Usuarios
 	@U_Codigo_Usuario varchar(5)
 )
 AS
-DELETE FROM Usuarios
+UPDATE Usuarios
+SET U_Estado = '0'
 WHERE U_Codigo_Usuario = @U_Codigo_Usuario
 GO
 
