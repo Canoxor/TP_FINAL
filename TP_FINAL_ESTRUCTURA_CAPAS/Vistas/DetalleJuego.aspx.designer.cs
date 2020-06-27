@@ -42,13 +42,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lbl_Mensaje;
 
         /// <summary>
-        /// Control lvNoticias.
+        /// Control FormView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvNoticias;
+        protected global::System.Web.UI.WebControls.FormView FormView1;
 
         /// <summary>
         /// Control DS_DetalleJuego.

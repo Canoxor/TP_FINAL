@@ -151,21 +151,31 @@
                             </td>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <td runat="server" class="text-center" style="">&nbsp;&nbsp;&nbsp;
-                                <asp:Image class="rounded-circle" ID="Image1" runat="server" Height="250px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="250px" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <br />
-                                <br />
-                                <span class="text-white">
-                                    <asp:Label ID="PE_NombreLabel0" runat="server" Text='<%# Eval("PE_Nombre") %>'></asp:Label>
+                            <td class="card-columns">
+                                <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width:350px; align-content:center; align-items:center; padding-left:5%; padding-top:1%; background-color:#FFFFFF; margin-left:20%">&nbsp;&nbsp;&nbsp;
+                                    <asp:Image ID="Image1" runat="server" Height="250px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="250px" />
                                     <br />
                                     <br />
-                                    <asp:Label ID="PE_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
+                                    
+                                        <span class="text-black">
+                                            <p align="center">
+                                                <b>
+                                                    <asp:Label ID="PE_NombreLabel0" runat="server" Text='<%# Eval("PE_Nombre") %>' Font-Size="22px">
+                                                   </asp:Label>
+                                                </b>
+                                            <br />
+                                            <br />
+                                                $&nbsp;
+                                                <asp:Label ID="PE_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
+                                            <br />
+                                            <br />
+                                                <asp:Button ID="btn_Detalle" runat="server" Text="Ir al periferico" OnCommand="btn_Detalle_Command" CommandArgument='<%# Eval("PE_Codigo_Periferico") %>' PostBackUrl="~/DetallePeriferico.aspx" />
+                                            <br />
+                                            </p>
+                                        </span>
                                     <br />
-                                    <br />
-                                <asp:Button ID="btn_Detalle" runat="server" Text="Ir al periferico" OnCommand="btn_Detalle_Command" CommandArgument='<%# Eval("PE_Codigo_Periferico") %>' PostBackUrl="~/DetallePeriferico.aspx" />
-                                    <br />
-                                </span>&nbsp;<br /></td>
+                                </td>
+                           </td>
                         </ItemTemplate>
                         <LayoutTemplate>
                             <table runat="server">

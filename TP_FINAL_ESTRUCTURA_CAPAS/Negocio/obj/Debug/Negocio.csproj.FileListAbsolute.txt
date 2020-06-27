@@ -20,3 +20,14 @@ D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.csproj.Co
 D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.dll
 D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.pdb
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Negocio.dll
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Negocio.pdb
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Datos.dll
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Entidades.dll
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Datos.pdb
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Entidades.pdb
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.dll
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.pdb

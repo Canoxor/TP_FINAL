@@ -119,28 +119,34 @@
                                 &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
                             </InsertItemTemplate>
                             <ItemTemplate>
-                                <div class="text-center">
-                                    <span class="text-white">
-                                    <asp:Image ID="J_Imagen0" runat="server" Height="300px" ImageUrl='<%# Eval("PE_Imagen") %>' style="border-radius:20px" Width="300px" />
-                                    <br />
-                                    <br />
-                                    <asp:Label ID="NombreLabel" runat="server" CssClass="auto-style6" Text='<%# Eval("PE_Nombre") %>'></asp:Label>
-                                    <br />
-                                    <br />
-                                    <span class="auto-style6">Descripcion</span><br />
-                                    <asp:Label ID="DescripcionLabel" runat="server" Text='<%# Eval("PE_Descripcion") %>'></asp:Label>
-                                    <br />
-                                    <br />
-                                    Precio: $
-                                    <asp:Label ID="PrecioUnitarioLabel" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
-                                    <br />
-                                    <br />
-                                    ¿Desea agregar este periférico al carrito?<br /></span>
-                                    <br />
-                                    <asp:Button ID="btn_Agregar" runat="server" Text="Agregar" />
-                                    <br />
-                                    <br />
-                                </div>
+                                <td class="card-columns">
+                                    <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width:350px; align-content:center; align-items:center; padding-left:5%; padding-top:1%; background-color:#FFFFFF; margin-left:20%">&nbsp;&nbsp;&nbsp;
+                                            <asp:Image ID="Image1" runat="server" Height="250px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="250px" />
+                                        <br />
+                                        <br />
+                                        <span class="text-black">
+                                            <p align="center">
+                                                <b>
+                                                    <asp:Label ID="PE_NombreLabel0" runat="server" Text='<%# Eval("PE_Nombre") %>' Font-Size="22px">
+                                                    </asp:Label>
+                                                </b>
+                                                <br />
+                                                <br />
+                                                    Descripción
+                                                    <asp:Label ID="PE_Descripcion" runat="server" Text='<%# Eval("PE_Descripcion") %>'></asp:Label>
+                                                <br />
+                                                <br />
+                                                    $&nbsp;
+                                                    <asp:Label ID="PE_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
+                                                <br />
+                                                <br />
+                                                    <asp:Button ID="btnAgregarCarritoDJ" runat="server" Text="Agregar" />
+                                                <br />
+                                             </p>
+                                         </span>
+                                         <br />
+                                     </td>
+                                 </td>
                             </ItemTemplate>
                         </asp:FormView>
                     </td>

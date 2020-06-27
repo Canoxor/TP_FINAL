@@ -24,12 +24,14 @@
             width: 11%;
         }
 
-        .auto-style2 {
-            width: 20%
-        }
-
         .auto-style3 {
             font-size: large;
+        }
+        .auto-style4 {
+            width: 9%;
+        }
+        .auto-style5 {
+            width: 10%;
         }
     </style>
 </head>
@@ -94,14 +96,15 @@
             </tr>
         </table>
         &nbsp
-        &nbsp<table class="w-100">
+        &nbsp<br />
+        <br />
+        <br />
+        <table class="w-100">
             <tr>
-                <td style="text-align: center" class="auto-style2">
+                <td style="text-align: center" class="auto-style5">
                     <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label invisible" Visible="False"></asp:Label>
                 </td>
-                <td style="width: 80%; text-align: center">
-                    <br />
-                    <br />
+                <td style="text-align: center" class="auto-style4">
                     <asp:ListView ID="ListView2" runat="server" Style="position: center" DataSourceID="SqlDataSource1" GroupItemCount="3">
 
                         <EditItemTemplate>
@@ -152,25 +155,30 @@
                             </td>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <td runat="server" class="text-center" style="">&nbsp;&nbsp;&nbsp;
-                        <asp:Image ID="J_Imagen0" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                        <br />
+                            <p align="center">
+
+                            
+                            <td class="card-columns">
+                                <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width: 350px; align-content: center; align-items: center; padding-left:5%;padding-right:5%; padding-top:5%; background-color:#FFFFFF; margin-left:20%">
+                                    <asp:Image ID="J_Imagen0" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
                                 <br />
-                                <span class="text-white">
-                                    <asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3"></asp:Label>
+                                <br />
+                                <span class="text-black">
+                                    <b><asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
                                 </span>
                                 <br />
                                 <br />
-                                <span class="text-white">Precio: $
-                                    <asp:Label ID="J_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("J_PrecioUnitario") %>'></asp:Label>
+                                <span style="color: black; font-size: 13pt"> $
+                                    <asp:Label ID="J_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("J_PrecioUnitario") %>' Font-Size="18px"></asp:Label>
                                 </span>
                                 <br />
                                 <br />
                                 <asp:Button ID="btn_DetalleJuego" runat="server" Text='Ir al juego' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btnInfo_Command" PostBackUrl="~/DetalleJuego.aspx" />
                                 <br />
-                                &nbsp;<br />
+                                </td>
                             </td>
+                                </p>
+                            
                         </ItemTemplate>
                         <LayoutTemplate>
                             <table runat="server">
@@ -218,7 +226,7 @@
         &nbsp;<br />
         <br />
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario], [J_Codigo_Juego], [J_Estado] FROM [Juegos]"></asp:SqlDataSource>
 
 
 
