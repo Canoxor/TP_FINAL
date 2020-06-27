@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Negocio
 {
-    class NegocioPeriferico
+    public class NegocioPeriferico
     {
         public Periferico ObtenerPeriferico(int id)
         {

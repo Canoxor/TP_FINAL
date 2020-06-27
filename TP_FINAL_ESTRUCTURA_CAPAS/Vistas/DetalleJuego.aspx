@@ -21,6 +21,7 @@
     <style type="text/css">
         .auto-style2 {
             width: 628px;
+            text-align: center;
         }
 
         .auto-style3 {
@@ -31,9 +32,6 @@
             height: 44px;
         }
 
-        .auto-style6 {
-            font-size: x-large;
-        }
         .auto-style7 {
             margin-left: 183px;
         }
@@ -159,7 +157,7 @@
                                         <br />
                                     </span>
                                 </p>
-                                     <asp:Button ID="btnAgregarCarritoDJ" runat="server" Text="Agregar" />
+                                     <asp:Button ID="btnAgregarCarritoDJ" runat="server" Text="Agregar" PostBackUrl="~/CompraVerificarJuego.aspx"/>
                                 <br />
                                     <br />
                                 </td>
