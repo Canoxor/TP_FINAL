@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <script src="https://kit.fontawesome.com/ccd9a07f5e.js" crossorigin="anonymous"></script>
 
@@ -53,7 +53,7 @@
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
                     <li class="nav-item align-content-lg-end">
-                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesionAdmin" runat="server" Style="position: center" Text="Cerrar Sesion" />
+                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" Style="position: center; text-align: center; width: 100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                     </li>
                 </ul>
             </div>
@@ -69,17 +69,18 @@
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filtar Noticias</button>
                         <div class="dropdown-menu">
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarJuegosN" runat="server" Style="position: center" Text="Juegos" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarFecha" runat="server" Style="position: center" Text="Fecha" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnPPP" runat="server" Style="position: center" Text="Algo mas" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarPorJuegos" runat="server" Style="position: center" Text="Juegos" OnClick="btnFiltrarPorJuegos_Click" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarFecha" runat="server" Style="position: center" Text="Fecha" OnClick="btnFiltrarFecha_Click" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarActivas" runat="server" Style="position: center" Text="Noticas Activas" OnClick="btnFiltrarActivas_Click" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarInactivas" runat="server" Style="position: center" Text="Noticias In-Activas" OnClick="btnFiltrarInactivas_Click" />
                         </div>
                     </div>
                 </td>
                 <td style="width: 33%; text-align: center">&nbsp;</td>
             </tr>
-            </table>
+        </table>
         &nbsp<br />
-        <table class="w-100" >
+        <table class="w-100">
             <tr>
                 <td class="auto-style1">&nbsp;</td>
                 <td class="auto-style2">
@@ -123,7 +124,7 @@
 
                         <ItemTemplate>
                             <!-- Este es el item que se usa -->
-                            <div class="card mb-3" style="width: 530px; align-content: center; align-items: center; padding-top:1%; background-color:#CFCDD4; margin-left:20%">
+                            <div class="card mb-3" style="width: 530px; align-content: center; align-items: center; padding-top: 1%; background-color: #CFCDD4; margin-left: 20%">
                                 <asp:Image class="card-img-top" ID="Image1" runat="server" Height="300px" ImageUrl='<%# Eval("N_Imagen") %>' Width="500px" />
                                 <div class="card-body">
                                     <asp:Label ID="Label1" class="card-title" runat="server" Style="font-size: 1.5em; width: 500px" Text='<%# Eval("N_Nombre") %>'></asp:Label>
@@ -131,9 +132,7 @@
                                     <asp:Label class="card-text" ID="Label2" runat="server" Text='<%# Eval("N_Descripcion") %>'></asp:Label>
                                     <br />
                                     <br />
-                                    <asp:Button class="btn btn-secondary" ID="btnSeleccionNoticia" runat="server"  CommandArgument='<%# Eval("N_Codigo_Noticia") %>' 
-                                        OnCommand="btn_Modificar_Command" PostBackUrl="~/NoticiaModificar.aspx"  Text="Modificar" />
-                                                                   
+                                    <asp:Button class="btn btn-secondary" ID="btnSeleccionNoticia" runat="server" CommandArgument='<%# Eval("N_Codigo_Noticia") %>' OnCommand="btn_Modificar_Command" PostBackUrl="~/NoticiaModificar.aspx" Text="Modificar" />
                                 </div>
                             </div>
 

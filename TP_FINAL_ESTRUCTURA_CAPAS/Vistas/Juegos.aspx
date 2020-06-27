@@ -62,7 +62,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="Usuarios.aspx">Mi Cuenta</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item nav-link" style="text-align: center" href="#"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
+                            <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                         </div>
                     </li>
                 </ul>
@@ -73,18 +73,17 @@
             <tr>
                 <td style="width: 34%; text-align: center">
                     <a style="color: white">Buscar Juegos:</a>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:Button class="btn btn-primary btn-sm" ID="Button1" runat="server" Style="position: center" Text="Buscar" />
+                    <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
+                    <asp:Button class="btn btn-primary btn-sm" ID="btnBuscar" runat="server" Style="position: center" Text="Buscar" OnClick="btnBuscar_Click" />
                 </td>
                 <td style="width: 33%; text-align: center">
                     <div class="btn-group dropdown">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Filtar Juegos
-                        </button>
+                            Filtar Juegos</button>
                         <div class="dropdown-menu">
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="Button2" runat="server" Style="position: center" Text="Categoria" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="Button3" runat="server" Style="position: center" Text="Desarrollador" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="Button4" runat="server" Style="position: center" Text="Etiquetas PEGI" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltroCategoria" runat="server" Style="position: center" Text="Categoria" OnClick="btnFiltroCategoria_Click"/>
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltroDesarrollador" runat="server" Style="position: center" Text="Desarrollador" OnClick="btnFiltroDesarrollador_Click"/>
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltroPegi" runat="server" Style="position: center" Text="Etiquetas PEGI" OnClick="btnFiltroPegi_Click"/>
                         </div>
                     </div>
                 </td>
@@ -218,7 +217,7 @@
         &nbsp;<br />
         <br />
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos] WHERE J_Estado = 1"></asp:SqlDataSource>
 
 
 

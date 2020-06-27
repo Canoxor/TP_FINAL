@@ -59,7 +59,7 @@
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
                     <li class="nav-item align-content-lg-end">
-                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesionAdmin" runat="server" Style="position: center" Text="Cerrar Sesion" />
+                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                     </li>
                 </ul>
             </div>
@@ -71,17 +71,17 @@
                <td style="width: 34%; text-align: center">
                    <a style="color: white">Buscar Perifericos:</a>
                    <asp:TextBox ID="txtBusquedaPerifericos" runat="server"></asp:TextBox>
-                   <asp:Button class="btn btn-primary btn-sm" ID="btnBuscarPerifericos" runat="server" Style="position: center" Text="Buscar" />
+                   <asp:Button class="btn btn-primary btn-sm" ID="btnBuscarPerifericos" runat="server" Style="position: center" Text="Buscar" OnClick="btnBuscarPerifericos_Click" />
                </td>
                <td style="width: 33%; text-align: center">
                    <div class="btn-group dropdown">
                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Filtar Perifericos
-                       </button>
+                           Filtar Perifericos</button>
                        <div class="dropdown-menu">
-                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarMarcas" runat="server" Style="position: center" Text="Marcas" />
-                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnPP" runat="server" Style="position: center" Text="Algo" />
-                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnPPP" runat="server" Style="position: center" Text="Algo mas" />
+                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarMarcas" runat="server" Style="position: center" Text="Marcas" OnClick="btnFiltrarMarcas_Click"/>
+                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarTipo" runat="server" Style="position: center" Text="Tipo de Perifericos" OnClick="btnFiltrarTipo_Click"/>
+                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarPerifericosActivos" runat="server" Style="position: center" Text="Perifericos Activos" OnClick="btnFiltrarPerifericosActivos_Click"/>
+                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarPerifericosInactivos" runat="server" Style="position: center" Text="Perifericos In-Activos" OnClick="btnFiltrarPerifericosInactivos_Click"/>
                        </div>
                    </div>
                </td>
@@ -207,25 +207,6 @@
         </table>
         &nbsp;
         <asp:SqlDataSource ID="DS_PerifericoAdmin" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario], [PE_Codigo_Periferico] FROM [Perifericos]"></asp:SqlDataSource>
-
-
-
-    <script>
-        $(function () {
-            $(document).scroll(function () {
-                var $nav = $("#mainNavbar");
-                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
-            });
-        });
-    </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-        <p>
-            &nbsp;</p>
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

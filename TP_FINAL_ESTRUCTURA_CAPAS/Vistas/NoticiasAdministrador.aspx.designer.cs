@@ -24,13 +24,13 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm formNoticiasAdministrador;
 
         /// <summary>
-        /// Control btnCerrarSesionAdmin.
+        /// Control btnCerrarSesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrarSesionAdmin;
+        protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
 
         /// <summary>
         /// Control lbl_Codigo.
@@ -42,13 +42,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lbl_Codigo;
 
         /// <summary>
-        /// Control btnFiltrarJuegosN.
+        /// Control btnFiltrarPorJuegos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFiltrarJuegosN;
+        protected global::System.Web.UI.WebControls.Button btnFiltrarPorJuegos;
 
         /// <summary>
         /// Control btnFiltrarFecha.
@@ -60,13 +60,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnFiltrarFecha;
 
         /// <summary>
-        /// Control btnPPP.
+        /// Control btnFiltrarActivas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPPP;
+        protected global::System.Web.UI.WebControls.Button btnFiltrarActivas;
+
+        /// <summary>
+        /// Control btnFiltrarInactivas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFiltrarInactivas;
 
         /// <summary>
         /// Control lvNoticias.

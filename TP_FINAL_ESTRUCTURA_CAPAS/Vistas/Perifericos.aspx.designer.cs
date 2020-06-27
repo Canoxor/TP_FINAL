@@ -33,6 +33,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lblNavbarUsuario;
 
         /// <summary>
+        /// Control btnCerrarSesion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
+
+        /// <summary>
         /// Control txtBusquedaPerifericos.
         /// </summary>
         /// <remarks>
@@ -60,13 +69,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnFiltrarMarcas;
 
         /// <summary>
-        /// Control btnPP.
+        /// Control btnFiltrarTipoPeriferico.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPP;
+        protected global::System.Web.UI.WebControls.Button btnFiltrarTipoPeriferico;
 
         /// <summary>
         /// Control btnPPP.

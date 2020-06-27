@@ -60,7 +60,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="Usuarios.aspx">Mi Cuenta</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item nav-link" style="text-align: center" href="#"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
+                            <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                         </div>
                     </li>
                 </ul>
@@ -72,16 +72,15 @@
                <td style="width: 34%; text-align: center">
                    <a style="color: white">Buscar Perifericos:</a>
                    <asp:TextBox ID="txtBusquedaPerifericos" runat="server"></asp:TextBox>
-                   <asp:Button class="btn btn-primary btn-sm" ID="btnBuscarPerifericos" runat="server" Style="position: center" Text="Buscar" />
+                   <asp:Button class="btn btn-primary btn-sm" ID="btnBuscarPerifericos" runat="server" Style="position: center" Text="Buscar" OnClick="btnBuscarPerifericos_Click" />
                </td>
                <td style="width: 33%; text-align: center">
                    <div class="btn-group dropdown">
                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Filtar Perifericos
-                       </button>
+                           Filtar Perifericos</button>
                        <div class="dropdown-menu">
-                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarMarcas" runat="server" Style="position: center" Text="Marcas" />
-                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnPP" runat="server" Style="position: center" Text="Algo" />
+                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarMarcas" runat="server" Style="position: center" Text="Marcas" OnClick="btnFiltrarMarcas_Click"/>
+                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarTipoPeriferico" runat="server" Style="position: center" Text="Tipo de Periferico" OnClick="btnFiltrarTipoPeriferico_Click"/>
                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnPPP" runat="server" Style="position: center" Text="Algo mas" />
                        </div>
                    </div>
@@ -207,7 +206,7 @@
             </tr>
         </table>
         &nbsp;
-        <asp:SqlDataSource ID="SqlDataPerifericos" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario], [PE_Codigo_Periferico] FROM [Perifericos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataPerifericos" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario], [PE_Codigo_Periferico] FROM [Perifericos] WHERE PE_Estado = 1"></asp:SqlDataSource>
 
 
 
@@ -225,12 +224,6 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-        <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
-
-
 
     </form>
 </body>

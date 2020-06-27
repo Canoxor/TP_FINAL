@@ -49,14 +49,14 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="Usuarios.aspx">Mi Cuenta</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item nav-link" style="text-align: center" href="#"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
+                            <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" Style="position: center; text-align: center; width: 100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                         </div>
                     </li>
                 </ul>
             </div>
         </nav>
         &nbsp
-        <h3 style="align-self:center">Bienvenido a tu perfil, aqui encontraras informacion tuya como tambien tu carrito de compras.</h3>
+        <h3 style="align-self: center">Bienvenido a tu perfil, aqui encontraras informacion tuya como tambien tu carrito de compras.</h3>
         &nbsp
         <div style="align-content: center; align-items: center; width: 100%; margin-left: 5%; font-size: 1.2em">
             <asp:Label ID="lblNombreDeUsuario" runat="server" Text="Usuario: #NombreDeUsuario"></asp:Label>
@@ -68,6 +68,7 @@
             <asp:Label ID="lblEmail" runat="server" Text="Email: #Email"></asp:Label>
             <br />
         </div>
+
     </form>
     <script>
         $(function () {

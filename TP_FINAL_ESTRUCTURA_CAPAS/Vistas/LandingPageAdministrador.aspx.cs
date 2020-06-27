@@ -13,5 +13,10 @@ namespace Vistas
         {
 
         }
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["usuarioLogedIn"] = null;
+            Response.Redirect("LandingPage.aspx");
+        }
     }
 }

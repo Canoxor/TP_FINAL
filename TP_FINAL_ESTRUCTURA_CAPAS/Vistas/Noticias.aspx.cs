@@ -24,6 +24,23 @@ namespace Vistas
             Session["CodJuego"] = "" + id_seleccionado + "";
             lbl_Codigo.Text = Session["CodJuego"].ToString();
         }
+
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["usuarioLogedIn"] = null;
+            Response.Redirect("LandingPage.aspx");
+        }
+
+        protected void btnFiltrarPorJuegos_Click(object sender, EventArgs e)
+        {
+            SqlDataNoticias.SelectCommand = "SELECT N_Nombre, N_Imagen, N_Descripcion, N_Codigo_Juego FROM Noticias WHERE N_Estado = 1 ORDER BY N_Codigo_Juego ASC";
+        }
+
+        protected void btnFiltrarFecha_Click(object sender, EventArgs e)
+        {
+            // SqlDataNoticias.SelectCommand = "SELECT N_Nombre, N_Imagen, N_Descripcion, N_Codigo_Juego FROM Noticias WHERE N_Estado = 1 ORDER BY N_Codigo_Juego ASC";
+        }
+
         private void usuarioLogedIn()
         {
             if (Session["usuarioLogedIn"] == null)

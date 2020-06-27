@@ -58,7 +58,7 @@
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
                     <li class="nav-item align-content-lg-end">
-                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesionAdmin" runat="server" Style="position: center" Text="Cerrar Sesion" />
+                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                     </li>
                 </ul>
             </div>

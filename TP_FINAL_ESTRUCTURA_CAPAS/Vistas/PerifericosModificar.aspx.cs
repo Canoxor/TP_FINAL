@@ -16,5 +16,10 @@ namespace Vistas
                 lbl_CodigoSeleccionado.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
             }
         }
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["usuarioLogedIn"] = null;
+            Response.Redirect("LandingPage.aspx");
+        }
     }
 }

@@ -24,13 +24,13 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm formPerifericosAdministrador;
 
         /// <summary>
-        /// Control btnCerrarSesionAdmin.
+        /// Control btnCerrarSesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrarSesionAdmin;
+        protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
 
         /// <summary>
         /// Control txtBusquedaPerifericos.
@@ -60,22 +60,31 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnFiltrarMarcas;
 
         /// <summary>
-        /// Control btnPP.
+        /// Control btnFiltrarTipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPP;
+        protected global::System.Web.UI.WebControls.Button btnFiltrarTipo;
 
         /// <summary>
-        /// Control btnPPP.
+        /// Control btnFiltrarPerifericosActivos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPPP;
+        protected global::System.Web.UI.WebControls.Button btnFiltrarPerifericosActivos;
+
+        /// <summary>
+        /// Control btnFiltrarPerifericosInactivos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFiltrarPerifericosInactivos;
 
         /// <summary>
         /// Control btnCarrito.

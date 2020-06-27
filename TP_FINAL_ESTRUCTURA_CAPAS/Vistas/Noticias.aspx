@@ -58,7 +58,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="Usuarios.aspx">Mi Cuenta</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item nav-link" style="text-align: center" href="#"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a>
+                            <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                         </div>
                     </li>
                 </ul>
@@ -75,8 +75,8 @@
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filtar Noticias</button>
                         <div class="dropdown-menu">
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarJuegosN" runat="server" Style="position: center" Text="Juegos" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarFecha" runat="server" Style="position: center" Text="Fecha" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarPorJuegos" runat="server" Style="position: center" Text="Juegos" OnClick="btnFiltrarPorJuegos_Click"/>
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarFecha" runat="server" Style="position: center" Text="Fecha" OnClick="btnFiltrarFecha_Click"/>
                             <asp:Button class="dropdown-item btn btn-secondary" ID="btnPPP" runat="server" Style="position: center" Text="Algo mas" />
                         </div>
                     </div>
@@ -172,7 +172,7 @@
             </tr>
         </table>
         &nbsp;
-        <asp:SqlDataSource ID="SqlDataNoticias" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [N_Nombre], [N_Imagen], [N_Descripcion], [N_Codigo_Juego] FROM [Noticias]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataNoticias" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [N_Nombre], [N_Imagen], [N_Descripcion], [N_Codigo_Juego] FROM [Noticias] WHERE N_Estado = 1"></asp:SqlDataSource>
 
     </form>
     <script>

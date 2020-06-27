@@ -25,6 +25,12 @@ namespace Vistas
             lbl_Codigo.Text = Session["CodPeriferico"].ToString();
         }
 
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["usuarioLogedIn"] = null;
+            Response.Redirect("LandingPage.aspx");
+        }
+
         private void usuarioLogedIn()
         {
             if (Session["usuarioLogedIn"] == null)
@@ -40,6 +46,29 @@ namespace Vistas
                 }
             }
 
+        }
+
+        protected void btnFiltrarMarcas_Click(object sender, EventArgs e)
+        {
+            SqlDataPerifericos.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Estado = 1 ORDER BY PE_Codigo_Marca ASC";
+        }
+
+        protected void btnFiltrarTipoPeriferico_Click(object sender, EventArgs e)
+        {
+            SqlDataPerifericos.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Estado = 1 ORDER BY PE_Codigo_TipoPerif ASC";
+        }
+
+        protected void btnBuscarPerifericos_Click(object sender, EventArgs e)
+        {
+            if (txtBusquedaPerifericos.Text == "")
+            {
+
+                SqlDataPerifericos.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Estado = 1";
+            }
+            else
+            {
+                SqlDataPerifericos.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Nombre = '" + txtBusquedaPerifericos.Text + "' AND PE_Estado = 1";
+            }
         }
     }
 }

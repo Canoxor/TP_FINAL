@@ -25,6 +25,12 @@ namespace Vistas
             lbl_Codigo.Text = Session["CodJuego"].ToString();
         }
 
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["usuarioLogedIn"] = null;
+            Response.Redirect("LandingPage.aspx");
+        }
+
         private void usuarioLogedIn()
         {
             if (Session["usuarioLogedIn"] == null)
@@ -41,5 +47,31 @@ namespace Vistas
             }
             
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text == "")
+            {
+
+                SqlDataSource1.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos WHERE J_Estado = 1";
+            }
+            else
+            {
+                SqlDataSource1.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos WHERE J_Nombre = '" + txtBuscar.Text + "' AND J_Estado = 1";
+            }
+        }
+        protected void btnFiltroCategoria_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos WHERE J_Estado = 1 ORDER BY J_Codigo_Genero ASC";
+        }
+        protected void btnFiltroDesarrollador_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos inner join Prov_X_Juego ON J_Codigo_Juego = PJ_Codigo_Juego WHERE J_Estado = 1 ORDER BY PJ_Codigo_Proveedor ASC";
+        }
+        protected void btnFiltroPegi_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos WHERE J_Estado = 1 ORDER BY J_Codigo_PEGI ASC";
+        }
+            
     }
 }
