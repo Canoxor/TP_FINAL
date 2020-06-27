@@ -16,3 +16,12 @@ D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csproj.CoreCo
 D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csproj.CopyComplete
 D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.dll
 D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.pdb
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Datos.dll
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Datos.pdb
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Entidades.dll
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Entidades.pdb
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csproj.CopyComplete
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.dll
+N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.pdb

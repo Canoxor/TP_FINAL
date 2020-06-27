@@ -148,32 +148,27 @@
                                 <br />
                             </td>
                         </InsertItemTemplate>
-                        <ItemTemplate>
-                            <td runat="server" class="text-center" style="">&nbsp;
-                                &nbsp;
-                                &nbsp;
-                                <asp:Image ID="J_Imagen0" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
-                                &nbsp;
-                                &nbsp;
-                                &nbsp;
-                                &nbsp;
+                            <ItemTemplate>
+                            <td class="card-columns">
+                                <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width: 350px; align-content: center; align-items: center; padding-left:5%; padding-top:1%; background-color:#FFFFFF; margin-left:20%">&nbsp;&nbsp;&nbsp;
+                                    <asp:Image ID="Image1" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />&nbsp;&nbsp;&nbsp;&nbsp;
                                 <br />
                                 <br />
-                                <span class="text-white">
-                                    <asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3"></asp:Label>
+                                <span class="text-black">
+                                    <b><asp:Label ID="Label1" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
                                 </span>
                                 <br />
                                 <br />
-                                <span class="text-white">Precio: $
-                                    <asp:Label ID="J_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("J_PrecioUnitario") %>'></asp:Label>
+                                <span style="color: black; font-size: 13pt"> $
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("J_PrecioUnitario") %>' Font-Size="18px"></asp:Label>
                                 </span>
                                 <br />
                                 <br />
                                 <asp:Button ID="btn_Modificar" runat="server" Text='Modificar' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btn_Modificar_Command" PostBackUrl="~/JuegosModificar.aspx" />
                                 <br />
-                                &nbsp;
-                                <br />
+                                </td>
                             </td>
+                            
                         </ItemTemplate>
                         <LayoutTemplate>
                             <table runat="server">

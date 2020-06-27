@@ -7,7 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <script src="https://kit.fontawesome.com/ccd9a07f5e.js" crossorigin="anonymous"></script>
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet" />
 
@@ -25,7 +24,7 @@
         }
 
         .auto-style3 {
-            width: 309px;
+            width: 440px;
         }
 
         .auto-style4 {
@@ -34,6 +33,9 @@
 
         .auto-style6 {
             font-size: x-large;
+        }
+        .auto-style7 {
+            margin-left: 183px;
         }
     </style>
 </head>
@@ -85,106 +87,93 @@
                         <br />
                     </td>
                     <td class="auto-style2">
-                        <asp:ListView ID="lvNoticias" runat="server" DataSourceID="DS_DetalleJuego" GroupItemCount="3">
-
-                            <EmptyDataTemplate>
-                                <table runat="server" style="">
-                                    <tr>
-                                        <td>No se han devuelto datos.</td>
-                                    </tr>
-                                </table>
-                            </EmptyDataTemplate>
-                            <EmptyItemTemplate>
-                                <td runat="server" />
-                            </EmptyItemTemplate>
-                            <GroupTemplate>
-                                <tr id="itemPlaceholderContainer" runat="server">
-                                    <td id="itemPlaceholder" runat="server"></td>
-                                </tr>
-                            </GroupTemplate>
-                            <InsertItemTemplate>
-                                <td runat="server" style="">J_Imagen:
+                        <asp:FormView ID="FormView1" runat="server" CssClass="auto-style7" DataKeyNames="J_Codigo_Juego" DataSourceID="DS_DetalleJuego">
+                            <EditItemTemplate>
+                                J_Imagen:
                                 <asp:TextBox ID="J_ImagenTextBox" runat="server" Text='<%# Bind("J_Imagen") %>' />
-                                    <br />
-                                    J_Nombre:
+                                <br />
+                                J_Nombre:
                                 <asp:TextBox ID="J_NombreTextBox" runat="server" Text='<%# Bind("J_Nombre") %>' />
-                                    <br />
-                                    J_Descripcion:
+                                <br />
+                                J_Descripcion:
                                 <asp:TextBox ID="J_DescripcionTextBox" runat="server" Text='<%# Bind("J_Descripcion") %>' />
-                                    <br />
-                                    J_PrecioUnitario:
+                                <br />
+                                J_PrecioUnitario:
                                 <asp:TextBox ID="J_PrecioUnitarioTextBox" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
-                                    <br />
-                                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                                    <br />
-                                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                                    <br />
-                                </td>
+                                <br />
+                                J_Codigo_Juego:
+                                <asp:Label ID="J_Codigo_JuegoLabel1" runat="server" Text='<%# Eval("J_Codigo_Juego") %>' />
+                                <br />
+                                J_Estado:
+                                <asp:CheckBox ID="J_EstadoCheckBox" runat="server" Checked='<%# Bind("J_Estado") %>' />
+                                <br />
+                                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
+                                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                            </EditItemTemplate>
+                            <InsertItemTemplate>
+                                J_Imagen:
+                                <asp:TextBox ID="J_ImagenTextBox0" runat="server" Text='<%# Bind("J_Imagen") %>' />
+                                <br />
+                                J_Nombre:
+                                <asp:TextBox ID="J_NombreTextBox0" runat="server" Text='<%# Bind("J_Nombre") %>' />
+                                <br />
+                                J_Descripcion:
+                                <asp:TextBox ID="J_DescripcionTextBox0" runat="server" Text='<%# Bind("J_Descripcion") %>' />
+                                <br />
+                                J_PrecioUnitario:
+                                <asp:TextBox ID="J_PrecioUnitarioTextBox0" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
+                                <br />
+                                J_Codigo_Juego:
+                                <asp:TextBox ID="J_Codigo_JuegoTextBox" runat="server" Text='<%# Bind("J_Codigo_Juego") %>' />
+                                <br />
+                                J_Estado:
+                                <asp:CheckBox ID="J_EstadoCheckBox0" runat="server" Checked='<%# Bind("J_Estado") %>' />
+                                <br />
+                                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
+                                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
                             </InsertItemTemplate>
-
                             <ItemTemplate>
-                                <td runat="server" class="text-center" style="">
-                                    <asp:Image ID="imgJuegoLv_DJ" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Style="border-radius: 20px" Width="270px" />
-                                    <br />
-                                    <br />
-                                    <span class="text-white">
-                                        <asp:Label ID="lblNombreJuegoLv_DJ" runat="server" CssClass="auto-style6" Text='<%# Eval("J_Nombre") %>'></asp:Label>
+                                
+                            <td class="card-columns">
+                                <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width: 450px; align-content: center; align-items: center; padding-left:5%;padding-right:5%; padding-top:5%; background-color:#FFFFFF; margin-left:20%">
+                                    <asp:Image ID="J_Imagen0" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
+                                <br />
+                                <br />
+                                <span class="text-black">
+                                    <b><asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
+                                </span>
+                                <br />
+                                <br />
+                                <p align="center">
+                                    <span style="color: black; font-size: 13pt">
+                                        Descripcion
                                         <br />
-                                        <br />
-                                        <span class="auto-style6">Descripcion</span><br />
-                                        <asp:Label ID="lblDescripcionJuegoLv_DJ" runat="server" Text='<%# Eval("J_Descripcion") %>'></asp:Label>
+                                            <asp:Label ID="lblDescripcionJuegoLv_DJ" runat="server" Text='<%# Eval("J_Descripcion") %>'></asp:Label>
                                         <br />
                                         <br />
                                         Precio: $
-                                <asp:Label ID="lblPrecioJuegoLv_DJ" runat="server" Text='<%# Eval("J_PrecioUnitario") %>'></asp:Label>
+                                            <asp:Label ID="lblPrecioJuegoLv_DJ" runat="server" Text='<%# Eval("J_PrecioUnitario") %>'></asp:Label>
                                         <br />
                                         <br />
-                                        ¿Desea agregar este juego al carrito?<br />
+                                        ¿Desea agregar este juego al carrito?
+                                        <br />
                                     </span>
-                                    <br />
-                                    <asp:Button ID="btnAgregarCarritoDJ" runat="server" Text="Agregar" />
-                                    <br />
-                                    <br />
-                                </td>
-
-                            </ItemTemplate>
-                            <LayoutTemplate>
-                                <table runat="server">
-                                    <tr runat="server">
-                                        <td runat="server">
-                                            <table id="groupPlaceholderContainer" runat="server" border="0" style="">
-                                                <tr id="groupPlaceholder" runat="server">
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr runat="server">
-                                        <td runat="server" style=""></td>
-                                    </tr>
-                                </table>
-                            </LayoutTemplate>
-                            <SelectedItemTemplate>
-                                <td runat="server" style="">J_Imagen:
-                                <asp:Label ID="J_ImagenLabel" runat="server" Text='<%# Eval("J_Imagen") %>' />
-                                    <br />
-                                    J_Nombre:
-                                <asp:Label ID="J_NombreLabel" runat="server" Text='<%# Eval("J_Nombre") %>' />
-                                    <br />
-                                    J_Descripcion:
-                                <asp:Label ID="J_DescripcionLabel" runat="server" Text='<%# Eval("J_Descripcion") %>' />
-                                    <br />
-                                    J_PrecioUnitario:
-                                <asp:Label ID="J_PrecioUnitarioLabel" runat="server" Text='<%# Eval("J_PrecioUnitario") %>' />
+                                </p>
+                                     <asp:Button ID="btnAgregarCarritoDJ" runat="server" Text="Agregar" />
+                                <br />
                                     <br />
                                 </td>
-                            </SelectedItemTemplate>
-                        </asp:ListView>
+                            </td>
+                            
+                        </ItemTemplate>
+                            
+                        </asp:FormView>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td colspan="3" class="auto-style4">
-                        <asp:SqlDataSource ID="DS_DetalleJuego" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_Descripcion], [J_PrecioUnitario] FROM [Juegos] WHERE ([J_Codigo_Juego] = @J_Codigo_Juego)">
+                        <asp:SqlDataSource ID="DS_DetalleJuego" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_Descripcion], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos] WHERE ([J_Codigo_Juego] = @J_Codigo_Juego)">
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="lbl_Mensaje" Name="J_Codigo_Juego" PropertyName="Text" Type="String" />
                             </SelectParameters>
