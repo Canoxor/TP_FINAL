@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Negocio
 {
-    class NegocioJuego
+    public class NegocioJuego
     {
         /*
         public DataTable getTabla()

@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Negocio
 {
-    class NegocioNoticia
+    public class NegocioNoticia
     {
 
         public bool BajaNoticia(int id)
