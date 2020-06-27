@@ -9,3 +9,14 @@ D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\N
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.dll
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Negocio.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Negocio.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Datos.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Entidades.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Datos.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\bin\Debug\Entidades.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Negocio\obj\Debug\Negocio.pdb

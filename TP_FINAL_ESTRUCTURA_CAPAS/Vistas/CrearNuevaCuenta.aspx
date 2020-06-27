@@ -64,21 +64,20 @@
                 <td class="auto-style3">
                     <asp:TextBox ID="txtDni_SignIn" CssClass="textBoxLogIn" runat="server"></asp:TextBox>
                 </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td class="auto-style2" style="color: #FFFFFF">Nombre de usuario:</td>
-                <td class="auto-style3">
-                    <asp:TextBox ID="txtNombreUsuario_SignIn" CssClass="textBoxLogIn" runat="server"></asp:TextBox>
+                <td>
+                    &nbsp
+                    <asp:Label ID="lblDniExistente" runat="server"></asp:Label>
                 </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2" style="color: #FFFFFF">Email:</td>
                 <td class="auto-style3">
                     <asp:TextBox ID="txtEmail_SignIn" CssClass="textBoxLogIn" runat="server" TextMode="Email"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    &nbsp
+                    <asp:Label ID="lblEmailExistente" runat="server"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2" style="color: #FFFFFF">Contraseña:</td>
@@ -99,7 +98,7 @@
         </table>
         &nbsp
         <div style="text-align: center">
-            <asp:Button class="btn btn-primary btn-m" ID="btnCrearCuenta" runat="server" Style="position: center" Text="Crear Cuenta" />
+            <asp:Button class="btn btn-primary btn-m" ID="btnCrearCuenta" runat="server" Style="position: center" Text="Crear Cuenta" OnClick="btnCrearCuenta_Click" />
         </div>
         &nbsp
         <div style="text-align: center">

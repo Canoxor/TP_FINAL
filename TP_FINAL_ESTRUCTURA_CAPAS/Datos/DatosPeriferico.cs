@@ -13,7 +13,7 @@ namespace Datos
     {
         AccesoDatos ds = new AccesoDatos();
 
-        public Periferico llenarCamposPeriferico(Periferico E_Periferico)
+        public Periferico traerPeriferico(Periferico E_Periferico)
         {
             DataTable tabla = ds.ObtenerTabla("Periferico", "Select * from Perifericos where PE_Codigo_Periferico=" + E_Periferico.Codigo_Periferico);
             E_Periferico.Codigo_TipoPerif = (Convert.ToInt32(tabla.Rows[0][1].ToString()));
@@ -38,8 +38,8 @@ namespace Datos
         public int editarPeriferico(Periferico p)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametrosPerifericoAgregar(ref comando, p);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "NombreProcedimiento");
+            armarParametrosPerifericoEditar(ref comando, p);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Update_Perifericos");
         }
 
         //Hay que cambiarle el nombre del procedimiento almacenado por el real
@@ -48,7 +48,7 @@ namespace Datos
         {
             SqlCommand comando = new SqlCommand();
             armarParametrosPerifericoEliminar(ref comando, p);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "NombreProcedimiento");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Delete_Perifericos");
 
         }
 
@@ -59,34 +59,43 @@ namespace Datos
             p.Codigo_Periferico = ds.ObtenerUltimoId("Select max(PE_Codigo_Periferico) from Perifericos") + 1;
             SqlCommand comando = new SqlCommand();
             armarParametrosPerifericoAgregar(ref comando, p);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "NombreProcedimiento");
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Perifericos");
         }
 
         private void armarParametrosPerifericoEliminar(ref SqlCommand comando, Periferico p)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@CODIGOPERIFERICO", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.Int);
             sqlParametros.Value = p.Codigo_Periferico;
+        }
+
+        private void armarParametrosPerifericoEditar(ref SqlCommand comando, Periferico p)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.Int);
+            sqlParametros.Value = p.Codigo_Periferico;
+            sqlParametros = comando.Parameters.Add("@PE_PrecioUnitario", SqlDbType.Decimal);
+            sqlParametros.Value = p.Precio_Unitario;
         }
 
         private void armarParametrosPerifericoAgregar(ref SqlCommand comando, Periferico p)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@CODIGOPERIFERICO", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.Int);
             sqlParametros.Value = p.Codigo_Periferico;
-            sqlParametros = comando.Parameters.Add("@CODIGOTIPOPERIF", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_TipoPerif", SqlDbType.Int);
             sqlParametros.Value = p.Codigo_TipoPerif;
-            sqlParametros = comando.Parameters.Add("@CODIGOMARCA", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_Marca", SqlDbType.Int);
             sqlParametros.Value = p.Codigo_Marca;
-            sqlParametros = comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar);
+            sqlParametros = comando.Parameters.Add("@PE_Nombre", SqlDbType.VarChar);
             sqlParametros.Value = p.Nombre;
-            sqlParametros = comando.Parameters.Add("@DESCRIPCION", SqlDbType.VarChar);
+            sqlParametros = comando.Parameters.Add("@PE_Descripcion", SqlDbType.VarChar);
             sqlParametros.Value = p.Descripcion;
-            sqlParametros = comando.Parameters.Add("@STOCK", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Stock", SqlDbType.Int);
             sqlParametros.Value = p.Stock;
-            sqlParametros = comando.Parameters.Add("@PRECIOUNITARIO", SqlDbType.Decimal);
+            sqlParametros = comando.Parameters.Add("@PE_PrecioUnitario", SqlDbType.Decimal);
             sqlParametros.Value = p.Precio_Unitario;
-            sqlParametros = comando.Parameters.Add("@IMAGEN", SqlDbType.VarChar);
+            sqlParametros = comando.Parameters.Add("@PE_Imagen", SqlDbType.VarChar);
             sqlParametros.Value = p.Imagen_Url;
         }
     }

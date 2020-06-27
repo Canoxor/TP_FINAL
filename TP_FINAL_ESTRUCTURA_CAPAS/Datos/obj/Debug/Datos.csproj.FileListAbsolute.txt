@@ -7,3 +7,12 @@ D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Dat
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csproj.CopyComplete
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.dll
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Datos.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Datos.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Entidades.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\bin\Debug\Entidades.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.csproj.CopyComplete
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Datos\obj\Debug\Datos.pdb

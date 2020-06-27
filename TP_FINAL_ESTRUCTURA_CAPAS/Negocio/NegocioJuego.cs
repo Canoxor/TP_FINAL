@@ -24,7 +24,7 @@ namespace Negocio
             DatosJuego D_Juego = new DatosJuego();
             Juego E_Juego = new Juego();
             E_Juego.Codigo_Juego = id;
-            return D_Juego.llenarCamposJuego(E_Juego);
+            return D_Juego.traerJuego(E_Juego);
         }
 
         public bool BajaJuego(int id)

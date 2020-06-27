@@ -11,13 +11,6 @@ namespace Negocio
 {
     class NegocioNoticia
     {
-        public Noticia ObtenerNoticia(int id)
-        {
-            DatosNoticia D_Noticia = new DatosNoticia();
-            Noticia E_Noticia = new Noticia();
-            E_Noticia.Codigo_Juego = id;
-            return D_Noticia.llenarCamposNoticia(E_Noticia);
-        }
 
         public bool BajaNoticia(int id)
         {

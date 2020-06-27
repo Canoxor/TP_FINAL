@@ -51,13 +51,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox txtDni_SignIn;
 
         /// <summary>
-        /// Control txtNombreUsuario_SignIn.
+        /// Control lblDniExistente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario_SignIn;
+        protected global::System.Web.UI.WebControls.Label lblDniExistente;
 
         /// <summary>
         /// Control txtEmail_SignIn.
@@ -67,6 +67,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail_SignIn;
+
+        /// <summary>
+        /// Control lblEmailExistente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmailExistente;
 
         /// <summary>
         /// Control txtPassword_SignIn.

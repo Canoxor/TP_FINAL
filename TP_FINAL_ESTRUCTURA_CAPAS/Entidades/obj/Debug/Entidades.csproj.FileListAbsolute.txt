@@ -4,3 +4,8 @@ D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.dll
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\bin\Debug\Entidades.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\bin\Debug\Entidades.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Entidades\obj\Debug\Entidades.pdb

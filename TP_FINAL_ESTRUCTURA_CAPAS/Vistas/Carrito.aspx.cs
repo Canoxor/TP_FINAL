@@ -15,6 +15,5 @@ namespace Vistas
 
         }
 
-        public Juegos 
     }
 }

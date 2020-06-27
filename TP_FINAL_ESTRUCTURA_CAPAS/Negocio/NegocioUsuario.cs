@@ -7,32 +7,30 @@ using Entidades;
 using System.Data;
 using System.Data.SqlClient;
 using Datos;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Negocio
 {
-    class NegocioUsuario
+    public class NegocioUsuario
     {
-        public Usuario ObtenerUsuario(int id)
-        {
-            DatosUsuario D_Usuario = new DatosUsuario();
-            Usuario E_Usuario = new Usuario();
-            E_Usuario.Codigo_Usuario = id;
-            return D_Usuario.ObtenerUsuario(E_Usuario);
-        }
+        private DatosUsuario D_Usuario = new DatosUsuario();
 
         public Usuario ObtenerUsuarioLogin(String Email, String Contraseña)
         {
-            DatosUsuario D_Usuario = new DatosUsuario();
             Usuario E_Usuario = new Usuario();
             E_Usuario.Email = Email;
             E_Usuario.Contraseña = Contraseña;
             return D_Usuario.getUsuarioLogin(E_Usuario);
         }
 
+        public bool ExisteUsuario(String Email, String Contraseña)
+        {
+            return D_Usuario.existeUsuario(Email, Contraseña);
+        }
+
         public bool BajaUsuario(int id)
         {
             //Validar id existente 
-            DatosUsuario D_Usuario = new DatosUsuario();
             Usuario E_Usuario = new Usuario();
             E_Usuario.Codigo_Usuario = id;
             int Baja = D_Usuario.eliminarUsuario(E_Usuario);
@@ -42,7 +40,7 @@ namespace Negocio
                 return false;
         }
 
-        public bool agregarUsuario(String Email, String Contraseña,int Dni, String Nombre, String Apellido, String Direccion = "", int Telefono = -1, bool Admin = false)
+        public bool agregarUsuario(String Email, String Contraseña,int Dni, String Nombre, String Apellido)
         {
             int cantFilas = 0;
 
@@ -51,14 +49,13 @@ namespace Negocio
             E_Usuario.Dni = Dni;
             E_Usuario.Nombre = Nombre;
             E_Usuario.Apellido = Apellido;
-            E_Usuario.Direccion = Direccion;
-            E_Usuario.Telefono = Telefono;
-            E_Usuario.Admin = Admin;
+            E_Usuario.Direccion = "";
+            E_Usuario.Telefono = -1;
+            E_Usuario.Admin = false;
             E_Usuario.Email = Email;
             E_Usuario.Contraseña = Contraseña;
 
-            DatosUsuario D_Usuario = new DatosUsuario();
-            if (D_Usuario.existeDniUsuario(E_Usuario) == false && D_Usuario.existeEmailUsuario(E_Usuario) == false && D_Usuario.existeUsuario(E_Usuario) == false)
+            if (!D_Usuario.existeUsuario(E_Usuario.Email, E_Usuario.Contraseña))
             {
                 cantFilas = D_Usuario.agregarUsuario(E_Usuario);
             }
@@ -67,5 +64,17 @@ namespace Negocio
             else
                 return false;
         }
+
+        public bool verificarEmail(String email)
+        {
+            return D_Usuario.existeEmailUsuario(email);
+
+        }
+
+        public bool verificarDni(int dni)
+        {
+            return D_Usuario.existeDniUsuario(dni);
+        }
+
     }
 }

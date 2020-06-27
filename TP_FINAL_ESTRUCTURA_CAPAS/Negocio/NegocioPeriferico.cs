@@ -16,7 +16,7 @@ namespace Negocio
             DatosPeriferico D_Periferico = new DatosPeriferico();
             Periferico E_Periferico = new Periferico();
             E_Periferico.Codigo_Periferico = id;
-            return D_Periferico.llenarCamposPeriferico(E_Periferico);
+            return D_Periferico.traerPeriferico(E_Periferico);
         }
 
         public bool BajaPeriferico(int id)

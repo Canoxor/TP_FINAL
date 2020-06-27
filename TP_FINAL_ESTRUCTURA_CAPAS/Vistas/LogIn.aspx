@@ -59,7 +59,7 @@
         </table>
         &nbsp
         <div style="text-align: center">
-            <asp:Button class="btn btn-primary btn-m" ID="btnIniciarSesion" runat="server" Style="position: center" Text="Iniciar Sesion" />
+            <asp:Button class="btn btn-primary btn-m" ID="btnIniciarSesion" runat="server" Style="position: center" Text="Iniciar Sesion" OnClick="btnIniciarSesion_Click" />
         </div>
         &nbsp
         <div style="text-align: center">

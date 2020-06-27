@@ -18,7 +18,7 @@ CREATE TABLE Juegos
 	J_Stock int not null,
 	J_PrecioUnitario decimal(18,2) not null,
 	J_Imagen varchar(200) not null,
-	J_Estado bit
+	J_Estado bit default '1'
 )
 GO
 
@@ -29,7 +29,7 @@ CREATE TABLE Noticias
 	N_Nombre varchar(200) not null,
 	N_Descripcion varchar(1000) null,
 	N_Imagen varchar(200) not null,
-	N_Estado bit
+	N_Estado bit default '1'
 )
 GO
 
@@ -50,7 +50,7 @@ CREATE TABLE Perifericos
 	PE_Stock int null,
 	PE_PrecioUnitario decimal(18,2) not null,
 	PE_Imagen varchar(200) not null,
-	PE_Estado bit
+	PE_Estado bit default '1'
 )
 GO
 
@@ -66,7 +66,7 @@ CREATE TABLE Proveedores
 	P_Contacto varchar(50) null,
 	P_Web varchar(50) not null,
 	P_Email varchar(50) null,
-	P_Estado bit
+	P_Estado bit default '1'
 )
 GO
 
@@ -148,12 +148,12 @@ CREATE TABLE Usuarios
 	U_Dni_Usuario varchar(25) not null CONSTRAINT UK_Usuarios UNIQUE,
 	U_Nombre varchar(50) null,
 	U_Apellido varchar(50) null,
-	U_Direccion varchar(100) null,
-	U_Telefono varchar(25) null,
+	U_Direccion varchar(100) null default 'Agregar',
+	U_Telefono varchar(25) null default '0',
 	U_Admin bit not null,
 	U_Email varchar(100) not null,
 	U_Contrasenia varchar(20) not null,
-	U_Estado bit
+	U_Estado bit default '1'
 )
 GO
 
@@ -313,8 +313,9 @@ INSERT INTO Prov_X_Juego (PJ_Codigo_Proveedor,PJ_Codigo_Juego,PJ_PrecioCompra)
 GO
 
 INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin, U_Email,U_Contrasenia,U_Estado)
-	SELECT '1','1000','Nicolas','Rodriguez',1,'Nico@gmail.com','1111','1' UNION
-	SELECT '2','1001','Mateo','De Benedictis Maza',1,'Mateo@gmail.com','2222','1'
+	SELECT '1','1000','Nicolas','Rodriguez','1','Nico@gmail.com','1111','1' UNION
+	SELECT '2','1001','Mateo','De Benedictis Maza','1','Mateo@gmail.com','2222','1' UNION
+	SELECT '3','1002','Fernando','Lozas','0','Fernando@gmail.com','fernando','1'
 GO
 
 INSERT INTO CodigosDeDescuento (CD_Codigo_CodDescuento,CD_Descripcion,CD_Habilitado,CD_Usos)
@@ -345,7 +346,8 @@ CREATE PROCEDURE SP_Insert_Juegos
 	@J_Nombre varchar(50),
 	@J_Descripcion varchar(1000),
 	@J_Stock int,
-	@J_PrecioUnitario decimal(18,2)
+	@J_PrecioUnitario decimal(18,2),
+	@J_Imagen varchar(200)
 )
 AS
 INSERT INTO Juegos 
@@ -356,7 +358,8 @@ INSERT INTO Juegos
 	J_Nombre,
 	J_Descripcion,
 	J_Stock,
-	J_PrecioUnitario
+	J_PrecioUnitario,
+	J_Imagen
 )
 	SELECT 
 	@J_Codigo_Juego,
@@ -365,7 +368,8 @@ INSERT INTO Juegos
 	@J_Nombre,
 	@J_Descripcion,
 	@J_Stock,
-	@J_PrecioUnitario
+	@J_PrecioUnitario,
+	@J_Imagen
 GO
 
 CREATE PROCEDURE SP_Delete_Juegos
@@ -399,17 +403,20 @@ CREATE PROCEDURE SP_Insert_Perifericos
 	@PE_Nombre varchar(50),
 	@PE_Descripcion varchar(1000),
 	@PE_Stock int,
-	@PE_PrecioUnitario decimal(18,2)
+	@PE_PrecioUnitario decimal(18,2),
+	@PE_Imagen varchar(200)
 )
 AS
 INSERT INTO Perifericos
 (
 	PE_Codigo_Periferico,
 	PE_Codigo_TipoPerif,
-	PE_Nombre,PE_Codigo_Marca,
+	PE_Nombre,
+	PE_Codigo_Marca,
 	PE_Descripcion,
 	PE_Stock,
-	PE_PrecioUnitario
+	PE_PrecioUnitario,
+	PE_Imagen
 )
 	SELECT 
 	@PE_Codigo_Periferico,
@@ -418,7 +425,8 @@ INSERT INTO Perifericos
 	@PE_Nombre,
 	@PE_Descripcion,
 	@PE_Stock,
-	@PE_PrecioUnitario
+	@PE_PrecioUnitario,
+	@PE_Imagen
 GO
 
 CREATE PROCEDURE SP_Delete_Perifericos
@@ -534,6 +542,7 @@ CREATE PROCEDURE SP_Insert_Usuarios
 	@U_Direccion varchar(100),
 	@U_Telefono varchar(25),
 	@U_Admin bit,
+	@U_Email varchar (100),
 	@U_Contrasenia varchar(20)
 )
 AS
@@ -546,6 +555,7 @@ INSERT INTO Usuarios
 	U_Direccion,
 	U_Telefono,
 	U_Admin,
+	U_Email,
 	U_Contrasenia
 )
 SELECT 
@@ -556,6 +566,7 @@ SELECT
 	@U_Direccion,
 	@U_Telefono,
 	@U_Admin,
+	@U_Email,
 	@U_Contrasenia
 GO
 
@@ -572,13 +583,64 @@ GO
 CREATE PROCEDURE SP_Update_Usuarios
 (
 	@U_Codigo_Usuario varchar(5),
-	@U_ContraseñaNueva varchar(20)
+	@U_Nombre varchar(50),
+	@U_Apellido varchar(50),
+	@U_Direccion varchar(100),
+	@U_Telefono varchar(25),
+	@U_Admin bit,
+	@U_Email varchar (100),
+	@U_Contrasenia varchar(20)
 )
 AS
 UPDATE Usuarios
-SET U_Contrasenia = @U_ContraseñaNueva
+SET 
+U_Nombre = @U_Nombre,
+U_Apellido = @U_Apellido,
+U_Direccion = @U_Direccion,
+U_Telefono = @U_Telefono,
+U_Admin = @U_Admin,
+U_Email = @U_Email,
+U_Contrasenia = @U_Contrasenia
 WHERE U_Codigo_Usuario = @U_Codigo_Usuario
 GO
+
+--NOTICIAS
+
+CREATE PROCEDURE SP_Insert_Noticias
+(
+	@N_Codigo_Noticia varchar(5),
+	@N_Codigo_Juego varchar(5),
+	@N_Nombre varchar(200),
+	@N_Descripcion varchar(1000),
+	@N_Imagen varchar(200)
+) 
+AS
+INSERT INTO Noticias
+(
+	N_Codigo_Noticia,
+	N_Codigo_Juego,
+	N_Nombre,
+	N_Descripcion,
+	N_Imagen
+)
+SELECT
+	@N_Codigo_Noticia,
+	@N_Codigo_Juego,
+	@N_Nombre,
+	@N_Descripcion,
+	@N_Imagen
+GO
+
+CREATE PROCEDURE SP_Delete_Noticias
+(
+	@N_Codigo_Noticia varchar(5)
+)
+AS
+UPDATE Noticias
+SET N_Estado = '0'
+WHERE N_Codigo_Noticia = @N_Codigo_Noticia
+GO
+
 
 
 -- Eliminar registro

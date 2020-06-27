@@ -7,6 +7,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <script src="https://kit.fontawesome.com/ccd9a07f5e.js" crossorigin="anonymous"></script>
+    <script>
+        $('.alert').alert()
+    </script>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet" />
@@ -60,6 +63,15 @@
         </div>
     </nav>
 
+    <!--Alerta de pagina -->
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:20px">
+        <strong>Bienvenido a True Games!</strong> Antes que nada queriamos avisarte que para poder navegar por la pagina, si o si tenes que tener una cuenta y estar logueado en ella!.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
     <!-- Empieza el desarrollo de la landing page -->
 
     <!-- Carrusel de fotos -->
@@ -72,21 +84,21 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active" style="height: 500px">
-                <img src="https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Fortnite_Chapter2_Season2.jpg" class="d-block w-100" alt="..." />
+                <img src="https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Fortnite_Chapter2_Season2.jpg" class="d-block w-100"/>
                 <div class="carousel-caption d-none d-md-block">
                     <h1>Juegos</h1>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                 </div>
             </div>
             <div class="carousel-item" style="height: 500px">
-                <img src="imgs/COD_4S.jpg" class="d-block w-100" alt="..." />
+                <img src="https://as.com/meristation/imagenes/2020/06/04/noticias/1591281373_841145_1591281661_noticia_normal_recorte1.jpg" class="d-block w-100"/>
                 <div class="carousel-caption d-none d-md-block">
                     <h1>Noticias</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
             <div class="carousel-item" style="height: 500px">
-                <img src="imgs/RazerPerifericos.png" class="d-block w-100" alt="..." />
+                <img src="https://pbs.twimg.com/media/D4IuSvvW0AA8JyC.jpg" class="d-block w-100"/>
                 <div class="carousel-caption d-none d-md-block">
                     <h1>Perifericos</h1>
                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>

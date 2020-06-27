@@ -74,3 +74,9 @@ D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\obj\Debug\Vi
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\obj\Debug\Vistas.csproj.CopyComplete
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\obj\Debug\Vistas.dll
 D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\obj\Debug\Vistas.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\bin\Entidades.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\bin\Negocio.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\bin\Datos.dll
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\bin\Entidades.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\bin\Negocio.pdb
+D:\GitHub\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\bin\Datos.pdb
