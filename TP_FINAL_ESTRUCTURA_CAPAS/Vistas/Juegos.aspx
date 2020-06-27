@@ -75,8 +75,8 @@
             <tr>
                 <td style="width: 34%; text-align: center">
                     <a style="color: white">Buscar Juegos:</a>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:Button class="btn btn-primary btn-sm" ID="Button1" runat="server" Style="position: center" Text="Buscar" />
+                    <asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
+                    <asp:Button class="btn btn-primary btn-sm" ID="btnBuscar" runat="server" Style="position: center" Text="Buscar" OnClick="btnBuscar_Click"/>
                 </td>
                 <td style="width: 33%; text-align: center">
                     <div class="btn-group dropdown">
@@ -84,9 +84,9 @@
                             Filtar Juegos
                         </button>
                         <div class="dropdown-menu">
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="Button2" runat="server" Style="position: center" Text="Categoria" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="Button3" runat="server" Style="position: center" Text="Desarrollador" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="Button4" runat="server" Style="position: center" Text="Etiquetas PEGI" />
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltroCategoria" runat="server" Style="position: center" Text="Categoria" OnClick="btnFiltroCategoria_Click"/>
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltroDesarrollador" runat="server" Style="position: center" Text="Desarrollador" OnClick="btnFiltroDesarrollador_Click"/>
+                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltroPegi" runat="server" Style="position: center" Text="Etiquetas PEGI" OnClick="btnFiltroPegi_Click"/>
                         </div>
                     </div>
                 </td>
