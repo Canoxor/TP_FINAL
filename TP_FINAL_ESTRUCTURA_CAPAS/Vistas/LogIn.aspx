@@ -45,14 +45,15 @@
             <tr>
                 <td class="auto-style9" style="color: #FFFFFF">Email:</td>
                 <td class="auto-style8">
-                    <asp:TextBox ID="txtEmail_LogIn" runat="server" TextMode="Email"></asp:TextBox>
+                    <!-- Para tener en cuenta para el diseño, borde redondeado y placeholder como hint -->
+                    <asp:TextBox ID="txtEmail_LogIn" runat="server" TextMode="Email" placeholder="Email" style="border-radius:5px;border-color:transparent"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style9" style="color: #FFFFFF">Contraseña:</td>
                 <td class="auto-style8">
-                    <asp:TextBox ID="txtContraseña_LogIn" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtContraseña_LogIn" runat="server" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
