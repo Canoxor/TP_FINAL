@@ -21,7 +21,7 @@ namespace Datos
             E_Periferico.Nombre = (tabla.Rows[0][3].ToString());
             E_Periferico.Descripcion = (tabla.Rows[0][4].ToString());
             E_Periferico.Stock = (Convert.ToInt32(tabla.Rows[0][5].ToString()));
-            E_Periferico.Precio_Unitario = (Convert.ToInt32(tabla.Rows[0][6].ToString()));
+            E_Periferico.Precio_Unitario = (float.Parse(tabla.Rows[0][6].ToString()));
             E_Periferico.Imagen_Url = (tabla.Rows[0][7].ToString());
 
             return E_Periferico;

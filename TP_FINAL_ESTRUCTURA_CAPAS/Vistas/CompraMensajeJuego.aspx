@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompraVerificarJuego.aspx.cs" Inherits="Vistas.CompraVerificarJuego" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompraMensajeJuego.aspx.cs" Inherits="Vistas.CompraMensajeJuego" %>
 
 <!DOCTYPE html>
 
@@ -39,15 +39,10 @@
         }
         .auto-style7 {
             font-size: large;
+            margin-left: 0;
+            margin-right: 0;
         }
-        .auto-style8 {
-            font-size: medium;
-        }
-        .auto-style9 {
-            font-size: medium;
-            color: red;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <p>
@@ -113,7 +108,7 @@
             <tr>
                 <td class="auto-style2" rowspan="4">
                     &nbsp;<br />
-                    <asp:Image ID="img_Imagen" runat="server" CssClass="auto-style3" Width="243px"/>
+                    &nbsp;<asp:Image ID="img_Imagen" runat="server" CssClass="auto-style3" Width="243px"/>
                 </td>
                 <td class="auto-style5"><span class="auto-style4">&nbsp;<br />
                     N<strong><span class="auto-style6">ombre:</span> </strong> </span> &nbsp;<asp:Label ID="lbl_Nombre" runat="server" CssClass="auto-style4"></asp:Label>
@@ -124,21 +119,15 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5"><span class="auto-style4">Precio unitario:<strong> </strong> </span> &nbsp;$ <asp:Label ID="lbl_Precio" runat="server" CssClass="auto-style4"></asp:Label>
+                <td class="auto-style5"><span class="auto-style4">Precio unitario:<strong> </strong> </span>&nbsp;$ <asp:Label ID="lbl_Precio" runat="server" CssClass="auto-style4"></asp:Label>
                     <br class="auto-style4" /><span class="auto-style4">&nbsp;
                 </span>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5"><span class="auto-style4">Cantidad:<strong> </strong> </span> &nbsp;<asp:TextBox ID="txt_Cantidad" runat="server" Height="28px" Width="55px" CssClass="auto-style4"></asp:TextBox>
-                    &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btn_Actualizar" runat="server" CssClass="auto-style8" Height="31px" OnClick="btn_Actualizar_Click" Text="Actualizar monto" />
-                    <br class="auto-style4" /><span class="auto-style4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_Cantidad" CssClass="auto-style9" ErrorMessage="RequiredFieldValidator">* Debe ingresar una cantidad</asp:RequiredFieldValidator>
-
-                </span>
-
-                </td>
+                <td class="auto-style5"><span class="auto-style4">Cantidad:<strong> </strong>&nbsp;</span><asp:Label ID="lbl_Cantidad" runat="server"></asp:Label>
+                    <br />
+&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style5"><span class="auto-style4">Monto total:<strong> </strong> </span> &nbsp;<asp:Label ID="lbl_Monto" runat="server" CssClass="auto-style4"></asp:Label>
@@ -149,29 +138,24 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">
-                    &nbsp;<br />
-                    <asp:Button ID="btn_Cancelar" runat="server" Text="Cancelar y volver" CssClass="auto-style7" Height="45px" Width="197px" PostBackUrl="~/Juegos.aspx" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-
-                </td>
-                <td class="text-left">&nbsp;
+                <td class="text-left" colspan="2">
+                    &nbsp;
                     <br />
-                    <asp:Button ID="btn_Confirmar" runat="server" Text="Agregar al carrito" CssClass="auto-style7" Height="45px" Width="197px" PostBackUrl="~/CompraMensajeJuego.aspx" OnClick="btn_Confirmar_Click" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btn_Confirmar" runat="server" Text="Aceptar y volver" CssClass="auto-style7" Height="45px" Width="197px" PostBackUrl="~/Juegos.aspx" />
                     <br />
 &nbsp;</td>
             </tr>
         </table>
 
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:20px; background-color:darkslateblue; color:white;">
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atencion!&nbsp;&nbsp;&nbsp;</strong> Has agregado un producto a tu carrito, podras confirmar tu compra accediendo al mismo desde tu perfil.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"&times;</span>
+        </button>
+    </div>
         <p>
             <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Visible="False"></asp:Label>
-        </p>
-        <p>
-            <asp:SqlDataSource ID="DS_CompraJuego" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Codigo_Juego], [J_Imagen], [J_Nombre], [J_PrecioUnitario] FROM [Juegos] WHERE ([J_Codigo_Juego] = @J_Codigo_Juego)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="lbl_Codigo" Name="J_Codigo_Juego" PropertyName="Text" Type="String" />
-                </SelectParameters>
-            </asp:SqlDataSource>
         </p>
     </form>
 </body>

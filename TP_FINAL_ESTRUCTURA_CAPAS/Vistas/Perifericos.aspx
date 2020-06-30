@@ -45,13 +45,13 @@
             <div class="collapse navbar-collapse justify-content-between blurb" id="navLinks">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="Juegos.aspx" class="nav-link" style="color:#8B8C91">Juegos</a>
+                        <a href="Juegos.aspx" class="nav-link" >Juegos</a>
                     </li>
                     <li class="nav-item">
                         <a href="Noticias.aspx" class="nav-link">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Perifericos.aspx" class="nav-link">Perifericos</a>
+                        <a href="Perifericos.aspx" class="nav-link" style="color:#8B8C91">Perifericos</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">

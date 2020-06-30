@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompraVerificarJuego.aspx.cs" Inherits="Vistas.CompraVerificarJuego" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompraVerificarPeriferico.aspx.cs" Inherits="Vistas.CompraVerificarPeriferico" %>
 
 <!DOCTYPE html>
 
@@ -50,7 +50,6 @@
     </style>
 </head>
 <body>
-    <p>
     <form id="formJuegos" runat="server">
         <!-- Navbar -->
 
@@ -64,13 +63,13 @@
             <div class="collapse navbar-collapse justify-content-between blurb" id="navLinks">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="Juegos.aspx" class="nav-link" style="color: #8B8C91">Juegos</a>
+                        <a href="Juegos.aspx" class="nav-link">Juegos</a>
                     </li>
                     <li class="nav-item">
                         <a href="Noticias.aspx" class="nav-link">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Perifericos.aspx" class="nav-link">Perifericos</a>
+                        <a href="Perifericos.aspx" class="nav-link" style="color: #8B8C91">Perifericos</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
@@ -151,27 +150,26 @@
             <tr>
                 <td class="auto-style2">
                     &nbsp;<br />
-                    <asp:Button ID="btn_Cancelar" runat="server" Text="Cancelar y volver" CssClass="auto-style7" Height="45px" Width="197px" PostBackUrl="~/Juegos.aspx" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                    <asp:Button ID="btn_Cancelar" runat="server" Text="Cancelar y volver" CssClass="auto-style7" Height="45px" Width="197px" PostBackUrl="~/Perifericos.aspx" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
                 </td>
                 <td class="text-left">&nbsp;
                     <br />
-                    <asp:Button ID="btn_Confirmar" runat="server" Text="Agregar al carrito" CssClass="auto-style7" Height="45px" Width="197px" PostBackUrl="~/CompraMensajeJuego.aspx" OnClick="btn_Confirmar_Click" />
+                    <asp:Button ID="btn_Confirmar" runat="server" Text="Agregar al carrito" CssClass="auto-style7" Height="45px" Width="197px" OnClick="btn_Confirmar_Click" />
                     <br />
 &nbsp;</td>
             </tr>
         </table>
 
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:20px; background-color:darkslateblue; color:white;">
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atencion!&nbsp;&nbsp;&nbsp;</strong> Una vez agregado podras confirmar tu compra desde tu carrito.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
         <p>
             <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Visible="False"></asp:Label>
-        </p>
-        <p>
-            <asp:SqlDataSource ID="DS_CompraJuego" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Codigo_Juego], [J_Imagen], [J_Nombre], [J_PrecioUnitario] FROM [Juegos] WHERE ([J_Codigo_Juego] = @J_Codigo_Juego)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="lbl_Codigo" Name="J_Codigo_Juego" PropertyName="Text" Type="String" />
-                </SelectParameters>
-            </asp:SqlDataSource>
         </p>
     </form>
 </body>

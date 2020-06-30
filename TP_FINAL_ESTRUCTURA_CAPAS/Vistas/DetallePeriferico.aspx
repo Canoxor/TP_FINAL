@@ -22,6 +22,7 @@
     <style type="text/css">
         .auto-style1 {
             width: 536px;
+            text-align: center;
         }
 
         .auto-style2 {
@@ -48,13 +49,13 @@
             <div class="collapse navbar-collapse justify-content-between blurb" id="navLinks">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="Juegos.aspx" class="nav-link" style="color: #8B8C91">Juegos</a>
+                        <a href="Juegos.aspx" class="nav-link">Juegos</a>
                     </li>
                     <li class="nav-item">
                         <a href="Noticias.aspx" class="nav-link">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Perifericos.aspx" class="nav-link">Perifericos</a>
+                        <a href="Perifericos.aspx" class="nav-link" style="color: #8B8C91">Perifericos</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
@@ -126,12 +127,14 @@
                             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
                         </InsertItemTemplate>
                         <ItemTemplate>
+                            <td class="card-columns">
+                                <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width: 450px; align-content: center; align-items: center; padding-left:5%;padding-right:5%; padding-top:5%; background-color:#FFFFFF; margin-left:20%">
                             <div class="text-center">
-                                <span class="text-white">
+                                <span class="text-black" font-size: 13pt">
                                     <asp:Image ID="J_Imagen0" runat="server" Height="300px" ImageUrl='<%# Eval("PE_Imagen") %>' Style="border-radius: 20px" Width="300px" />
                                     <br />
                                     <br />
-                                    <asp:Label ID="NombreLabel" runat="server" CssClass="auto-style6" Text='<%# Eval("PE_Nombre") %>'></asp:Label>
+                                    <asp:Label ID="NombreLabel" runat="server" CssClass="auto-style6" Text='<%# Eval("PE_Nombre") %>' Font-Size="22px"></asp:Label>
                                     <br />
                                     <br />
                                     <span class="auto-style6">Descripcion</span><br />
@@ -145,10 +148,12 @@
                                     ¿Desea agregar este periférico al carrito?<br />
                                 </span>
                                 <br />
-                                <asp:Button ID="btn_Agregar" runat="server" Text="Agregar" />
+                                <asp:Button ID="btn_Agregar" runat="server" Text="Agregar" PostBackUrl="~/CompraVerificarPeriferico.aspx"/>
                                 <br />
                                 <br />
                             </div>
+                                    </td>
+                                </td>
                         </ItemTemplate>
                     </asp:FormView>
                 </td>
