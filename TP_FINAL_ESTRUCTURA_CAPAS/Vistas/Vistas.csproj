@@ -69,6 +69,9 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="Carrito.aspx" />
+    <Content Include="CompraMensajeJuego.aspx" />
+    <Content Include="CompraMensajePeriferico.aspx" />
+    <Content Include="CompraVerificarPeriferico.aspx" />
     <Content Include="CompraVerificarJuego.aspx" />
     <Content Include="CrearNuevaCuenta.aspx" />
     <Content Include="DetalleJuego.aspx" />
@@ -99,6 +102,27 @@
     </Compile>
     <Compile Include="Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompraMensajeJuego.aspx.cs">
+      <DependentUpon>CompraMensajeJuego.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompraMensajeJuego.aspx.designer.cs">
+      <DependentUpon>CompraMensajeJuego.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompraMensajePeriferico.aspx.cs">
+      <DependentUpon>CompraMensajePeriferico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompraMensajePeriferico.aspx.designer.cs">
+      <DependentUpon>CompraMensajePeriferico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompraVerificarPeriferico.aspx.cs">
+      <DependentUpon>CompraVerificarPeriferico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompraVerificarPeriferico.aspx.designer.cs">
+      <DependentUpon>CompraVerificarPeriferico.aspx</DependentUpon>
     </Compile>
     <Compile Include="CompraVerificarJuego.aspx.cs">
       <DependentUpon>CompraVerificarJuego.aspx</DependentUpon>
