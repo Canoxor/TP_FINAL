@@ -27,9 +27,9 @@ namespace Vistas
                 img_Imagen.ImageUrl = Game.Imagen_Url;
                 lbl_Nombre.Text = Game.Nombre;
                 lbl_Precio.Text = Convert.ToString(Game.Precio_Unitario);
-                lbl_Cantidad.Text = "$ " + ((TextBox)PreviousPage.FindControl("txt_Cantidad")).Text;
-
-                lbl_Monto.Text = Convert.ToString(float.Parse(lbl_Precio.Text) * int.Parse(lbl_Cantidad.Text));
+                lbl_Cantidad.Text = ((TextBox)PreviousPage.FindControl("txt_Cantidad")).Text;
+                
+                lbl_Monto.Text = "$ " + (Convert.ToString(float.Parse(lbl_Precio.Text) * int.Parse(lbl_Cantidad.Text)));
             }
         }
     }

@@ -27,9 +27,9 @@ namespace Vistas
                 img_Imagen.ImageUrl = Perif.Imagen_Url;
                 lbl_Nombre.Text = Perif.Nombre;
                 lbl_Precio.Text = Convert.ToString(Perif.Precio_Unitario);
-                lbl_Cantidad.Text = "$ " + ((TextBox)PreviousPage.FindControl("txt_Cantidad")).Text;
+                lbl_Cantidad.Text = ((TextBox)PreviousPage.FindControl("txt_Cantidad")).Text;
 
-                lbl_Monto.Text = Convert.ToString(float.Parse(lbl_Precio.Text) * int.Parse(lbl_Cantidad.Text));
+                lbl_Monto.Text = "$ " + (Convert.ToString(float.Parse(lbl_Precio.Text) * int.Parse(lbl_Cantidad.Text)));
             }
         }
     }

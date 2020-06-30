@@ -77,8 +77,8 @@ namespace Vistas
         {
             DataRow NuevaFila = Tabla.NewRow();
 
-            NuevaFila["CodigoJuego"] = Codigo;
-            NuevaFila["CantidadJuego"] = Cantidad;
+            NuevaFila["CodigoPeriferico"] = Codigo;
+            NuevaFila["CantidadPeriferico"] = Cantidad;
 
             Tabla.Rows.Add(NuevaFila);
         }

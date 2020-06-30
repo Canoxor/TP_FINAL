@@ -140,7 +140,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5"><span class="auto-style4">Monto total:<strong> </strong> </span> &nbsp;<asp:Label ID="lbl_Monto" runat="server" CssClass="auto-style4"></asp:Label>
+                <td class="auto-style5"><span class="auto-style4">Monto total:<strong> </strong></span>&nbsp;<asp:Label ID="lbl_Monto" runat="server" CssClass="auto-style4"></asp:Label>
                     <br class="auto-style4" /><span class="auto-style4">&nbsp;
 
                 </span>
@@ -156,7 +156,7 @@
                 </td>
                 <td class="text-left">&nbsp;
                     <br />
-                    <asp:Button ID="btn_Confirmar" runat="server" Text="Agregar al carrito" CssClass="auto-style7" Height="45px" Width="197px" OnClick="btn_Confirmar_Click" />
+                    <asp:Button ID="btn_Confirmar" runat="server" Text="Agregar al carrito" CssClass="auto-style7" Height="45px" Width="197px" OnClick="btn_Confirmar_Click" PostBackUrl="~/CompraMensajePeriferico.aspx" />
                     <br />
 &nbsp;</td>
             </tr>
