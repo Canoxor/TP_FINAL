@@ -70,7 +70,7 @@ namespace Vistas
                 } 
                 else
                 {
-                    Response.Redirect("LandingPage.aspx");
+                    Response.Redirect("Juegos.aspx");
                 }
             }
         }
