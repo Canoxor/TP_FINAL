@@ -17,6 +17,8 @@ namespace Vistas
         {
             usuarioLogedIn();
             lblNavbarUsuario.Text = usuario.Nombre;
+
+
         }
         protected void btnInfo_Command(object sender, CommandEventArgs e)
         {
