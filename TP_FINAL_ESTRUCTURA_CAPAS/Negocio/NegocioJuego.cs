@@ -19,29 +19,6 @@ namespace Negocio
         }
         */
 
-        public DataTable CrearTablaSesionCarrito()
-        {
-            DataTable Tabla = new DataTable();
-
-            DataColumn Columna = new DataColumn("CodigoJuego", System.Type.GetType("System.String"));
-            Tabla.Columns.Add(Columna);
-
-            Columna = new DataColumn("CantidadJuego", System.Type.GetType("System.String"));
-            Tabla.Columns.Add(Columna);
-
-            return Tabla;
-        }
-
-        public void AgregarFilaSesionCarrito(DataTable Tabla, String Codigo, String Cantidad)
-        {
-            DataRow NuevaFila = Tabla.NewRow();
-
-            NuevaFila["CodigoJuego"] = Codigo;
-            NuevaFila["CantidadJuego"] = Cantidad;
-
-            Tabla.Rows.Add(NuevaFila);
-        }
-
         public Juego ObtenerJuego(int id)
         {
             DatosJuego D_Juego = new DatosJuego();
