@@ -11,10 +11,11 @@ namespace Negocio
 {
     public class NegocioPeriferico
     {
+        protected DatosPeriferico D_Periferico = new DatosPeriferico();
+        protected Periferico E_Periferico = new Periferico();
+
         public Periferico ObtenerPeriferico(int id)
         {
-            DatosPeriferico D_Periferico = new DatosPeriferico();
-            Periferico E_Periferico = new Periferico();
             E_Periferico.Codigo_Periferico = id;
             return D_Periferico.traerPeriferico(E_Periferico);
         }
@@ -22,8 +23,6 @@ namespace Negocio
         public bool BajaPeriferico(int id)
         {
             //Validar id existente 
-            DatosPeriferico D_Periferico = new DatosPeriferico();
-            Periferico E_Periferico = new Periferico();
             E_Periferico.Codigo_Periferico = id;
             int Baja = D_Periferico.eliminarPeriferico(E_Periferico);
             if (Baja == 1)
@@ -32,21 +31,11 @@ namespace Negocio
                 return false;
         }
 
-        public bool agregarPeriferico(int Codigo_TipoPerif,int Codigo_Marca,String Nombre,String Descripcion,int Stock,float Precio,String Imagen)
+        public bool agregarPeriferico(Periferico periferico)
         {
             int cantFilas = 0;
 
-            Periferico E_Periferico = new Periferico();
-            E_Periferico.Codigo_TipoPerif = Codigo_TipoPerif;
-            E_Periferico.Codigo_Marca = Codigo_Marca;
-            E_Periferico.Nombre = Nombre;
-            E_Periferico.Descripcion = Descripcion;
-            E_Periferico.Stock = Stock;
-            E_Periferico.Precio_Unitario = Precio;
-            E_Periferico.Imagen_Url = Imagen;
-
-            DatosPeriferico D_Periferico = new DatosPeriferico();
-            if (D_Periferico.existePeriferico(E_Periferico) == false)
+            if (D_Periferico.existePeriferico(periferico) == false)
             {
                 cantFilas = D_Periferico.agregarPeriferico(E_Periferico);
             }
@@ -56,5 +45,16 @@ namespace Negocio
             else
                 return false;
         }
+
+        public bool editarPeriferico(Periferico p)
+        {
+            int seEdito = 0;
+            seEdito = D_Periferico.editarPeriferico(p);
+            if (seEdito != 0)
+                return true;
+            else
+                return false;
+        }
+
     }
 }

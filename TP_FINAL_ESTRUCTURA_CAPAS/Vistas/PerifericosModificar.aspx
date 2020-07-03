@@ -20,15 +20,21 @@
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games Administrador</title>
     <style type="text/css">
-        .auto-style1 {
-            width: 36%;
-            text-align: right;
+        .texto {
+            width: 100%;
+            text-align: center;
+            height: 30px;
+            margin-top: 15px;
         }
 
-        .auto-style2 {
-            text-align: right;
-            width: 808px;
+        .textBoxEstilo {
+            border-radius: 5px;
+            margin-top: 15px;
+            border-color: transparent;
+            height: 30px;
+            margin-left: 10px;
         }
+
     </style>
 </head>
 <body>
@@ -59,87 +65,28 @@
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
                     <li class="nav-item align-content-lg-end">
-                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
+                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" Style="position: center; text-align: center; width: 100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                     </li>
                 </ul>
             </div>
         </nav>
-        &nbsp<br />
-        <br />
-        <br />
-        <br />
-        <table class="w-100">
-            <tr>
-                <td class="auto-style1"><span class="text-white"><strong>Codigo Seleccionado:<br />
-                </strong></span><strong>&nbsp; </strong></td>
-                <td>&nbsp;&nbsp;
-                    <asp:Label ID="lbl_CodigoSeleccionado" runat="server" CssClass="text-white"></asp:Label>
-                    <br />
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">
-                    <span class="text-white"><strong>URL Imagen:<br />
-                    </strong></span>&nbsp;</td>
-                <td>&nbsp;&nbsp;
-                    <asp:TextBox ID="txt_Imagen" runat="server" Width="400px"></asp:TextBox>
-                    &nbsp;&nbsp;
-                    <asp:CheckBox ID="ch_Imagen" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                    <br />
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1"><span class="text-white"><strong>Nombre:</strong></span><strong><br />
-                </strong>&nbsp;</td>
-                <td>&nbsp;&nbsp;
-                    <asp:TextBox ID="txt_Nombre" runat="server" Width="400px"></asp:TextBox>
-                    &nbsp;&nbsp;
-                    <asp:CheckBox ID="ch_Nombre" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                    <br />
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1"><span class="text-white"><strong>Precio:</strong></span><strong><br />
-                </strong>&nbsp;</td>
-                <td>&nbsp;&nbsp;
-                    <asp:TextBox ID="txt_Precio" runat="server" Width="400px"></asp:TextBox>
-                    &nbsp;&nbsp;
-                    <asp:CheckBox ID="ch_Precio" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                    <br />
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1"><span class="text-white"><strong>Descripción:<br />
-                </strong></span>&nbsp;</td>
-                <td>&nbsp;&nbsp;
-                    <asp:TextBox ID="txt_Descripcion" runat="server" Width="400px"></asp:TextBox>
-                    &nbsp;&nbsp;
-                    <asp:CheckBox ID="ch_Precio0" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                    <br />
-                    &nbsp;&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1"><span class="text-white"><strong>Stock:<br />
-                </strong></span>
-                </td>
-                <td>
-                    <asp:TextBox ID="txt_StockPerifericos" runat="server" Width="400px"></asp:TextBox>
-                    &nbsp;
-                    <asp:CheckBox ID="ch_Stock" runat="server" CssClass="text-white" Text="Aplicar este cambio" />
-                </td>
-            </tr>
-        </table>
-        <br />
-        <table class="w-100">
-            <tr>
-                <td class="auto-style2">
-                    <asp:Button runat="server" CommandName="Update" Text="Actualizar" ID="btn_Actualizar"></asp:Button>
-                    &nbsp;&nbsp; </td>
-                <td>&nbsp;&nbsp;&nbsp;
-                    <asp:Button runat="server" CommandName="Cancel" Text="Cancelar" ID="btn_Cancelar" PostBackUrl="~/PerifericosAdministrador.aspx"></asp:Button>
-                </td>
-            </tr>
-        </table>
+
+        <div style="width: 100%; margin-top: 4%; color: white">
+
+            <div class="texto">Codigo Periferico:<asp:Label ID="lbl_CodigoSeleccionado" runat="server" Text="" Style="margin-left: 15px"></asp:Label></div>
+            
+            <div class="texto">Precio:<asp:TextBox ID="txtPrecio" CssClass="textBoxEstilo" runat="server" TextMode="Number"></asp:TextBox></div>
+           
+            <div class="texto">Stock:<asp:TextBox ID="txtStock" runat="server" CssClass="textBoxEstilo" TextMode="Number"></asp:TextBox></div>
+
+            <div style="width: 100%; text-align:center; height: 30px; margin-top: 25px">
+                <asp:Button class="btn btn-primary btn-m" ID="btnActualizar" runat="server" Style="position: center; margin-right: 10px" Text="Actualizar" OnClick="btnActualizar_Click" />
+                <asp:Button class="btn btn-dark btn-m" ID="btnCancelar" runat="server" Style="position: center;margin-left:10px" Text="Cancelar" OnClick="btnCancelar_Click" />
+            </div>
+            
+            <div style="width: 100%; text-align: center; margin-top:30px">
+                <asp:Label ID="lblMensaje" runat="server" Text="" Style="color: yellow; margin-top: 60px"></asp:Label></div>
+        </div>
     </form>
 </body>
 </html>

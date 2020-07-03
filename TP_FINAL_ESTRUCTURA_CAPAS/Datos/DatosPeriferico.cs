@@ -65,27 +65,29 @@ namespace Datos
         private void armarParametrosPerifericoEliminar(ref SqlCommand comando, Periferico p)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.VarChar);
             sqlParametros.Value = p.Codigo_Periferico;
         }
 
         private void armarParametrosPerifericoEditar(ref SqlCommand comando, Periferico p)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.VarChar);
             sqlParametros.Value = p.Codigo_Periferico;
-            sqlParametros = comando.Parameters.Add("@PE_PrecioUnitario", SqlDbType.Decimal);
+            sqlParametros = comando.Parameters.Add("@PE_StockNuevo", SqlDbType.Int);
+            sqlParametros.Value = p.Stock;
+            sqlParametros = comando.Parameters.Add("@PE_PrecioNuevo", SqlDbType.Decimal);
             sqlParametros.Value = p.Precio_Unitario;
         }
 
         private void armarParametrosPerifericoAgregar(ref SqlCommand comando, Periferico p)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.VarChar);
             sqlParametros.Value = p.Codigo_Periferico;
-            sqlParametros = comando.Parameters.Add("@PE_Codigo_TipoPerif", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_TipoPerif", SqlDbType.VarChar);
             sqlParametros.Value = p.Codigo_TipoPerif;
-            sqlParametros = comando.Parameters.Add("@PE_Codigo_Marca", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_Marca", SqlDbType.VarChar);
             sqlParametros.Value = p.Codigo_Marca;
             sqlParametros = comando.Parameters.Add("@PE_Nombre", SqlDbType.VarChar);
             sqlParametros.Value = p.Nombre;

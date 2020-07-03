@@ -4,11 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entidades;
+using Negocio;
 
 namespace Vistas
 {
     public partial class PerifericosAdministrador : System.Web.UI.Page
     {
+
+        protected NegocioPeriferico N_Periferico = new NegocioPeriferico();
+        protected Periferico periferico = new Periferico();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,8 +22,9 @@ namespace Vistas
         protected void btn_Detalle_Command(object sender, CommandEventArgs e)
         {
             int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
-            Session["CodPeriferico"] = "" + id_seleccionado + "";
-            lbl_Codigo.Text = Session["CodPeriferico"].ToString();
+            periferico = N_Periferico.ObtenerPeriferico(id_seleccionado);
+            Session["pModificar"] = periferico;
+            Response.Redirect("PerifericosModificar.aspx");
         }
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {

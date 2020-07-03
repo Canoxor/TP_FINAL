@@ -82,14 +82,14 @@ namespace Datos
         private void armarParametrosUsuarioEliminar(ref SqlCommand comando, Usuario u)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@U_Codigo_Usuario", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@U_Codigo_Usuario", SqlDbType.VarChar);
             sqlParametros.Value = u.Codigo_Usuario;
         }
 
         private void armarParametrosUsuarioEditar(ref SqlCommand comando, Usuario u)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@U_Codigo_Usuario", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@U_Codigo_Usuario", SqlDbType.VarChar);
             sqlParametros.Value = u.Codigo_Usuario;
             sqlParametros = comando.Parameters.Add("@U_Nombre", SqlDbType.VarChar);
             sqlParametros.Value = u.Nombre;
@@ -97,7 +97,7 @@ namespace Datos
             sqlParametros.Value = u.Apellido;
             sqlParametros = comando.Parameters.Add("@U_Direccion", SqlDbType.VarChar);
             sqlParametros.Value = u.Direccion;
-            sqlParametros = comando.Parameters.Add("@U_Telefono", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@U_Telefono", SqlDbType.VarChar);
             sqlParametros.Value = u.Telefono;
             sqlParametros = comando.Parameters.Add("@U_Admin", SqlDbType.Bit);
             sqlParametros.Value = u.Admin;
@@ -110,9 +110,9 @@ namespace Datos
         private void armarParametrosUsuarioAgregar(ref SqlCommand comando, Usuario u)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@U_Codigo_Usuario", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@U_Codigo_Usuario", SqlDbType.VarChar);
             sqlParametros.Value = u.Codigo_Usuario;
-            sqlParametros = comando.Parameters.Add("@U_Dni_Usuario", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@U_Dni_Usuario", SqlDbType.VarChar);
             sqlParametros.Value = u.Dni;
             sqlParametros = comando.Parameters.Add("@U_Nombre", SqlDbType.VarChar);
             sqlParametros.Value = u.Nombre;
@@ -120,7 +120,7 @@ namespace Datos
             sqlParametros.Value = u.Apellido;
             sqlParametros = comando.Parameters.Add("@U_Direccion", SqlDbType.VarChar);
             sqlParametros.Value = u.Direccion;
-            sqlParametros = comando.Parameters.Add("@U_Telefono", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@U_Telefono", SqlDbType.VarChar);
             sqlParametros.Value = u.Telefono;
             sqlParametros = comando.Parameters.Add("@U_Admin", SqlDbType.Bit);
             sqlParametros.Value = u.Admin;
