@@ -40,14 +40,7 @@
         .auto-style7 {
             font-size: large;
         }
-        .auto-style8 {
-            font-size: medium;
-        }
-        .auto-style9 {
-            font-size: medium;
-            color: red;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <form id="formJuegos" runat="server">
@@ -110,7 +103,7 @@
             <tr>
                 <td class="auto-style2" rowspan="4">
                     &nbsp;<br />
-                    &nbsp;<asp:Image ID="img_Imagen" runat="server" CssClass="auto-style3" Width="243px"/>
+                    &nbsp;<asp:Image ID="img_Imagen" runat="server" CssClass="auto-style3" Width="273px" Height="276px"/>
                 </td>
                 <td class="auto-style5"><span class="auto-style4">&nbsp;<br />
                     N<strong><span class="auto-style6">ombre:</span> </strong> </span> &nbsp;<asp:Label ID="lbl_Nombre" runat="server" CssClass="auto-style4"></asp:Label>

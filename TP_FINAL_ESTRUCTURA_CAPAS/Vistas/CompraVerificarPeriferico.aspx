@@ -162,12 +162,6 @@
             </tr>
         </table>
 
-        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:20px; background-color:darkslateblue; color:white;">
-        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atencion!&nbsp;&nbsp;&nbsp;</strong> Una vez agregado podras confirmar tu compra desde tu carrito.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
         <p>
             <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Visible="False"></asp:Label>
         </p>
