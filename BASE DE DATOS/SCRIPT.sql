@@ -2,12 +2,15 @@
 -- CREACION DE LA BD + TABLAS
 -- DROP TABLE PARCIAL_LAB_3_Version_4
 
-create DATABASE PARCIAL_LAB_3_Version_10
+CREATE DATABASE PARCIAL_LAB_3_Version_10
 GO
 
 USE PARCIAL_LAB_3_Version_10
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Juegos')
+PRINT '* Ya existe la tabla Juegos'
+ELSE
 CREATE TABLE Juegos
 (
 	J_Codigo_Juego varchar(5) not null CONSTRAINT PK_Juegos PRIMARY KEY,
@@ -22,6 +25,9 @@ CREATE TABLE Juegos
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Noticias')
+PRINT '* Ya existe la tabla Noticias'
+ELSE
 CREATE TABLE Noticias
 (
 	N_Codigo_Noticia varchar(5) not null CONSTRAINT PK_Noticias PRIMARY KEY,
@@ -33,6 +39,9 @@ CREATE TABLE Noticias
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Marcas')
+PRINT '* Ya existe la tabla Marcas'
+ELSE
 CREATE TABLE Marcas
 (
 	M_Codigo_Marca varchar(5) not null CONSTRAINT PK_Marcas PRIMARY KEY,
@@ -40,6 +49,9 @@ CREATE TABLE Marcas
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Perifericos')
+PRINT '* Ya existe la tabla Perifericos'
+ELSE
 CREATE TABLE Perifericos
 (
 	PE_Codigo_Periferico varchar(5) not null CONSTRAINT PK_Perifericos PRIMARY KEY,
@@ -54,6 +66,9 @@ CREATE TABLE Perifericos
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Proveedores')
+PRINT '* Ya existe la tabla Proveedores'
+ELSE
 CREATE TABLE Proveedores
 (
 	P_Codigo_Proveedor varchar (5) not null CONSTRAINT PK_Proveedores PRIMARY KEY,
@@ -70,6 +85,9 @@ CREATE TABLE Proveedores
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Prov_X_Perif')
+PRINT '* Ya existe la tabla Prov_X_Perif'
+ELSE
 CREATE TABLE Prov_X_Perif
 (
 	PP_Codigo_Proveedor varchar(5) not null,
@@ -79,6 +97,9 @@ CREATE TABLE Prov_X_Perif
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Prov_X_Juego')
+PRINT '* Ya existe la tabla Prov_X_Juego'
+ELSE
 CREATE TABLE Prov_X_Juego
 (
 	PJ_Codigo_Proveedor varchar(5) not null,
@@ -88,6 +109,9 @@ CREATE TABLE Prov_X_Juego
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'PEGI')
+PRINT '* Ya existe la tabla PEGI'
+ELSE
 CREATE TABLE PEGI
 (
 	PG_Codigo_PEGI varchar(5) not null CONSTRAINT PK_PEGI PRIMARY KEY,
@@ -96,6 +120,9 @@ CREATE TABLE PEGI
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Generos')
+PRINT '* Ya existe la tabla Generos'
+ELSE
 CREATE TABLE Generos
 (
 	G_Codigo_Genero varchar(5) not null CONSTRAINT PK_Generos PRIMARY KEY,
@@ -104,6 +131,9 @@ CREATE TABLE Generos
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'TipoPerif')
+PRINT '* Ya existe la tabla TipoPerif'
+ELSE
 CREATE TABLE TipoPerif
 (
 	T_Codigo_TipoPerif varchar(5) not null CONSTRAINT PK_Categorias PRIMARY KEY,
@@ -112,6 +142,9 @@ CREATE TABLE TipoPerif
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'DetalleFactura_Juegos')
+PRINT '* Ya existe la tabla DetalleFactura_Juegos'
+ELSE
 CREATE TABLE DetalleFactura_Juegos
 (
 	DJ_Codigo_Factura varchar(5) not null,
@@ -122,16 +155,22 @@ CREATE TABLE DetalleFactura_Juegos
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'DetalleFactura_Perifericos')
+PRINT '* Ya existe la tabla DetalleFactura_Perifericos'
+ELSE
 CREATE TABLE DetalleFactura_Perifericos
 (
 	DP_Codigo_Factura varchar(5) not null,
-	DP_Codigo_Juego varchar(5) not null,
+	DP_Codigo_Periferico varchar(5) not null,
 	DP_Cantidad int not null,
 	DP_PrecioUnitario decimal(18,2) null,
-	CONSTRAINT PK_DetalleFactura_Perifericos PRIMARY KEY (DP_Codigo_Factura, DP_Codigo_Juego)
+	CONSTRAINT PK_DetalleFactura_Perifericos PRIMARY KEY (DP_Codigo_Factura, DP_Codigo_Periferico)
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Factura')
+PRINT '* Ya existe la tabla Factura'
+ELSE
 CREATE TABLE Factura
 (
 	F_Codigo_Factura varchar(5) not null CONSTRAINT PK_Factura PRIMARY KEY,
@@ -142,6 +181,9 @@ CREATE TABLE Factura
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Usuarios')
+PRINT '* Ya existe la tabla Usuarios'
+ELSE
 CREATE TABLE Usuarios
 (
 	U_Codigo_Usuario varchar(5) not null CONSTRAINT PK_Usuarios PRIMARY KEY,
@@ -157,6 +199,9 @@ CREATE TABLE Usuarios
 )
 GO
 
+IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'CodigosDeDescuento')
+PRINT '* Ya existe la tabla CodigosDeDescuento'
+ELSE
 CREATE TABLE CodigosDeDescuento
 (
 	CD_Codigo_CodDescuento varchar(5) not null PRIMARY KEY,
@@ -193,7 +238,7 @@ GO
 
 ALTER TABLE DetalleFactura_Perifericos
 ADD
-	CONSTRAINT FK_DetalleFactura_Perifericos_J FOREIGN KEY (DP_Codigo_Juego) REFERENCES Perifericos (PE_Codigo_Periferico),
+	CONSTRAINT FK_DetalleFactura_Perifericos_J FOREIGN KEY (DP_Codigo_Periferico) REFERENCES Perifericos (PE_Codigo_Periferico),
 	CONSTRAINT FK_DetalleFactura_Perifericos_F FOREIGN KEY (DP_Codigo_Factura) REFERENCES Factura (F_Codigo_Factura)
 GO
 
@@ -319,6 +364,7 @@ INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin
 GO
 
 INSERT INTO CodigosDeDescuento (CD_Codigo_CodDescuento,CD_Descripcion,CD_Habilitado,CD_Usos)
+	SELECT '0','Sin Descuento',0,0 UNION
 	SELECT '1','Descuento del 20% en Perifericos',0,0 UNION
 	SELECT '2','Descuento del 20% en Juegos',0,0 UNION
 	SELECT '3','Descuento del 15% en todos nuestros productos',0,0 
@@ -332,7 +378,32 @@ La saga Call of Duty se encuentra en su mejor momento de los últimos diez años. 
 	SELECT 'https://media.vandal.net/i/1024x576/5-2020/2020541224503_1.jpg','3','5','Desafía al Dios de la destrucción en Dragon Ball Z Kakarot','Dragon Ball Z Kakarot presenta con El despertar de un nuevo poder - Parte 1 su primer DLC de historia. En él, conoceremos a Whis y Bills (Beerus en el original), y tendremos que despertar un nuevo nivel de poder saiyan para poder afrontar el desafío. Para llegar a ello, Whis nos propondrá una serie de misiones que sirven de entrenamiento.','1' 
 GO
 
--- PROCEDIMIENTOS ALMACENADOS
+INSERT INTO Factura (F_Codigo_Factura, F_Codigo_Usuario, F_Codigo_CodDescuento, F_MontoTotal, F_Fecha)
+	SELECT '1', '3', '1', '9600', '2020-4-5' UNION
+	SELECT '2', '3', '0', '12000', '2020-4-17' UNION
+	SELECT '3', '2', '0', '23000', '2020-5-22' UNION
+	SELECT '4', '1', '0', '5100', '2020-6-3' UNION
+	SELECT '5', '3', '0', '12900', '2020-6-15' UNION
+	SELECT '6', '2', '0', '89800', '2020-6-29'
+GO
+
+INSERT INTO DetalleFactura_Juegos (DJ_Codigo_Factura, DJ_Codigo_Juego, DJ_Cantidad, DJ_PrecioUnitario)
+	SELECT '4', '1', '1', '2000' UNION
+	SELECT '4', '2', '1', '3100' UNION
+	SELECT '5', '2', '1', '3100' UNION
+	SELECT '5', '4', '1', '2800' UNION
+	SELECT '5', '5', '1', '7000'
+GO
+
+INSERT INTO DetalleFactura_Perifericos (DP_Codigo_Factura, DP_Codigo_Periferico, DP_Cantidad, DP_PrecioUnitario)
+	SELECT '1', '1', '1', '12000' UNION
+	SELECT '2', '1', '1', '12000' UNION
+	SELECT '3', '3', '1', '11500' UNION
+	SELECT '4', '5', '1', '11000' UNION
+	SELECT '5', '8', '1', '10300' UNION
+	SELECT '6', '9', '1', '48500' UNION
+	SELECT '7', '10', '1', '31000' 
+	GO
 
 -- PROCEDIMIENTOS ALMACENADOS
 
@@ -340,7 +411,6 @@ GO
 
 CREATE PROCEDURE SP_Insert_Juegos
 (
-	@J_Codigo_Juego varchar(5),
 	@J_Codigo_Genero varchar(5),
 	@J_Codigo_PEGI varchar(5),
 	@J_Nombre varchar(50),
@@ -350,6 +420,10 @@ CREATE PROCEDURE SP_Insert_Juegos
 	@J_Imagen varchar(200)
 )
 AS
+
+DECLARE @J_Codigo_Juego varchar(5)
+SET @J_Codigo_Juego = (SELECT (MAX(J_Codigo_Juego)+1) FROM Juegos)
+
 INSERT INTO Juegos 
 (
 	J_Codigo_Juego,
@@ -397,7 +471,6 @@ GO
 
 CREATE PROCEDURE SP_Insert_Perifericos
 (
-	@PE_Codigo_Periferico varchar(5),
 	@PE_Codigo_TipoPerif varchar(5),
 	@PE_Codigo_Marca varchar(5),
 	@PE_Nombre varchar(50),
@@ -407,6 +480,10 @@ CREATE PROCEDURE SP_Insert_Perifericos
 	@PE_Imagen varchar(200)
 )
 AS
+
+DECLARE @PE_Codigo_Periferico varchar(5)
+SET @PE_Codigo_Periferico = (SELECT (MAX(PE_Codigo_Periferico)+1) FROM Perifericos)
+
 INSERT INTO Perifericos
 (
 	PE_Codigo_Periferico,
@@ -442,11 +519,18 @@ GO
 CREATE PROCEDURE SP_Update_Perifericos
 (
 	@PE_Codigo_Periferico varchar(5),
+	@PE_StockNuevo int,
 	@PE_PrecioNuevo decimal(18,2)
 )
 AS
+IF(@PE_PrecioNuevo!=-1)
 UPDATE Perifericos
 SET PE_PrecioUnitario = @PE_PrecioNuevo
+WHERE PE_Codigo_Periferico = @PE_Codigo_Periferico
+
+IF(@PE_StockNuevo!=-1)
+UPDATE Perifericos
+SET PE_Stock = @PE_StockNuevo
 WHERE PE_Codigo_Periferico = @PE_Codigo_Periferico
 GO
 
@@ -454,7 +538,6 @@ GO
 
 CREATE PROCEDURE SP_Insert_Proveedores
 (
-	@P_Codigo_Proveedor varchar (5),
 	@P_RazonSocial varchar(50),
 	@P_Direccion varchar(50),
 	@P_Ciudad varchar(50),
@@ -466,6 +549,10 @@ CREATE PROCEDURE SP_Insert_Proveedores
 	@P_Email varchar(50)
 )
 AS
+
+DECLARE @P_Codigo_Proveedor varchar(5)
+SET @P_Codigo_Proveedor = (SELECT (MAX(P_Codigo_Proveedor)+1) FROM Proveedores)
+
 INSERT INTO Proveedores
 (
 	P_Codigo_Proveedor,
@@ -517,10 +604,13 @@ GO
 
 CREATE PROCEDURE SP_Insert_Marcas
 (
-	@M_Codigo_Marca varchar(5),
 	@M_Nombre varchar(50)
 )
 AS
+
+DECLARE @M_Codigo_Marca varchar(5)
+SET @M_Codigo_Marca = (SELECT (MAX(M_Codigo_Marca)+1) FROM Marcas)
+
 INSERT INTO Marcas
 (
 	M_Codigo_Marca,
@@ -535,7 +625,6 @@ GO
 
 CREATE PROCEDURE SP_Insert_Usuarios
 (
-	@U_Codigo_Usuario varchar(5),
 	@U_Dni_Usuario varchar(25),
 	@U_Nombre varchar(50),
 	@U_Apellido varchar(50),
@@ -546,6 +635,10 @@ CREATE PROCEDURE SP_Insert_Usuarios
 	@U_Contrasenia varchar(20)
 )
 AS
+
+DECLARE @U_Codigo_Usuario varchar(5)
+SET @U_Codigo_Usuario = (SELECT (MAX(U_Codigo_Usuario)+1) FROM Usuarios)
+
 INSERT INTO Usuarios
 (
 	U_Codigo_Usuario,
@@ -641,16 +734,39 @@ SET N_Estado = '0'
 WHERE N_Codigo_Noticia = @N_Codigo_Noticia
 GO
 
+-- CONSULTAS 
 
+-- Verificar STOCK escaso
+SELECT PE_Codigo_Periferico AS [Codigo], 
+	   PE_Nombre AS [Nombre], 
+	   [Estado del Stock] =
+	CASE
+	WHEN PE_Stock <= 10 THEN 'Escaso'
+	WHEN PE_Stock > 10 AND
+		 PE_Stock <= 20 THEN 'Por escasear'
+	ELSE 'En condición'
+	END
+FROM Perifericos
+GO
 
--- Eliminar registro
+-- Verificar STOCK = 0
+IF EXISTS (SELECT * FROM Perifericos
+		   WHERE PE_Stock = 0)
+   (SELECT PE_Codigo_Periferico AS [Codigo], 
+	       PE_Nombre AS [Nombre]
+	FROM Perifericos
+	WHERE PE_Stock = 0)
+ELSE
+	SELECT 'Ningun periferico esta sin stock' AS [Mensaje]
+GO
 
--- Modificar registro
+-- Retorna la fecha actual
+SELECT CAST(DAY(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(MONTH(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(YEAR(GETDATE()) AS VARCHAR(5));
 
--- SCRIPTS
-
--- Eliminar registro
-
--- Modificar registro
-
--- SCRIPTS
+/*
+-- Suma la recaudacion total de todos los años
+SELECT SUM(F_MontoTotal) AS [Total Recaudado], DATEPART(YEAR,F_Fecha) AS [Año]
+FROM Factura
+ORDER BY DATEPART(YEAR,F_Fecha) ASC
+GO
+*/
