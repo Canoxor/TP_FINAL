@@ -112,7 +112,7 @@
             <tr>
                 <td class="auto-style2" rowspan="4">
                     &nbsp;<br />
-                    <asp:Image ID="img_Imagen" runat="server" CssClass="auto-style3" Width="273px" Height="276px"/>
+                    <asp:Image ID="img_Imagen" runat="server" CssClass="auto-style3" Width="243px"/>
                 </td>
                 <td class="auto-style5"><span class="auto-style4">&nbsp;<br />
                     N<strong><span class="auto-style6">ombre:</span> </strong> </span> &nbsp;<asp:Label ID="lbl_Nombre" runat="server" CssClass="auto-style4"></asp:Label>
@@ -162,6 +162,12 @@
             </tr>
         </table>
 
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:20px; background-color:darkslateblue; color:white;">
+        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atencion!&nbsp;&nbsp;&nbsp;</strong> Una vez agregado podras confirmar tu compra desde tu carrito.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
         <p>
             <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Visible="False"></asp:Label>
         </p>
