@@ -28,8 +28,6 @@ namespace Vistas
                 lbl_Nombre.Text = Perif.Nombre;
                 lbl_Precio.Text = Convert.ToString(Perif.Precio_Unitario);
                 lbl_Monto.Text = "";
-
-                Session["PerifSeleccionado"] = Perif;
             }
         }
 
@@ -60,38 +58,29 @@ namespace Vistas
                 Session["CarritoPeriferico"] = CrearTabla();
             }
 
-            AgregarFila(txt_Cantidad.Text);
+            AgregarFila((DataTable)Session["CarritoPeriferico"], lbl_Codigo.Text, txt_Cantidad.Text);
         }
 
         public DataTable CrearTabla()
         {
             DataTable Tabla = new DataTable();
-            DataColumn Columna_Codigo = new DataColumn("Codigo", System.Type.GetType("System.String"));
-            DataColumn Columna_ImagenURL = new DataColumn("Imagen", System.Type.GetType("System.String"));
-            DataColumn Columna_Nombre = new DataColumn("Nombre", System.Type.GetType("System.String"));
-            DataColumn Columna_Precio = new DataColumn("Precio", System.Type.GetType("System.String"));
-            DataColumn Columna_Cantidad = new DataColumn("Cantidad", System.Type.GetType("System.String"));
+            DataColumn Columna_Codigo = new DataColumn("CodigoPeriferico", System.Type.GetType("System.String"));
+            DataColumn Columna_Cantidad = new DataColumn("CantidadPeriferico", System.Type.GetType("System.String"));
 
             Tabla.Columns.Add(Columna_Codigo);
-            Tabla.Columns.Add(Columna_ImagenURL);
-            Tabla.Columns.Add(Columna_Nombre);
-            Tabla.Columns.Add(Columna_Precio);
             Tabla.Columns.Add(Columna_Cantidad);
 
             return Tabla;
         }
 
-        public void AgregarFila(String Cantidad)
+        public void AgregarFila(DataTable Tabla, String Codigo, String Cantidad)
         {
-            DataRow NuevaFila = ((DataTable)Session["CarritoPeriferico"]).NewRow();
+            DataRow NuevaFila = Tabla.NewRow();
 
-            NuevaFila["Codigo"] = ((Periferico)Session["PerifSeleccionado"]).Codigo_Periferico;
-            NuevaFila["Imagen"] = ((Periferico)Session["PerifSeleccionado"]).Imagen_Url;
-            NuevaFila["Nombre"] = ((Periferico)Session["PerifSeleccionado"]).Nombre;
-            NuevaFila["Precio"] = ((Periferico)Session["PerifSeleccionado"]).Precio_Unitario;
-            NuevaFila["Cantidad"] = Cantidad;
+            NuevaFila["CodigoPeriferico"] = Codigo;
+            NuevaFila["CantidadPeriferico"] = Cantidad;
 
-            ((DataTable)Session["CarritoPeriferico"]).Rows.Add(NuevaFila);
+            Tabla.Rows.Add(NuevaFila);
         }
 
     }
