@@ -28,6 +28,8 @@ namespace Vistas
                 lbl_Nombre.Text = Perif.Nombre;
                 lbl_Precio.Text = Convert.ToString(Perif.Precio_Unitario);
                 lbl_Monto.Text = "";
+
+                Session["PerifSeleccionado"] = Perif;
             }
         }
 
@@ -58,29 +60,69 @@ namespace Vistas
                 Session["CarritoPeriferico"] = CrearTabla();
             }
 
-            AgregarFila((DataTable)Session["CarritoPeriferico"], lbl_Codigo.Text, txt_Cantidad.Text);
+            if (VerificarPeriferico() == true)
+            {
+                ModificarCantidad(txt_Cantidad.Text);
+            }
+            else
+            {
+                AgregarFila(txt_Cantidad.Text);
+            }
         }
 
         public DataTable CrearTabla()
         {
             DataTable Tabla = new DataTable();
-            DataColumn Columna_Codigo = new DataColumn("CodigoPeriferico", System.Type.GetType("System.String"));
-            DataColumn Columna_Cantidad = new DataColumn("CantidadPeriferico", System.Type.GetType("System.String"));
+            DataColumn Columna_Codigo = new DataColumn("Codigo", System.Type.GetType("System.String"));
+            DataColumn Columna_ImagenURL = new DataColumn("Imagen", System.Type.GetType("System.String"));
+            DataColumn Columna_Nombre = new DataColumn("Nombre", System.Type.GetType("System.String"));
+            DataColumn Columna_Precio = new DataColumn("Precio", System.Type.GetType("System.String"));
+            DataColumn Columna_Cantidad = new DataColumn("Cantidad", System.Type.GetType("System.String"));
 
             Tabla.Columns.Add(Columna_Codigo);
+            Tabla.Columns.Add(Columna_ImagenURL);
+            Tabla.Columns.Add(Columna_Nombre);
+            Tabla.Columns.Add(Columna_Precio);
             Tabla.Columns.Add(Columna_Cantidad);
 
             return Tabla;
         }
 
-        public void AgregarFila(DataTable Tabla, String Codigo, String Cantidad)
+        public void AgregarFila(String Cantidad)
         {
-            DataRow NuevaFila = Tabla.NewRow();
+            DataRow NuevaFila = ((DataTable)Session["CarritoPeriferico"]).NewRow();
 
-            NuevaFila["CodigoPeriferico"] = Codigo;
-            NuevaFila["CantidadPeriferico"] = Cantidad;
+            NuevaFila["Codigo"] = ((Periferico)Session["PerifSeleccionado"]).Codigo_Periferico;
+            NuevaFila["Imagen"] = ((Periferico)Session["PerifSeleccionado"]).Imagen_Url;
+            NuevaFila["Nombre"] = ((Periferico)Session["PerifSeleccionado"]).Nombre;
+            NuevaFila["Precio"] = ((Periferico)Session["PerifSeleccionado"]).Precio_Unitario;
+            NuevaFila["Cantidad"] = Cantidad;
 
-            Tabla.Rows.Add(NuevaFila);
+            ((DataTable)Session["CarritoPeriferico"]).Rows.Add(NuevaFila);
+        }
+
+        public void ModificarCantidad(String Cantidad)
+        {
+            foreach (DataRow fila in ((DataTable)Session["CarritoPeriferico"]).Rows)
+            {
+                if (fila["Codigo"].ToString() == ((Periferico)Session["PerifSeleccionado"]).Codigo_Periferico.ToString())
+                {
+                    fila["Cantidad"] = (int.Parse(fila["Cantidad"].ToString()) + int.Parse(Cantidad));
+                    return;
+                }
+            }
+        }
+
+        public bool VerificarPeriferico()
+        {
+            foreach (DataRow fila in ((DataTable)Session["CarritoPeriferico"]).Rows)
+            {
+                if (fila["Codigo"].ToString() == ((Periferico)Session["PerifSeleccionado"]).Codigo_Periferico.ToString())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

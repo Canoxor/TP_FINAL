@@ -28,6 +28,8 @@ namespace Vistas
                 lbl_Nombre.Text = Game.Nombre;
                 lbl_Precio.Text = Convert.ToString(Game.Precio_Unitario);
                 lbl_Monto.Text = "";
+
+                Session["JuegoSeleccionado"] = Game;
             }
         }
 
@@ -58,29 +60,69 @@ namespace Vistas
                 Session["CarritoJuegos"] = CrearTabla();
             }
 
-            AgregarFila((DataTable)Session["CarritoJuegos"], lbl_Codigo.Text, txt_Cantidad.Text);
+            if(VerificarJuego()==true)
+            {
+                ModificarCantidad(txt_Cantidad.Text);
+            }
+            else
+            {
+                AgregarFila(txt_Cantidad.Text);
+            }
         }
 
         public DataTable CrearTabla()
         {
             DataTable Tabla = new DataTable();
-            DataColumn Columna_Codigo = new DataColumn("CodigoJuego", System.Type.GetType("System.String"));
-            DataColumn Columna_Cantidad = new DataColumn("CantidadJuego", System.Type.GetType("System.String"));
+            DataColumn Columna_Codigo = new DataColumn("Codigo", System.Type.GetType("System.String"));
+            DataColumn Columna_ImagenURL = new DataColumn("Imagen", System.Type.GetType("System.String"));
+            DataColumn Columna_Nombre = new DataColumn("Nombre", System.Type.GetType("System.String"));
+            DataColumn Columna_Precio = new DataColumn("Precio", System.Type.GetType("System.String"));
+            DataColumn Columna_Cantidad = new DataColumn("Cantidad", System.Type.GetType("System.String"));
 
             Tabla.Columns.Add(Columna_Codigo);
+            Tabla.Columns.Add(Columna_ImagenURL);
+            Tabla.Columns.Add(Columna_Nombre);
+            Tabla.Columns.Add(Columna_Precio);
             Tabla.Columns.Add(Columna_Cantidad);
 
             return Tabla;
         }
 
-        public void AgregarFila(DataTable Tabla, String Codigo, String Cantidad)
+        public void AgregarFila(String Cantidad)
         {
-            DataRow NuevaFila = Tabla.NewRow();
+            DataRow NuevaFila = ((DataTable)Session["CarritoJuegos"]).NewRow();
 
-            NuevaFila["CodigoJuego"] = Codigo;
-            NuevaFila["CantidadJuego"] = Cantidad;
+            NuevaFila["Codigo"] = ((Juego)Session["JuegoSeleccionado"]).Codigo_Juego;
+            NuevaFila["Imagen"] = ((Juego)Session["JuegoSeleccionado"]).Imagen_Url;
+            NuevaFila["Nombre"] = ((Juego)Session["JuegoSeleccionado"]).Nombre;
+            NuevaFila["Precio"] = ((Juego)Session["JuegoSeleccionado"]).Precio_Unitario;
+            NuevaFila["Cantidad"] = Cantidad;
 
-            Tabla.Rows.Add(NuevaFila);
+            ((DataTable)Session["CarritoJuegos"]).Rows.Add(NuevaFila);
+        }
+
+        public void ModificarCantidad(String Cantidad)
+        {
+            foreach (DataRow fila in ((DataTable)Session["CarritoJuegos"]).Rows)
+            {
+                if (fila["Codigo"].ToString() == ((Juego)Session["JuegoSeleccionado"]).Codigo_Juego.ToString())
+                {
+                    fila["Cantidad"] = (int.Parse(fila["Cantidad"].ToString()) + int.Parse(Cantidad));
+                    return;
+                }
+            }
+        }
+
+        public bool VerificarJuego()
+        {
+            foreach (DataRow fila in ((DataTable)Session["CarritoJuegos"]).Rows)
+            {
+                if(fila["Codigo"].ToString() == ((Juego)Session["JuegoSeleccionado"]).Codigo_Juego.ToString())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
