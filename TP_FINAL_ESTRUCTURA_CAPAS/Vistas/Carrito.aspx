@@ -20,6 +20,10 @@
 <body>
     <form id="formCarrito" runat="server">
         <div>
+
+            <asp:GridView ID="grd_Carrito_Juegos" runat="server">
+            </asp:GridView>
+
         </div>
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
