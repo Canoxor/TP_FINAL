@@ -42,13 +42,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
 
         /// <summary>
-        /// Control lblBienvenida.
+        /// Control lblNombreDeUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBienvenida;
+        protected global::System.Web.UI.WebControls.Label lblNombreDeUsuario;
 
         /// <summary>
         /// Control lblNombre.
@@ -67,33 +67,6 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblApellido;
-
-        /// <summary>
-        /// Control lblDni.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDni;
-
-        /// <summary>
-        /// Control lblDireccion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDireccion;
-
-        /// <summary>
-        /// Control lblTelefono.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefono;
 
         /// <summary>
         /// Control lblEmail.

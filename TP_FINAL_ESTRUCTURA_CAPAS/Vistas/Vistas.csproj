@@ -93,7 +93,6 @@
     <Content Include="PerifericosModificar.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="UsuariosAdministrador.aspx" />
-    <Content Include="UsuariosModificar.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -251,13 +250,6 @@
     </Compile>
     <Compile Include="UsuariosAdministrador.aspx.designer.cs">
       <DependentUpon>UsuariosAdministrador.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UsuariosModificar.aspx.cs">
-      <DependentUpon>UsuariosModificar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UsuariosModificar.aspx.designer.cs">
-      <DependentUpon>UsuariosModificar.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

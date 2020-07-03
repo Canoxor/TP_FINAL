@@ -46,7 +46,7 @@
                 <td class="auto-style9" style="color: #FFFFFF">Email:</td>
                 <td class="auto-style8">
                     <!-- Para tener en cuenta para el diseño, borde redondeado y placeholder como hint -->
-                    <asp:TextBox ID="txtEmail_LogIn" runat="server" TextMode="Email" placeholder="Email" Style="border-radius: 5px; border-color: transparent"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail_LogIn" runat="server" TextMode="Email" placeholder="Email" style="border-radius:5px;border-color:transparent"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -64,18 +64,18 @@
         </div>
         &nbsp
         <div style="text-align: center">
-            <asp:Button class="btn btn-secondary btn-m" ID="btnCrearCuenta_LogIn" runat="server" Style="position: center" OnClick="btnCrearCuenta_LogIn_Click" Text="¿No tienes una cuenta?" />
+            <asp:Button class="btn btn-secondary btn-m" ID="btnCrearCuenta_LogIn" runat="server" Style="position: center" OnClick="btnCrearCuenta_LogIn_Click" Text="¿No tienes una cuenta?"/>
         </div>
         &nbsp
         <div style="text-align: center">
-            <asp:Button class="btn btn-dark btn-m" ID="btnInicio_LogIn" runat="server" Style="position: center" Text="Volver al Inicio" OnClick="btnInicio_LogIn_Click" />
+            <asp:Button class="btn btn-dark btn-m" ID="btnInicio_LogIn" runat="server" Style="position: center" Text="Volver al Inicio" OnClick="btnInicio_LogIn_Click"/>
         </div>
     </form>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
 </body>
 </html>

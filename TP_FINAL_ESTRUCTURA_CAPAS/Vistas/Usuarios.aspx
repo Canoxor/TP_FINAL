@@ -55,45 +55,29 @@
                 </ul>
             </div>
         </nav>
+        &nbsp
+        <h3 style="align-self: center">Bienvenido a tu perfil, aqui encontraras informacion tuya como tambien tu carrito de compras.</h3>
+        &nbsp
+        <div style="align-content: center; align-items: center; width: 100%; margin-left: 5%; font-size: 1.2em">
+            <asp:Label ID="lblNombreDeUsuario" runat="server" Text="Usuario: #NombreDeUsuario"></asp:Label>
+            <br />
+            <asp:Label ID="lblNombre" runat="server" Text="Nombre: #Nombre"></asp:Label>
+            <br />
+            <asp:Label ID="lblApellido" runat="server" Text="Apellido: #Apellido"></asp:Label>
+            <br />
+            <asp:Label ID="lblEmail" runat="server" Text="Email: #Email"></asp:Label>
+            <br />
+        </div>
 
-        <div style="width:100%; margin-top:3%">
-            <asp:Label ID="lblBienvenida" runat="server" Text="" Style="font-size: 1.2em; color: yellow; margin-left: 12%"></asp:Label>
-        </div>
-        <div style="width: 100%; align-items: center; margin-top: 5%">
-            <div class="card text-center" style="width: 70%; position: center; margin-left: 15%">
-                <div class="card-header">
-                    <ul class="nav nav-pills card-header-pills">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Informacion Personal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Carrito.aspx">Mi carrito</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Historial de Facturas</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card-body" style="background-color: lightgrey; width: 70%; align-items: center; text-align: center; position: center; margin-left: 15%; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px">
-                <h5 class="card-title">Informacion Personal</h5>
-                <br />
-                <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblApellido" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblDni" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblDireccion" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblTelefono" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblEmail" runat="server" Text=""></asp:Label>
-                <br />
-                <a href="UsuariosModificar.aspx" class="btn btn-primary" style="margin-top:20px">Editar informacion Personal</a>
-            </div>
-        </div>
     </form>
+    <script>
+        $(function () {
+            $(document).scroll(function () {
+                var $nav = $("#mainNavbar");
+                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            });
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

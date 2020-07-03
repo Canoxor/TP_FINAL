@@ -23,15 +23,6 @@ namespace Negocio
             return D_Usuario.getUsuarioLogin(E_Usuario);
         }
 
-        public bool editarUsuario(Usuario u)
-        {
-            int seEdito = D_Usuario.editarUsuario(u);
-            if(seEdito == 1)      
-                return true;
-            else
-                return false;
-        }
-
         public bool ExisteUsuario(String Email, String Contraseña)
         {
             return D_Usuario.existeUsuario(Email, Contraseña);
