@@ -151,7 +151,7 @@
             <tr>
                 <td class="auto-style2">
                     &nbsp;<br />
-                    <asp:Button ID="btn_Cancelar" runat="server" Text="Cancelar y volver" CssClass="auto-style7" Height="45px" Width="197px" PostBackUrl="~/Juegos.aspx" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
                 </td>
