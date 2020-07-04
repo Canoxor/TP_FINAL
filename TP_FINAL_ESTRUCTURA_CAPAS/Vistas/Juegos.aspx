@@ -173,7 +173,7 @@
                                 </span>
                                 <br />
                                 <br />
-                                <asp:Button ID="btn_DetalleJuego" runat="server" Text='Ir al juego' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btnInfo_Command" PostBackUrl="~/DetalleJuego.aspx" />
+                                <asp:Button ID="btn_DetalleJuego" runat="server" Text='Ir al juego' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btnInfo_Command"/>
                                 <br />
                                 </td>
                             </td>

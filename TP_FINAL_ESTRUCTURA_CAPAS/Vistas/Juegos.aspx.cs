@@ -13,6 +13,10 @@ namespace Vistas
     {
         protected NegocioUsuario N_Usuario = new NegocioUsuario();
         protected Usuario usuario = new Usuario();
+
+        NegocioJuego N_Juego = new NegocioJuego();
+        Juego juego = new Juego();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             usuarioLogedIn();
@@ -23,8 +27,9 @@ namespace Vistas
         protected void btnInfo_Command(object sender, CommandEventArgs e)
         {
             int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
-            Session["CodJuego"] = "" + id_seleccionado + "";
-            lbl_Codigo.Text = Session["CodJuego"].ToString();
+            juego = N_Juego.ObtenerJuego(id_seleccionado);
+            Session["JuegoSeleccionado"] = juego;
+            Response.Redirect("DetalleJuego.aspx");
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)

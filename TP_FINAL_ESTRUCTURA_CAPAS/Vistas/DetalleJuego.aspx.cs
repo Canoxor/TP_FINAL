@@ -15,12 +15,16 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                lbl_Mensaje.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
+                int Codigo = ((Juego)Session["JuegoSeleccionado"]).Codigo_Juego;
+                DS_DetalleJuego.SelectCommand = "SELECT[J_Imagen], [J_Nombre], [J_Descripcion], [J_PrecioUnitario], [J_Codigo_Juego] FROM[Juegos] WHERE [J_Codigo_Juego] ='" + Codigo + "'";
             }
-
             usuario = (Usuario)Session["usuarioLogedIn"];
             lblNavbarUsuario.Text = usuario.Nombre;
+        }
 
+        protected void btnAgregar_Command(object sender, CommandEventArgs e)
+        {
+            Response.Redirect("CompraVerificarJuego.aspx");
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
