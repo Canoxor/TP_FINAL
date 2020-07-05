@@ -102,8 +102,7 @@
         <table class="w-100">
             <tr>
                 <td style="text-align: center" class="auto-style5">
-                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label invisible" Visible="False"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td style="text-align: center" class="auto-style4">
                     <asp:ListView ID="ListView2" runat="server" Style="position: center" DataSourceID="SqlDataSource1" GroupItemCount="3">
 

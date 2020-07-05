@@ -68,15 +68,13 @@
         <table class="w-100">
             <tr>
                 <td style="width: 33%; text-align: center">
-                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td style="width: 34%; text-align: center">
                     <div class="btn-group dropdown">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filtar Noticias</button>
                         <div class="dropdown-menu">
                             <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarPorJuegos" runat="server" Style="position: center" Text="Juegos" OnClick="btnFiltrarPorJuegos_Click"/>
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarFecha" runat="server" Style="position: center" Text="Fecha" OnClick="btnFiltrarFecha_Click"/>
                             <asp:Button class="dropdown-item btn btn-secondary" ID="btnPPP" runat="server" Style="position: center" Text="Algo mas" />
                         </div>
                     </div>
@@ -138,8 +136,7 @@
                                     <br />
                                     <br />
                                     <asp:Button class="btn btn-secondary" ID="btnSeleccionNoticia" runat="server"  CommandArgument='<%# Eval("N_Codigo_Juego") %>' 
-                                        OnCommand="btn_VerMas_Command" PostBackUrl="~/DetalleJuego.aspx"  Text="Ver Mas" />
-                                                                   
+                                        OnCommand="btn_VerMas_Command" Text="Ver Mas Sobre el Juego" />
                                 </div>
                             </div>
 

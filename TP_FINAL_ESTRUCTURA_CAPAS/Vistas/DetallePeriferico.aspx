@@ -82,14 +82,11 @@
             <tr>
                 <td class="auto-style2">
                     <div class="text-left">
-                        <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label Invisible" Visible="False"></asp:Label>
                         <br />
                         <br />
                     </div>
                     <asp:SqlDataSource ID="DS_DetallePeriferico" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_Descripcion], [PE_PrecioUnitario] FROM [Perifericos] WHERE ([PE_Codigo_Periferico] = @PE_Codigo_Periferico)">
-                        <SelectParameters>
-                            <asp:ControlParameter ControlID="lbl_Codigo" Name="PE_Codigo_Periferico" PropertyName="Text" Type="String" />
-                        </SelectParameters>
+                        
                     </asp:SqlDataSource>
                 </td>
                 <td class="auto-style1">

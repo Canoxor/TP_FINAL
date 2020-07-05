@@ -83,7 +83,7 @@
                    </div>
                </td>
                <td style="width: 33%; text-align: center">
-                    <asp:Button class="btn btn-primary" ID="btnAgregarPeriferico" href="ServletCliente?altaCliente=1" runat="server" Style="position: center" Text="Agregar Periferico" OnClick="btnAgregarPeriferico_Click"/>
+                    <asp:Button class="btn btn-primary" ID="btnAgregarPeriferico" runat="server" Style="position: center" Text="Agregar Periferico" OnClick="btnAgregarPeriferico_Click"/>
                </td>
            </tr>
            <tr>

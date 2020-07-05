@@ -26,10 +26,7 @@
         .auto-style2 {
             width: 20%
         }
-        .auto-style3 {
-            font-size: large;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <form id="formJuegos" runat="server">
@@ -98,8 +95,7 @@
         <table class="w-100">
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label Invisible" Visible="False"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style2">
                     <asp:ListView ID="lvPerifericos" runat="server" Style="position: center" DataSourceID="SqlDataPerifericos" GroupItemCount="3">
                         <EditItemTemplate>
@@ -168,7 +164,7 @@
                                                 <asp:Label ID="PE_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
                                             <br />
                                             <br />
-                                                <asp:Button ID="btn_Detalle" runat="server" Text="Ir al periferico" OnCommand="btn_Detalle_Command" CommandArgument='<%# Eval("PE_Codigo_Periferico") %>' PostBackUrl="~/DetallePeriferico.aspx" />
+                                                <asp:Button ID="btn_Detalle" runat="server" Text="Ir al periferico" OnCommand="btn_Detalle_Command" CommandArgument='<%# Eval("PE_Codigo_Periferico") %>'/>
                                             <br />
                                             </p>
                                         </span>

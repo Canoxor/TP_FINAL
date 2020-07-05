@@ -96,15 +96,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnCarrito;
 
         /// <summary>
-        /// Control lbl_Codigo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Codigo;
-
-        /// <summary>
         /// Control ListView2.
         /// </summary>
         /// <remarks>
