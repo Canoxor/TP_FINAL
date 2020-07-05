@@ -7,25 +7,42 @@ using System.Web.DynamicData;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
+using Negocio;
 
 namespace Vistas
 {
     public partial class Carrito : System.Web.UI.Page
     {
+        NegocioJuego Negocio_J = new NegocioJuego();
+        NegocioPeriferico Negocio_P = new NegocioPeriferico();
+        Juego juego = new Juego();
+        Periferico periferico = new Periferico();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if(Session["CarritoJuegos"] !=null)
+                btn_Comprar.Visible = false;
+                btn_CompraAceptar.Visible = false;
+                btn_CompraCancelar.Visible = false;
+
+                if (Session["CarritoJuegos"] !=null)
                 {
                     CargarGrid_Juegos();
+                    btn_Comprar.Visible = true;
                 }
-
-                if (Session["CarritoPeriferico"] != null)
+                if (Session["CarritoPerifericos"] != null)
                 {
                     CargarGrid_Perifericos();
+                    btn_Comprar.Visible = true;
                 }
+                CalcularMontoTotal();
             }
+        }
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session["usuarioLogedIn"] = null;
+            Response.Redirect("LandingPage.aspx");
         }
 
         public void CargarGrid_Juegos()
@@ -36,7 +53,7 @@ namespace Vistas
 
         public void CargarGrid_Perifericos()
         {
-            grd_Carrito_Periferico.DataSource = (DataTable)Session["CarritoPeriferico"];
+            grd_Carrito_Periferico.DataSource = (DataTable)Session["CarritoPerifericos"];
             grd_Carrito_Periferico.DataBind();
         }
 
@@ -63,9 +80,11 @@ namespace Vistas
 
                 String Codigo = grd_Carrito_Juego.Rows[FilaSeleccionada].Cells[0].Text;
 
-                lbl_Codigo.Text = Codigo;
+                juego = Negocio_J.ObtenerJuego(int.Parse(Codigo));
 
-                Server.Transfer("DetalleJuego.aspx");
+                Session["JuegoSeleccionado"] = juego;
+
+                Response.Redirect("DetalleJuego.aspx");
             }
             else
             {
@@ -91,13 +110,15 @@ namespace Vistas
             if (e.CommandName == "Ver_Periferico_Event")
             {
                 // Se quiere ir al perif
-                int Fila = Convert.ToInt32(e.CommandArgument);
+                int FilaSeleccionada = Convert.ToInt32(e.CommandArgument);
 
-                String Codigo = grd_Carrito_Periferico.Rows[Fila].Cells[0].Text;
+                String Codigo = grd_Carrito_Periferico.Rows[FilaSeleccionada].Cells[0].Text;
 
-                lbl_Codigo.Text = Codigo;
+                periferico = Negocio_P.ObtenerPeriferico(int.Parse(Codigo));
 
-                Server.Transfer("DetallePeriferico.aspx");
+                Session["PerifericoSeleccionado"] = periferico;
+
+                Response.Redirect("DetallePeriferico.aspx");
             }
             else
             {
@@ -108,14 +129,53 @@ namespace Vistas
                     String Codigo = grd_Carrito_Periferico.Rows[FilaSeleccionada].Cells[0].Text;
 
                     DataRow[] Fila;
-                    Fila = ((DataTable)Session["CarritoPeriferico"]).Select("Codigo='" + Codigo + "'");
+                    Fila = ((DataTable)Session["CarritoPerifericos"]).Select("Codigo='" + Codigo + "'");
 
                     foreach (DataRow row in Fila)
-                        ((DataTable)Session["CarritoPeriferico"]).Rows.Remove(row);
+                        ((DataTable)Session["CarritoPerifericos"]).Rows.Remove(row);
 
                     CargarGrid_Perifericos();
                 }
             }
+        }
+        public void CalcularMontoTotal()
+        {
+            float Precio, PrecioTotal = 0;
+            int Cantidad;
+
+            for (int i = 0; i < ((DataTable)Session["CarritoJuegos"]).Rows.Count; i++)
+            {
+                Precio = float.Parse(((DataTable)Session["CarritoJuegos"]).Rows[i]["Precio"].ToString());
+                Cantidad = int.Parse(((DataTable)Session["CarritoJuegos"]).Rows[i]["Cantidad"].ToString());
+                PrecioTotal += Precio * Cantidad;
+            }
+            for (int i = 0; i < ((DataTable)Session["CarritoPerifericos"]).Rows.Count; i++)
+            {
+                Precio = float.Parse(((DataTable)Session["CarritoPerifericos"]).Rows[i]["Precio"].ToString());
+                Cantidad = int.Parse(((DataTable)Session["CarritoPerifericos"]).Rows[i]["Cantidad"].ToString());
+                PrecioTotal += Precio * Cantidad;
+            }
+
+            lbl_Total.Text = PrecioTotal.ToString();
+        }
+
+        protected void btn_Comprar_Click(object sender, EventArgs e)
+        {
+            btn_CompraAceptar.Visible = true;
+            btn_CompraCancelar.Visible = true;
+            btn_Comprar.Visible = false;
+        }
+
+        protected void btn_CompraCancelar_Click(object sender, EventArgs e)
+        {
+            btn_CompraAceptar.Visible = false;
+            btn_CompraCancelar.Visible = false;
+            btn_Comprar.Visible = true;
+        }
+
+        protected void btn_CompraAceptar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Factura.aspx");
         }
     }
 }

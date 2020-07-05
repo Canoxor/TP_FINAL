@@ -23,10 +23,10 @@
         .auto-style1 {
             width: 9.5%;
         }
-        .auto-style2 {
-            width: 20%
+        .auto-style3 {
+            font-size: large;
         }
-        </style>
+    </style>
 </head>
 <body>
     <form id="formJuegos" runat="server">
@@ -86,27 +86,26 @@
                     <asp:Button class="btn btn-secondary" ID="btnCarrito" runat="server" Style="position: center" Text="Ir a mi carrito" />
                </td>
            </tr>
-           <tr>
-               <td style="text-align: center" colspan="3">&nbsp;</td>
-           </tr>
-       </table>
-        &nbsp
-        &nbsp
-        <table class="w-100">
+           </table>
+        <br />
+        <br />
+&nbsp;<table class="w-100">
             <tr>
-                <td class="auto-style1">
-                    &nbsp;</td>
-                <td class="auto-style2">
-                    <asp:ListView ID="lvPerifericos" runat="server" Style="position: center" DataSourceID="SqlDataPerifericos" GroupItemCount="3">
+                <td style="text-align: center" class="auto-style5">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td style="text-align: center" class="auto-style4">
+                    <asp:ListView ID="ListView" runat="server" Style="position: center" DataSourceID="Sql_DataSource" GroupItemCount="3">
+
                         <EditItemTemplate>
-                            <td runat="server" style="">PE_Imagen:
-                                <asp:TextBox ID="PE_ImagenTextBox" runat="server" Text='<%# Bind("PE_Imagen") %>' />
+                            <td runat="server" style="">Imagen:
+                        <asp:TextBox ID="ImagenTextBox" runat="server" Text='<%# Bind("PE_Imagen") %>' />
                                 <br />
-                                PE_Nombre:
-                                <asp:TextBox ID="PE_NombreTextBox" runat="server" Text='<%# Bind("PE_Nombre") %>' />
+                                J_Nombre:
+                        <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("PE_Nombre") %>' />
                                 <br />
-                                PE_PrecioUnitario:
-                                <asp:TextBox ID="PE_PrecioUnitarioTextBox" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
+                                J_PrecioUnitario:
+                        <asp:TextBox ID="PrecioUnitarioTextBox" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
                                 <br />
                                 <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
                                 <br />
@@ -130,47 +129,46 @@
                             </tr>
                         </GroupTemplate>
                         <InsertItemTemplate>
-                            <td runat="server" style="">PE_Imagen:
-                                <asp:TextBox ID="PE_ImagenTextBox0" runat="server" Text='<%# Bind("PE_Imagen") %>' />
+                            <td runat="server" style="">Imagen:
+                        <asp:TextBox ID="ImagenTextBox" runat="server" Text='<%# Bind("PE_Imagen") %>' />
                                 <br />
-                                PE_Nombre:
-                                <asp:TextBox ID="PE_NombreTextBox0" runat="server" Text='<%# Bind("PE_Nombre") %>' />
+                                Nombre:
+                        <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("PE_Nombre") %>' />
                                 <br />
-                                PE_PrecioUnitario:
-                                <asp:TextBox ID="PE_PrecioUnitarioTextBox0" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
+                                PrecioUnitario:
+                        <asp:TextBox ID="PrecioUnitarioTextBox" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
                                 <br />
                                 <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
                                 <br />
-                                <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
+                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
                                 <br />
                             </td>
                         </InsertItemTemplate>
                         <ItemTemplate>
+                            <p align="center">
+
+                            
                             <td class="card-columns">
-                                <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width:350px; align-content:center; align-items:center; padding-left:5%; padding-top:1%; background-color:#FFFFFF; margin-left:20%">&nbsp;&nbsp;&nbsp;
-                                    <asp:Image ID="Image1" runat="server" Height="250px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="250px" />
-                                    <br />
-                                    <br />
-                                    
-                                        <span class="text-black">
-                                            <p align="center">
-                                                <b>
-                                                    <asp:Label ID="PE_NombreLabel0" runat="server" Text='<%# Eval("PE_Nombre") %>' Font-Size="22px">
-                                                   </asp:Label>
-                                                </b>
-                                            <br />
-                                            <br />
-                                                $&nbsp;
-                                                <asp:Label ID="PE_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
-                                            <br />
-                                            <br />
-                                                <asp:Button ID="btn_Detalle" runat="server" Text="Ir al periferico" OnCommand="btn_Detalle_Command" CommandArgument='<%# Eval("PE_Codigo_Periferico") %>'/>
-                                            <br />
-                                            </p>
-                                        </span>
-                                    <br />
+                                <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width: 350px; align-content: center; align-items: center; padding-left:5%;padding-right:5%; padding-top:5%; background-color:#FFFFFF; margin-left:20%">
+                                    <asp:Image ID="Imagen" Style="border-radius: 20px" runat="server" Height="240px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="280px" />
+                                <br />
+                                <br />
+                                <span class="text-black">
+                                    <b><asp:Label ID="Nombre" runat="server" Text='<%# Eval("PE_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
+                                </span>
+                                <br />
+                                <br />
+                                <span style="color: black; font-size: 13pt"> $
+                                    <asp:Label ID="PrecioUnitario" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>' Font-Size="18px"></asp:Label>
+                                </span>
+                                <br />
+                                <br />
+                                <asp:Button ID="btn_Info" runat="server" Text='Ir al juego' CommandArgument='<%# Eval("PE_Codigo_Periferico") %>' CommandName="JuegoSeleccionado" OnCommand="btnInfo_Command"/>
+                                <br />
                                 </td>
-                           </td>
+                            </td>
+                                </p>
+                            
                         </ItemTemplate>
                         <LayoutTemplate>
                             <table runat="server">
@@ -188,22 +186,26 @@
                             </table>
                         </LayoutTemplate>
                         <SelectedItemTemplate>
-                            <td runat="server" style="">PE_Imagen:
-                                <asp:Label ID="PE_ImagenLabel" runat="server" Text='<%# Eval("PE_Imagen") %>' />
+                            <td runat="server" style="">Imagen:
+                        <asp:Label ID="ImagenLabel" runat="server" Text='<%# Eval("PE_Imagen") %>' />
                                 <br />
-                                PE_Nombre:
-                                <asp:Label ID="PE_NombreLabel1" runat="server" Text='<%# Eval("PE_Nombre") %>' />
+                                J_Nombre:
+                        <asp:Label ID="NombreLabel1" runat="server" Text='<%# Eval("PE_Nombre") %>' />
                                 <br />
-                                PE_PrecioUnitario:
-                                <asp:Label ID="PE_PrecioUnitarioLabel1" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>' />
+                                J_PrecioUnitario:
+                        <asp:Label ID="PrecioUnitarioLabel1" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>' />
                                 <br />
                             </td>
                         </SelectedItemTemplate>
                     </asp:ListView>
                 </td>
+                <td style="width: 10%; text-align: center"></td>
             </tr>
         </table>
-        <br />
+        &nbsp;
+        &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="auto-style1">
+        </div>
         <table class="w-100">
             <tr>
                 <td style="width: 10%; text-align: center"></td>
@@ -211,11 +213,16 @@
                 <td style="width: 10%; text-align: center"></td>
             </tr>
         </table>
-        &nbsp;
-        <asp:SqlDataSource ID="SqlDataPerifericos" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario], [PE_Codigo_Periferico] FROM [Perifericos] WHERE PE_Estado = 1"></asp:SqlDataSource>
+        &nbsp;<br />
+        <br />
+        <br />
+        <asp:SqlDataSource ID="Sql_DataSource" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario], [PE_Codigo_Periferico], [PE_Estado] FROM [Perifericos]"></asp:SqlDataSource>
 
 
 
+
+
+    </form>
     <script>
         $(function () {
             $(document).scroll(function () {
@@ -230,7 +237,5 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-
-    </form>
 </body>
 </html>

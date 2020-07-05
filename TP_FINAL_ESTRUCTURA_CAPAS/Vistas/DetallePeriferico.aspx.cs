@@ -11,30 +11,27 @@ namespace Vistas
     public partial class DetallePeriferico : System.Web.UI.Page
     {
         protected Usuario usuario = new Usuario();
-        protected Periferico periferico = new Periferico();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                periferico = (Periferico)Session["PerifericoSeleccionado"];
-                inflarVista();
+                int Codigo = ((Periferico)Session["PerifericoSeleccionado"]).Codigo_Periferico;
+                DS_Detalle.SelectCommand = "SELECT[PE_Imagen], [PE_Nombre], [PE_Descripcion], [PE_PrecioUnitario], [PE_Codigo_Periferico] FROM[Perifericos] WHERE [PE_Codigo_Periferico] ='" + Codigo + "'";
             }
-
-            periferico = (Periferico)Session["PerifericoSeleccionado"];
             usuario = (Usuario)Session["usuarioLogedIn"];
             lblNavbarUsuario.Text = usuario.Nombre;
-            inflarVista();
         }
+
+        protected void btnAgregar_Command(object sender, CommandEventArgs e)
+        {
+            Response.Redirect("CompraVerificarPeriferico.aspx");
+        }
+
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             Session["usuarioLogedIn"] = null;
             Response.Redirect("LandingPage.aspx");
-        }
-
-        public void inflarVista()
-        {
-            DS_DetallePeriferico.SelectCommand = "SELECT [PE_Imagen], [PE_Nombre], [PE_Descripcion], [PE_PrecioUnitario] FROM [Perifericos] WHERE PE_Codigo_Periferico = '" + periferico.Codigo_Periferico + "'";
         }
 
     }

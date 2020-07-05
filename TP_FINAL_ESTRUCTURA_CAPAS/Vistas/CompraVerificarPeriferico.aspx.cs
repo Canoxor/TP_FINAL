@@ -16,20 +16,10 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                lbl_Codigo.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
-
-                NegocioPeriferico Neg_Perif = new NegocioPeriferico();
-
-                Periferico Perif = new Periferico();
-
-                Perif = Neg_Perif.ObtenerPeriferico(Convert.ToInt32(lbl_Codigo.Text));
-
-                img_Imagen.ImageUrl = Perif.Imagen_Url;
-                lbl_Nombre.Text = Perif.Nombre;
-                lbl_Precio.Text = Convert.ToString(Perif.Precio_Unitario);
+                img_Imagen.ImageUrl = ((Periferico)Session["PerifericoSeleccionado"]).Imagen_Url;
+                lbl_Nombre.Text = ((Periferico)Session["PerifericoSeleccionado"]).Nombre;
+                lbl_Precio.Text = Convert.ToString(((Periferico)Session["PerifericoSeleccionado"]).Precio_Unitario);
                 lbl_Monto.Text = "";
-
-                Session["PerifSeleccionado"] = Perif;
             }
         }
 
@@ -39,7 +29,7 @@ namespace Vistas
 
             Cantidad = int.Parse(txt_Cantidad.Text);
 
-            if(Cantidad!=0)
+            if (Cantidad != 0)
             {
                 float Monto;
 
@@ -55,12 +45,12 @@ namespace Vistas
 
         protected void btn_Confirmar_Click(object sender, EventArgs e)
         {
-            if (Session["CarritoPeriferico"] == null)
+            if (Session["CarritoPerifericos"] == null)
             {
-                Session["CarritoPeriferico"] = CrearTabla();
+                Session["CarritoPerifericos"] = CrearTabla();
             }
 
-            if (VerificarPeriferico() == true)
+            if (VerificarJuego() == true)
             {
                 ModificarCantidad(txt_Cantidad.Text);
             }
@@ -68,6 +58,8 @@ namespace Vistas
             {
                 AgregarFila(txt_Cantidad.Text);
             }
+            Session["CantidadComprada"] = txt_Cantidad.Text;
+            Response.Redirect("CompraMensajePeriferico.aspx");
         }
 
         public DataTable CrearTabla()
@@ -90,40 +82,40 @@ namespace Vistas
 
         public void AgregarFila(String Cantidad)
         {
-            DataRow NuevaFila = ((DataTable)Session["CarritoPeriferico"]).NewRow();
+            DataRow NuevaFila = ((DataTable)Session["CarritoPerifericos"]).NewRow();
 
-            NuevaFila["Codigo"] = ((Periferico)Session["PerifSeleccionado"]).Codigo_Periferico;
-            NuevaFila["Imagen"] = ((Periferico)Session["PerifSeleccionado"]).Imagen_Url;
-            NuevaFila["Nombre"] = ((Periferico)Session["PerifSeleccionado"]).Nombre;
-            NuevaFila["Precio"] = ((Periferico)Session["PerifSeleccionado"]).Precio_Unitario;
+            NuevaFila["Codigo"] = ((Periferico)Session["PerifericoSeleccionado"]).Codigo_Periferico;
+            NuevaFila["Imagen"] = ((Periferico)Session["PerifericoSeleccionado"]).Imagen_Url;
+            NuevaFila["Nombre"] = ((Periferico)Session["PerifericoSeleccionado"]).Nombre;
+            NuevaFila["Precio"] = ((Periferico)Session["PerifericoSeleccionado"]).Precio_Unitario;
             NuevaFila["Cantidad"] = Cantidad;
 
-            ((DataTable)Session["CarritoPeriferico"]).Rows.Add(NuevaFila);
+            ((DataTable)Session["CarritoPerifericos"]).Rows.Add(NuevaFila);
         }
 
         public void ModificarCantidad(String Cantidad)
         {
-            foreach (DataRow fila in ((DataTable)Session["CarritoPeriferico"]).Rows)
+            foreach (DataRow fila in ((DataTable)Session["CarritoPerifericos"]).Rows)
             {
-                if (fila["Codigo"].ToString() == ((Periferico)Session["PerifSeleccionado"]).Codigo_Periferico.ToString())
+                if (fila["Codigo"].ToString() == ((Periferico)Session["PerifericoSeleccionado"]).Codigo_Periferico.ToString())
                 {
                     fila["Cantidad"] = (int.Parse(fila["Cantidad"].ToString()) + int.Parse(Cantidad));
+
                     return;
                 }
             }
         }
 
-        public bool VerificarPeriferico()
+        public bool VerificarJuego()
         {
-            foreach (DataRow fila in ((DataTable)Session["CarritoPeriferico"]).Rows)
+            foreach (DataRow fila in ((DataTable)Session["CarritoPerifericos"]).Rows)
             {
-                if (fila["Codigo"].ToString() == ((Periferico)Session["PerifSeleccionado"]).Codigo_Periferico.ToString())
+                if (fila["Codigo"].ToString() == ((Periferico)Session["PerifericoSeleccionado"]).Codigo_Periferico.ToString())
                 {
                     return true;
                 }
             }
             return false;
         }
-
     }
 }

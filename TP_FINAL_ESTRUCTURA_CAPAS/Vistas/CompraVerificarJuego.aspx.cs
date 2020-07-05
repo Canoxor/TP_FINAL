@@ -12,16 +12,13 @@ namespace Vistas
 {
     public partial class CompraVerificarJuego : System.Web.UI.Page
     {
-        protected NegocioJuego Neg_Juego = new NegocioJuego();
-        protected Juego juego = new Juego();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                juego = (Juego)Session["JuegoSeleccionado"];
-                img_Imagen.ImageUrl = juego.Imagen_Url;
-                lbl_Nombre.Text = juego.Nombre;
-                lbl_Precio.Text = Convert.ToString(juego.Precio_Unitario);
+                img_Imagen.ImageUrl = ((Juego)Session["JuegoSeleccionado"]).Imagen_Url;
+                lbl_Nombre.Text = ((Juego)Session["JuegoSeleccionado"]).Nombre;
+                lbl_Precio.Text = Convert.ToString(((Juego)Session["JuegoSeleccionado"]).Precio_Unitario);
                 lbl_Monto.Text = "";
             }
         }
@@ -87,10 +84,10 @@ namespace Vistas
         {
             DataRow NuevaFila = ((DataTable)Session["CarritoJuegos"]).NewRow();
 
-            NuevaFila["Codigo"] = juego.Codigo_Juego;
-            NuevaFila["Imagen"] = juego.Imagen_Url;
-            NuevaFila["Nombre"] = juego.Nombre;
-            NuevaFila["Precio"] = juego.Precio_Unitario;
+            NuevaFila["Codigo"] = ((Juego)Session["JuegoSeleccionado"]).Codigo_Juego;
+            NuevaFila["Imagen"] = ((Juego)Session["JuegoSeleccionado"]).Imagen_Url;
+            NuevaFila["Nombre"] = ((Juego)Session["JuegoSeleccionado"]).Nombre;
+            NuevaFila["Precio"] = ((Juego)Session["JuegoSeleccionado"]).Precio_Unitario;
             NuevaFila["Cantidad"] = Cantidad;
 
             ((DataTable)Session["CarritoJuegos"]).Rows.Add(NuevaFila);
@@ -100,7 +97,7 @@ namespace Vistas
         {
             foreach (DataRow fila in ((DataTable)Session["CarritoJuegos"]).Rows)
             {
-                if (fila["Codigo"].ToString() == juego.Codigo_Juego.ToString())
+                if (fila["Codigo"].ToString() == ((Juego)Session["JuegoSeleccionado"]).Codigo_Juego.ToString())
                 {
                     fila["Cantidad"] = (int.Parse(fila["Cantidad"].ToString()) + int.Parse(Cantidad));
 
@@ -113,7 +110,7 @@ namespace Vistas
         {
             foreach (DataRow fila in ((DataTable)Session["CarritoJuegos"]).Rows)
             {
-                if(fila["Codigo"].ToString() == juego.Codigo_Juego.ToString())
+                if(fila["Codigo"].ToString() == ((Juego)Session["JuegoSeleccionado"]).Codigo_Juego.ToString())
                 {
                     return true;
                 }

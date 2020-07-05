@@ -16,19 +16,10 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                lbl_Codigo.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
-
-                NegocioPeriferico Neg_Perif = new NegocioPeriferico();
-
-                Periferico Perif = new Periferico();
-
-                Perif = Neg_Perif.ObtenerPeriferico(Convert.ToInt32(lbl_Codigo.Text));
-
-                img_Imagen.ImageUrl = Perif.Imagen_Url;
-                lbl_Nombre.Text = Perif.Nombre;
-                lbl_Precio.Text = Convert.ToString(Perif.Precio_Unitario);
-                lbl_Cantidad.Text = ((TextBox)PreviousPage.FindControl("txt_Cantidad")).Text;
-
+                img_Imagen.ImageUrl = ((Periferico)Session["PerifericoSeleccionado"]).Imagen_Url;
+                lbl_Nombre.Text = ((Periferico)Session["PerifericoSeleccionado"]).Nombre;
+                lbl_Precio.Text = Convert.ToString(((Periferico)Session["PerifericoSeleccionado"]).Precio_Unitario);
+                lbl_Cantidad.Text = Session["CantidadComprada"].ToString();
                 lbl_Monto.Text = "$ " + (Convert.ToString(float.Parse(lbl_Precio.Text) * int.Parse(lbl_Cantidad.Text)));
             }
         }

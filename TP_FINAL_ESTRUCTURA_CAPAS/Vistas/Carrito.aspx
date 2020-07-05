@@ -21,12 +21,28 @@
     <title>True Games</title>
     <style type="text/css">
         .auto-style1 {
-            width: 383px;
+            width: 299px;
         }
         .auto-style2 {
             width: 565px;
         }
         .auto-style3 {
+            font-size: x-large;
+        }
+        .auto-style4 {
+            width: 495px;
+            height: 93px;
+        }
+        .auto-style5 {
+            height: 93px;
+        }
+        .auto-style6 {
+            font-size: x-large;
+            font-weight: bold;
+            color: #666699;
+        }
+        .auto-style7 {
+            color: #fff;
             font-size: x-large;
         }
         </style>
@@ -60,6 +76,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="Usuarios.aspx">Mi Cuenta</a>
                             <div class="dropdown-divider"></div>
+                            <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" Style="position: center; text-align: center; width: 100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                         </div>
                     </li>
                 </ul>
@@ -86,8 +103,7 @@
         <table class="w-100">
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style2">
                     <div class="text-center">
                     <asp:GridView ID="grd_Carrito_Juego" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Carrito_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="3px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1180px" OnRowCommand="grd_Carrito_Juego_RowCommand">
@@ -171,13 +187,34 @@
                     </asp:GridView>
                     </div>
                     <br />
+                    <br />
+                    <span class="auto-style7"><strong>MONTO TOTAL: </strong>$
+                    <asp:Label ID="lbl_Total" runat="server"></asp:Label>
+                    </span>
+                    <br />
                 </td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
-                <td colspan="3">
-                    &nbsp;</td>
+                <td colspan="3" class="text-left">
+                    <br />
+                    <table class="w-100">
+                        <tr>
+                            <td class="auto-style4"></td>
+                            <td class="auto-style5"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Button ID="btn_Comprar" runat="server" CssClass="auto-style6" Height="57px" OnClick="btn_Comprar_Click" Text="Confirmar carrito" Width="293px" />
+                                <br />
+                                <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Button ID="btn_CompraCancelar" runat="server" CssClass="auto-style6" Height="57px" OnClick="btn_CompraCancelar_Click" Text="Cancelar" Visible="False" Width="293px" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Button ID="btn_CompraAceptar" runat="server" CssClass="auto-style6" Height="57px" OnClick="btn_CompraAceptar_Click" Text="Aceptar" Visible="False" Width="293px" />
+                                </strong></td>
+                            <td class="auto-style5"></td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
         </table>
     </form>

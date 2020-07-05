@@ -35,6 +35,9 @@
         .auto-style7 {
             margin-left: 183px;
         }
+        .auto-style8 {
+            width: 393px;
+        }
     </style>
 </head>
 <body>
@@ -79,53 +82,50 @@
             <br />
             <table class="w-100">
                 <tr>
-                    <td class="auto-style3">
-                        <br />
-                        <asp:Label ID="lbl_Mensaje" runat="server" CssClass="text-white" Visible="False">Label invisible</asp:Label>
-                        <br />
-                    </td>
+                    <td class="auto-style8">
+                        &nbsp;</td>
                     <td class="auto-style2">
-                        <asp:FormView ID="FormView1" runat="server" CssClass="auto-style7" DataKeyNames="J_Codigo_Juego" DataSourceID="DS_DetalleJuego">
+                        <asp:FormView ID="FormView1" runat="server" CssClass="auto-style7" DataKeyNames="J_Codigo_Juego" DataSourceID="DS_Detalle">
                             <EditItemTemplate>
-                                J_Imagen:
-                                <asp:TextBox ID="J_ImagenTextBox" runat="server" Text='<%# Bind("J_Imagen") %>' />
+                                Imagen:
+                                <asp:TextBox ID="ImagenTextBox" runat="server" Text='<%# Bind("J_Imagen") %>' />
                                 <br />
-                                J_Nombre:
-                                <asp:TextBox ID="J_NombreTextBox" runat="server" Text='<%# Bind("J_Nombre") %>' />
+                                Nombre:
+                                <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("J_Nombre") %>' />
                                 <br />
-                                J_Descripcion:
-                                <asp:TextBox ID="J_DescripcionTextBox" runat="server" Text='<%# Bind("J_Descripcion") %>' />
+                                Descripcion:
+                                <asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("J_Descripcion") %>' />
                                 <br />
-                                J_PrecioUnitario:
-                                <asp:TextBox ID="J_PrecioUnitarioTextBox" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
+                                PrecioUnitario:
+                                <asp:TextBox ID="PrecioUnitarioTextBox" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
                                 <br />
-                                J_Codigo_Juego:
-                                <asp:Label ID="J_Codigo_JuegoLabel1" runat="server" Text='<%# Eval("J_Codigo_Juego") %>' />
+                                Codigo_Juego:
+                                <asp:Label ID="Codigo_JuegoLabel1" runat="server" Text='<%# Eval("J_Codigo_Juego") %>' />
                                 <br />
-                                J_Estado:
-                                <asp:CheckBox ID="J_EstadoCheckBox" runat="server" Checked='<%# Bind("J_Estado") %>' />
+                                Estado:
+                                <asp:CheckBox ID="EstadoCheckBox" runat="server" Checked='<%# Bind("J_Estado") %>' />
                                 <br />
                                 <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
                                 &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
                             </EditItemTemplate>
                             <InsertItemTemplate>
-                                J_Imagen:
-                                <asp:TextBox ID="J_ImagenTextBox0" runat="server" Text='<%# Bind("J_Imagen") %>' />
+                                Imagen:
+                                <asp:TextBox ID="ImagenTextBox0" runat="server" Text='<%# Bind("J_Imagen") %>' />
                                 <br />
-                                J_Nombre:
-                                <asp:TextBox ID="J_NombreTextBox0" runat="server" Text='<%# Bind("J_Nombre") %>' />
+                                Nombre:
+                                <asp:TextBox ID="NombreTextBox0" runat="server" Text='<%# Bind("J_Nombre") %>' />
                                 <br />
-                                J_Descripcion:
-                                <asp:TextBox ID="J_DescripcionTextBox0" runat="server" Text='<%# Bind("J_Descripcion") %>' />
+                                Descripcion:
+                                <asp:TextBox ID="DescripcionTextBox0" runat="server" Text='<%# Bind("J_Descripcion") %>' />
                                 <br />
-                                J_PrecioUnitario:
-                                <asp:TextBox ID="J_PrecioUnitarioTextBox0" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
+                                PrecioUnitario:
+                                <asp:TextBox ID="PrecioUnitarioTextBox0" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
                                 <br />
-                                J_Codigo_Juego:
-                                <asp:TextBox ID="J_Codigo_JuegoTextBox" runat="server" Text='<%# Bind("J_Codigo_Juego") %>' />
+                                Codigo_Juego:
+                                <asp:TextBox ID="Codigo_JuegoTextBox" runat="server" Text='<%# Bind("J_Codigo_Juego") %>' />
                                 <br />
-                                J_Estado:
-                                <asp:CheckBox ID="J_EstadoCheckBox0" runat="server" Checked='<%# Bind("J_Estado") %>' />
+                                Estado:
+                                <asp:CheckBox ID="EstadoCheckBox0" runat="server" Checked='<%# Bind("J_Estado") %>' />
                                 <br />
                                 <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
                                 &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
@@ -134,17 +134,18 @@
                                 
                             <td class="card-columns">
                                 <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width: 450px; align-content: center; align-items: center; padding-left:5%;padding-right:5%; padding-top:5%; background-color:#FFFFFF; margin-left:20%">
-                                    <asp:Image ID="J_Imagen0" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
+                                    <asp:Image ID="Imagen0" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
                                 <br />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <br />
                                 <span class="text-black">
-                                    <b><asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
+                                    <b><asp:Label ID="NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
                                 </span>
                                 <br />
                                 <br />
                                 <p align="center">
                                     <span style="color: black; font-size: 13pt">
-                                        Descripcion
+                                        <strong>Descripcion</strong>
                                         <br />
                                             <asp:Label ID="lblDescripcionJuegoLv_DJ" runat="server" Text='<%# Eval("J_Descripcion") %>'></asp:Label>
                                         <br />
@@ -153,7 +154,7 @@
                                             <asp:Label ID="lblPrecioJuegoLv_DJ" runat="server" Text='<%# Eval("J_PrecioUnitario") %>'></asp:Label>
                                         <br />
                                         <br />
-                                        ¿Desea agregar este juego al carrito?
+                                        ¿Desea agregar este producto al carrito?
                                         <br />
                                     </span>
                                 </p>
@@ -171,7 +172,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" class="auto-style4">
-                        <asp:SqlDataSource ID="DS_DetalleJuego" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_Descripcion], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos]">
+                        <asp:SqlDataSource ID="DS_Detalle" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_Descripcion], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos]">
                         </asp:SqlDataSource>
                     </td>
                 </tr>
