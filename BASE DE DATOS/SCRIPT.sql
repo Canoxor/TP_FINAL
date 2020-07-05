@@ -18,7 +18,6 @@ CREATE TABLE Juegos
 	J_Codigo_PEGI varchar(5) not null,
 	J_Nombre varchar(50) not null,
 	J_Descripcion varchar(1000) null,
-	J_Stock int not null,
 	J_PrecioUnitario decimal(18,2) not null,
 	J_Imagen varchar(200) not null,
 	J_Estado bit default '1'
@@ -290,12 +289,12 @@ INSERT INTO Generos (G_Codigo_Genero,G_Nombre,G_Descripcion)
 	SELECT '8','Rol','Emparentados con los de aventura, los videojuegos de rol, o RPG, se caracterizan por la interacción con el personaje, una historia profunda y una evolución del personaje a medida que la historia avanza. Para lograr la evolución generalmente se hace que el jugador se enfrasque en una aventura donde irá conociendo nuevos personajes, explorando el mundo para ir juntando armas, experiencia, aliados e incluso magia. Es habitual, desde la aparición del CD-ROM, la inclusión de videos (cinemáticas) durante el juego, que complementan la narración de la historia y hacen que el jugador se sienta como dentro de una película.'
 GO
 
-INSERT INTO Juegos (J_Imagen,J_Codigo_Juego,J_Codigo_Genero,J_Codigo_PEGI,J_Nombre,J_Descripcion,J_Stock,J_PrecioUnitario,J_Estado)
-	SELECT 'https://cdn-products.eneba.com/resized-products/PHQ5ei2mYthRdM-FhrUqQkUIcKOxYNP6sN_-BSfxp5A_390x400_1x-0.jpeg','1','2','5','Metro Exodus','Un poderoso videojuego basado en las novelas superventas de Dmitri Glujovski. El shooter en primera persona vuelve a apostar por una ambientación postapocalítica muy cuidada, y por mezclar lugares angustiosos, claustrofóbicos y lúgubres con secciones mucho más abiertas.',100,2000,'1' UNION
-	SELECT 'https://http2.mlstatic.com/mafia-3-ps4-fisico-nuevo-sellado-original-D_NQ_NP_764140-MLA31041880928_062019-F.jpg','2','1','5','Mafia 3','un juego de mundo abierto y acción en tercera persona, El juego está ambientado en la ciudad ficticia de New Bordeaux, basada en la Nueva Orleans de 1968, con un diseño de mundo abierto que permite explorar a los jugadores libremente en el juego.',80,3100,'1' UNION
-	SELECT 'https://store-images.s-microsoft.com/image/apps.18799.14047496556148589.9fda5cef-7995-4dbb-a626-66d2ab3feb4f.1e167626-8b7d-47b4-9fe5-d06a43ac6677','3','7','2','Ori and the Will of the Wisps','Embárcate en una aventura totalmente nueva dentro de un inmenso mundo repleto de nuevos amigos y enemigos que cobran vida gracias a un impecable trabajo de diseño artesanal.',40,150,'1' UNION
-	SELECT 'https://hipertextual.com/files/2020/03/hipertextual-call-of-duty-modern-warfare-2-remastered-es-real-se-filtra-su-primera-imagen-2020296416.jpg','4','2','5','Call of Duty Modern Warfare 2 Remaster','Es una edición remasterizada sobre el modo historia del exitoso FPS que garantiza texturas y animaciones mejoradas, renderizado físico, iluminación HDR y otras mejoras gráficas.',105,2800,'1' UNION
-	SELECT 'https://cdn-cms.bnea.io/sites/default/files/games/boxart/196040508899500.jpg','5','8','3','Dragon Ball Z Kakarot','Es un juego de acción y rol y acción a cargo de Cyberconnect y Bandai Namco basado en la conocida marca Dragon Ball, que nos propone revivir los mejores momentos de la serie de Akira Toriyama con una gran aventura de rol que incluye, claro, emocionantes combates contra personajes tan icónicos como Vegeta, Raditz o Freezer. De hecho, el arco de Buu se incluirá en el juego.',55,7000,'1'
+INSERT INTO Juegos (J_Imagen,J_Codigo_Juego,J_Codigo_Genero,J_Codigo_PEGI,J_Nombre,J_Descripcion,J_PrecioUnitario,J_Estado)
+	SELECT 'https://cdn-products.eneba.com/resized-products/PHQ5ei2mYthRdM-FhrUqQkUIcKOxYNP6sN_-BSfxp5A_390x400_1x-0.jpeg','1','2','5','Metro Exodus','Un poderoso videojuego basado en las novelas superventas de Dmitri Glujovski. El shooter en primera persona vuelve a apostar por una ambientación postapocalítica muy cuidada, y por mezclar lugares angustiosos, claustrofóbicos y lúgubres con secciones mucho más abiertas.',2000,'1' UNION
+	SELECT 'https://http2.mlstatic.com/mafia-3-ps4-fisico-nuevo-sellado-original-D_NQ_NP_764140-MLA31041880928_062019-F.jpg','2','1','5','Mafia 3','un juego de mundo abierto y acción en tercera persona, El juego está ambientado en la ciudad ficticia de New Bordeaux, basada en la Nueva Orleans de 1968, con un diseño de mundo abierto que permite explorar a los jugadores libremente en el juego.',3100,'1' UNION
+	SELECT 'https://store-images.s-microsoft.com/image/apps.18799.14047496556148589.9fda5cef-7995-4dbb-a626-66d2ab3feb4f.1e167626-8b7d-47b4-9fe5-d06a43ac6677','3','7','2','Ori and the Will of the Wisps','Embárcate en una aventura totalmente nueva dentro de un inmenso mundo repleto de nuevos amigos y enemigos que cobran vida gracias a un impecable trabajo de diseño artesanal.',150,'1' UNION
+	SELECT 'https://hipertextual.com/files/2020/03/hipertextual-call-of-duty-modern-warfare-2-remastered-es-real-se-filtra-su-primera-imagen-2020296416.jpg','4','2','5','Call of Duty Modern Warfare 2 Remaster','Es una edición remasterizada sobre el modo historia del exitoso FPS que garantiza texturas y animaciones mejoradas, renderizado físico, iluminación HDR y otras mejoras gráficas.',2800,'1' UNION
+	SELECT 'https://cdn-cms.bnea.io/sites/default/files/games/boxart/196040508899500.jpg','5','8','3','Dragon Ball Z Kakarot','Es un juego de acción y rol y acción a cargo de Cyberconnect y Bandai Namco basado en la conocida marca Dragon Ball, que nos propone revivir los mejores momentos de la serie de Akira Toriyama con una gran aventura de rol que incluye, claro, emocionantes combates contra personajes tan icónicos como Vegeta, Raditz o Freezer. De hecho, el arco de Buu se incluirá en el juego.',7000,'1'
 GO
 
 INSERT INTO TipoPerif(T_Codigo_TipoPerif,T_Nombre,T_Descripcion)
@@ -437,7 +436,6 @@ INSERT INTO Juegos
 	J_Codigo_PEGI,
 	J_Nombre,
 	J_Descripcion,
-	J_Stock,
 	J_PrecioUnitario,
 	J_Imagen
 )
@@ -447,7 +445,6 @@ INSERT INTO Juegos
 	@J_Codigo_PEGI,
 	@J_Nombre,
 	@J_Descripcion,
-	@J_Stock,
 	@J_PrecioUnitario,
 	@J_Imagen
 GO
@@ -475,17 +472,11 @@ GO
 CREATE PROCEDURE SP_Update_Juegos
 (
 	@J_Codigo_Juego varchar(5),
-	@J_PrecioNuevo decimal(18,2),
-	@J_Stock int
+	@J_PrecioNuevo decimal(18,2)
 )
 AS
 UPDATE Juegos
 SET J_PrecioUnitario = @J_PrecioNuevo
-WHERE J_Codigo_Juego = @J_Codigo_Juego
-
-IF(@J_Stock!=-1)
-UPDATE Juegos
-SET J_Stock = @J_Stock
 WHERE J_Codigo_Juego = @J_Codigo_Juego
 GO
 
@@ -834,6 +825,126 @@ SET N_Estado = '1'
 WHERE N_Codigo_Noticia = @N_Codigo_Noticia
 GO
 
+-- FACTURAS
+/*
+DJ_Codigo_Factura,DJ_Codigo_Juego,DJ_Cantidad,DJ_PrecioUnitario
+DP_Codigo_Factura,DP_Codigo_Periferico,DP_Cantidad,DP_PrecioUnitario
+F_Codigo_Factura,F_Codigo_Usuario,F_Codigo_CodDescuento,F_MontoTotal,F_Fecha
+*/
+CREATE PROCEDURE SP_Insert_Factura
+(
+	@F_Codigo_Usuario varchar(5),
+	@F_Codigo_CodDescuento varchar(5),
+	@F_MontoTotal decimal(18,2),
+	@F_Fecha date
+) 
+AS
+
+DECLARE @F_Codigo_Factura varchar(5)
+IF EXISTS(SELECT * FROM Factura)
+	SET @F_Codigo_Factura = (select top 1 (F_Codigo_Factura)+1
+	from Factura
+	ORDER BY
+	CASE 
+		WHEN ISNUMERIC(F_Codigo_Factura) = 1 THEN CONVERT(INT, F_Codigo_Factura) 
+		ELSE 9999999
+	END
+	DESC)
+ELSE
+	SET @F_Codigo_Factura = '1'
+
+INSERT INTO Factura
+(
+	F_Codigo_Factura,
+	F_Codigo_Usuario,
+	F_Codigo_CodDescuento,
+	F_MontoTotal,
+	F_Fecha
+)
+SELECT
+	@F_Codigo_Factura,
+	@F_Codigo_Usuario,
+	@F_Codigo_CodDescuento,
+	@F_MontoTotal,
+	@F_Fecha
+GO
+
+--EXEC SP_Insert_Factura '1','1',100,'2020-7-5'
+
+--SELECT * FROM Factura WHERE F_Codigo_Factura = (SELECT MAX(F_Codigo_Factura) FROM Factura)
+
+CREATE PROCEDURE SP_Insert_Detalle_Juego
+(
+	@DJ_Codigo_Juego varchar(5),
+	@DJ_Cantidad int,
+	@DJ_PrecioUnitario decimal(18,2)
+) 
+AS
+
+DECLARE @DJ_Codigo_Factura varchar(5)
+	SET @DJ_Codigo_Factura = (select top 1 (F_Codigo_Factura)
+	from Factura
+	ORDER BY
+	CASE 
+		WHEN ISNUMERIC(F_Codigo_Factura) = 1 THEN CONVERT(INT, F_Codigo_Factura) 
+		ELSE 9999999
+	END
+	DESC)
+
+INSERT INTO DetalleFactura_Juegos
+(
+	DJ_Codigo_Factura,
+	DJ_Codigo_Juego,
+	DJ_Cantidad,
+	DJ_PrecioUnitario
+)
+SELECT
+	@DJ_Codigo_Factura,
+	@DJ_Codigo_Juego,
+	@DJ_Cantidad,
+	@DJ_PrecioUnitario
+GO
+
+--EXEC SP_Insert_Detalle_Juego '1',2,100
+
+--SELECT * FROM DetalleFactura_Juegos WHERE DJ_Codigo_Factura = (SELECT MAX(DJ_Codigo_Factura) FROM DetalleFactura_Juegos)
+
+CREATE PROCEDURE SP_Insert_Detalle_Periferico
+(
+	@DP_Codigo_Periferico varchar(5),
+	@DP_Cantidad int,
+	@DP_PrecioUnitario decimal(18,2)
+) 
+AS
+
+DECLARE @DP_Codigo_Factura varchar(5)
+	SET @DP_Codigo_Factura = (select top 1 (F_Codigo_Factura)
+	from Factura
+	ORDER BY
+	CASE 
+		WHEN ISNUMERIC(F_Codigo_Factura) = 1 THEN CONVERT(INT, F_Codigo_Factura) 
+		ELSE 9999999
+	END
+	DESC)
+
+INSERT INTO DetalleFactura_Perifericos
+(
+	DP_Codigo_Factura,
+	DP_Codigo_Periferico,
+	DP_Cantidad,
+	DP_PrecioUnitario
+)
+SELECT
+	@DP_Codigo_Factura,
+	@DP_Codigo_Periferico,
+	@DP_Cantidad,
+	@DP_PrecioUnitario
+GO
+
+--EXEC SP_Insert_Detalle_Periferico '1',2,100
+
+--SELECT * FROM DetalleFactura_Perifericos WHERE DP_Codigo_Factura = (SELECT MAX(DP_Codigo_Factura) FROM DetalleFactura_Perifericos)
+
 -- CONSULTAS 
 
 -- Verificar STOCK escaso
@@ -862,7 +973,7 @@ GO
 
 -- Retorna la fecha actual
 SELECT CAST(DAY(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(MONTH(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(YEAR(GETDATE()) AS VARCHAR(5));
-
+GO
 /*
 -- Suma la recaudacion total de todos los años
 SELECT SUM(F_MontoTotal) AS [Total Recaudado], DATEPART(YEAR,F_Fecha) AS [Año]
@@ -870,3 +981,19 @@ FROM Factura
 ORDER BY DATEPART(YEAR,F_Fecha) ASC
 GO
 */
+
+--TRIGGERS
+
+CREATE TRIGGER TR_BajarStock_Periferico
+ON DetalleFactura_Perifericos
+AFTER INSERT
+AS
+UPDATE Perifericos
+SET PE_Stock = (PE_Stock - (SELECT DP_Cantidad FROM inserted))
+WHERE PE_Codigo_Periferico = (SELECT DP_Codigo_Periferico FROM inserted)
+GO
+
+--SELECT * FROM Perifericos WHERE PE_Codigo_Periferico = '3'
+--GO
+--EXEC SP_Insert_Detalle_Periferico '3',2,2000
+--GO
