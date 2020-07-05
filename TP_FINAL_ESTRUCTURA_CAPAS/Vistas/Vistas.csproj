@@ -81,6 +81,7 @@
     <Content Include="imgs\LogoPagina_M.png" />
     <Content Include="Juegos.aspx" />
     <Content Include="JuegosAdministrador.aspx" />
+    <Content Include="JuegosAgregar.aspx" />
     <Content Include="JuegosModificar.aspx" />
     <Content Include="LandingPage.aspx" />
     <Content Include="LandingPageAdministrador.aspx" />
@@ -88,8 +89,10 @@
     <Content Include="NoticiaModificar.aspx" />
     <Content Include="Noticias.aspx" />
     <Content Include="NoticiasAdministrador.aspx" />
+    <Content Include="NoticiasAgregar.aspx" />
     <Content Include="Perifericos.aspx" />
     <Content Include="PerifericosAdministrador.aspx" />
+    <Content Include="PerifericosAgregar.aspx" />
     <Content Include="PerifericosModificar.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="UsuariosAdministrador.aspx" />
@@ -167,6 +170,13 @@
     <Compile Include="JuegosAdministrador.aspx.designer.cs">
       <DependentUpon>JuegosAdministrador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JuegosAgregar.aspx.cs">
+      <DependentUpon>JuegosAgregar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JuegosAgregar.aspx.designer.cs">
+      <DependentUpon>JuegosAgregar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="JuegosModificar.aspx.cs">
       <DependentUpon>JuegosModificar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -216,6 +226,13 @@
     <Compile Include="NoticiasAdministrador.aspx.designer.cs">
       <DependentUpon>NoticiasAdministrador.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NoticiasAgregar.aspx.cs">
+      <DependentUpon>NoticiasAgregar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NoticiasAgregar.aspx.designer.cs">
+      <DependentUpon>NoticiasAgregar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Perifericos.aspx.cs">
       <DependentUpon>Perifericos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -229,6 +246,13 @@
     </Compile>
     <Compile Include="PerifericosAdministrador.aspx.designer.cs">
       <DependentUpon>PerifericosAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerifericosAgregar.aspx.cs">
+      <DependentUpon>PerifericosAgregar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerifericosAgregar.aspx.designer.cs">
+      <DependentUpon>PerifericosAgregar.aspx</DependentUpon>
     </Compile>
     <Compile Include="PerifericosModificar.aspx.cs">
       <DependentUpon>PerifericosModificar.aspx</DependentUpon>

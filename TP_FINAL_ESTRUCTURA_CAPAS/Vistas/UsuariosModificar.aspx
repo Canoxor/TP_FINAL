@@ -19,9 +19,9 @@
     <style type="text/css">
         .texto {
             width: 50%;
-            float: left; 
+            float: left;
             text-align: end;
-            height: 30px; 
+            height: 30px;
             margin-top: 15px;
         }
 
@@ -29,12 +29,12 @@
             border-radius: 5px;
             margin-top: 15px;
             border-color: transparent;
-            height: 30px; 
+            height: 30px;
             margin-left: 10px;
         }
 
         .divEstilo {
-            width: 50%; 
+            width: 50%;
             float: left;
         }
     </style>
@@ -42,38 +42,49 @@
 <body>
     <form id="formUsuariosModificar" runat="server">
         <div style="width: 100%; margin-top: 4%; color: white">
-            <div style="width: 100%; margin-bottom: 1%;text-align:center">
+            <div style="width: 100%; margin-bottom: 1%; text-align: center">
                 <asp:Label ID="lblIntro" runat="server" Text="" Style="font-size: 1.2em"></asp:Label>
             </div>
             <div class="texto">Nombre:</div>
             <div class="divEstilo">
-                <asp:TextBox ID="txtNombre" CssClass="textBoxEstilo" runat="server"></asp:TextBox></div>
+                <asp:TextBox ID="txtNombre" CssClass="textBoxEstilo" runat="server"></asp:TextBox>
+            </div>
             <div class="texto">Apellido:</div>
             <div class="divEstilo">
-                <asp:TextBox ID="txtApellido" CssClass="textBoxEstilo" runat="server"></asp:TextBox></div>
+                <asp:TextBox ID="txtApellido" CssClass="textBoxEstilo" runat="server"></asp:TextBox>
+            </div>
             <div class="texto">DNI:</div>
             <div class="divEstilo">
-                <asp:TextBox ID="txtDni" runat="server" CssClass="textBoxEstilo" TextMode="Number"></asp:TextBox><asp:Label ID="lblDni" runat="server" Text="" Style="margin-left:15px"></asp:Label></div>
+                <asp:TextBox ID="txtDni" runat="server" CssClass="textBoxEstilo" TextMode="Number"></asp:TextBox><asp:Label ID="lblDni" runat="server" Text="" Style="margin-left: 15px"></asp:Label>
+            </div>
             <div class="texto">Direccion:</div>
             <div class="divEstilo">
-                <asp:TextBox ID="txtDireccion" runat="server" CssClass="textBoxEstilo"></asp:TextBox></div>
+                <asp:TextBox ID="txtDireccion" runat="server" CssClass="textBoxEstilo"></asp:TextBox>
+            </div>
             <div class="texto">Telefono:</div>
             <div class="divEstilo">
-                <asp:TextBox ID="txtTelefono" runat="server" CssClass="textBoxEstilo" TextMode="Number"></asp:TextBox></div>
+                <asp:TextBox ID="txtTelefono" runat="server" CssClass="textBoxEstilo" TextMode="Number"></asp:TextBox>
+            </div>
             <div class="texto">Email:</div>
             <div class="divEstilo">
-                <asp:TextBox ID="txtEmail" runat="server" CssClass="textBoxEstilo" TextMode="Email"></asp:TextBox><asp:Label ID="lblEmail" runat="server" Text="" Style="margin-left:15px"></asp:Label></div>
+                <asp:TextBox ID="txtEmail" runat="server" CssClass="textBoxEstilo" TextMode="Email"></asp:TextBox><asp:Label ID="lblEmail" runat="server" Text="" Style="margin-left: 15px"></asp:Label>
+            </div>
             <div class="texto">Contraseña Actual:</div>
             <div class="divEstilo">
-                <asp:TextBox ID="txtContraseniaActual" runat="server" CssClass="textBoxEstilo" TextMode="Password"></asp:TextBox><asp:Label ID="lblContraseña" runat="server" Text="" Style="margin-left:15px"></asp:Label></div>
+                <asp:TextBox ID="txtContraseniaActual" runat="server" CssClass="textBoxEstilo" TextMode="Password"></asp:TextBox><asp:Label ID="lblContraseña" runat="server" Text="" Style="margin-left: 15px"></asp:Label>
+            </div>
             <div class="texto">Nueva Contraseña:</div>
             <div class="divEstilo">
-                <asp:TextBox ID="txtContraseniaNueva" runat="server" CssClass="textBoxEstilo" TextMode="Password"></asp:TextBox></div>
+                <asp:TextBox ID="txtContraseniaNueva" runat="server" CssClass="textBoxEstilo" TextMode="Password"></asp:TextBox>
+            </div>
             <div style="width: 50%; float: left; text-align: end; height: 30px; margin-top: 15px">
-                <asp:Button class="btn btn-dark btn-m" ID="btnVolver" runat="server" Style="position: center" Text="Volver a mi Perfil" OnClick="btnVolver_Click" /></div>
+                <asp:Button class="btn btn-dark btn-m" ID="btnVolver" runat="server" Style="position: center" Text="Volver a mi Perfil" OnClick="btnVolver_Click" />
+            </div>
             <div style="width: 50%; float: left; height: 30px; margin-top: 15px">
-                <asp:Button class="btn btn-primary btn-m" ID="btnConfirmar" runat="server" Style="position: center; margin-left: 10px" Text="Confirmar Cambios" OnClick="btnConfirmar_Click" /></div>
-            <div style="width:100%; text-align:center"> <asp:Label ID="lblMensaje" runat="server" Text="" Style="color:yellow; margin-top:60px"></asp:Label></div>
+                <asp:Button class="btn btn-primary btn-m" ID="btnConfirmar" runat="server" Style="position: center; margin-left: 10px" Text="Confirmar Cambios" OnClick="btnConfirmar_Click" />
+            </div>
+            <div style="width: 100%; text-align: center">
+                <asp:Label ID="lblMensaje" runat="server" Text="" Style="color: yellow; margin-top: 60px"></asp:Label></div>
 
         </div>
     </form>

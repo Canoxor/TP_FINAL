@@ -11,37 +11,64 @@ namespace Negocio
 {
     public class NegocioNoticia
     {
+        protected DatosNoticia D_Noticia = new DatosNoticia();
+        protected DatosJuego D_Juego = new DatosJuego();
+        protected Noticia E_Noticia = new Noticia();
 
-        public bool BajaNoticia(int id)
+        public Noticia ObtenerNoticia(int id)
         {
-            //Validar id existente 
-            DatosNoticia D_Noticia = new DatosNoticia();
-            Noticia E_Noticia = new Noticia();
-            E_Noticia.Codigo_Juego = id;
-            int Baja = D_Noticia.eliminarNoticia(E_Noticia);
-            if (Baja == 1)
+            return D_Noticia.traerNoticia(id);
+        }
+
+        public bool estaActivo(Noticia n)
+        {
+            return D_Noticia.estaActivo(n);
+        }
+
+        public bool activarNoticia(Noticia n)
+        {
+            int activo = D_Noticia.activarNoticia(n);
+            if (activo > 0)
                 return true;
             else
                 return false;
         }
 
-        public bool agregarNoticia(int Codigo_Juego,String Nombre, String Descripcion, String Imagen)
+        public bool existeNoticia(Noticia n)
+        {
+            return D_Noticia.existeNoticia(n);
+        }
+
+        public int getUltimoID()
+        {
+            return D_Noticia.ultimoId();
+        }
+
+        public DataTable tablaJuegos()
+        {
+            return D_Juego.traerJuegos();
+        }
+
+        public bool BajaNoticia(int id)
+        {
+            E_Noticia.Codigo_Noticia = id;
+            int Baja = D_Noticia.eliminarNoticia(E_Noticia);
+            if (Baja > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool agregarNoticia(Noticia noticia)
         {
             int cantFilas = 0;
-
-            Noticia E_Noticia = new Noticia();
-            E_Noticia.Codigo_Juego = Codigo_Juego;
-            E_Noticia.Nombre = Nombre;
-            E_Noticia.Descripcion = Descripcion;
-            E_Noticia.Imagen_Url = Imagen;
-
-            DatosNoticia D_Noticia = new DatosNoticia();
-            if (D_Noticia.existeNoticia(E_Noticia) == false)
+            
+            if (D_Noticia.existeNoticia(noticia) == false)
             {
-                cantFilas = D_Noticia.agregarNoticia(E_Noticia);
+                cantFilas = D_Noticia.agregarNoticia(noticia);
             }
 
-            if (cantFilas == 1)
+            if (cantFilas > 0)
                 return true;
             else
                 return false;

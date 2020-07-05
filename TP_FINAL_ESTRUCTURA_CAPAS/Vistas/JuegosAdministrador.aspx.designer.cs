@@ -96,22 +96,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnFiltroJuegosInactivos;
 
         /// <summary>
-        /// Control btnCarrito.
+        /// Control btnAgregarJuego.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCarrito;
-
-        /// <summary>
-        /// Control lbl_Codigo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Codigo;
+        protected global::System.Web.UI.WebControls.Button btnAgregarJuego;
 
         /// <summary>
         /// Control ListView2.

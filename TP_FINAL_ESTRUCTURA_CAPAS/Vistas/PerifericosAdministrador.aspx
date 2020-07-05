@@ -83,7 +83,7 @@
                    </div>
                </td>
                <td style="width: 33%; text-align: center">
-                    <asp:Button class="btn btn-secondary" ID="btnCarrito" runat="server" Style="position: center" Text="Ir a mi carrito" />
+                    <asp:Button class="btn btn-primary" ID="btnAgregarPeriferico" href="ServletCliente?altaCliente=1" runat="server" Style="position: center" Text="Agregar Periferico" OnClick="btnAgregarPeriferico_Click"/>
                </td>
            </tr>
            <tr>
@@ -160,7 +160,7 @@
                                                 <asp:Label ID="PE_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
                                             <br />
                                             <br />
-                                                <asp:Button ID="btn_Detalle" runat="server" Text="Modificar" CommandArgument='<%# Eval("PE_Codigo_Periferico") %>' OnCommand="btn_Detalle_Command" />
+                                                <asp:Button ID="btn_Detalle" class="btn btn-secondary" runat="server" Text="Modificar" CommandArgument='<%# Eval("PE_Codigo_Periferico") %>' OnCommand="btn_Detalle_Command" />
                                             <br />
                                         </span>
                                     </p>

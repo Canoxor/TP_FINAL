@@ -26,13 +26,43 @@ namespace Datos
             return E_Juego;
         }
 
+        public int ultimoId()
+        {
+            int ultimo = ds.ObtenerUltimoId("select top 1 * from Juegos ORDER BY CASE WHEN ISNUMERIC(J_Codigo_Juego) = 1 THEN CONVERT(INT, J_Codigo_Juego) ELSE 9999999 END DESC");
+
+            return ultimo;
+        }
+
+        public bool estaActivo(Juego juego)
+        {
+            String consulta = "Select * From Juegos where J_Codigo_Juego = '" + juego.Codigo_Juego + "' and J_Estado = '1'";
+            return ds.existe(consulta);
+        }
+
+        public DataTable traerJuegos()
+        {
+            DataTable tabla = ds.ObtenerTabla("Juegos", "Select * from Juegos");
+            return tabla;
+        }
+
+        public DataTable traerPegi()
+        {
+            DataTable tabla = ds.ObtenerTabla("PEGI", "Select * from PEGI");
+            return tabla;
+        }
+
+        public DataTable traerGeneros()
+        {
+            DataTable tabla = ds.ObtenerTabla("Generos", "Select * from Generos");
+            return tabla;
+        }
+
         public bool existeJuego(Juego juegoBuscado)
         {
             String consulta = "Select * from Juegos where J_Nombre='" + juegoBuscado.Nombre + "'";
             return ds.existe(consulta);
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
 
         public int editarJuego(Juego j)
         {
@@ -41,7 +71,6 @@ namespace Datos
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Update_Juegos");
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
 
         public int eliminarJuego(Juego j)
         {
@@ -50,12 +79,17 @@ namespace Datos
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Delete_Juegos");
 
         }
+        public int activarJuego(Juego j)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametrosJuegoEliminar(ref comando, j);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Activate_Juegos");
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
+        }
+
 
         public int agregarJuego(Juego j)
         {
-            j.Codigo_Juego = ds.ObtenerUltimoId("Select max(J_Codigo_Juego) from Juegos") + 1;
             SqlCommand comando = new SqlCommand();
             armarParametrosJuegoAgregar(ref comando, j);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Juegos");
@@ -73,16 +107,16 @@ namespace Datos
             SqlParameter sqlParametros = new SqlParameter();
             sqlParametros = comando.Parameters.Add("@J_Codigo_Juego", SqlDbType.VarChar);
             sqlParametros.Value = j.Codigo_Juego;
-            sqlParametros = comando.Parameters.Add("@J_PrecioUnitario", SqlDbType.Decimal);
+            sqlParametros = comando.Parameters.Add("@J_PrecioNuevo", SqlDbType.Decimal);
             sqlParametros.Value = j.Precio_Unitario;
+            sqlParametros = comando.Parameters.Add("@J_Stock", SqlDbType.Int);
+            sqlParametros.Value = j.Stock;
         }
 
 
         private void armarParametrosJuegoAgregar(ref SqlCommand comando, Juego j)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@J_Codigo_Juego", SqlDbType.VarChar);
-            sqlParametros.Value = j.Codigo_Juego; 
             sqlParametros = comando.Parameters.Add("@J_Codigo_Genero", SqlDbType.VarChar);
             sqlParametros.Value = j.Codigo_Genero;            
             sqlParametros = comando.Parameters.Add("@J_Codigo_PEGI", SqlDbType.VarChar);

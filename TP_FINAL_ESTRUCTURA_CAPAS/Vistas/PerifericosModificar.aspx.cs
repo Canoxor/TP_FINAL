@@ -20,8 +20,10 @@ namespace Vistas
             {
                 periferico = (Periferico)Session["pModificar"];
                 setTextBox();
+                estaActivo();
                
             }
+            estaActivo();
             periferico = (Periferico)Session["pModificar"];
         }
 
@@ -59,6 +61,48 @@ namespace Vistas
         {
             periferico.Precio_Unitario = Convert.ToInt32(txtPrecio.Text);
             periferico.Stock = Convert.ToInt32(txtStock.Text);
+            
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if(N_Periferico.BajaPeriferico(periferico.Codigo_Periferico) == true)
+            {
+                lblMensaje.Text = "El Periferico se elimino correctamente";
+            }
+           
+        }
+
+        protected void estaActivo()
+        {
+            if(N_Periferico.estaActivo(periferico) == true)
+            {
+                btnActivar.Enabled = false;
+                btnActivar.Visible = false;
+                btnEliminar.Enabled = true;
+                btnEliminar.Visible = true;
+            }
+            else
+            {
+                btnEliminar.Enabled = false;
+                btnEliminar.Visible = false;
+                btnActivar.Enabled = true;
+                btnActivar.Visible = true;
+            }
+        }
+
+        protected void btnActivar_Click(object sender, EventArgs e)
+        {
+            if (N_Periferico.activarPeriferico(periferico) == true)
+            {
+                lblMensaje.Text = "Se Activo correctamente";
+                estaActivo();
+
+
+            } else
+            {
+                lblMensaje.Text = "No se pudo activar";
+            }
         }
     }
 }

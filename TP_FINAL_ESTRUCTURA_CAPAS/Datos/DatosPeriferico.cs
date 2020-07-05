@@ -11,10 +11,12 @@ namespace Datos
 {
     public class DatosPeriferico
     {
+
         AccesoDatos ds = new AccesoDatos();
 
         public Periferico traerPeriferico(Periferico E_Periferico)
         {
+
             DataTable tabla = ds.ObtenerTabla("Periferico", "Select * from Perifericos where PE_Codigo_Periferico=" + E_Periferico.Codigo_Periferico);
             E_Periferico.Codigo_TipoPerif = (Convert.ToInt32(tabla.Rows[0][1].ToString()));
             E_Periferico.Codigo_Marca = (Convert.ToInt32(tabla.Rows[0][2].ToString()));
@@ -27,13 +29,37 @@ namespace Datos
             return E_Periferico;
         }
 
+        public int ultimoId()
+        {
+            int ultimo = ds.ObtenerUltimoId("select top 1 * from Perifericos ORDER BY CASE WHEN ISNUMERIC(PE_Codigo_Periferico) = 1 THEN CONVERT(INT, PE_Codigo_Periferico) ELSE 9999999 END DESC");
+
+            return ultimo;
+        }
+
+        public DataTable traerMarcas()
+        {
+            DataTable tabla = ds.ObtenerTabla("Marcas", "Select * from Marcas");
+            return tabla;
+        }
+
+        public DataTable traerTipoPeriferico()
+        {
+            DataTable tabla = ds.ObtenerTabla("TipoPerif", "Select * from TipoPerif");
+            return tabla;
+        }
+
         public bool existePeriferico(Periferico E_Periferico)
         {
-            String consulta = "Select * from Perifericos where PE_Nombre='" + E_Periferico.Nombre + "'";
+            String consulta = "Select * From Perifericos where PE_Nombre = '" + E_Periferico.Nombre + "'";
             return ds.existe(consulta);
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
+        public bool estaActivo(Periferico periferico)
+        {
+            String consulta = "Select * From Perifericos where PE_Codigo_Periferico = '" + periferico.Codigo_Periferico + "' and PE_Estado = '1'";
+            return ds.existe(consulta);
+        }
+
 
         public int editarPeriferico(Periferico p)
         {
@@ -42,7 +68,6 @@ namespace Datos
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Update_Perifericos");
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
 
         public int eliminarPeriferico(Periferico p)
         {
@@ -52,11 +77,16 @@ namespace Datos
 
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
+        public int activarrPeriferico(Periferico p)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametrosPerifericoEliminar(ref comando, p);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Activate_Perifericos");
+        }
+
 
         public int agregarPeriferico(Periferico p)
         {
-            p.Codigo_Periferico = ds.ObtenerUltimoId("Select max(PE_Codigo_Periferico) from Perifericos") + 1;
             SqlCommand comando = new SqlCommand();
             armarParametrosPerifericoAgregar(ref comando, p);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Perifericos");
@@ -83,8 +113,6 @@ namespace Datos
         private void armarParametrosPerifericoAgregar(ref SqlCommand comando, Periferico p)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.VarChar);
-            sqlParametros.Value = p.Codigo_Periferico;
             sqlParametros = comando.Parameters.Add("@PE_Codigo_TipoPerif", SqlDbType.VarChar);
             sqlParametros.Value = p.Codigo_TipoPerif;
             sqlParametros = comando.Parameters.Add("@PE_Codigo_Marca", SqlDbType.VarChar);

@@ -11,55 +11,79 @@ namespace Negocio
 {
     public class NegocioJuego
     {
-        /*
-        public DataTable getTabla()
-        {
-            DatosJuego D_Juego = new DatosJuego();
-            return D_Juego.obtenerTabla();
-        }
-        */
+        protected DatosJuego D_Juego = new DatosJuego();
+        protected Juego Juego = new Juego();
 
         public Juego ObtenerJuego(int id)
         {
-            DatosJuego D_Juego = new DatosJuego();
-            Juego E_Juego = new Juego();
-            E_Juego.Codigo_Juego = id;
-            return D_Juego.traerJuego(E_Juego);
+            Juego.Codigo_Juego = id;
+            return D_Juego.traerJuego(Juego);
+        }
+
+        public bool existeJuego(Juego j)
+        {
+            return D_Juego.existeJuego(j);
+        }
+
+        public int getUltimoID()
+        {
+            return D_Juego.ultimoId();
+        }
+        public DataTable tablaPegi()
+        {
+            return D_Juego.traerPegi();
+        }
+
+        public DataTable tablaGenero()
+        {
+            return D_Juego.traerGeneros();
         }
 
         public bool BajaJuego(int id)
         {
-            //Validar id existente 
-            DatosJuego D_Juego = new DatosJuego();
-            Juego E_Juego = new Juego();
-            E_Juego.Codigo_Juego = id;
-            int Baja = D_Juego.eliminarJuego(E_Juego);
-            if (Baja == 1)
+            Juego.Codigo_Juego = id;
+            int Baja = D_Juego.eliminarJuego(Juego);
+            if (Baja > 0)
                 return true;
             else
                 return false;
         }
 
-        public bool agregarJuego(int Codigo_Genero, int Codigo_PEGI, String Nombre, String Descripcion,int Stock,float Precio, String Imagen)
+
+        public bool agregarJuego(Juego juego)
         {
             int cantFilas = 0;
 
-            Juego E_Juego = new Juego();
-            E_Juego.Codigo_Genero = Codigo_Genero;
-            E_Juego.Codigo_PEGI = Codigo_PEGI;
-            E_Juego.Nombre = Nombre;
-            E_Juego.Descripcion = Descripcion;
-            E_Juego.Stock = Stock;
-            E_Juego.Precio_Unitario = Precio;
-            E_Juego.Imagen_Url = Imagen;
-
-            DatosJuego D_Juego = new DatosJuego();
-            if (D_Juego.existeJuego(E_Juego) == false)
+            if (D_Juego.existeJuego(juego) == false)
             {
-                cantFilas = D_Juego.agregarJuego(E_Juego);
+                cantFilas = D_Juego.agregarJuego(juego);
             }
 
-            if (cantFilas == 1)
+            if (cantFilas > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool editarJuego(Juego j)
+        {
+            int seEdito = 0;
+            seEdito = D_Juego.editarJuego(j);
+            if (seEdito > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool estaActivo(Juego j)
+        {
+            return D_Juego.estaActivo(j);
+        }
+
+        public bool activarJuego(Juego j)
+        {
+            int activo = D_Juego.activarJuego(j);
+            if (activo > 0)
                 return true;
             else
                 return false;

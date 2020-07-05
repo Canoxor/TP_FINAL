@@ -64,5 +64,10 @@ namespace Vistas
                 DS_PerifericoAdmin.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Nombre = '" + txtBusquedaPerifericos.Text + "'";
             }
         }
+
+        protected void btnAgregarPeriferico_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PerifericosAgregar.aspx");
+        }
     }
 }

@@ -58,6 +58,7 @@ namespace Datos
             return ds.Tables[NombreTabla];
         }
 
+
         public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP)
         {
             int FilasCambiadas;
@@ -71,6 +72,8 @@ namespace Datos
             Conexion.Close();
             return FilasCambiadas;
         }
+
+        
 
         //Para Preguntar en la BD si existe el usuario, Email, o lo que sea.
 

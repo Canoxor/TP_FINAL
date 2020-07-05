@@ -34,7 +34,6 @@
             height: 30px;
             margin-left: 10px;
         }
-
     </style>
 </head>
 <body>
@@ -74,18 +73,27 @@
         <div style="width: 100%; margin-top: 4%; color: white">
 
             <div class="texto">Codigo Periferico:<asp:Label ID="lbl_CodigoSeleccionado" runat="server" Text="" Style="margin-left: 15px"></asp:Label></div>
-            
+
             <div class="texto">Precio:<asp:TextBox ID="txtPrecio" CssClass="textBoxEstilo" runat="server" TextMode="Number"></asp:TextBox></div>
-           
+
             <div class="texto">Stock:<asp:TextBox ID="txtStock" runat="server" CssClass="textBoxEstilo" TextMode="Number"></asp:TextBox></div>
 
-            <div style="width: 100%; text-align:center; height: 30px; margin-top: 25px">
+            <div style="width: 100%; text-align: center; height: 30px; margin-top: 25px">
                 <asp:Button class="btn btn-primary btn-m" ID="btnActualizar" runat="server" Style="position: center; margin-right: 10px" Text="Actualizar" OnClick="btnActualizar_Click" />
-                <asp:Button class="btn btn-dark btn-m" ID="btnCancelar" runat="server" Style="position: center;margin-left:10px" Text="Cancelar" OnClick="btnCancelar_Click" />
+                <asp:Button class="btn btn-dark btn-m" ID="btnCancelar" runat="server" Style="position: center; margin-left: 10px" Text="Volver Atras" OnClick="btnCancelar_Click" />
             </div>
-            
-            <div style="width: 100%; text-align: center; margin-top:30px">
-                <asp:Label ID="lblMensaje" runat="server" Text="" Style="color: yellow; margin-top: 60px"></asp:Label></div>
+
+            <div style="width: 100%; text-align: center; height: 30px; margin-top: 20px">
+                <asp:Button class="btn btn-danger btn-m" ID="btnEliminar" runat="server" Style="position: center" Text="Eliminar Periferico" OnClick="btnEliminar_Click"/>
+            </div>
+
+            <div style="width: 100%; text-align: center; height: 30px; margin-top: 20px">
+                <asp:Button class="btn btn-warning btn-m" ID="btnActivar" runat="server" Style="position: center" Text="Activar Periferico" OnClick="btnActivar_Click"/>
+            </div>
+
+            <div style="width: 100%; text-align: center; margin-top: 30px">
+                <asp:Label ID="lblMensaje" runat="server" Text="" Style="color: yellow; margin-top: 60px"></asp:Label>
+            </div>
         </div>
     </form>
 </body>

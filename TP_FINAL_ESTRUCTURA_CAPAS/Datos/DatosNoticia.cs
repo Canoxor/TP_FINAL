@@ -12,6 +12,26 @@ namespace Datos
     public class DatosNoticia
     {
         AccesoDatos ds = new AccesoDatos();
+        protected Noticia noticia = new Noticia();
+
+        public Noticia traerNoticia(int id)
+        {
+            DataTable tabla = ds.ObtenerTabla("Noticias", "Select * from Noticias where N_Codigo_Noticia =" + id);
+            noticia.Codigo_Noticia = id;
+            noticia.Codigo_Juego = (Convert.ToInt32(tabla.Rows[0][1].ToString()));
+            noticia.Nombre = (tabla.Rows[0][2].ToString());
+            noticia.Descripcion = (tabla.Rows[0][3].ToString());
+            noticia.Imagen_Url = (tabla.Rows[0][4].ToString());
+
+            return noticia;
+        }
+
+        public int ultimoId()
+        {
+            int ultimo = ds.ObtenerUltimoId("select top 1 * from Noticias ORDER BY CASE WHEN ISNUMERIC(N_Codigo_Noticia) = 1 THEN CONVERT(INT, N_Codigo_Noticia) ELSE 9999999 END DESC");
+
+            return ultimo;
+        }
 
         public bool existeNoticia(Noticia n)
         {
@@ -19,7 +39,11 @@ namespace Datos
             return ds.existe(consulta);
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
+        public bool estaActivo(Noticia noticia)
+        {
+            String consulta = "Select * From Noticias where N_Codigo_Noticia = '" + noticia.Codigo_Noticia + "' and N_Estado = '1'";
+            return ds.existe(consulta);
+        }
 
         public int eliminarNoticia(Noticia n)
         {
@@ -29,11 +53,17 @@ namespace Datos
 
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
+        public int activarNoticia(Noticia n)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametrosNoticiaEliminar(ref comando, n);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Activate_Noticias");
+
+        }
+
 
         public int agregarNoticia(Noticia n)
         {
-            n.Codigo_Noticia = ds.ObtenerUltimoId("Select max(N_Codigo_Noticia) from Noticias") + 1;
             SqlCommand comando = new SqlCommand();
             armarParametrosNoticiaAgregar(ref comando, n);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Noticias");
@@ -49,8 +79,6 @@ namespace Datos
         private void armarParametrosNoticiaAgregar(ref SqlCommand comando, Noticia n)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@N_Codigo_Noticia", SqlDbType.VarChar);
-            sqlParametros.Value = n.Codigo_Noticia;
             sqlParametros = comando.Parameters.Add("@N_Codigo_Juego", SqlDbType.VarChar);
             sqlParametros.Value = n.Codigo_Juego;
             sqlParametros = comando.Parameters.Add("@N_Nombre", SqlDbType.VarChar);

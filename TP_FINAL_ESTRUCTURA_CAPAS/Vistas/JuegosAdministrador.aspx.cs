@@ -5,12 +5,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
+using Negocio;
 
 namespace Vistas
 {
     public partial class JuegosAdministrador : System.Web.UI.Page
     {
         protected Usuario usuario = new Usuario();
+        protected Juego juego = new Juego();
+        protected NegocioJuego N_Juego = new NegocioJuego();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,8 +22,9 @@ namespace Vistas
         protected void btn_Modificar_Command(object sender, CommandEventArgs e)
         {
             int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
-            Session["CodJuego"] = "" + id_seleccionado + "";
-            lbl_Codigo.Text = Session["CodJuego"].ToString();
+            juego = N_Juego.ObtenerJuego(id_seleccionado);
+            Session["jModificar"] = juego;
+            Response.Redirect("JuegosModificar.aspx");
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -65,6 +69,11 @@ namespace Vistas
         protected void btnFiltroJuegosInactivos_Click(object sender, EventArgs e)
         {
             SqlDataSource1.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos WHERE J_Estado = 0";
+        }
+
+        protected void btnAgregarJuego_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("JuegosAgregar.aspx");
         }
     }
 }

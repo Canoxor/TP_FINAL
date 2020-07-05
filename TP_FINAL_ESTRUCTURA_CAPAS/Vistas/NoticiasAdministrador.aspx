@@ -62,21 +62,21 @@
         <table class="w-100">
             <tr>
                 <td style="width: 33%; text-align: center">
-                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td style="width: 34%; text-align: center">
                     <div class="btn-group dropdown">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Filtar Noticias</button>
                         <div class="dropdown-menu">
                             <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarPorJuegos" runat="server" Style="position: center" Text="Juegos" OnClick="btnFiltrarPorJuegos_Click" />
-                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarFecha" runat="server" Style="position: center" Text="Fecha" OnClick="btnFiltrarFecha_Click" />
                             <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarActivas" runat="server" Style="position: center" Text="Noticas Activas" OnClick="btnFiltrarActivas_Click" />
                             <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarInactivas" runat="server" Style="position: center" Text="Noticias In-Activas" OnClick="btnFiltrarInactivas_Click" />
                         </div>
                     </div>
                 </td>
-                <td style="width: 33%; text-align: center">&nbsp;</td>
+                <td style="width: 33%; text-align: center">
+                    <asp:Button class="btn btn-primary" ID="btnAgregarNoticia" runat="server" Text="Agregar Noticia" OnClick="btnAgregarNoticia_Click" />
+                </td>
             </tr>
         </table>
         &nbsp<br />
@@ -132,7 +132,7 @@
                                     <asp:Label class="card-text" ID="Label2" runat="server" Text='<%# Eval("N_Descripcion") %>'></asp:Label>
                                     <br />
                                     <br />
-                                    <asp:Button class="btn btn-secondary" ID="btnSeleccionNoticia" runat="server" CommandArgument='<%# Eval("N_Codigo_Noticia") %>' OnCommand="btn_Modificar_Command" PostBackUrl="~/NoticiaModificar.aspx" Text="Modificar" />
+                                    <asp:Button class="btn btn-secondary" ID="btnSeleccionNoticia" runat="server" CommandArgument='<%# Eval("N_Codigo_Noticia") %>' OnCommand="btn_Modificar_Command" Text="Modificar"/>
                                 </div>
                             </div>
 

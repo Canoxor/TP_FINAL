@@ -322,11 +322,12 @@ INSERT INTO Perifericos(PE_Imagen,PE_Codigo_Periferico,PE_Codigo_TipoPerif,PE_No
 	SELECT 'https://http2.mlstatic.com/auriculares-gamer-logitech-g-series-g432-black-D_Q_NP_861149-MLA41107813935_032020-F.webp','3','7','G Series G432 Black','1','',100,11500,'1' UNION
 	SELECT 'https://http2.mlstatic.com/D_NQ_NP_671235-MLA32722390894_102019-O.jpg','4','1','Orbweaver Chroma Green Black','2','',60,14000,'1' UNION
 	SELECT 'https://http2.mlstatic.com/mouse-gamer-razer-krait-4g-6400-dpi-3-bot-ambidiestro-pc-D_Q_NP_433625-MLA25482744873_042017-F.webp','5','2','Krait Black','2','',90,11000,'1' UNION
-	SELECT 'https://http2.mlstatic.com/auriculares-gamer-razer-manowar-tournament-edition-overwatch-D_NQ_NP_641836-MLA26238153076_102017-F.jpg','6','7','Mano War, Tournament Edition','2','',100,7000,'1' UNION
+	SELECT 'https://http2.mlstatic.com/auriculares-gamer-razer-manowar-tournament-edition-overwatch-D_NQ_NP_641836-MLA26238153076_102017-F.jpg','6','7','Mano War, Tournament Edition','2','',100,31000,'1' UNION
 	SELECT 'https://http2.mlstatic.com/teclado-asus-xa02-rog-strix-scope-cherry-rgb-D_NQ_NP_821109-MLA40024192180_122019-F.jpg','7','1','Xa02 Rog Strix Scope Cherry Rgb','3','',70,23900,'1' UNION
 	SELECT 'https://www.excaliberpc.com/images/685630_2/large.jpg','8','2','Rog Gladius li Aura Sync','3','',100,10300,'1' UNION
 	SELECT 'https://http2.mlstatic.com/monitor-acer-kg241q-pbiip-236-fhd-tn-144hz-1ms-freesync-D_NQ_NP_802255-MLA31790837645_082019-F.jpg','9','5','KG1 KG241 led 24" Black','4','',100,48500,'1' UNION
-	SELECT 'https://images.samsung.com/is/image/samsung/ar-f350fhlxzb-ls22f350fhlxzb-frontblack-89957838?$PD_GALLERY_L_JPG$','10','5','Full HD led 22"','5','',100,31000,'1' 
+	SELECT 'https://http2.mlstatic.com/camara-web-cam-logitech-c270-720p-hd-twitch-skype-D_NQ_NP_787523-MLA31118123381_062019-F.webp','10','3','Logitech C270 720p Hd','1','',20,16000,'1' UNION
+	SELECT 'https://http2.mlstatic.com/camara-web-webcam-logitech-c922-stream-1080p-tripode-oficial-D_NQ_NP_622987-MLA31695418229_082019-F.webp','11','3','Logitech C922 Stream 1080p','1','',100,10300,'1' 
 GO
 
 INSERT INTO Prov_X_Perif(PP_Codigo_Proveedor,PP_Codigo_Periferico,PP_PrecioCompra)
@@ -339,12 +340,10 @@ INSERT INTO Prov_X_Perif(PP_Codigo_Proveedor,PP_Codigo_Periferico,PP_PrecioCompr
 	SELECT '3','7',20000 UNION
 	SELECT '3','8',8000 UNION
 	SELECT '4','9',40000 UNION
-	SELECT '5','10',25000 UNION
 	SELECT '1','4',11000 UNION
 	SELECT '1','5',9500 UNION
 	SELECT '1','6',5900 UNION
-	SELECT '2','9',45000 UNION
-	SELECT '2','10',28000
+	SELECT '2','9',45000
 GO
 
 INSERT INTO Prov_X_Juego (PJ_Codigo_Proveedor,PJ_Codigo_Juego,PJ_PrecioCompra)
@@ -402,7 +401,7 @@ INSERT INTO DetalleFactura_Perifericos (DP_Codigo_Factura, DP_Codigo_Periferico,
 	SELECT '4', '5', '1', '11000' UNION
 	SELECT '5', '8', '1', '10300' UNION
 	SELECT '6', '9', '1', '48500' UNION
-	SELECT '7', '10', '1', '31000' 
+	SELECT '6', '6', '1', '31000' 
 	GO
 
 -- PROCEDIMIENTOS ALMACENADOS
@@ -422,7 +421,14 @@ CREATE PROCEDURE SP_Insert_Juegos
 AS
 
 DECLARE @J_Codigo_Juego varchar(5)
-SET @J_Codigo_Juego = (SELECT (MAX(J_Codigo_Juego)+1) FROM Juegos)
+SET @J_Codigo_Juego = (select top 1 (J_Codigo_Juego)+1
+from Juegos
+ORDER BY
+  CASE 
+    WHEN ISNUMERIC(J_Codigo_Juego) = 1 THEN CONVERT(INT, J_Codigo_Juego) 
+    ELSE 9999999
+  END
+  DESC)
 
 INSERT INTO Juegos 
 (
@@ -456,14 +462,30 @@ SET J_Estado = '0'
 WHERE J_Codigo_Juego = @J_Codigo_Juego
 GO
 
+CREATE PROCEDURE SP_Activate_Juegos
+(
+	@J_Codigo_Juego varchar(5)
+)
+AS
+UPDATE Juegos
+SET J_Estado = '1'
+WHERE J_Codigo_Juego = @J_Codigo_Juego
+GO
+
 CREATE PROCEDURE SP_Update_Juegos
 (
 	@J_Codigo_Juego varchar(5),
-	@J_PrecioNuevo decimal(18,2)
+	@J_PrecioNuevo decimal(18,2),
+	@J_Stock int
 )
 AS
 UPDATE Juegos
 SET J_PrecioUnitario = @J_PrecioNuevo
+WHERE J_Codigo_Juego = @J_Codigo_Juego
+
+IF(@J_Stock!=-1)
+UPDATE Juegos
+SET J_Stock = @J_Stock
 WHERE J_Codigo_Juego = @J_Codigo_Juego
 GO
 
@@ -482,14 +504,21 @@ CREATE PROCEDURE SP_Insert_Perifericos
 AS
 
 DECLARE @PE_Codigo_Periferico varchar(5)
-SET @PE_Codigo_Periferico = (SELECT (MAX(PE_Codigo_Periferico)+1) FROM Perifericos)
+SET @PE_Codigo_Periferico = (select top 1 (PE_Codigo_Periferico)+1
+from Perifericos
+ORDER BY
+  CASE 
+    WHEN ISNUMERIC(PE_Codigo_Periferico) = 1 THEN CONVERT(INT, PE_Codigo_Periferico) 
+    ELSE 9999999
+  END
+  DESC)
 
 INSERT INTO Perifericos
 (
 	PE_Codigo_Periferico,
 	PE_Codigo_TipoPerif,
-	PE_Nombre,
 	PE_Codigo_Marca,
+	PE_Nombre,
 	PE_Descripcion,
 	PE_Stock,
 	PE_PrecioUnitario,
@@ -513,6 +542,16 @@ CREATE PROCEDURE SP_Delete_Perifericos
 AS
 UPDATE Perifericos
 SET PE_Estado = '0'
+WHERE PE_Codigo_Periferico = @PE_Codigo_Periferico
+GO
+
+CREATE PROCEDURE SP_Activate_Perifericos
+(
+	@PE_Codigo_Periferico varchar(5)
+)
+AS
+UPDATE Perifericos
+SET PE_Estado = '1'
 WHERE PE_Codigo_Periferico = @PE_Codigo_Periferico
 GO
 
@@ -551,7 +590,14 @@ CREATE PROCEDURE SP_Insert_Proveedores
 AS
 
 DECLARE @P_Codigo_Proveedor varchar(5)
-SET @P_Codigo_Proveedor = (SELECT (MAX(P_Codigo_Proveedor)+1) FROM Proveedores)
+SET @P_Codigo_Proveedor = (select top 1 (P_Codigo_Proveedor)+1
+from Proveedores
+ORDER BY
+  CASE 
+    WHEN ISNUMERIC(P_Codigo_Proveedor) = 1 THEN CONVERT(INT, P_Codigo_Proveedor) 
+    ELSE 9999999
+  END
+  DESC)
 
 INSERT INTO Proveedores
 (
@@ -589,6 +635,16 @@ SET P_Estado = '0'
 WHERE P_Codigo_Proveedor = @P_Codigo_Proveedor
 GO
 
+CREATE PROCEDURE SP_Activate_Proveedores
+(
+	@P_Codigo_Proveedor varchar(5)
+)
+AS
+UPDATE Proveedores
+SET P_Estado = '1'
+WHERE P_Codigo_Proveedor = @P_Codigo_Proveedor
+GO
+
 CREATE PROCEDURE SP_Update_Proveedores
 (
 	@P_Codigo_Proveedor varchar(5),
@@ -609,7 +665,14 @@ CREATE PROCEDURE SP_Insert_Marcas
 AS
 
 DECLARE @M_Codigo_Marca varchar(5)
-SET @M_Codigo_Marca = (SELECT (MAX(M_Codigo_Marca)+1) FROM Marcas)
+SET @M_Codigo_Marca = (select top 1 (M_Codigo_Marca)+1
+from Marcas
+ORDER BY
+  CASE 
+    WHEN ISNUMERIC(M_Codigo_Marca) = 1 THEN CONVERT(INT, M_Codigo_Marca) 
+    ELSE 9999999
+  END
+  DESC)
 
 INSERT INTO Marcas
 (
@@ -637,7 +700,14 @@ CREATE PROCEDURE SP_Insert_Usuarios
 AS
 
 DECLARE @U_Codigo_Usuario varchar(5)
-SET @U_Codigo_Usuario = (SELECT (MAX(U_Codigo_Usuario)+1) FROM Usuarios)
+SET @U_Codigo_Usuario = (select top 1 (U_Codigo_Usuario)+1
+from Usuarios
+ORDER BY
+  CASE 
+    WHEN ISNUMERIC(U_Codigo_Usuario) = 1 THEN CONVERT(INT, U_Codigo_Usuario) 
+    ELSE 9999999
+  END
+  DESC)
 
 INSERT INTO Usuarios
 (
@@ -673,6 +743,16 @@ SET U_Estado = '0'
 WHERE U_Codigo_Usuario = @U_Codigo_Usuario
 GO
 
+CREATE PROCEDURE SP_Activate_Usuarios
+(
+	@U_Codigo_Usuario varchar(5)
+)
+AS
+UPDATE Usuarios
+SET U_Estado = '1'
+WHERE U_Codigo_Usuario = @U_Codigo_Usuario
+GO
+
 CREATE PROCEDURE SP_Update_Usuarios
 (
 	@U_Codigo_Usuario varchar(5),
@@ -701,13 +781,23 @@ GO
 
 CREATE PROCEDURE SP_Insert_Noticias
 (
-	@N_Codigo_Noticia varchar(5),
 	@N_Codigo_Juego varchar(5),
 	@N_Nombre varchar(200),
 	@N_Descripcion varchar(1000),
 	@N_Imagen varchar(200)
 ) 
 AS
+
+DECLARE @N_Codigo_Noticia varchar(5)
+SET @N_Codigo_Noticia = (select top 1 (N_Codigo_Noticia)+1
+from Noticias
+ORDER BY
+  CASE 
+    WHEN ISNUMERIC(N_Codigo_Noticia) = 1 THEN CONVERT(INT, N_Codigo_Noticia) 
+    ELSE 9999999
+  END
+  DESC)
+
 INSERT INTO Noticias
 (
 	N_Codigo_Noticia,
@@ -731,6 +821,16 @@ CREATE PROCEDURE SP_Delete_Noticias
 AS
 UPDATE Noticias
 SET N_Estado = '0'
+WHERE N_Codigo_Noticia = @N_Codigo_Noticia
+GO
+
+CREATE PROCEDURE SP_Activate_Noticias
+(
+	@N_Codigo_Noticia varchar(5)
+)
+AS
+UPDATE Noticias
+SET N_Estado = '1'
 WHERE N_Codigo_Noticia = @N_Codigo_Noticia
 GO
 

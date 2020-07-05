@@ -88,7 +88,7 @@
                     </div>
                 </td>
                 <td style="width: 33%; text-align: center">
-                    <asp:Button class="btn btn-secondary" ID="btnCarrito" runat="server" Style="position: center" Text="Ir a mi carrito" />
+                    <asp:Button class="btn btn-primary" ID="btnAgregarJuego" runat="server" Style="position: center" Text="Agregar Juego" OnClick="btnAgregarJuego_Click" />
                 </td>
             </tr>
         </table>
@@ -96,8 +96,7 @@
         &nbsp<table class="w-100">
             <tr>
                 <td style="text-align: center" class="auto-style3">
-                    <asp:Label ID="lbl_Codigo" runat="server" CssClass="text-white" Text="Label invisible" Visible="False"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td style="text-align: center" class="auto-style5">
                     <asp:ListView ID="ListView2" runat="server" Style="position: center" DataSourceID="SqlDataSource1" GroupItemCount="3">
 
@@ -164,7 +163,7 @@
                                 </span>
                                 <br />
                                 <br />
-                                <asp:Button ID="btn_Modificar" runat="server" Text='Modificar' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btn_Modificar_Command" PostBackUrl="~/JuegosModificar.aspx" />
+                                <asp:Button ID="btn_Modificar" class="btn btn-secondary" runat="server" Text='Modificar' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btn_Modificar_Command"/>
                                 <br />
                                 </td>
                             </td>

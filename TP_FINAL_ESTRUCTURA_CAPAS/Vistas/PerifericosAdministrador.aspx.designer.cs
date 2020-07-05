@@ -87,13 +87,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnFiltrarPerifericosInactivos;
 
         /// <summary>
-        /// Control btnCarrito.
+        /// Control btnAgregarPeriferico.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCarrito;
+        protected global::System.Web.UI.WebControls.Button btnAgregarPeriferico;
 
         /// <summary>
         /// Control lvPerifericos.
