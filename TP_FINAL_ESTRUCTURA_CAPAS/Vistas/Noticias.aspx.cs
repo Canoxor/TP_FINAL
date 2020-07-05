@@ -11,11 +11,12 @@ namespace Vistas
 {
     public partial class Noticias : System.Web.UI.Page
     {
-        protected NegocioNoticia N_Noticia = new NegocioNoticia();
-        protected NegocioJuego N_Juego = new NegocioJuego();
+        protected NegocioUsuario N_Usuario = new NegocioUsuario();
         protected Usuario usuario = new Usuario();
-        protected Noticia noticia = new Noticia();
+
+        protected NegocioJuego Negocio_J = new NegocioJuego();
         protected Juego juego = new Juego();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             usuarioLogedIn();
@@ -24,9 +25,11 @@ namespace Vistas
         protected void btn_VerMas_Command(object sender, CommandEventArgs e)
         {
             int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());
-            noticia = N_Noticia.ObtenerNoticia(id_seleccionado);
-            juego = N_Juego.ObtenerJuego(noticia.Codigo_Juego);
+
+            juego = Negocio_J.ObtenerJuego(id_seleccionado);
+
             Session["JuegoSeleccionado"] = juego;
+
             Response.Redirect("DetalleJuego.aspx");
         }
 
@@ -39,6 +42,11 @@ namespace Vistas
         protected void btnFiltrarPorJuegos_Click(object sender, EventArgs e)
         {
             SqlDataNoticias.SelectCommand = "SELECT N_Nombre, N_Imagen, N_Descripcion, N_Codigo_Juego FROM Noticias WHERE N_Estado = 1 ORDER BY N_Codigo_Juego ASC";
+        }
+
+        protected void btnFiltrarFecha_Click(object sender, EventArgs e)
+        {
+            // SqlDataNoticias.SelectCommand = "SELECT N_Nombre, N_Imagen, N_Descripcion, N_Codigo_Juego FROM Noticias WHERE N_Estado = 1 ORDER BY N_Codigo_Juego ASC";
         }
 
         private void usuarioLogedIn()

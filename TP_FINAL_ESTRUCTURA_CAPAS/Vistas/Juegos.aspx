@@ -102,19 +102,19 @@
         <table class="w-100">
             <tr>
                 <td style="text-align: center" class="auto-style5">
-                    &nbsp;</td>
+                </td>
                 <td style="text-align: center" class="auto-style4">
-                    <asp:ListView ID="ListView2" runat="server" Style="position: center" DataSourceID="SqlDataSource1" GroupItemCount="3">
+                    <asp:ListView ID="ListView" runat="server" Style="position: center" DataSourceID="Sql_DataSource" GroupItemCount="3">
 
                         <EditItemTemplate>
-                            <td runat="server" style="">J_Imagen:
-                        <asp:TextBox ID="J_ImagenTextBox" runat="server" Text='<%# Bind("J_Imagen") %>' />
+                            <td runat="server" style="">Imagen:
+                        <asp:TextBox ID="ImagenTextBox" runat="server" Text='<%# Bind("J_Imagen") %>' />
                                 <br />
                                 J_Nombre:
-                        <asp:TextBox ID="J_NombreTextBox" runat="server" Text='<%# Bind("J_Nombre") %>' />
+                        <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("J_Nombre") %>' />
                                 <br />
                                 J_PrecioUnitario:
-                        <asp:TextBox ID="J_PrecioUnitarioTextBox" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
+                        <asp:TextBox ID="PrecioUnitarioTextBox" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
                                 <br />
                                 <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
                                 <br />
@@ -138,18 +138,18 @@
                             </tr>
                         </GroupTemplate>
                         <InsertItemTemplate>
-                            <td runat="server" style="">J_Imagen:
-                        <asp:TextBox ID="J_ImagenTextBox0" runat="server" Text='<%# Bind("J_Imagen") %>' />
+                            <td runat="server" style="">Imagen:
+                        <asp:TextBox ID="ImagenTextBox" runat="server" Text='<%# Bind("J_Imagen") %>' />
                                 <br />
-                                J_Nombre:
-                        <asp:TextBox ID="J_NombreTextBox0" runat="server" Text='<%# Bind("J_Nombre") %>' />
+                                Nombre:
+                        <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("J_Nombre") %>' />
                                 <br />
-                                J_PrecioUnitario:
-                        <asp:TextBox ID="J_PrecioUnitarioTextBox0" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
+                                PrecioUnitario:
+                        <asp:TextBox ID="PrecioUnitarioTextBox" runat="server" Text='<%# Bind("J_PrecioUnitario") %>' />
                                 <br />
                                 <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
                                 <br />
-                                <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
+                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
                                 <br />
                             </td>
                         </InsertItemTemplate>
@@ -159,20 +159,20 @@
                             
                             <td class="card-columns">
                                 <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width: 350px; align-content: center; align-items: center; padding-left:5%;padding-right:5%; padding-top:5%; background-color:#FFFFFF; margin-left:20%">
-                                    <asp:Image ID="J_Imagen0" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
+                                    <asp:Image ID="Imagen" Style="border-radius: 20px" runat="server" Height="400px" ImageUrl='<%# Eval("J_Imagen") %>' Width="270px" />
                                 <br />
                                 <br />
                                 <span class="text-black">
-                                    <b><asp:Label ID="J_NombreLabel0" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
+                                    <b><asp:Label ID="Nombre" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
                                 </span>
                                 <br />
                                 <br />
                                 <span style="color: black; font-size: 13pt"> $
-                                    <asp:Label ID="J_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("J_PrecioUnitario") %>' Font-Size="18px"></asp:Label>
+                                    <asp:Label ID="PrecioUnitario" runat="server" Text='<%# Eval("J_PrecioUnitario") %>' Font-Size="18px"></asp:Label>
                                 </span>
                                 <br />
                                 <br />
-                                <asp:Button ID="btn_DetalleJuego" runat="server" Text='Ir al juego' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btnInfo_Command"/>
+                                <asp:Button ID="btn_Info" runat="server" Text='Ir al juego' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btnInfo_Command"/>
                                 <br />
                                 </td>
                             </td>
@@ -196,13 +196,13 @@
                         </LayoutTemplate>
                         <SelectedItemTemplate>
                             <td runat="server" style="">J_Imagen:
-                        <asp:Label ID="J_ImagenLabel" runat="server" Text='<%# Eval("J_Imagen") %>' />
+                        <asp:Label ID="ImagenLabel" runat="server" Text='<%# Eval("J_Imagen") %>' />
                                 <br />
                                 J_Nombre:
-                        <asp:Label ID="J_NombreLabel1" runat="server" Text='<%# Eval("J_Nombre") %>' />
+                        <asp:Label ID="NombreLabel1" runat="server" Text='<%# Eval("J_Nombre") %>' />
                                 <br />
                                 J_PrecioUnitario:
-                        <asp:Label ID="J_PrecioUnitarioLabel1" runat="server" Text='<%# Eval("J_PrecioUnitario") %>' />
+                        <asp:Label ID="PrecioUnitarioLabel1" runat="server" Text='<%# Eval("J_PrecioUnitario") %>' />
                                 <br />
                             </td>
                         </SelectedItemTemplate>
@@ -225,7 +225,7 @@
         &nbsp;<br />
         <br />
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario], [J_Codigo_Juego], [J_Estado] FROM [Juegos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="Sql_DataSource" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario], [J_Codigo_Juego], [J_Estado] FROM [Juegos]"></asp:SqlDataSource>
 
 
 

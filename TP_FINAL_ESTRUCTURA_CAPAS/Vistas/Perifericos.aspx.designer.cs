@@ -96,21 +96,21 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnCarrito;
 
         /// <summary>
-        /// Control lvPerifericos.
+        /// Control ListView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvPerifericos;
+        protected global::System.Web.UI.WebControls.ListView ListView;
 
         /// <summary>
-        /// Control SqlDataPerifericos.
+        /// Control Sql_DataSource.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataPerifericos;
+        protected global::System.Web.UI.WebControls.SqlDataSource Sql_DataSource;
     }
 }

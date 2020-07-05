@@ -16,7 +16,7 @@ namespace Vistas
             if (!IsPostBack)
             {
                 int Codigo = ((Juego)Session["JuegoSeleccionado"]).Codigo_Juego;
-                DS_DetalleJuego.SelectCommand = "SELECT[J_Imagen], [J_Nombre], [J_Descripcion], [J_PrecioUnitario], [J_Codigo_Juego] FROM[Juegos] WHERE [J_Codigo_Juego] ='" + Codigo + "'";
+                DS_Detalle.SelectCommand = "SELECT[J_Imagen], [J_Nombre], [J_Descripcion], [J_PrecioUnitario], [J_Codigo_Juego] FROM[Juegos] WHERE [J_Codigo_Juego] ='" + Codigo + "'";
             }
             usuario = (Usuario)Session["usuarioLogedIn"];
             lblNavbarUsuario.Text = usuario.Nombre;
@@ -32,6 +32,5 @@ namespace Vistas
             Session["usuarioLogedIn"] = null;
             Response.Redirect("LandingPage.aspx");
         }
-
     }
 }

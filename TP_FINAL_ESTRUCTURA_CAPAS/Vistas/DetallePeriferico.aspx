@@ -20,18 +20,19 @@
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games</title>
     <style type="text/css">
-        .auto-style1 {
-            width: 536px;
-            text-align: center;
-        }
-
+        
         .auto-style2 {
-            text-align: left;
+            text-align: center;
             width: 601px;
         }
 
-        .auto-style3 {
+        .auto-style4 {
             margin-left: 94px;
+            width: 515px;
+        }
+        .auto-style5 {
+            margin-left: 94px;
+            width: 577px;
         }
     </style>
 </head>
@@ -70,99 +71,131 @@
                 </ul>
             </div>
         </nav>
-        &nbsp
-        &nbsp
-        &nbsp
-        &nbsp
-        <br />
-        <p>
-            &nbsp;
-        </p>
-        <table class="w-100">
-            <tr>
-                <td class="auto-style2">
-                    <div class="text-left">
-                        <br />
-                        <br />
-                    </div>
-                    <asp:SqlDataSource ID="DS_DetallePeriferico" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_Descripcion], [PE_PrecioUnitario] FROM [Perifericos] WHERE ([PE_Codigo_Periferico] = @PE_Codigo_Periferico)">
-                        
-                    </asp:SqlDataSource>
-                </td>
-                <td class="auto-style1">
-                    <asp:FormView ID="FormView1" runat="server" DataSourceID="DS_DetallePeriferico" CssClass="auto-style3">
-                        <EditItemTemplate>
-                            PE_Nombre:
-                                <asp:TextBox ID="PE_NombreTextBox1" runat="server" Text='<%# Bind("PE_Nombre") %>' />
-                            <br />
-                            PE_Descripcion:
-                                <asp:TextBox ID="PE_DescripcionTextBox" runat="server" Text='<%# Bind("PE_Descripcion") %>' />
-                            <br />
-                            PE_PrecioUnitario:
-                                <asp:TextBox ID="PE_PrecioUnitarioTextBox1" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
-                            <br />
-                            PE_Imagen:
-                                <asp:TextBox ID="PE_ImagenTextBox1" runat="server" Text='<%# Bind("PE_Imagen") %>' />
-                            <br />
-                            <asp:LinkButton ID="UpdateButton0" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
-                            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
-                        </EditItemTemplate>
-                        <InsertItemTemplate>
-                            PE_Nombre:
-                                <asp:TextBox ID="PE_NombreTextBox2" runat="server" Text='<%# Bind("PE_Nombre") %>' />
-                            <br />
-                            PE_Descripcion:
-                                <asp:TextBox ID="PE_DescripcionTextBox0" runat="server" Text='<%# Bind("PE_Descripcion") %>' />
-                            <br />
-                            PE_PrecioUnitario:
-                                <asp:TextBox ID="PE_PrecioUnitarioTextBox2" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
-                            <br />
-                            PE_Imagen:
-                                <asp:TextBox ID="PE_ImagenTextBox2" runat="server" Text='<%# Bind("PE_Imagen") %>' />
-                            <br />
-                            <asp:LinkButton ID="InsertButton0" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
-                            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
-                        </InsertItemTemplate>
-                        <ItemTemplate>
+       <div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <table class="w-100">
+                <tr>
+                    <td class="auto-style5">
+                        &nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:FormView ID="FormView1" runat="server" CssClass="auto-style7" DataKeyNames="PE_Codigo_Periferico" DataSourceID="DS_Detalle">
+                            <EditItemTemplate>
+                                Imagen:
+                                <asp:TextBox ID="ImagenTextBox" runat="server" Text='<%# Bind("PE_Imagen") %>' />
+                                <br />
+                                Nombre:
+                                <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("PE_Nombre") %>' />
+                                <br />
+                                Descripcion:
+                                <asp:TextBox ID="DescripcionTextBox" runat="server" Text='<%# Bind("PE_Descripcion") %>' />
+                                <br />
+                                PrecioUnitario:
+                                <asp:TextBox ID="PrecioUnitarioTextBox" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
+                                <br />
+                                Codigo_Juego:
+                                <asp:Label ID="Codigo_JuegoLabel1" runat="server" Text='<%# Eval("PE_Codigo_Juego") %>' />
+                                <br />
+                                Estado:
+                                <asp:CheckBox ID="EstadoCheckBox" runat="server" Checked='<%# Bind("PE_Estado") %>' />
+                                <br />
+                                <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
+                                &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                            </EditItemTemplate>
+                            <InsertItemTemplate>
+                                Imagen:
+                                <asp:TextBox ID="ImagenTextBox0" runat="server" Text='<%# Bind("PE_Imagen") %>' />
+                                <br />
+                                Nombre:
+                                <asp:TextBox ID="NombreTextBox0" runat="server" Text='<%# Bind("PE_Nombre") %>' />
+                                <br />
+                                Descripcion:
+                                <asp:TextBox ID="DescripcionTextBox0" runat="server" Text='<%# Bind("PE_Descripcion") %>' />
+                                <br />
+                                PrecioUnitario:
+                                <asp:TextBox ID="PrecioUnitarioTextBox0" runat="server" Text='<%# Bind("PE_PrecioUnitario") %>' />
+                                <br />
+                                Codigo_Juego:
+                                <asp:TextBox ID="Codigo_JuegoTextBox" runat="server" Text='<%# Bind("PE_Codigo_Juego") %>' />
+                                <br />
+                                Estado:
+                                <asp:CheckBox ID="EstadoCheckBox0" runat="server" Checked='<%# Bind("PE_Estado") %>' />
+                                <br />
+                                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
+                                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                            </InsertItemTemplate>
+                            <ItemTemplate>
+                                
                             <td class="card-columns">
                                 <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width: 450px; align-content: center; align-items: center; padding-left:5%;padding-right:5%; padding-top:5%; background-color:#FFFFFF; margin-left:20%">
-                            <div class="text-center">
-                                <span class="text-black" font-size: 13pt">
-                                    <asp:Image ID="J_Imagen0" runat="server" Height="300px" ImageUrl='<%# Eval("PE_Imagen") %>' Style="border-radius: 20px" Width="300px" />
+                                    <asp:Image ID="Imagen0" Style="border-radius: 20px" runat="server" Height="240px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="280px" />
+                                    <br />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <br />
+                                    <span class="text-black"><b>
+                                    <asp:Label ID="NombreLabel0" runat="server" CssClass="auto-style3" Font-Size="22px" Text='<%# Eval("PE_Nombre") %>'></asp:Label>
+                                    <br />
+                                    </b></span>
+                                <p align="center
                                     <br />
                                     <br />
-                                    <asp:Label ID="NombreLabel" runat="server" CssClass="auto-style6" Text='<%# Eval("PE_Nombre") %>' Font-Size="22px"></asp:Label>
+                                    <span class="text-black">&nbsp;<span style="color: black; font-size: 13pt"><strong>Descripcion</strong>
                                     <br />
-                                    <br />
-                                    <span class="auto-style6">Descripcion</span><br />
-                                    <asp:Label ID="DescripcionLabel" runat="server" Text='<%# Eval("PE_Descripcion") %>'></asp:Label>
+                                    <asp:Label ID="lblDescripcionJuegoLv_DJ" runat="server" Text='<%# Eval("PE_Descripcion") %>'></asp:Label>
                                     <br />
                                     <br />
                                     Precio: $
-                                    <asp:Label ID="PrecioUnitarioLabel" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
+                                    <asp:Label ID="lblPrecioJuegoLv_DJ" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
                                     <br />
                                     <br />
-                                    ¿Desea agregar este periférico al carrito?<br />
-                                </span>
+                                    ¿Desea agregar este producto al carrito?
+                                    <br />
+                                    </span>
+                                </p>
+                                     <asp:Button ID="btnAgregarCarritoDJ" runat="server" Text="Agregar" OnCommand="btnAgregar_Command"/>
                                 <br />
-                                <asp:Button ID="btn_Agregar" runat="server" Text="Agregar" PostBackUrl="~/CompraVerificarPeriferico.aspx"/>
-                                <br />
-                                <br />
-                            </div>
-                                    </td>
+                                    <br />
                                 </td>
+                            </td>
+                            
                         </ItemTemplate>
-                    </asp:FormView>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
+                            
+                        </asp:FormView>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="auto-style4">
+                        <asp:SqlDataSource ID="DS_Detalle" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_Descripcion], [PE_PrecioUnitario], [PE_Codigo_Periferico] FROM [Perifericos]">
+                        </asp:SqlDataSource>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
     </form>
+    <script>
+        $(function () {
+            $(document).scroll(function () {
+                var $nav = $("#mainNavbar");
+                $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 </html>
+

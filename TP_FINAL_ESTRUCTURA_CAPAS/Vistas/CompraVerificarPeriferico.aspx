@@ -156,7 +156,7 @@
                 </td>
                 <td class="text-left">&nbsp;
                     <br />
-                    <asp:Button ID="btn_Confirmar" runat="server" Text="Agregar al carrito" CssClass="auto-style7" Height="45px" Width="197px" OnClick="btn_Confirmar_Click" PostBackUrl="~/CompraMensajePeriferico.aspx" />
+                    <asp:Button ID="btn_Confirmar" runat="server" Text="Agregar al carrito" CssClass="auto-style7" Height="45px" Width="197px" OnClick="btn_Confirmar_Click"/>
                     <br />
 &nbsp;</td>
             </tr>
