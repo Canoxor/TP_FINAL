@@ -74,12 +74,16 @@
 
             <div class="texto">Codigo Periferico:<asp:Label ID="lbl_CodigoSeleccionado" runat="server" Text="" Style="margin-left: 15px"></asp:Label></div>
 
-            <div class="texto">Precio:<asp:TextBox ID="txtPrecio" CssClass="textBoxEstilo" runat="server" TextMode="Number"></asp:TextBox></div>
+            <div class="texto" style="margin-left:4%">Precio:<asp:TextBox ID="txtPrecio" CssClass="textBoxEstilo" runat="server" TextMode="Number"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvPrecio" runat="server" ControlToValidate="txtPrecio" ValidationGroup="Grupo1">Ingrese un precio</asp:RequiredFieldValidator>
+             </div>
 
-            <div class="texto">Stock:<asp:TextBox ID="txtStock" runat="server" CssClass="textBoxEstilo" TextMode="Number"></asp:TextBox></div>
+            <div class="texto" style="margin-left:5%">Stock:<asp:TextBox ID="txtStock" runat="server" CssClass="textBoxEstilo" TextMode="Number"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvStock" runat="server" ControlToValidate="txtStock" ValidationGroup="Grupo1">Ingrese una cantidad</asp:RequiredFieldValidator>
+             </div>
 
             <div style="width: 100%; text-align: center; height: 30px; margin-top: 25px">
-                <asp:Button class="btn btn-primary btn-m" ID="btnActualizar" runat="server" Style="position: center; margin-right: 10px" Text="Actualizar" OnClick="btnActualizar_Click" />
+                <asp:Button class="btn btn-primary btn-m" ID="btnActualizar" runat="server"  ValidationGroup="Grupo1" Style="position: center; margin-right: 10px" Text="Actualizar" OnClick="btnActualizar_Click" />
                 <asp:Button class="btn btn-dark btn-m" ID="btnCancelar" runat="server" Style="position: center; margin-left: 10px" Text="Volver Atras" OnClick="btnCancelar_Click" />
             </div>
 

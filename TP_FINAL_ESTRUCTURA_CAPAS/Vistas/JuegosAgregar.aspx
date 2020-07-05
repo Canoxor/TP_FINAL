@@ -90,7 +90,7 @@
                 <asp:DropDownList ID="ddlGenero" runat="server">
                 </asp:DropDownList>
             </td>
-            <td class="columna">&nbsp;</td>
+            <td class="columna"><asp:RequiredFieldValidator ID="rfvDropGeneros" runat="server" ControlToValidate="ddlGenero" Font-Bold="True" ForeColor="Red" ValidationGroup="Grupo1" InitialValue="0">Guarde un Genero primero</asp:RequiredFieldValidator></td>
         </tr>
         <tr class="fila">
             <td class="columna">&nbsp;</td>
@@ -99,7 +99,7 @@
                 <asp:DropDownList ID="ddlPegi" runat="server">
                 </asp:DropDownList>
             </td>
-            <td class="columna">&nbsp;</td>
+            <td class="columna"><asp:RequiredFieldValidator ID="rfvDropPEGI" runat="server" ControlToValidate="ddlPegi" Font-Bold="True" ForeColor="Red" ValidationGroup="Grupo1" InitialValue="0">Guarde un Indice PEGI Primero</asp:RequiredFieldValidator></td>
         </tr>
         <tr class="fila">
             <td class="columna">&nbsp;</td>
@@ -107,7 +107,9 @@
             <td class="columna columna_3">
                 <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
             </td>
-            <td class="columna">&nbsp;</td>
+            <td class="columna">
+                <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ValidationGroup="Grupo1">Ingrese un Nombre</asp:RequiredFieldValidator>
+            </td>
         </tr>
         <tr class="fila">
             <td class="columna">&nbsp;</td>
@@ -115,7 +117,9 @@
             <td class="columna columna_3">
                 <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" runat="server"></asp:TextBox>
             </td>
-            <td class="columna">&nbsp;</td>
+            <td class="columna">
+                <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="txtDescripcion" ValidationGroup="Grupo1">Ingrese una Descripcion</asp:RequiredFieldValidator>
+            </td>
         </tr>
          <tr class="fila">
             <td class="columna">&nbsp;</td>
@@ -123,7 +127,9 @@
             <td class="columna columna_3">
                 <asp:TextBox ID="txtStock" runat="server" TextMode="Number"></asp:TextBox>
              </td>
-            <td class="columna">&nbsp;</td>
+            <td class="columna">
+                <asp:RequiredFieldValidator ID="rfvStock" runat="server" ControlToValidate="txtStock" ValidationGroup="Grupo1">Ingrese una cantidad</asp:RequiredFieldValidator>
+             </td>
         </tr>
          <tr class="fila">
             <td class="columna">&nbsp;</td>
@@ -131,7 +137,9 @@
             <td class="columna columna_3">
                 <asp:TextBox ID="txtPrecio" runat="server" TextMode="Number"></asp:TextBox>
              </td>
-            <td class="columna">&nbsp;</td>
+            <td class="columna">
+                <asp:RequiredFieldValidator ID="rfvPrecio" runat="server" ControlToValidate="txtPrecio" ValidationGroup="Grupo1">Ingrese un precio</asp:RequiredFieldValidator>
+             </td>
         </tr>
          <tr class="fila">
             <td class="columna">&nbsp;</td>
@@ -139,12 +147,14 @@
             <td class="columna columna_3">
                 <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
              </td>
-            <td class="columna">&nbsp;</td>
+            <td class="columna">
+                <asp:RequiredFieldValidator ID="rfvURL" runat="server" ControlToValidate="txtURL" ValidationGroup="Grupo1">Ingrese una URL</asp:RequiredFieldValidator>
+             </td>
         </tr>
          <tr class="fila">
             <td class="columna">&nbsp;</td>
             <td class="columna" style="text-align:end; padding-right:15px">
-                <asp:Button class="btn btn-primary btn-m" ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+                <asp:Button class="btn btn-primary btn-m" ID="btnAgregar" runat="server" Text="Agregar" ValidationGroup="Grupo1" OnClick="btnAgregar_Click" />
              </td>
             <td class="columna" style="text-align:left;padding-left:15px">
                 <asp:Button class="btn btn-secondary btn-m" ID="btnCancelar" runat="server" Text="Volver Atras" OnClick="btnCancelar_Click" />

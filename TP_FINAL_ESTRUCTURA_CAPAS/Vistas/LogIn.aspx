@@ -46,21 +46,21 @@
                 <td class="auto-style9" style="color: #FFFFFF">Email:</td>
                 <td class="auto-style8">
                     <!-- Para tener en cuenta para el diseño, borde redondeado y placeholder como hint -->
-                    <asp:TextBox ID="txtEmail_LogIn" runat="server" TextMode="Email" placeholder="Email" Style="border-radius: 5px; border-color: transparent"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail_LogIn" runat="server" TextMode="Email" placeholder="Email" Style="border-radius: 5px; border-color: transparent" ValidationGroup="Grupo1"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td><asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail_LogIn" ValidationGroup="Grupo1">Ingrese un Email</asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td class="auto-style9" style="color: #FFFFFF">Contraseña:</td>
                 <td class="auto-style8">
-                    <asp:TextBox ID="txtContraseña_LogIn" runat="server" TextMode="Password" placeholder="Contraseña"></asp:TextBox>
+                    <asp:TextBox ID="txtContraseña_LogIn" runat="server" TextMode="Password" placeholder="Contraseña" Style="border-radius: 5px; border-color: transparent" ValidationGroup="Grupo1"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td><asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="txtContraseña_LogIn" ValidationGroup="Grupo1">Ingrese una Contraseña</asp:RequiredFieldValidator></td>
             </tr>
         </table>
         &nbsp
         <div style="text-align: center">
-            <asp:Button class="btn btn-primary btn-m" ID="btnIniciarSesion" runat="server" Style="position: center" Text="Iniciar Sesion" OnClick="btnIniciarSesion_Click" />
+            <asp:Button class="btn btn-primary btn-m" ID="btnIniciarSesion" runat="server" Style="position: center" Text="Iniciar Sesion" OnClick="btnIniciarSesion_Click" ValidationGroup="Grupo1"/>
         </div>
         &nbsp
         <div style="text-align: center">

@@ -18,7 +18,6 @@
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games</title>
     <style type="text/css">
-
         .auto-style2 {
             width: 206px;
         }
@@ -26,7 +25,6 @@
         .auto-style3 {
             width: 206px;
         }
-
     </style>
 </head>
 <body>
@@ -48,57 +46,62 @@
             <tr>
                 <td class="auto-style2" style="color: #FFFFFF">Nombre:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="txtNombre_SignIn" CssClass="textBoxLogIn" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNombre_SignIn" CssClass="textBoxLogIn" ValidationGroup="Grupo1" runat="server"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre_SignIn" ValidationGroup="Grupo1">Ingrese un Nombre</asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td class="auto-style2" style="color: #FFFFFF">Apellido:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="txtApellido_SignIn" CssClass="textBoxLogIn" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtApellido_SignIn" CssClass="textBoxLogIn" ValidationGroup="Grupo1" runat="server"></asp:TextBox>
                 </td>
-                <td></td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtApellido_SignIn" ValidationGroup="Grupo1">Ingrese un Apellido</asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td class="auto-style2" style="color: #FFFFFF">Dni:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="txtDni_SignIn" CssClass="textBoxLogIn" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDni_SignIn" CssClass="textBoxLogIn" ValidationGroup="Grupo1" runat="server"></asp:TextBox>
                 </td>
                 <td>
-                    &nbsp
-                    <asp:Label ID="lblDniExistente" runat="server"></asp:Label>
+                    <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txtDni_SignIn" ValidationGroup="Grupo1">Ingrese un Dni</asp:RequiredFieldValidator>
+                    <asp:Label ID="lblDniExistente" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2" style="color: #FFFFFF">Email:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="txtEmail_SignIn" CssClass="textBoxLogIn" runat="server" TextMode="Email"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail_SignIn" CssClass="textBoxLogIn" ValidationGroup="Grupo1" runat="server" TextMode="Email"></asp:TextBox>
                 </td>
                 <td>
-                    &nbsp
-                    <asp:Label ID="lblEmailExistente" runat="server"></asp:Label>
+                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail_SignIn" ValidationGroup="Grupo1">Ingrese un Email</asp:RequiredFieldValidator>
+                    <asp:Label ID="lblEmailExistente" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2" style="color: #FFFFFF">Contraseña:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="txtPassword_SignIn" CssClass="textBoxLogIn" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword_SignIn" CssClass="textBoxLogIn" ValidationGroup="Grupo1" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:RequiredFieldValidator ID="rfvContraseña" runat="server" ControlToValidate="txtPassword_SignIn" ValidationGroup="Grupo1">Ingrese una Contraseña</asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td class="auto-style2" style="color: #FFFFFF">Repita su contraseña:</td>
                 <td class="auto-style3">
-                    <asp:TextBox ID="txtPasswordCheck_SignIn" CssClass="textBoxLogIn" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtPasswordCheck_SignIn" CssClass="textBoxLogIn" ValidationGroup="Grupo1" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
                 <td>
+                    <asp:RequiredFieldValidator ID="rfvCheckContraseña" runat="server" ControlToValidate="txtPasswordCheck_SignIn" ValidationGroup="Grupo1">Ingrese una Contraseña</asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="cvRepContraseña" runat="server" ControlToCompare="txtPassword_SignIn" ControlToValidate="txtPasswordCheck_SignIn" Font-Bold="True" ForeColor="Red" ValidationGroup="Grupo1">Las contraseñas no coinciden</asp:CompareValidator>
                 </td>
             </tr>
 
         </table>
         &nbsp
         <div style="text-align: center">
-            <asp:Button class="btn btn-primary btn-m" ID="btnCrearCuenta" runat="server" Style="position: center" Text="Crear Cuenta" OnClick="btnCrearCuenta_Click" />
+            <asp:Button class="btn btn-primary btn-m" ID="btnCrearCuenta" runat="server" ValidationGroup="Grupo1" Style="position: center" Text="Crear Cuenta" OnClick="btnCrearCuenta_Click" />
         </div>
         &nbsp
         <div style="text-align: center">
@@ -106,7 +109,7 @@
         </div>
         &nbsp
         <div style="text-align: center">
-            <asp:Button class="btn btn-dark btn-m" ID="btnInicio" runat="server" Style="position: center" Text="Volver al Inicio" OnClick="btnInicio_Click"/>
+            <asp:Button class="btn btn-dark btn-m" ID="btnInicio" runat="server" Style="position: center" Text="Volver al Inicio" OnClick="btnInicio_Click" />
         </div>
 
 

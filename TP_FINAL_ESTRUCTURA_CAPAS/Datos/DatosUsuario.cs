@@ -50,7 +50,6 @@ namespace Datos
             return tabla;
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
 
         public int editarUsuario(Usuario u)
         {
@@ -59,7 +58,6 @@ namespace Datos
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Update_Usuarios");
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
 
         public int eliminarUsuario(Usuario u)
         {
@@ -69,11 +67,9 @@ namespace Datos
 
         }
 
-        //Hay que cambiarle el nombre del procedimiento almacenado por el real
 
         public int agregarUsuario(Usuario u)
         {
-            u.Codigo_Usuario = ds.ObtenerUltimoId("Select max(U_Codigo_Usuario) from Usuarios") + 1;
             SqlCommand comando = new SqlCommand();
             armarParametrosUsuarioAgregar(ref comando, u);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Usuarios");
@@ -110,8 +106,6 @@ namespace Datos
         private void armarParametrosUsuarioAgregar(ref SqlCommand comando, Usuario u)
         {
             SqlParameter sqlParametros = new SqlParameter();
-            sqlParametros = comando.Parameters.Add("@U_Codigo_Usuario", SqlDbType.VarChar);
-            sqlParametros.Value = u.Codigo_Usuario;
             sqlParametros = comando.Parameters.Add("@U_Dni_Usuario", SqlDbType.VarChar);
             sqlParametros.Value = u.Dni;
             sqlParametros = comando.Parameters.Add("@U_Nombre", SqlDbType.VarChar);
