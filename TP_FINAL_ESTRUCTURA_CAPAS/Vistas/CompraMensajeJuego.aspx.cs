@@ -12,23 +12,19 @@ namespace Vistas
 {
     public partial class CompraMensajeJuego : System.Web.UI.Page
     {
+        protected NegocioJuego Neg_Juego = new NegocioJuego();
+        protected Juego juego = new Juego();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                lbl_Codigo.Text = ((Label)PreviousPage.FindControl("lbl_Codigo")).Text;
+                juego = (Juego)Session["JuegoSeleccionado"];
 
-                NegocioJuego Neg_Juego = new NegocioJuego();
-
-                Juego Game = new Juego();
-                
-                Game = Neg_Juego.ObtenerJuego(Convert.ToInt32(lbl_Codigo.Text));
-
-                img_Imagen.ImageUrl = Game.Imagen_Url;
-                lbl_Nombre.Text = Game.Nombre;
-                lbl_Precio.Text = Convert.ToString(Game.Precio_Unitario);
-                lbl_Cantidad.Text = ((TextBox)PreviousPage.FindControl("txt_Cantidad")).Text;
-                
+                img_Imagen.ImageUrl = juego.Imagen_Url;
+                lbl_Nombre.Text = juego.Nombre;
+                lbl_Precio.Text = Convert.ToString(juego.Precio_Unitario);
+                lbl_Cantidad.Text = Session["CantidadComprada"].ToString();
                 lbl_Monto.Text = "$ " + (Convert.ToString(float.Parse(lbl_Precio.Text) * int.Parse(lbl_Cantidad.Text)));
             }
         }

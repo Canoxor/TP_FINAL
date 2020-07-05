@@ -157,7 +157,7 @@
                                         <br />
                                     </span>
                                 </p>
-                                     <asp:Button ID="btnAgregarCarritoDJ" runat="server" Text="Agregar" PostBackUrl="~/CompraVerificarJuego.aspx"/>
+                                     <asp:Button ID="btnAgregarCarritoDJ" runat="server" Text="Agregar" OnCommand="btnAgregar_Command"/>
                                 <br />
                                     <br />
                                 </td>
@@ -171,10 +171,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" class="auto-style4">
-                        <asp:SqlDataSource ID="DS_DetalleJuego" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_Descripcion], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos] WHERE ([J_Codigo_Juego] = @J_Codigo_Juego)">
-                            <SelectParameters>
-                                <asp:ControlParameter ControlID="lbl_Mensaje" Name="J_Codigo_Juego" PropertyName="Text" Type="String" />
-                            </SelectParameters>
+                        <asp:SqlDataSource ID="DS_DetalleJuego" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_Descripcion], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos]">
                         </asp:SqlDataSource>
                     </td>
                 </tr>

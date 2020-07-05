@@ -76,6 +76,7 @@
     <Content Include="CrearNuevaCuenta.aspx" />
     <Content Include="DetalleJuego.aspx" />
     <Content Include="DetallePeriferico.aspx" />
+    <Content Include="Factura.aspx" />
     <Content Include="imgs\crearUsuario.png" />
     <Content Include="imgs\LogoPagina.png" />
     <Content Include="imgs\LogoPagina_M.png" />
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="DetallePeriferico.aspx.designer.cs">
       <DependentUpon>DetallePeriferico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Factura.aspx.cs">
+      <DependentUpon>Factura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Factura.aspx.designer.cs">
+      <DependentUpon>Factura.aspx</DependentUpon>
     </Compile>
     <Compile Include="Juegos.aspx.cs">
       <DependentUpon>Juegos.aspx</DependentUpon>
