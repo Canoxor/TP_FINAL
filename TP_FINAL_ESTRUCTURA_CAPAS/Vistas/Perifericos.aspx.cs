@@ -24,6 +24,10 @@ namespace Vistas
 
 
         }
+        protected void btnCarrito_Command(object sender, CommandEventArgs e)
+        {
+            Response.Redirect("Carrito.aspx");
+        }
         protected void btnInfo_Command(object sender, CommandEventArgs e)
         {
             int id_seleccionado = Int32.Parse(e.CommandArgument.ToString());

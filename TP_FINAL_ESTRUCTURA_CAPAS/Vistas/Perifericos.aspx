@@ -83,7 +83,7 @@
                    </div>
                </td>
                <td style="width: 33%; text-align: center">
-                    <asp:Button class="btn btn-secondary" ID="btnCarrito" runat="server" Style="position: center" Text="Ir a mi carrito" />
+                    <asp:Button class="btn btn-secondary" ID="btnCarrito" runat="server" Style="position: center" Text="Ir a mi carrito" OnCommand="btnCarrito_Command"/>
                </td>
            </tr>
            </table>
