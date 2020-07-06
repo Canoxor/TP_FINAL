@@ -21,8 +21,6 @@ namespace Vistas
         {
             usuarioLogedIn();
             lblNavbarUsuario.Text = usuario.Nombre;
-
-
         }
 
         protected void btnCarrito_Command(object sender, CommandEventArgs e)
