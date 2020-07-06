@@ -130,8 +130,8 @@
                     <br class="auto-style6" />
                     <span class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style10">Productos:</span></span><br />
 &nbsp;<div class="text-left">
-                            <div class="text-left">
-                    <asp:GridView ID="grd_Factura" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Factura_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="1px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1069px" style="margin-left: 326px">
+                            <div class="text-center">
+                    <asp:GridView ID="grd_Factura" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Factura_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="1px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1069px" style="margin-left: 357px">
                         
                         <Columns>
                             <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
@@ -164,8 +164,11 @@
                             <div class="text-center">
                                 <span class="auto-style6"><span class="auto-style10">
                                 <br />
-                                Monto total: </span><span class="auto-style7">$</span><span class="auto-style10"> </span> </span>
+                                Monto total: </span>
                     </strong>
+                                <span class="auto-style7">$</span><strong><span class="auto-style10"> </span> 
+                    </strong>
+                                </span>
                         <asp:Label ID="lbl_MontoTotal" runat="server" CssClass="auto-style11"></asp:Label>
                                 <strong>
                                 <br />

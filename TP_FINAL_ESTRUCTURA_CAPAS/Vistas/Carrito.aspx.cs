@@ -25,18 +25,28 @@ namespace Vistas
                 btn_Comprar.Visible = false;
                 btn_CompraAceptar.Visible = false;
                 btn_CompraCancelar.Visible = false;
+                float MontoTotal = 0;
 
-                if (Session["CarritoJuegos"] !=null)
+                if (Session["CarritoJuegos"] != null)
                 {
                     CargarGrid_Juegos();
                     btn_Comprar.Visible = true;
+                    MontoTotal += CalcularMontoTotal_Juego();
                 }
                 if (Session["CarritoPerifericos"] != null)
                 {
                     CargarGrid_Perifericos();
                     btn_Comprar.Visible = true;
+                    MontoTotal += CalcularMontoTotal_Periferico();
                 }
-                CalcularMontoTotal();
+                if (MontoTotal != 0)
+                {
+                    lbl_Total.Text = "<strong>Monto total:</strong> $ " + MontoTotal.ToString();
+                }
+                else
+                {
+                    lbl_Total.Text = "<strong>No se ha agregado ningun producto al carrito</strong>";
+                }
             }
         }
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -138,7 +148,7 @@ namespace Vistas
                 }
             }
         }
-        public void CalcularMontoTotal()
+        public float CalcularMontoTotal_Juego()
         {
             float Precio, PrecioTotal = 0;
             int Cantidad;
@@ -149,6 +159,14 @@ namespace Vistas
                 Cantidad = int.Parse(((DataTable)Session["CarritoJuegos"]).Rows[i]["Cantidad"].ToString());
                 PrecioTotal += Precio * Cantidad;
             }
+
+            return PrecioTotal;
+        }
+        public float CalcularMontoTotal_Periferico()
+        {
+            float Precio, PrecioTotal = 0;
+            int Cantidad;
+
             for (int i = 0; i < ((DataTable)Session["CarritoPerifericos"]).Rows.Count; i++)
             {
                 Precio = float.Parse(((DataTable)Session["CarritoPerifericos"]).Rows[i]["Precio"].ToString());
@@ -156,7 +174,7 @@ namespace Vistas
                 PrecioTotal += Precio * Cantidad;
             }
 
-            lbl_Total.Text = PrecioTotal.ToString();
+            return PrecioTotal;
         }
 
         protected void btn_Comprar_Click(object sender, EventArgs e)

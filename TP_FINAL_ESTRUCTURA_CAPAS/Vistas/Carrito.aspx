@@ -188,7 +188,7 @@
                     </div>
                     <br />
                     <br />
-                    <span class="auto-style7"><strong>MONTO TOTAL: </strong>$
+                    <span class="auto-style7">
                     <asp:Label ID="lbl_Total" runat="server"></asp:Label>
                     </span>
                     <br />
