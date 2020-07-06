@@ -70,7 +70,7 @@
                             <a class="nav-link" href="Carrito.aspx">Mi carrito</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Historial de Facturas</a>
+                            <a class="nav-link" href="HistorialFacturas.aspx">Historial de Facturas</a>
                         </li>
                     </ul>
                 </div>

@@ -21,6 +21,7 @@ namespace Vistas
             usuario = (Usuario)Session["usuarioLogedIn"];
             lblNavbarUsuario.Text = usuario.Nombre;
             setLabels();
+            Session["CodigoUsuario"] = usuario.Codigo_Usuario;
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)

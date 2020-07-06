@@ -74,9 +74,11 @@
     <Content Include="CompraVerificarPeriferico.aspx" />
     <Content Include="CompraVerificarJuego.aspx" />
     <Content Include="CrearNuevaCuenta.aspx" />
+    <Content Include="DetalleFactura.aspx" />
     <Content Include="DetalleJuego.aspx" />
     <Content Include="DetallePeriferico.aspx" />
     <Content Include="Factura.aspx" />
+    <Content Include="HistorialFacturas.aspx" />
     <Content Include="imgs\crearUsuario.png" />
     <Content Include="imgs\LogoPagina.png" />
     <Content Include="imgs\LogoPagina_M.png" />
@@ -143,6 +145,12 @@
     <Compile Include="CrearNuevaCuenta.aspx.designer.cs">
       <DependentUpon>CrearNuevaCuenta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetalleFactura.aspx.cs">
+      <DependentUpon>DetalleFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleFactura.aspx.designer.cs">
+      <DependentUpon>DetalleFactura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetalleJuego.aspx.cs">
       <DependentUpon>DetalleJuego.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,6 +171,12 @@
     </Compile>
     <Compile Include="Factura.aspx.designer.cs">
       <DependentUpon>Factura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialFacturas.aspx.cs">
+      <DependentUpon>HistorialFacturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialFacturas.aspx.designer.cs">
+      <DependentUpon>HistorialFacturas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Juegos.aspx.cs">
       <DependentUpon>Juegos.aspx</DependentUpon>
