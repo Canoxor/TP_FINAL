@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factura.cs" />
+    <Compile Include="DetalleFacturaJuego.cs" />
+    <Compile Include="DetalleFacturaPeriferico.cs" />
+    <Compile Include="FacturaProductos.cs" />
     <Compile Include="Juego.cs" />
     <Compile Include="Noticia.cs" />
     <Compile Include="Periferico.cs" />

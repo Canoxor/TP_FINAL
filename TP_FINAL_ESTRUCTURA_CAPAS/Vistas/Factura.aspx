@@ -175,14 +175,13 @@
                     </strong>
                     <span class="auto-style7">$</span><strong><span class="auto-style10"> </span>
                     </strong>
-                    </span>
                         <asp:Label ID="lbl_MontoTotal" runat="server" CssClass="auto-style11"></asp:Label>
                     <strong>
                         <br />
                         <br />
-                        <asp:Button ID="Button1" runat="server" Height="46px" Text="Aceptar y volver" Width="193px" CssClass="auto-style5" />
-                        </div>
-                        </div>
+                        <asp:Button ID="btnAceptar" runat="server" Height="46px" Text="Aceptar" Width="193px" CssClass="auto-style5" style="border-radius:10px;margin-right:10px" OnClick="btnAceptar_Click" />
+                        <asp:Button ID="btnSalir" runat="server" Height="46px" Text="Salir" Width="193px" CssClass="auto-style5" style="border-radius:10px; margin-left:10px" OnClick="btnSalir_Click"/>
+                        
                     </strong></td>
                 <td class="auto-style8">&nbsp;</td>
             </tr>
@@ -192,7 +191,7 @@
         </table>
 
         <div style="width:100%; text-align:center">
-            <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+            <asp:Label ID="lblMensaje" runat="server" style="color:yellow"></asp:Label>
         </div>
 
     </form>

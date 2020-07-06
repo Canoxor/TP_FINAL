@@ -194,6 +194,7 @@ namespace Vistas
         protected void btn_CompraAceptar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Factura.aspx");
+     
         }
     }
 }

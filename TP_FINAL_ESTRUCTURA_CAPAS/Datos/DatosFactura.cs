@@ -13,26 +13,26 @@ namespace Datos
     {
         AccesoDatos ds = new AccesoDatos();
 
-        public int agregarFactura(Factura f)
+        public int agregarFactura(FacturaProductos f)
         {
             SqlCommand comando = new SqlCommand();
             armarParametrosFacturaAgregar(ref comando, f);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Factura");
         }
-        public int agregarDetalleJuego(DetalleJuego dj)
+        public int agregarDetalleJuego(DetalleFacturaJuego dj)
         {
             SqlCommand comando = new SqlCommand();
             armarParametrosDetalleJuegoAgregar(ref comando, dj);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Detalle_Juego");
         }
-        public int agregarDetallePeriferico(DetallePeriferico dp)
+        public int agregarDetallePeriferico(DetalleFacturaPeriferico dp)
         {
             SqlCommand comando = new SqlCommand();
             armarParametrosDetallePerifericoAgregar(ref comando, dp);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Detalle_Periferico");
         }
 
-        private void armarParametrosFacturaAgregar(ref SqlCommand comando, Factura f)
+        private void armarParametrosFacturaAgregar(ref SqlCommand comando, FacturaProductos f)
         {
             SqlParameter sqlParametros = new SqlParameter();
             sqlParametros = comando.Parameters.Add("@F_Codigo_Usuario", SqlDbType.VarChar);
@@ -45,7 +45,7 @@ namespace Datos
             sqlParametros.Value = f.Fecha;
         }
 
-        private void armarParametrosDetalleJuegoAgregar(ref SqlCommand comando, DetalleJuego dj)
+        private void armarParametrosDetalleJuegoAgregar(ref SqlCommand comando, DetalleFacturaJuego dj)
         {
             SqlParameter sqlParametros = new SqlParameter();
             sqlParametros = comando.Parameters.Add("@DJ_Codigo_Juego", SqlDbType.VarChar);
@@ -56,7 +56,7 @@ namespace Datos
             sqlParametros.Value = dj.PrecioUnitario;
         }
 
-        private void armarParametrosDetallePerifericoAgregar(ref SqlCommand comando, DetallePeriferico dp)
+        private void armarParametrosDetallePerifericoAgregar(ref SqlCommand comando, DetalleFacturaPeriferico dp)
         {
             SqlParameter sqlParametros = new SqlParameter();
             sqlParametros = comando.Parameters.Add("@DP_Codigo_Periferico", SqlDbType.VarChar);

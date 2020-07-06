@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class DetallePeriferico
+    public class DetalleFacturaPeriferico
     {
         int codigoFactura;
         int codigoPeriferico;
         int cantidad;
         float precioUnitario;
 
-        public DetallePeriferico()
+        public DetalleFacturaPeriferico()
         {
 
         }
 
-        public DetallePeriferico(int codigoFactura, int codigoPeriferico, int cantidad, float precioUnitario)
+        public DetalleFacturaPeriferico(int codigoFactura, int codigoPeriferico, int cantidad, float precioUnitario)
         {
             this.CodigoFactura = codigoFactura;
             this.CodigoPeriferico = codigoPeriferico;

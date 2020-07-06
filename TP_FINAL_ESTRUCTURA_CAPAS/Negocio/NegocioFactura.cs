@@ -12,7 +12,7 @@ namespace Negocio
     {
         protected DatosFactura df = new DatosFactura();
 
-        public bool agregarFactura(Factura f)
+        public bool agregarFactura(FacturaProductos f)
         {
             int seAgrego = df.agregarFactura(f);
             if (seAgrego > 0)
@@ -21,7 +21,7 @@ namespace Negocio
                 return false;
         } 
 
-        public bool agregarDetalleJuego(DetalleJuego dj)
+        public bool agregarDetalleJuego(DetalleFacturaJuego dj)
         {
             int seAgrego = df.agregarDetalleJuego(dj);
             if (seAgrego > 0)
@@ -30,7 +30,7 @@ namespace Negocio
                 return false;
         } 
 
-        public bool agregarDetallePeriferico(DetallePeriferico dp)
+        public bool agregarDetallePeriferico(DetalleFacturaPeriferico dp)
         {
             int seAgrego = df.agregarDetallePeriferico(dp);
             if (seAgrego > 0)

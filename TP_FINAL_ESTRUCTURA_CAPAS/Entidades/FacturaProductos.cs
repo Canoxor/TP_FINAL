@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Factura
+    public class FacturaProductos
     {
 
         int codigo_Factura;
@@ -15,9 +16,9 @@ namespace Entidades
         float monto_Total;
         DateTime fecha;
 
-        public Factura() { }
+        public FacturaProductos() { }
 
-        public Factura(int codigo_Factura, int codigo_Usuario, int codigo_CodDescuento, float monto_Total, DateTime fecha)
+        public FacturaProductos(int codigo_Factura, int codigo_Usuario, int codigo_CodDescuento, float monto_Total, DateTime fecha)
         {
             this.Codigo_Factura = codigo_Factura;
             this.Codigo_Usuario = codigo_Usuario;
