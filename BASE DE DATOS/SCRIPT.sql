@@ -18,6 +18,7 @@ CREATE TABLE Juegos
 	J_Codigo_PEGI varchar(5) not null,
 	J_Nombre varchar(50) not null,
 	J_Descripcion varchar(1000) null,
+	J_Stock int not null,
 	J_PrecioUnitario decimal(18,2) not null,
 	J_Imagen varchar(200) not null,
 	J_Estado bit default '1'
@@ -289,12 +290,12 @@ INSERT INTO Generos (G_Codigo_Genero,G_Nombre,G_Descripcion)
 	SELECT '8','Rol','Emparentados con los de aventura, los videojuegos de rol, o RPG, se caracterizan por la interacción con el personaje, una historia profunda y una evolución del personaje a medida que la historia avanza. Para lograr la evolución generalmente se hace que el jugador se enfrasque en una aventura donde irá conociendo nuevos personajes, explorando el mundo para ir juntando armas, experiencia, aliados e incluso magia. Es habitual, desde la aparición del CD-ROM, la inclusión de videos (cinemáticas) durante el juego, que complementan la narración de la historia y hacen que el jugador se sienta como dentro de una película.'
 GO
 
-INSERT INTO Juegos (J_Imagen,J_Codigo_Juego,J_Codigo_Genero,J_Codigo_PEGI,J_Nombre,J_Descripcion,J_PrecioUnitario,J_Estado)
-	SELECT 'https://cdn-products.eneba.com/resized-products/PHQ5ei2mYthRdM-FhrUqQkUIcKOxYNP6sN_-BSfxp5A_390x400_1x-0.jpeg','1','2','5','Metro Exodus','Un poderoso videojuego basado en las novelas superventas de Dmitri Glujovski. El shooter en primera persona vuelve a apostar por una ambientación postapocalítica muy cuidada, y por mezclar lugares angustiosos, claustrofóbicos y lúgubres con secciones mucho más abiertas.',2000,'1' UNION
-	SELECT 'https://http2.mlstatic.com/mafia-3-ps4-fisico-nuevo-sellado-original-D_NQ_NP_764140-MLA31041880928_062019-F.jpg','2','1','5','Mafia 3','un juego de mundo abierto y acción en tercera persona, El juego está ambientado en la ciudad ficticia de New Bordeaux, basada en la Nueva Orleans de 1968, con un diseño de mundo abierto que permite explorar a los jugadores libremente en el juego.',3100,'1' UNION
-	SELECT 'https://store-images.s-microsoft.com/image/apps.18799.14047496556148589.9fda5cef-7995-4dbb-a626-66d2ab3feb4f.1e167626-8b7d-47b4-9fe5-d06a43ac6677','3','7','2','Ori and the Will of the Wisps','Embárcate en una aventura totalmente nueva dentro de un inmenso mundo repleto de nuevos amigos y enemigos que cobran vida gracias a un impecable trabajo de diseño artesanal.',150,'1' UNION
-	SELECT 'https://hipertextual.com/files/2020/03/hipertextual-call-of-duty-modern-warfare-2-remastered-es-real-se-filtra-su-primera-imagen-2020296416.jpg','4','2','5','Call of Duty Modern Warfare 2 Remaster','Es una edición remasterizada sobre el modo historia del exitoso FPS que garantiza texturas y animaciones mejoradas, renderizado físico, iluminación HDR y otras mejoras gráficas.',2800,'1' UNION
-	SELECT 'https://cdn-cms.bnea.io/sites/default/files/games/boxart/196040508899500.jpg','5','8','3','Dragon Ball Z Kakarot','Es un juego de acción y rol y acción a cargo de Cyberconnect y Bandai Namco basado en la conocida marca Dragon Ball, que nos propone revivir los mejores momentos de la serie de Akira Toriyama con una gran aventura de rol que incluye, claro, emocionantes combates contra personajes tan icónicos como Vegeta, Raditz o Freezer. De hecho, el arco de Buu se incluirá en el juego.',7000,'1'
+INSERT INTO Juegos (J_Imagen,J_Codigo_Juego,J_Codigo_Genero,J_Codigo_PEGI,J_Nombre,J_Descripcion,J_Stock,J_PrecioUnitario,J_Estado)
+	SELECT 'https://cdn-products.eneba.com/resized-products/PHQ5ei2mYthRdM-FhrUqQkUIcKOxYNP6sN_-BSfxp5A_390x400_1x-0.jpeg','1','2','5','Metro Exodus','Un poderoso videojuego basado en las novelas superventas de Dmitri Glujovski. El shooter en primera persona vuelve a apostar por una ambientación postapocalítica muy cuidada, y por mezclar lugares angustiosos, claustrofóbicos y lúgubres con secciones mucho más abiertas.',100,2000,'1' UNION
+	SELECT 'https://http2.mlstatic.com/mafia-3-ps4-fisico-nuevo-sellado-original-D_NQ_NP_764140-MLA31041880928_062019-F.jpg','2','1','5','Mafia 3','un juego de mundo abierto y acción en tercera persona, El juego está ambientado en la ciudad ficticia de New Bordeaux, basada en la Nueva Orleans de 1968, con un diseño de mundo abierto que permite explorar a los jugadores libremente en el juego.',80,3100,'1' UNION
+	SELECT 'https://store-images.s-microsoft.com/image/apps.18799.14047496556148589.9fda5cef-7995-4dbb-a626-66d2ab3feb4f.1e167626-8b7d-47b4-9fe5-d06a43ac6677','3','7','2','Ori and the Will of the Wisps','Embárcate en una aventura totalmente nueva dentro de un inmenso mundo repleto de nuevos amigos y enemigos que cobran vida gracias a un impecable trabajo de diseño artesanal.',40,150,'1' UNION
+	SELECT 'https://hipertextual.com/files/2020/03/hipertextual-call-of-duty-modern-warfare-2-remastered-es-real-se-filtra-su-primera-imagen-2020296416.jpg','4','2','5','Call of Duty Modern Warfare 2 Remaster','Es una edición remasterizada sobre el modo historia del exitoso FPS que garantiza texturas y animaciones mejoradas, renderizado físico, iluminación HDR y otras mejoras gráficas.',105,2800,'1' UNION
+	SELECT 'https://cdn-cms.bnea.io/sites/default/files/games/boxart/196040508899500.jpg','5','8','3','Dragon Ball Z Kakarot','Es un juego de acción y rol y acción a cargo de Cyberconnect y Bandai Namco basado en la conocida marca Dragon Ball, que nos propone revivir los mejores momentos de la serie de Akira Toriyama con una gran aventura de rol que incluye, claro, emocionantes combates contra personajes tan icónicos como Vegeta, Raditz o Freezer. De hecho, el arco de Buu se incluirá en el juego.',55,7000,'1'
 GO
 
 INSERT INTO TipoPerif(T_Codigo_TipoPerif,T_Nombre,T_Descripcion)
@@ -436,6 +437,7 @@ INSERT INTO Juegos
 	J_Codigo_PEGI,
 	J_Nombre,
 	J_Descripcion,
+	J_Stock,
 	J_PrecioUnitario,
 	J_Imagen
 )
@@ -445,6 +447,7 @@ INSERT INTO Juegos
 	@J_Codigo_PEGI,
 	@J_Nombre,
 	@J_Descripcion,
+	@J_Stock,
 	@J_PrecioUnitario,
 	@J_Imagen
 GO
@@ -472,11 +475,17 @@ GO
 CREATE PROCEDURE SP_Update_Juegos
 (
 	@J_Codigo_Juego varchar(5),
-	@J_PrecioNuevo decimal(18,2)
+	@J_PrecioNuevo decimal(18,2),
+	@J_Stock int
 )
 AS
 UPDATE Juegos
 SET J_PrecioUnitario = @J_PrecioNuevo
+WHERE J_Codigo_Juego = @J_Codigo_Juego
+
+IF(@J_Stock!=-1)
+UPDATE Juegos
+SET J_Stock = @J_Stock
 WHERE J_Codigo_Juego = @J_Codigo_Juego
 GO
 

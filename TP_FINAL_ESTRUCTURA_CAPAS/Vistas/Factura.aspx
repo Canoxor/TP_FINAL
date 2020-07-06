@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <script src="https://kit.fontawesome.com/ccd9a07f5e.js" crossorigin="anonymous"></script>
 
@@ -24,28 +24,34 @@
             text-align: left;
             height: 50px;
         }
+
         .auto-style5 {
             text-align: left;
             width: 23px;
             color: #666699;
             font-weight: bold;
         }
+
         .auto-style6 {
             text-align: left;
             width: 24px;
         }
+
         .auto-style7 {
             text-align: left;
             width: 25px;
             font-size: large;
         }
+
         .auto-style8 {
             text-align: left;
             width: 40px;
         }
+
         .auto-style10 {
             font-size: large;
         }
+
         .auto-style11 {
             text-align: left;
             width: 24px;
@@ -89,19 +95,19 @@
             </div>
         </nav>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
         <p>
-            &nbsp;</p>
+            &nbsp;
+        </p>
 
-        <table class="w-100" style="background:rgb(42, 40, 48); color:white">
+        <table class="w-100" style="background: rgb(42, 40, 48); color: white">
             <tr>
-                <td class="auto-style4" colspan="3">
-                    </td>
+                <td class="auto-style4" colspan="3"></td>
             </tr>
             <tr>
                 <td class="auto-style8">
@@ -112,80 +118,83 @@
                 <td class="text-left">
                     <strong><span class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style10">Nombre del usuario: </span></span>
                     </strong>
-                        <asp:Label ID="lbl_Nombre" runat="server" CssClass="auto-style11"></asp:Label>
-                                <strong>
-                    <br class="auto-style6" />
-                    <br class="auto-style6" />
-                    <span class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style10">DNI: </span></span>
+                    <asp:Label ID="lbl_Nombre" runat="server" CssClass="auto-style11"></asp:Label>
+                    <strong>
+                        <br class="auto-style6" />
+                        <br class="auto-style6" />
+                        <span class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style10">DNI: </span></span>
                     </strong>
-                        <asp:Label ID="lbl_DNI" runat="server" CssClass="auto-style11"></asp:Label>
-                                <strong>
-                    <br class="auto-style6" />
-                    <br class="auto-style6" />
-                    <span class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style10">Numero de factura: </span></span>
+                    <asp:Label ID="lbl_DNI" runat="server" CssClass="auto-style11"></asp:Label>
+                    <strong>
+                        <br class="auto-style6" />
+                        <br class="auto-style6" />
+                        <span class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style10">Numero de factura: </span></span>
                     </strong>
-                        <asp:Label ID="lbl_NumeroFac" runat="server" CssClass="auto-style11"></asp:Label>
-                                <strong>
-                    <br class="auto-style6" />
-                    <br class="auto-style6" />
-                    <span class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style10">Productos:</span></span><br />
-&nbsp;<div class="text-left">
+                    <asp:Label ID="lbl_NumeroFac" runat="server" CssClass="auto-style11"></asp:Label>
+                    <strong>
+                        <br class="auto-style6" />
+                        <br class="auto-style6" />
+                        <span class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style10">Productos:</span></span><br />
+                        &nbsp;<div class="text-left">
                             <div class="text-center">
-                    <asp:GridView ID="grd_Factura" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Factura_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="1px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1069px" style="margin-left: 357px">
-                        
-                        <Columns>
-                            <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
-                            <asp:ImageField DataImageUrlField="Imagen" HeaderText="Imagen" HeaderStyle-Width="130px" ControlStyle-Height="130px" ControlStyle-Width="130px" >
-                            <ControlStyle Height="70px" Width="70px"></ControlStyle>
+                                <asp:GridView ID="grd_Factura" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Factura_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="1px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1069px" Style="margin-left: 357px">
 
-<HeaderStyle Width="130px"></HeaderStyle>
-                            </asp:ImageField>
-                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" HeaderStyle-Width="400px">
-<HeaderStyle Width="400px"></HeaderStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Precio" HeaderText="Precio en ARS" HeaderStyle-Width="200px">
-<HeaderStyle Width="200px"></HeaderStyle>
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" HeaderStyle-Width="200px">
-<HeaderStyle Width="200px"></HeaderStyle>
-                            </asp:BoundField>
-                        </Columns>
-                        <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
-                        <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
-                        <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
-                        <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
-                        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
-                        <SortedAscendingCellStyle BackColor="#F4F4FD" />
-                        <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
-                        <SortedDescendingCellStyle BackColor="#D8D8F0" />
-                        <SortedDescendingHeaderStyle BackColor="#3E3277" />
-                    </asp:GridView>
+                                    <Columns>
+                                        <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
+                                        <asp:ImageField DataImageUrlField="Imagen" HeaderText="Imagen" HeaderStyle-Width="130px" ControlStyle-Height="130px" ControlStyle-Width="130px">
+                                            <ControlStyle Height="70px" Width="70px"></ControlStyle>
+
+                                            <HeaderStyle Width="130px"></HeaderStyle>
+                                        </asp:ImageField>
+                                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" HeaderStyle-Width="400px">
+                                            <HeaderStyle Width="400px"></HeaderStyle>
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="Precio" HeaderText="Precio en ARS" HeaderStyle-Width="200px">
+                                            <HeaderStyle Width="200px"></HeaderStyle>
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" HeaderStyle-Width="200px">
+                                            <HeaderStyle Width="200px"></HeaderStyle>
+                                        </asp:BoundField>
+                                    </Columns>
+                                    <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                                    <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                                    <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                                    <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                                    <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                                    <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                                    <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                                    <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                                    <SortedDescendingHeaderStyle BackColor="#3E3277" />
+                                </asp:GridView>
                             </div>
                             <div class="text-center">
                                 <span class="auto-style6"><span class="auto-style10">
-                                <br />
-                                Monto total: </span>
+                                    <br />
+                                    Monto total: </span>
+                            
                     </strong>
-                                <span class="auto-style7">$</span><strong><span class="auto-style10"> </span> 
+                    <span class="auto-style7">$</span><strong><span class="auto-style10"> </span>
                     </strong>
-                                </span>
+                    </span>
                         <asp:Label ID="lbl_MontoTotal" runat="server" CssClass="auto-style11"></asp:Label>
-                                <strong>
-                                <br />
-                                <br />
-                                <asp:Button ID="Button1" runat="server" Height="46px" Text="Aceptar y volver" Width="193px" CssClass="auto-style5" />
-                            </div>
+                    <strong>
+                        <br />
+                        <br />
+                        <asp:Button ID="Button1" runat="server" Height="46px" Text="Aceptar y volver" Width="193px" CssClass="auto-style5" />
+                        </div>
                         </div>
                     </strong></td>
-                <td class="auto-style8">
-                    &nbsp;</td>
+                <td class="auto-style8">&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4" colspan="3">
-                    </td>
+                <td class="auto-style4" colspan="3"></td>
             </tr>
         </table>
 
+        <div style="width:100%; text-align:center">
+            <asp:Label ID="lblMensaje" runat="server"></asp:Label>
+        </div>
+
     </form>
-    </body>
+</body>
 </html>
