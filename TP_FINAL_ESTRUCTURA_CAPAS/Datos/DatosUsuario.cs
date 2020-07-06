@@ -15,7 +15,7 @@ namespace Datos
 
         public Usuario getUsuarioLogin(Usuario u)
         {
-            DataTable tabla = ds.ObtenerTabla("Usuario", "select * from Usuarios where U_Email = '" + u.Email + "' and U_Contrasenia = '" + u.Contraseña + "'");
+            DataTable tabla = ds.ObtenerTabla("Usuarios", "select * from Usuarios where U_Email = '" + u.Email + "' and U_Contrasenia = '" + u.Contraseña + "'");
             u.Codigo_Usuario = Convert.ToInt32(tabla.Rows[0][0].ToString());
             u.Dni = Convert.ToInt32(tabla.Rows[0][1].ToString());
             u.Nombre = tabla.Rows[0][2].ToString();
@@ -24,6 +24,22 @@ namespace Datos
             u.Telefono = Convert.ToInt32(tabla.Rows[0][5].ToString());
             u.Admin = Convert.ToBoolean(tabla.Rows[0][6].ToString());
             return u;
+        }
+
+        public Usuario getUsuarioByID(int id)
+        {
+            Usuario usuario = new Usuario();
+            DataTable tabla = ds.ObtenerTabla("Usuarios", "select * from Usuarios where U_Codigo_Usuario = '" + id + "'");
+            usuario.Codigo_Usuario = Convert.ToInt32(tabla.Rows[0][0].ToString());
+            usuario.Dni = Convert.ToInt32(tabla.Rows[0][1].ToString());
+            usuario.Nombre = tabla.Rows[0][2].ToString();
+            usuario.Apellido = tabla.Rows[0][3].ToString();
+            usuario.Direccion = tabla.Rows[0][4].ToString();
+            usuario.Telefono = Convert.ToInt32(tabla.Rows[0][5].ToString());
+            usuario.Admin = Convert.ToBoolean(tabla.Rows[0][6].ToString());
+            usuario.Email = tabla.Rows[0][7].ToString();
+            usuario.Contraseña = tabla.Rows[0][8].ToString();
+            return usuario;
         }
 
         public bool existeUsuario(String Email, String Contraseña)
@@ -50,7 +66,6 @@ namespace Datos
             return tabla;
         }
 
-
         public int editarUsuario(Usuario u)
         {
             SqlCommand comando = new SqlCommand();
@@ -64,6 +79,14 @@ namespace Datos
             SqlCommand comando = new SqlCommand();
             armarParametrosUsuarioEliminar(ref comando, u);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Delete_Usuarios");
+
+        }
+
+        public int activarUsuario(Usuario u)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametrosUsuarioEliminar(ref comando, u);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Activate_Usuarios");
 
         }
 

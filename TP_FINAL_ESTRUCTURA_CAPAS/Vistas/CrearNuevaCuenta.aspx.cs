@@ -53,10 +53,24 @@ namespace Vistas
             }
             return existe;
         }
+
+        protected void inflarUsuario()
+        {
+            usuario.Dni = Convert.ToInt32(txtDni_SignIn.Text);
+            usuario.Nombre = txtNombre_SignIn.Text;
+            usuario.Apellido = txtApellido_SignIn.Text;
+            usuario.Direccion = "";
+            usuario.Telefono = -1;
+            usuario.Admin = false;
+            usuario.Email = txtEmail_SignIn.Text;
+            usuario.Contraseña = txtPassword_SignIn.Text;
+
+        }
         
         private bool crearCuenta()
         {
-            return N_Usuario.agregarUsuario(txtEmail_SignIn.Text, txtPassword_SignIn.Text, Convert.ToInt32(txtDni_SignIn.Text), txtNombre_SignIn.Text, txtApellido_SignIn.Text);
+            inflarUsuario();
+            return N_Usuario.agregarUsuario(usuario);
         }
 
         private void estaLogedIn()

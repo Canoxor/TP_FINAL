@@ -19,6 +19,7 @@ namespace Entidades
         String email;
         String contraseña;
 
+
         public Usuario() { }
 
         public Usuario(int codigo_Usuario, int dni, string nombre, string apellido, string direccion, int telefono, bool admin, String email, string contraseña)

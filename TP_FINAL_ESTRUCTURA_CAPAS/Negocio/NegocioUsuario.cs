@@ -13,11 +13,11 @@ namespace Negocio
 {
     public class NegocioUsuario
     {
-        private DatosUsuario D_Usuario = new DatosUsuario();
+        protected DatosUsuario D_Usuario = new DatosUsuario();
+        protected Usuario E_Usuario = new Usuario();
 
         public Usuario ObtenerUsuarioLogin(String Email, String Contraseña)
         {
-            Usuario E_Usuario = new Usuario();
             E_Usuario.Email = Email;
             E_Usuario.Contraseña = Contraseña;
             return D_Usuario.getUsuarioLogin(E_Usuario);
@@ -26,7 +26,7 @@ namespace Negocio
         public bool editarUsuario(Usuario u)
         {
             int seEdito = D_Usuario.editarUsuario(u);
-            if(seEdito == 1)      
+            if(seEdito > 0)      
                 return true;
             else
                 return false;
@@ -37,38 +37,44 @@ namespace Negocio
             return D_Usuario.existeUsuario(Email, Contraseña);
         }
 
-        public bool BajaUsuario(int id)
+        public bool avtivarUsuario(Usuario u)
         {
-            //Validar id existente 
-            Usuario E_Usuario = new Usuario();
-            E_Usuario.Codigo_Usuario = id;
-            int Baja = D_Usuario.eliminarUsuario(E_Usuario);
-            if (Baja == 1)
+            int activado = D_Usuario.activarUsuario(u);
+            if (activado > 0)
                 return true;
             else
                 return false;
         }
 
-        public bool agregarUsuario(String Email, String Contraseña,int Dni, String Nombre, String Apellido)
+        public DataTable getTablaUsuarios()
+        {
+            return D_Usuario.getTablaUsuarios();
+        }
+
+        public Usuario getUsuarioById(int id)
+        {
+            return D_Usuario.getUsuarioByID(id);
+        }
+
+        public bool BajaUsuario(int id)
+        {
+            E_Usuario.Codigo_Usuario = id;
+            int Baja = D_Usuario.eliminarUsuario(E_Usuario);
+            if (Baja > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public bool agregarUsuario(Usuario u)
         {
             int cantFilas = 0;
 
-            Usuario E_Usuario = new Usuario();
-            
-            E_Usuario.Dni = Dni;
-            E_Usuario.Nombre = Nombre;
-            E_Usuario.Apellido = Apellido;
-            E_Usuario.Direccion = "";
-            E_Usuario.Telefono = -1;
-            E_Usuario.Admin = false;
-            E_Usuario.Email = Email;
-            E_Usuario.Contraseña = Contraseña;
-
-            if (!D_Usuario.existeUsuario(E_Usuario.Email, E_Usuario.Contraseña))
+            if (!D_Usuario.existeUsuario(u.Email, u.Contraseña))
             {
-                cantFilas = D_Usuario.agregarUsuario(E_Usuario);
+                cantFilas = D_Usuario.agregarUsuario(u);
             }
-            if (cantFilas == 1)
+            if (cantFilas > 0)
                 return true;
             else
                 return false;
