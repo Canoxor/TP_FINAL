@@ -950,6 +950,251 @@ SELECT
 	@DP_PrecioUnitario
 GO
 
+-- REPORTES
+
+CREATE PROCEDURE SP_TotalVentas_X_Fechas
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date
+)
+AS
+	SELECT
+		F_Codigo_Factura AS [Codigo de factura],
+		F_MontoTotal AS [Monto],
+		F_Fecha AS [Fecha de venta]
+	FROM Factura 
+		WHERE F_Fecha < @Fecha_Maxima
+		AND F_Fecha > @Fecha_Minima
+	ORDER BY F_Fecha DESC
+GO
+------------------------------------------------------------------------------------------------------------------------------------------------
+-- PORCENTAJE VENTAS JUEGOS
+CREATE PROCEDURE SP_PorcentajeGenero_Juego
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date,
+	@Genero varchar(5)
+)
+AS
+
+SELECT 
+	(SELECT SUM(DJ_Cantidad) 
+	FROM DetalleFactura_Juegos
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = @Genero) AS [Cantidad vendida],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = @Genero
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje vendido]
+GO
+
+-- PORCENTAJE VENTAS PERIFERICO
+CREATE PROCEDURE SP_PorcentajeTipo_Periferico
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date,
+	@TipoPerif varchar(5)
+)
+AS
+
+SELECT
+	(SELECT SUM(DP_Cantidad) 
+	FROM DetalleFactura_Perifericos
+	INNER JOIN Perifericos
+	ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_TipoPerif = @TipoPerif) AS [Cantidad vendida],
+    ISNULL(
+	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_TipoPerif = @TipoPerif
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DP_Cantidad) AS [Perifericos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje vendido]
+GO
+
+-- VERIFICA STOCK PERIFERICOS
+CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenStock
+(
+	@Orden int
+)
+AS
+SELECT PE_Codigo_Periferico AS [Codigo],
+	   T_Nombre AS [Tipo],
+	   PE_Nombre AS [Nombre],
+	   PE_Stock AS [Stock],
+	   [Estado del Stock] =
+	CASE
+		WHEN PE_Stock <= 10 THEN 'Escaso'
+		WHEN PE_Stock > 10 AND
+			 PE_Stock <= 20 THEN 'Por escasear'
+		WHEN PE_Stock > 20 AND
+			 PE_Stock <= 30 THEN 'Regular'
+		WHEN PE_Stock > 30 AND
+			 PE_Stock <= 40 THEN 'En condiciones'
+		ELSE 'Excelente'
+	END
+FROM Perifericos
+INNER JOIN TipoPerif
+ON PE_Codigo_TipoPerif = T_Codigo_TipoPerif
+ORDER BY PE_Stock ASC
+GO
+
+-- VERIFICA STOCK PERIFERICOS
+CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenTipo
+(
+	@Orden int
+)
+AS
+SELECT PE_Codigo_Periferico AS [Codigo],
+	   T_Nombre AS [Tipo],
+	   PE_Nombre AS [Nombre],
+	   PE_Stock AS [Stock],
+	   [Estado del Stock] =
+	CASE
+		WHEN PE_Stock <= 10 THEN 'Escaso'
+		WHEN PE_Stock > 10 AND
+			 PE_Stock <= 20 THEN 'Por escasear'
+		WHEN PE_Stock > 20 AND
+			 PE_Stock <= 30 THEN 'Regular'
+		WHEN PE_Stock > 30 AND
+			 PE_Stock <= 40 THEN 'En condiciones'
+		ELSE 'Excelente'
+	END
+FROM Perifericos
+INNER JOIN TipoPerif
+ON PE_Codigo_TipoPerif = T_Codigo_TipoPerif
+ORDER BY T_Nombre ASC
+GO
+
+-- VERIFICA STOCK JUEGOS
+CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenStock
+AS
+SELECT J_Codigo_Juego AS [Codigo],
+	   G_Nombre AS [Genero],
+	   J_Nombre AS [Nombre],
+	   J_Stock AS [Stock],
+	   [Estado del Stock] =
+	CASE
+		WHEN J_Stock <= 10 THEN 'Escaso'
+		WHEN J_Stock > 10 AND
+			 J_Stock <= 20 THEN 'Por escasear'
+		WHEN J_Stock > 20 AND
+			 J_Stock <= 30 THEN 'Regular'
+		WHEN J_Stock > 30 AND
+			 J_Stock <= 40 THEN 'En condiciones'
+		ELSE 'Excelente'
+	END
+FROM Juegos
+INNER JOIN Generos
+ON J_Codigo_Genero = G_Codigo_Genero
+ORDER BY J_Stock ASC
+GO
+
+-- VERIFICA STOCK JUEGOS
+CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenGenero
+AS
+SELECT J_Codigo_Juego AS [Codigo],
+	   G_Nombre AS [Genero],
+	   J_Nombre AS [Nombre],
+	   J_Stock AS [Stock],
+	   [Estado del Stock] =
+	CASE
+		WHEN J_Stock <= 10 THEN 'Escaso'
+		WHEN J_Stock > 10 AND
+			 J_Stock <= 20 THEN 'Por escasear'
+		WHEN J_Stock > 20 AND
+			 J_Stock <= 30 THEN 'Regular'
+		WHEN J_Stock > 30 AND
+			 J_Stock <= 40 THEN 'En condiciones'
+		ELSE 'Excelente'
+	END
+FROM Juegos
+INNER JOIN Generos
+ON J_Codigo_Genero = G_Codigo_Genero
+ORDER BY G_Nombre ASC
+GO
+-----------------------------------------------------------------------------------------------------------------------------
+/*
+SELECT * FROM DetalleFactura_Juegos
+GO
+SELECT * FROM DetalleFactura_Perifericos
+GO
+
+SELECT *
+FROM Factura
+WHERE F_Fecha >= '2019-5-5'
+AND F_Fecha <= '2019-5-5'
+
+EXEC SP_PorcentajeGenero_Juego '2019-5-5','2020-7-7','1'
+GO
+EXEC SP_PorcentajeTipo_Periferico '2019-5-5','2020-7-7','1'
+GO
+EXEC SP_VerificarStock_Juegos_OrdenStock
+GO
+
+SELECT SUM(DJ_Cantidad)
+FROM Factura INNER JOIN DetalleFactura_Juegos
+ON F_Codigo_Factura = DJ_Codigo_Factura
+WHERE F_Fecha > '2019-5-5'
+AND F_Fecha < '2020-7-7'
+
+-- TOTAL VENDIDOS DE TAL FECHA
+SELECT SUM(DJ_Cantidad) AS [Juegos vendidos]
+FROM Factura 
+INNER JOIN DetalleFactura_Juegos
+ON F_Codigo_Factura = DJ_Codigo_Factura
+INNER JOIN Juegos
+ON DJ_Codigo_Juego = J_Codigo_Juego
+WHERE F_Fecha > '2019-5-5'
+AND F_Fecha < '2020-7-7'
+
+-- TOTAL VENDIDOS DE TAL FECHA + GENERO
+SELECT SUM(DJ_Cantidad) AS [Juegos vendidos]
+FROM Factura 
+INNER JOIN DetalleFactura_Juegos
+ON F_Codigo_Factura = DJ_Codigo_Factura
+INNER JOIN Juegos
+ON DJ_Codigo_Juego = J_Codigo_Juego
+WHERE J_Codigo_Genero = '1'
+AND F_Fecha > '2019-5-5'
+AND F_Fecha < '2020-7-7'
+
 --EXEC SP_Insert_Detalle_Periferico '1',2,100
 
 --SELECT * FROM DetalleFactura_Perifericos WHERE DP_Codigo_Factura = (SELECT MAX(DP_Codigo_Factura) FROM DetalleFactura_Perifericos)
@@ -961,10 +1206,14 @@ SELECT PE_Codigo_Periferico AS [Codigo],
 	   PE_Nombre AS [Nombre], 
 	   [Estado del Stock] =
 	CASE
-	WHEN PE_Stock <= 10 THEN 'Escaso'
-	WHEN PE_Stock > 10 AND
-		 PE_Stock <= 20 THEN 'Por escasear'
-	ELSE 'En condición'
+		WHEN PE_Stock <= 10 THEN 'Escaso'
+		WHEN PE_Stock > 10 AND
+			 PE_Stock <= 20 THEN 'Por escasear'
+		WHEN PE_Stock > 20 AND
+			 PE_Stock <= 30 THEN 'Regular'
+		WHEN PE_Stock > 30 AND
+			 PE_Stock <= 40 THEN 'En condiciones'
+		ELSE 'Excelente'
 	END
 FROM Perifericos
 GO
@@ -981,14 +1230,10 @@ ELSE
 GO
 
 -- Retorna la fecha actual
-SELECT CAST(DAY(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(MONTH(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(YEAR(GETDATE()) AS VARCHAR(5));
-GO
-/*
+--SELECT CAST(DAY(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(MONTH(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(YEAR(GETDATE()) AS VARCHAR(5));
+--GO
+
 -- Suma la recaudacion total de todos los años
-SELECT SUM(F_MontoTotal) AS [Total Recaudado], DATEPART(YEAR,F_Fecha) AS [Año]
-FROM Factura
-ORDER BY DATEPART(YEAR,F_Fecha) ASC
-GO
 */
 
 --TRIGGERS
@@ -1006,3 +1251,4 @@ GO
 --GO
 --EXEC SP_Insert_Detalle_Periferico '3',2,2000
 --GO
+
