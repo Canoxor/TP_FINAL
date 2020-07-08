@@ -137,7 +137,7 @@
                         <span class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style10">Productos:</span></span><br />
                         &nbsp;<div class="text-left">
                             <div class="text-center">
-                                <asp:GridView ID="grd_Factura" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Factura_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="1px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1069px" Style="margin-left: 357px">
+                                <asp:GridView ID="grd_Factura" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Factura_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="1px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1069px" Style="margin-left: 357px" AllowPaging="True" OnPageIndexChanging="grd_Factura_PageIndexChanging" PageSize="5">
 
                                     <Columns>
                                         <asp:BoundField DataField="Codigo" HeaderText="Codigo" />

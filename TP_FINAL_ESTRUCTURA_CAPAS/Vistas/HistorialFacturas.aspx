@@ -77,7 +77,7 @@
                 <tr>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                     <td>
-        <asp:GridView ID="grd_Historial" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF"  BorderWidth="1px" CellPadding="3" CssClass="auto-style1" DataSourceID="DS_HistorialFacturas" OnRowCommand="grd_Historial_RowCommand" Height="307px" Width="566px">
+        <asp:GridView ID="grd_Historial" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF"  BorderWidth="1px" CellPadding="3" CssClass="auto-style1" OnRowCommand="grd_Historial_RowCommand" Height="307px" Width="566px" AllowPaging="True" OnPageIndexChanging="grd_Historial_PageIndexChanging" PageSize="5">
             <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
                 <asp:TemplateField HeaderText="Factura N°">
@@ -95,8 +95,7 @@
                         <asp:Label ID="lbl_Fecha" runat="server" Text='<%# Eval("F_Fecha") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:ButtonField ButtonType="Button" HeaderText="Detalles" Text="Ver" CommandName="Ver_Factura" >
-                <ControlStyle ForeColor="#666699" />
+                <asp:ButtonField ButtonType="Button" Text="Ver Detalle" CommandName="eventoDetalle" >
                 </asp:ButtonField>
             </Columns>
             <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
@@ -123,23 +122,7 @@
                 </tr>
             </table>
         </div>
-        <p>
-            &nbsp;</p>
-        <p class="text-left">
-            &nbsp;</p>
-        <table class="w-100">
-            <tr>
-                <td>
-                    <asp:SqlDataSource ID="DS_HistorialFacturas" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [F_Codigo_Factura], [F_MontoTotal], [F_Fecha] FROM [Factura] WHERE ([F_Codigo_Usuario] = @F_Codigo_Usuario)">
-                        <SelectParameters>
-                            <asp:SessionParameter Name="F_Codigo_Usuario" SessionField="CodigoUsuario" Type="String" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
-                </td>
-                <td class="text-center">&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>
+        
     </form>
 </body>
 </html>

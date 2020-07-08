@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Entidades;
+using System.Data;
 
 namespace Vistas
 {
@@ -13,17 +14,71 @@ namespace Vistas
     {
         protected NegocioNoticia N_Noticia = new NegocioNoticia();
         protected Noticia noticia = new Noticia();
+        protected DataTable tabla = new DataTable();
+        protected Usuario usuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                noticia = (Noticia)Session["nModificar"];
-                setLabels();
+                setValores();
+                cargarDDLJuegos();
                 estaActivo();
-
             }
+            setValores();
             estaActivo();
+        }
+        protected void setValores()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblUsuario.Text = usuario.Nombre;
             noticia = (Noticia)Session["nModificar"];
+            lblCodigoNoticia.Text = noticia.Codigo_Noticia.ToString();
+            txtDescripcion.Text = noticia.Descripcion;
+            txtNombre.Text = noticia.Nombre;
+            txtURL.Text = noticia.Imagen_Url;
+        }
+
+        protected void cargarDDLJuegos()
+        {
+
+            tabla = N_Noticia.tablaJuegos();
+
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                ListItem item = new ListItem(tabla.Rows[i][3].ToString(), tabla.Rows[i][0].ToString());
+                ddlJuego.Items.Add(item);
+            }
+
+            ddlJuego.DataTextField = "J_Nombre";
+            ddlJuego.DataValueField = "J_Codigo_Juego";
+            ddlJuego.DataBind();
+            ddlJuego.Items.Insert(0, new ListItem("--Seleccione Juego--", "0"));
+            ddlJuego.SelectedValue = "0";
+            ddlJuego.SelectedIndex = noticia.Codigo_Juego;
+
+        }
+
+        protected void setNoticia()
+        {
+            noticia.Codigo_Juego = Convert.ToInt32(ddlJuego.SelectedValue);
+            noticia.Nombre = txtNombre.Text;
+            noticia.Descripcion = txtDescripcion.Text;
+            noticia.Imagen_Url = txtURL.Text;
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            setNoticia();
+            if (N_Noticia.agregarNoticia(noticia))
+            {
+
+                lblMensaje.Text = "La noticia se creó con exito";
+            }
+            else
+            {
+                lblMensaje.Text = "Ya existe una noticia con el mismo titulo, intente con otro";
+            }
+
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -35,12 +90,6 @@ namespace Vistas
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("NoticiasAdministrador.aspx");
-        }
-
-        protected void setLabels()
-        {
-            lbl_CodigoSeleccionado.Text = noticia.Codigo_Noticia.ToString();
-            lblTitulo.Text = noticia.Nombre;
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)

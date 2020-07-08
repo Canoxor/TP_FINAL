@@ -16,7 +16,7 @@ namespace Vistas
         protected NegocioJuego N_Juego = new NegocioJuego();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            setLabelUsuario();
         }
 
         protected void btn_Modificar_Command(object sender, CommandEventArgs e)
@@ -25,6 +25,11 @@ namespace Vistas
             juego = N_Juego.ObtenerJuego(id_seleccionado);
             Session["jModificar"] = juego;
             Response.Redirect("JuegosModificar.aspx");
+        }
+        protected void setLabelUsuario()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblUsuario.Text = usuario.Nombre;
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)

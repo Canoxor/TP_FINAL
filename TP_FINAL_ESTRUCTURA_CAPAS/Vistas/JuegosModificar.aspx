@@ -34,6 +34,22 @@
             height: 30px;
             margin-left: 10px;
         }
+         .columna {
+            width: 25%;
+            color: white;
+        }
+
+        .fila {
+            width: 100%;
+        }
+
+        .textoColumna {
+            text-align:end;
+        }
+
+        .columna_3 {
+            margin-left:20px;
+        }
     </style>
 </head>
 <body>
@@ -61,8 +77,14 @@
                     <li class="nav-item">
                         <a href="UsuariosAdministrador.aspx" class="nav-link">Usuarios</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="FacturasAdministrador.aspx" class="nav-link">Facturas</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
+                    <li class="nav-item align-content-lg-end">
+                        <asp:Label ID="lblUsuario" runat="server" Style="color: white;margin-right:20px"></asp:Label>
+                    </li>
                     <li class="nav-item align-content-lg-end">
                         <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" Style="position: center; text-align: center; width: 100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                     </li>
@@ -70,17 +92,87 @@
             </div>
         </nav>
 
-        <div style="width: 100%; margin-top: 4%; color: white">
-
-            <div class="texto">Codigo Periferico:<asp:Label ID="lbl_CodigoSeleccionado" runat="server" Text="" Style="margin-left: 15px"></asp:Label></div>
-
-            <div class="texto" style="margin-left:4%">Precio:<asp:TextBox ID="txtPrecio" CssClass="textBoxEstilo" runat="server" TextMode="Number"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvPrecio" runat="server" ControlToValidate="txtPrecio" ValidationGroup="Grupo1">Ingrese un precio</asp:RequiredFieldValidator>
-             </div>
-
-            <div class="texto" style="margin-left:5%">Stock:<asp:TextBox ID="txtStock" runat="server" CssClass="textBoxEstilo" TextMode="Number"></asp:TextBox>
+        <table align="center" cellpadding="4" cellspacing="2" class="w-100" style="margin-top:6%">
+        <tr class="fila">
+            <td class="columna">&nbsp;</td>
+            <td class="columna textoColumna">Codigo de Juego: </td>
+            <td class="columna columna_3">
+                <asp:Label ID="lblCodigoJuego" runat="server"></asp:Label>
+            </td>
+            <td class="columna">&nbsp;</td>
+        </tr>
+        <tr class="fila">
+            <td class="columna">&nbsp;</td>
+            <td class="columna textoColumna">Genero: </td>
+            <td class="columna columna_3">
+                <asp:DropDownList ID="ddlGenero" runat="server">
+                </asp:DropDownList>
+            </td>
+            <td class="columna"><asp:RequiredFieldValidator ID="rfvDropGeneros" runat="server" ControlToValidate="ddlGenero" Font-Bold="True" ForeColor="Red" ValidationGroup="Grupo1" InitialValue="0">Guarde un Genero primero</asp:RequiredFieldValidator></td>
+        </tr>
+        <tr class="fila">
+            <td class="columna">&nbsp;</td>
+            <td class="columna textoColumna">Indice PEGI: </td>
+            <td class="columna columna_3">
+                <asp:DropDownList ID="ddlPegi" runat="server">
+                </asp:DropDownList>
+            </td>
+            <td class="columna"><asp:RequiredFieldValidator ID="rfvDropPEGI" runat="server" ControlToValidate="ddlPegi" Font-Bold="True" ForeColor="Red" ValidationGroup="Grupo1" InitialValue="0">Guarde un Indice PEGI Primero</asp:RequiredFieldValidator></td>
+        </tr>
+        <tr class="fila">
+            <td class="columna">&nbsp;</td>
+            <td class="columna textoColumna">Nombre: </td>
+            <td class="columna columna_3">
+                <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+            </td>
+            <td class="columna">
+                <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ValidationGroup="Grupo1">Ingrese un Nombre</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr class="fila">
+            <td class="columna">&nbsp;</td>
+            <td class="columna textoColumna">Descripcion: </td>
+            <td class="columna columna_3">
+                <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" runat="server"></asp:TextBox>
+            </td>
+            <td class="columna">
+                <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="txtDescripcion" ValidationGroup="Grupo1">Ingrese una Descripcion</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+         <tr class="fila">
+            <td class="columna">&nbsp;</td>
+            <td class="columna textoColumna">Stock: </td>
+            <td class="columna columna_3">
+                <asp:TextBox ID="txtStock" runat="server" TextMode="Number"></asp:TextBox>
+             </td>
+            <td class="columna">
                 <asp:RequiredFieldValidator ID="rfvStock" runat="server" ControlToValidate="txtStock" ValidationGroup="Grupo1">Ingrese una cantidad</asp:RequiredFieldValidator>
-             </div>
+             </td>
+        </tr>
+         <tr class="fila">
+            <td class="columna">&nbsp;</td>
+            <td class="columna textoColumna">Precio Unitario: </td>
+            <td class="columna columna_3">
+                <asp:TextBox ID="txtPrecio" runat="server" TextMode="Number"></asp:TextBox>
+             </td>
+            <td class="columna">
+                <asp:RequiredFieldValidator ID="rfvPrecio" runat="server" ControlToValidate="txtPrecio" ValidationGroup="Grupo1">Ingrese un precio</asp:RequiredFieldValidator>
+             </td>
+        </tr>
+         <tr class="fila">
+            <td class="columna">&nbsp;</td>
+            <td class="columna textoColumna">URL Imagen: </td>
+            <td class="columna columna_3">
+                <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
+             </td>
+            <td class="columna">
+                <asp:RequiredFieldValidator ID="rfvURL" runat="server" ControlToValidate="txtURL" ValidationGroup="Grupo1">Ingrese una URL</asp:RequiredFieldValidator>
+             </td>
+        </tr>
+               
+    </table>
+
+        <div style="width: 100%; margin-top: 2%; color: white">
 
             <div style="width: 100%; text-align: center; height: 30px; margin-top: 25px">
                 <asp:Button class="btn btn-primary btn-m" ID="btnActualizar" runat="server"  ValidationGroup="Grupo1" Style="position: center; margin-right: 10px" Text="Actualizar" OnClick="btnActualizar_Click" />

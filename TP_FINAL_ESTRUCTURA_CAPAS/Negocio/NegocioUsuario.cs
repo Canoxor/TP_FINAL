@@ -23,6 +23,10 @@ namespace Negocio
             return D_Usuario.getUsuarioLogin(E_Usuario);
         }
 
+        public DataTable getTablaUsuarioBuscar(String nombre)
+        {
+            return D_Usuario.getTablaUsuarioBuscar(nombre);
+        }
         public bool editarUsuario(Usuario u)
         {
             int seEdito = D_Usuario.editarUsuario(u);

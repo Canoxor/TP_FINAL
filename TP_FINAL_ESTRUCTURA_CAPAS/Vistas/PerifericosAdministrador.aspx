@@ -53,8 +53,14 @@
                     <li class="nav-item">
                         <a href="UsuariosAdministrador.aspx" class="nav-link">Usuarios</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="FacturasAdministrador.aspx" class="nav-link">Facturas</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
+                    <li class="nav-item align-content-lg-end">
+                        <asp:Label ID="lblUsuario" runat="server" Style="color: white;margin-right:20px"></asp:Label>
+                    </li>
                     <li class="nav-item align-content-lg-end">
                         <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                     </li>

@@ -14,6 +14,7 @@ namespace Vistas
     {
         protected NegocioPeriferico N_Periferico = new NegocioPeriferico();
         protected Periferico periferico = new Periferico();
+        protected Usuario usuario = new Usuario();
         protected DataTable tabla = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,9 +22,15 @@ namespace Vistas
             if (!IsPostBack)
             {
                 cargarInfo();
+                setLabelUsuario();
             }
+            setLabelUsuario();
         }
-
+        protected void setLabelUsuario()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblUsuario.Text = usuario.Nombre;
+        }
         protected void cargarInfo()
         {
             cargarDDLMarcas();
@@ -47,6 +54,7 @@ namespace Vistas
             ddlMarca.DataBind();
             ddlMarca.Items.Insert(0, new ListItem("--Seleccione Marca--", "0"));
             ddlMarca.SelectedValue = "0";
+            //ddlMarca.SelectedValue = "1";
             
         }
         protected void cargarDDLTipoPeriferico()

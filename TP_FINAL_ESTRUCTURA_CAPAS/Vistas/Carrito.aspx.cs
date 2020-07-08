@@ -13,42 +13,57 @@ namespace Vistas
 {
     public partial class Carrito : System.Web.UI.Page
     {
-        NegocioJuego Negocio_J = new NegocioJuego();
-        NegocioPeriferico Negocio_P = new NegocioPeriferico();
-        Juego juego = new Juego();
-        Periferico periferico = new Periferico();
+        protected NegocioJuego Negocio_J = new NegocioJuego();
+        protected NegocioPeriferico Negocio_P = new NegocioPeriferico();
+        protected Juego juego = new Juego();
+        protected Periferico periferico = new Periferico();
+        protected Usuario usuario = new Usuario();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                btn_Comprar.Visible = false;
-                btn_CompraAceptar.Visible = false;
-                btn_CompraCancelar.Visible = false;
-                float MontoTotal = 0;
+                inflarPagina();
+                lblUsuario();
+            }
+            lblUsuario();
+        }
 
-                if (Session["CarritoJuegos"] != null)
-                {
-                    CargarGrid_Juegos();
-                    btn_Comprar.Visible = true;
-                    MontoTotal += CalcularMontoTotal_Juego();
-                }
-                if (Session["CarritoPerifericos"] != null)
-                {
-                    CargarGrid_Perifericos();
-                    btn_Comprar.Visible = true;
-                    MontoTotal += CalcularMontoTotal_Periferico();
-                }
-                if (MontoTotal != 0)
-                {
-                    lbl_Total.Text = "<strong>Monto total:</strong> $ " + MontoTotal.ToString();
-                }
-                else
-                {
-                    lbl_Total.Text = "<strong>No se ha agregado ningun producto al carrito</strong>";
-                }
+        protected void inflarPagina()
+        {
+            btn_Comprar.Visible = false;
+            btn_CompraAceptar.Visible = false;
+            btn_CompraCancelar.Visible = false;
+            float MontoTotal = 0;
+
+            if (Session["CarritoJuegos"] != null)
+            {
+                CargarGrid_Juegos();
+                btn_Comprar.Visible = true;
+                MontoTotal += CalcularMontoTotal_Juego();
+            }
+            if (Session["CarritoPerifericos"] != null)
+            {
+                CargarGrid_Perifericos();
+                btn_Comprar.Visible = true;
+                MontoTotal += CalcularMontoTotal_Periferico();
+            }
+            if (MontoTotal != 0)
+            {
+                lbl_Total.Text = "<strong>Monto total:</strong> $ " + MontoTotal.ToString();
+            }
+            else
+            {
+                lbl_Total.Text = "<strong>No se ha agregado ningun producto al carrito</strong>";
             }
         }
+
+        protected void lblUsuario()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblNavbarUsuario.Text = usuario.Nombre;
+        }
+
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             Session["usuarioLogedIn"] = null;
@@ -195,6 +210,18 @@ namespace Vistas
         {
             Response.Redirect("Factura.aspx");
      
+        }
+
+        protected void grd_Carrito_Juego_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grd_Carrito_Juego.PageIndex = e.NewPageIndex;
+            CargarGrid_Juegos();
+        }
+
+        protected void grd_Carrito_Periferico_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grd_Carrito_Periferico.PageIndex = e.NewPageIndex;
+            CargarGrid_Perifericos();
         }
     }
 }

@@ -16,12 +16,20 @@ namespace Vistas
         protected NegocioNoticia N_Noticia = new NegocioNoticia();
         protected Noticia noticia = new Noticia();
         protected DataTable tabla = new DataTable();
+        protected Usuario usuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 cargarInfo();
+                setLabelUsuario();
             }
+            setLabelUsuario();
+        }
+        protected void setLabelUsuario()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblUsuario.Text = usuario.Nombre;
         }
         protected void cargarInfo()
         {

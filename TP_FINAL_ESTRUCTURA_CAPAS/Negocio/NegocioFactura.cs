@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,31 @@ namespace Negocio
             else
                 return false;
         } 
+
+        public DataTable traerFacturas()
+        {
+            return df.traerFacturas();
+        }
+
+        public DataTable traerFacturaFiltro(int opc)
+        {
+            return df.traerFacturaFiltro(opc);
+        }
+
+        public DataTable traerFacturasUsuario(int id)
+        {
+            return df.traerFacturasUsuario(id);
+        }
+
+        public DataTable traerDetalleFacturaJuegosUsuario(int id)
+        {
+            return df.traerDetalleFacturaJuegosUsuario(id);
+        }
+
+        public DataTable traerDetalleFacturaPerifericosUsuario(int id)
+        {
+            return df.traerDetalleFacturaPerifericosUsuario(id);
+        }
 
         public bool agregarDetalleJuego(DetalleFacturaJuego dj)
         {

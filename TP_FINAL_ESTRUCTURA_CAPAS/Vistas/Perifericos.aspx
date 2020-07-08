@@ -78,7 +78,6 @@
                        <div class="dropdown-menu">
                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarMarcas" runat="server" Style="position: center" Text="Marcas" OnClick="btnFiltrarMarcas_Click"/>
                            <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarTipoPeriferico" runat="server" Style="position: center" Text="Tipo de Periferico" OnClick="btnFiltrarTipoPeriferico_Click"/>
-                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnPPP" runat="server" Style="position: center" Text="Algo mas" />
                        </div>
                    </div>
                </td>

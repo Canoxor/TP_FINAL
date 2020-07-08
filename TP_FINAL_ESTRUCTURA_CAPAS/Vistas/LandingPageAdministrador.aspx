@@ -55,8 +55,14 @@
                     <li class="nav-item">
                         <a href="UsuariosAdministrador.aspx" class="nav-link">Usuarios</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="FacturasAdministrador.aspx" class="nav-link">Facturas</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
+                    <li class="nav-item align-content-lg-end">
+                        <asp:Label ID="lblUsuario" runat="server" Style="color: white;margin-right:20px"></asp:Label>
+                    </li>
                     <li class="nav-item align-content-lg-end">
                         <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                     </li>
@@ -115,6 +121,18 @@
                     <h5 class="card-title">Administrar Panel Usuarios</h5>
                     <p class="card-text">Al oprimir el boton que se encuentra debajo, usted sera redirigido al panel de Usuarios, donde podra modificar y eliminar a los usuarios registrados en la plataforma</p>
                     <a href="UsuariosAdministrador.aspx" class="btn btn-primary">Ir a Usuarios</a>
+                </div>
+            </div>
+            &nbsp
+
+            <div class="card text-center fondoPrimarioCard">
+                <div class="card-header fondoSecundarioCard">
+                    Facturas
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Administrar Panel Facturas</h5>
+                    <p class="card-text">Al oprimir el boton que se encuentra debajo, usted sera redirigido al panel de Facturas, donde podra visualisar y filtrar todas las facturas con sus respectivos detalles de facturas</p>
+                    <a href="FacturasAdministrador.aspx" class="btn btn-primary">Ir a Facturas</a>
                 </div>
             </div>
             &nbsp

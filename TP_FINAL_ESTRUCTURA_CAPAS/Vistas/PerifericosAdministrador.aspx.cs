@@ -14,10 +14,17 @@ namespace Vistas
 
         protected NegocioPeriferico N_Periferico = new NegocioPeriferico();
         protected Periferico periferico = new Periferico();
+        protected Usuario usuario = new Usuario();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            setLabelUsuario();
+        }
 
+        protected void setLabelUsuario()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblUsuario.Text = usuario.Nombre;
         }
         protected void btn_Detalle_Command(object sender, CommandEventArgs e)
         {

@@ -66,6 +66,12 @@ namespace Datos
             return tabla;
         }
 
+        public DataTable getTablaUsuarioBuscar(String nombre)
+        {
+            DataTable tabla = ds.ObtenerTabla("UsuarioBuscado", "select * from Usuarios where U_Nombre = '" + nombre + "'");
+            return tabla;
+        }
+
         public int editarUsuario(Usuario u)
         {
             SqlCommand comando = new SqlCommand();

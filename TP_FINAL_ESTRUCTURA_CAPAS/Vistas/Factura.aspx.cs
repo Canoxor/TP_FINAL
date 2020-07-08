@@ -194,5 +194,11 @@ namespace Vistas
         {
             Response.Redirect("Usuarios.aspx");
         }
+
+        protected void grd_Factura_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grd_Factura.PageIndex = e.NewPageIndex;
+            CargarGrid();
+        }
     }
 }

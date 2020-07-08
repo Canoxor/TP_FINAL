@@ -13,10 +13,17 @@ namespace Vistas
     {
         protected NegocioNoticia N_Noticia = new NegocioNoticia();
         protected Noticia noticia = new Noticia();
+        protected Usuario usuario = new Usuario();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            setLabelUsuario();
+        }
 
+        protected void setLabelUsuario()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblUsuario.Text = usuario.Nombre;
         }
         protected void btn_Modificar_Command(object sender, CommandEventArgs e)
         {

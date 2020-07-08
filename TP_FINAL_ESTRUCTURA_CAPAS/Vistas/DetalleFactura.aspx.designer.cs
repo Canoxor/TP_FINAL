@@ -51,22 +51,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Label lbl_NroFac;
 
         /// <summary>
-        /// Control grd_DetalleJeugos.
+        /// Control grd_DetalleJuegos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grd_DetalleJeugos;
+        protected global::System.Web.UI.WebControls.GridView grd_DetalleJuegos;
 
         /// <summary>
-        /// Control grd_DetalleJeugos0.
+        /// Control grd_DetallePerifericos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grd_DetalleJeugos0;
+        protected global::System.Web.UI.WebControls.GridView grd_DetallePerifericos;
 
         /// <summary>
         /// Control Button1.
@@ -76,23 +76,5 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// Control DS_DetalleJ.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DS_DetalleJ;
-
-        /// <summary>
-        /// Control DS_DetalleP.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DS_DetalleP;
     }
 }

@@ -106,7 +106,7 @@
                     &nbsp;</td>
                 <td class="auto-style2">
                     <div class="text-center">
-                    <asp:GridView ID="grd_Carrito_Juego" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Carrito_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="3px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1180px" OnRowCommand="grd_Carrito_Juego_RowCommand">
+                    <asp:GridView ID="grd_Carrito_Juego" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Carrito_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="3px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1180px" OnRowCommand="grd_Carrito_Juego_RowCommand" AllowPaging="True" OnPageIndexChanging="grd_Carrito_Juego_PageIndexChanging" PageSize="5">
                         
                         <Columns>
                             <asp:BoundField DataField="Codigo" HeaderText="Codigo" />
@@ -146,7 +146,7 @@
                         <SortedDescendingHeaderStyle BackColor="#3E3277" />
                     </asp:GridView>
                         <br />
-                    <asp:GridView ID="grd_Carrito_Periferico" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Carrito_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="1px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1180px" OnRowCommand="grd_Carrito_Periferico_RowCommand">
+                    <asp:GridView ID="grd_Carrito_Periferico" runat="server" AutoGenerateColumns="False" OnRowDataBound="grd_Carrito_RowDataBound" BackColor="White" BorderColor="DimGray" BorderWidth="1px" CellPadding="3" CssClass="auto-style3" Height="30px" Width="1180px" OnRowCommand="grd_Carrito_Periferico_RowCommand" AllowPaging="True" OnPageIndexChanging="grd_Carrito_Periferico_PageIndexChanging" PageSize="5">
                         
                         <Columns>
                             <asp:BoundField DataField="Codigo" HeaderText="Codigo" />

@@ -29,6 +29,7 @@ namespace Negocio
         {
             return D_Juego.ultimoId();
         }
+
         public DataTable tablaPegi()
         {
             return D_Juego.traerPegi();

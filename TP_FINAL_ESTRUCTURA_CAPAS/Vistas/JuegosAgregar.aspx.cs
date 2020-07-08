@@ -15,18 +15,26 @@ namespace Vistas
         protected NegocioJuego N_Juego = new NegocioJuego();
         protected Juego juego = new Juego();
         protected DataTable tabla = new DataTable();
+        protected Usuario usuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 cargarInfo();
+                setLabelUsuario();
             }
+            setLabelUsuario();
         }
         protected void cargarInfo()
         {
             cargarDDLPegi();
             cargarDDLGenero();
             lblCodigoJuego.Text = ((N_Juego.getUltimoID()) + 1).ToString();
+        }
+        protected void setLabelUsuario()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblUsuario.Text = usuario.Nombre;
         }
 
         protected void cargarDDLPegi()

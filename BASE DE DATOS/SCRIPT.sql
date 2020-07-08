@@ -1002,6 +1002,14 @@ SET PE_Stock = (PE_Stock - (SELECT DP_Cantidad FROM inserted))
 WHERE PE_Codigo_Periferico = (SELECT DP_Codigo_Periferico FROM inserted)
 GO
 
+CREATE TRIGGER TR_BajarStock_Juego
+ON DetalleFactura_Juegos
+AFTER INSERT
+AS
+UPDATE Juegos
+SET J_Stock = (J_Stock - (SELECT DJ_Cantidad FROM inserted))
+WHERE J_Codigo_Juego = (SELECT DJ_Codigo_Juego FROM inserted)
+GO
 --SELECT * FROM Perifericos WHERE PE_Codigo_Periferico = '3'
 --GO
 --EXEC SP_Insert_Detalle_Periferico '3',2,2000

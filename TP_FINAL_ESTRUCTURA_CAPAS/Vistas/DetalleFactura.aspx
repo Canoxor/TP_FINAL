@@ -72,13 +72,7 @@
             </div>
         </nav>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-        <p>
+            <p>
             &nbsp;</p>
         <p class="auto-style2">
             <strong>Items que componen la factura</strong></p>
@@ -90,7 +84,7 @@
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                 <td>
-        <asp:GridView ID="grd_DetalleJeugos" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" CssClass="auto-style6" DataSourceID="DS_DetalleJ">
+        <asp:GridView ID="grd_DetalleJuegos" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" CssClass="auto-style6" AllowPaging="True" PageSize="5" OnPageIndexChanging="grd_DetalleJuegos_PageIndexChanging">
             <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
                 <asp:TemplateField HeaderText="Imagen">
@@ -131,7 +125,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-        <asp:GridView ID="grd_DetalleJeugos0" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" CssClass="auto-style6" DataSourceID="DS_DetalleP">
+        <asp:GridView ID="grd_DetallePerifericos" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" CssClass="auto-style6" AllowPaging="True" PageSize="5" OnPageIndexChanging="grd_DetallePerifericos_PageIndexChanging">
             <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
                 <asp:TemplateField HeaderText="Imagen">
@@ -177,38 +171,12 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
-        <div class="text-left">
-            <div class="text-center">
-            </div>
-            <br />
-            <div class="text-center">
-            </div>
-            <div class="text-left">
-                <br />
-                <br />
-            </div>
-            <asp:SqlDataSource ID="DS_DetalleJ" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT J_Imagen,J_Nombre,DJ_Cantidad,DJ_PrecioUnitario,F_Fecha FROM Factura
-INNER JOIN DetalleFactura_Juegos
-ON DJ_Codigo_Factura = F_Codigo_Factura
-INNER JOIN Juegos
-ON DJ_Codigo_Juego = J_Codigo_Juego
-WHERE F_Codigo_Factura = @NroFactura">
-                <SelectParameters>
-                    <asp:SessionParameter Name="NroFactura" SessionField="FacturaSeleccionada" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            <asp:SqlDataSource ID="DS_DetalleP" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT PE_Imagen,PE_Nombre,DP_Cantidad,DP_PrecioUnitario,F_Fecha FROM Factura
-INNER JOIN DetalleFactura_Perifericos
-ON DP_Codigo_Factura = F_Codigo_Factura
-INNER JOIN Perifericos
-ON DP_Codigo_Periferico = PE_Codigo_Periferico
-WHERE F_Codigo_Factura = @NroFactura">
-                <SelectParameters>
-                    <asp:SessionParameter Name="NroFactura" SessionField="FacturaSeleccionada" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-            <br />
-        </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 </html>
