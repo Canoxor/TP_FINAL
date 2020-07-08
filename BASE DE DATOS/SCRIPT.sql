@@ -197,6 +197,7 @@ CREATE TABLE Usuarios
 	U_Admin bit not null,
 	U_Email varchar(100) not null,
 	U_Contrasenia varchar(20) not null,
+	U_Fecha_Creacion date,
 	U_Estado bit default '1'
 )
 GO
@@ -358,10 +359,11 @@ INSERT INTO Prov_X_Juego (PJ_Codigo_Proveedor,PJ_Codigo_Juego,PJ_PrecioCompra)
 	SELECT '3','5',6000 
 GO
 
-INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin, U_Email,U_Contrasenia,U_Estado)
-	SELECT '1','1000','Nicolas','Rodriguez','1','Nico@gmail.com','1111','1' UNION
-	SELECT '2','1001','Mateo','De Benedictis Maza','1','Mateo@gmail.com','2222','1' UNION
-	SELECT '3','1002','Fernando','Lozas','0','Fernando@gmail.com','fernando','1'
+INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin, U_Email,U_Contrasenia,U_Fecha_Creacion,U_Estado)
+	SELECT '1','1000','Nicolas','Rodriguez','1','Nico@gmail.com','1111','2020-4-4','1' UNION
+	SELECT '2','1001','Mateo','De Benedictis Maza','1','Mateo@gmail.com','2222','2020-5-5','1' UNION
+	SELECT '3','1002','Fernando','Lozas','0','Fernando@gmail.com','fernando','2020-6-6','1' UNION
+	SELECT '4','1003','Nicolas','Rodriguez','0','NicoNormal@gmail.com','Nico123','2020-7-8','1'
 GO
 
 INSERT INTO CodigosDeDescuento (CD_Codigo_CodDescuento,CD_Descripcion,CD_Habilitado,CD_Usos)
@@ -726,7 +728,8 @@ CREATE PROCEDURE SP_Insert_Usuarios
 	@U_Contrasenia varchar(20)
 )
 AS
-
+DECLARE @U_Fecha_Creacion date
+SET @U_Fecha_Creacion = (SELECT CAST(YEAR(GETDATE()) AS VARCHAR(5)) +'-'+ CAST(MONTH(GETDATE()) AS VARCHAR(3)) +'-'+ CAST(DAY(GETDATE()) AS VARCHAR(3)))
 DECLARE @U_Codigo_Usuario varchar(5)
 SET @U_Codigo_Usuario = (select top 1 (U_Codigo_Usuario)+1
 from Usuarios
@@ -747,6 +750,7 @@ INSERT INTO Usuarios
 	U_Telefono,
 	U_Admin,
 	U_Email,
+	U_Fecha_Creacion,
 	U_Contrasenia
 )
 SELECT 
@@ -758,6 +762,7 @@ SELECT
 	@U_Telefono,
 	@U_Admin,
 	@U_Email,
+	@U_Fecha_Creacion,
 	@U_Contrasenia
 GO
 
@@ -1439,6 +1444,7 @@ SELECT
 	AS [Auriculares]
 GO
 EXEC SP_PorcentajeTipo_Periferico_TodosTipos '2019-5-5','2020-7-7'
+GO
 
 -- VERIFICA STOCK PERIFERICOS ORD STOCK
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenStock
@@ -1599,12 +1605,49 @@ SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Fac
 	AND F_Fecha <= @Fecha_MAX 
 	ORDER BY F_Fecha DESC
 GO
+
+-- USUARIOS CREADOS EN RANGO FECHAS
+CREATE PROCEDURE SP_UsuariosCreados_FechaASC
+(
+	@Fecha_MIN DATE,
+	@Fecha_MAX DATE
+)
+AS
+SELECT U_Codigo_Usuario AS [Codigo],
+	   U_Nombre AS [Nombre],
+	   U_Apellido AS [Apellido],
+	   U_Dni_Usuario AS [Dni],
+	   U_Fecha_Creacion [Fecha] 
+	   FROM Usuarios
+	WHERE U_Fecha_Creacion >= @Fecha_MIN
+	AND U_Fecha_Creacion <= @Fecha_MAX
+	ORDER BY U_Fecha_Creacion ASC
+GO
+
+CREATE PROCEDURE SP_UsuariosCreados_FechaDESC
+(
+	@Fecha_MIN DATE,
+	@Fecha_MAX DATE
+)
+AS
+SELECT U_Codigo_Usuario AS [Codigo],
+	   U_Nombre AS [Nombre],
+	   U_Apellido AS [Apellido],
+	   U_Dni_Usuario AS [Dni],
+	   U_Fecha_Creacion [Fecha] 
+	   FROM Usuarios
+	WHERE U_Fecha_Creacion >= @Fecha_MIN
+	AND U_Fecha_Creacion <= @Fecha_MAX
+	ORDER BY U_Fecha_Creacion DESC
+GO
+EXEC SP_UsuariosCreados '2019-5-5','2020-10-7'
+GO
+
 -----------------------------------------------------------------------------------------------------------------------------
 /*
 SELECT * FROM DetalleFactura_Juegos
 GO
-SELECT * FROM DetalleFactura_Perifericos
-GO
+
 
 SELECT *
 FROM Factura
@@ -1705,6 +1748,7 @@ UPDATE Juegos
 SET J_Stock = (J_Stock - (SELECT DJ_Cantidad FROM inserted))
 WHERE J_Codigo_Juego = (SELECT DJ_Codigo_Juego FROM inserted)
 GO
+
 --SELECT * FROM Perifericos WHERE PE_Codigo_Periferico = '3'
 --GO
 --EXEC SP_Insert_Detalle_Periferico '3',2,2000
