@@ -1248,7 +1248,7 @@ SELECT
 		,0)
 	AS [Rol]
 GO
-EXEC SP_PorcentajeGenero_Juego_TodosGeneros '2019-5-5','2020-7-7'
+--EXEC SP_PorcentajeGenero_Juego_TodosGeneros '2019-5-5','2020-7-7'
 
 -- PORCENTAJE VENTAS PERIFERICO TIPO DEL TOTAL
 CREATE PROCEDURE SP_PorcentajeTipo_Periferico
@@ -1289,6 +1289,156 @@ SELECT
 		,0)
 	AS [Porcentaje vendido]
 GO
+
+-- PORCENTAJE VENTAS PERIFERICO TODOS LOS TIPOS
+CREATE PROCEDURE SP_PorcentajeTipo_Periferico_TodosTipos
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date
+)
+AS
+--Teclado,Raton,Cámara web,Micrófono,Altavoz,Auriculares
+SELECT
+    ISNULL(
+	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_TipoPerif = '1'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DP_Cantidad) AS [Perifericos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Teclado],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_TipoPerif = '2'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DP_Cantidad) AS [Perifericos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Raton],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_TipoPerif = '3'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DP_Cantidad) AS [Perifericos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Cámara web],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_TipoPerif = '4'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DP_Cantidad) AS [Perifericos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Micrófono],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_TipoPerif = '5'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DP_Cantidad) AS [Perifericos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Altavoz],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_TipoPerif = '6'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DP_Cantidad) AS [Perifericos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Auriculares]
+GO
+EXEC SP_PorcentajeTipo_Periferico_TodosTipos '2019-5-5','2020-7-7'
 
 -- VERIFICA STOCK PERIFERICOS ORD STOCK
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenStock
