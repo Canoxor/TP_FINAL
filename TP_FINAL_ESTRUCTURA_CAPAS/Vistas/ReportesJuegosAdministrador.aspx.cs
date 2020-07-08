@@ -19,8 +19,6 @@ namespace Vistas
             {
                 // STOCK
                 grd_ReporteS.Visible = false;
-                chk_Stock.AutoPostBack = true;
-                chk_Genero.AutoPostBack = true;
                 // VENTAS
                 grd_ReporteV.Visible = false;
             }
@@ -51,11 +49,11 @@ namespace Vistas
             if (chk_TodosGeneros.Checked == true)
             {
                 txt_CodigoJuego.Text = "";
-                chk_TodosGeneros.Enabled = false;
+                txt_CodigoJuego.Enabled = false;
             }
             else
             {
-                chk_TodosGeneros.Enabled = true;
+                txt_CodigoJuego.Enabled = true;
             }
 
         }

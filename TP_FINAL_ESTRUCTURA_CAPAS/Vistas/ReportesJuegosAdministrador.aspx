@@ -138,10 +138,10 @@
             <tr>
                 <td class="text-center">
                     <span class="text-white">
-                    <asp:CheckBox ID="chk_Stock" runat="server" CssClass="auto-style34" OnCheckedChanged="chk_Stock_CheckedChanged" Text="Stock" />
+                    <asp:CheckBox ID="chk_Stock" runat="server" CssClass="auto-style34" OnCheckedChanged="chk_Stock_CheckedChanged" Text="Stock" AutoPostBack="true" />
                     <br class="auto-style34" />
                     &nbsp;&nbsp;&nbsp;
-                    <asp:CheckBox ID="chk_Genero" runat="server" CssClass="auto-style34" OnCheckedChanged="chk_Genero_CheckedChanged" Text="Genero" />
+                    <asp:CheckBox ID="chk_Genero" runat="server" CssClass="auto-style34" OnCheckedChanged="chk_Genero_CheckedChanged" Text="Genero" AutoPostBack="true" />
                     </span>
                     <br />
                 </td>
@@ -194,7 +194,7 @@
                     <br />
                     <br />
                     <strong>
-                    <asp:CheckBox ID="chk_TodosGeneros" runat="server" CssClass="auto-style7" Text="Todos los generos" TextAlign="Left" />
+                    <asp:CheckBox ID="chk_TodosGeneros" runat="server" CssClass="auto-style7" Text="Todos los generos" TextAlign="Left" OnCheckedChanged="chk_TodosGeneros_CheckedChanged" AutoPostBack="true" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
                 </td>
             </tr>

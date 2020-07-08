@@ -19,8 +19,6 @@ namespace Vistas
             {
                 // STOCK
                 grd_ReporteS.Visible = false;
-                chk_Stock.AutoPostBack = true;
-                chk_Genero.AutoPostBack = true;
                 // VENTAS
                 grd_ReporteV.Visible = false;
             }
@@ -57,8 +55,7 @@ namespace Vistas
             else
             {
                 txt_CodigoPerif.Enabled = true;
-            }
-            
+            } 
         }
     }
 }

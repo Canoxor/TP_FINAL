@@ -98,6 +98,8 @@
     <Content Include="PerifericosAdministrador.aspx" />
     <Content Include="PerifericosAgregar.aspx" />
     <Content Include="PerifericosModificar.aspx" />
+    <Content Include="ReportesJuegosAdministrador.aspx" />
+    <Content Include="ReportesPerifericosAdministrador.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="UsuariosAdministrador.aspx" />
     <Content Include="UsuariosModificar.aspx" />
@@ -292,6 +294,18 @@
       <DependentUpon>PerifericosModificar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportesJuegosAdministrador.aspx.cs">
+      <DependentUpon>ReportesJuegosAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesJuegosAdministrador.aspx.designer.cs">
+      <DependentUpon>ReportesJuegosAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesPerifericosAdministrador.aspx.cs">
+      <DependentUpon>ReportesPerifericosAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesPerifericosAdministrador.aspx.designer.cs">
+      <DependentUpon>ReportesPerifericosAdministrador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
