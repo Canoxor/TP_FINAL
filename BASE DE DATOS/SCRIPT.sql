@@ -1149,6 +1149,64 @@ INNER JOIN Generos
 ON J_Codigo_Genero = G_Codigo_Genero
 ORDER BY G_Nombre ASC
 GO
+
+-- VENTAS POR CADA USUARIOS ENTRE FECHAS
+CREATE PROCEDURE SP_ComprasRealizadas
+(
+	@Usuario varchar(5),
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT COUNT(*) AS [Compras realidazas] FROM Factura WHERE F_Codigo_Usuario = @Usuario
+														AND F_Fecha >= @Fecha_MIN
+														AND F_Fecha <= @Fecha_MAX
+GO
+
+-- FACTURAS DE CADA USUARIO
+CREATE PROCEDURE SP_VentasPorUsuario_Ord_Usuario
+(
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Factura 
+	INNER JOIN Usuarios
+	ON F_Codigo_Usuario = U_Codigo_Usuario
+	WHERE F_Fecha >= @Fecha_MIN
+	AND F_Fecha <= @Fecha_MAX 
+	ORDER BY F_Codigo_Usuario ASC
+GO
+
+-- COMPAS X USUARIOS ORD FECHA DESC
+CREATE PROCEDURE SP_VentasPorUsuario_Ord_FechaDESC
+(
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Factura 
+	INNER JOIN Usuarios
+	ON F_Codigo_Usuario = U_Codigo_Usuario
+	WHERE F_Fecha >= @Fecha_MIN
+	AND F_Fecha <= @Fecha_MAX 
+	ORDER BY F_Fecha DESC
+GO
+
+-- COMPAS X USUARIOS ORD FECHA ASC
+CREATE PROCEDURE SP_VentasPorUsuario_Ord_FechaASC
+(
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Factura 
+	INNER JOIN Usuarios
+	ON F_Codigo_Usuario = U_Codigo_Usuario
+	WHERE F_Fecha >= @Fecha_MIN
+	AND F_Fecha <= @Fecha_MAX 
+	ORDER BY F_Fecha DESC
+GO
 -----------------------------------------------------------------------------------------------------------------------------
 /*
 SELECT * FROM DetalleFactura_Juegos
