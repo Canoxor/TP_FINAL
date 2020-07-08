@@ -7,6 +7,8 @@ GO
 
 USE PARCIAL_LAB_3_Version_10
 GO
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- CREACION DE TABLAS
 
 IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Juegos')
 PRINT '* Ya existe la tabla Juegos'
@@ -210,7 +212,7 @@ CREATE TABLE CodigosDeDescuento
 	CD_Habilitado bit not null
 )
 GO
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- CREACION DE LAS CLAVES FORANEAS
 
 ALTER TABLE Juegos
@@ -259,7 +261,7 @@ ADD
 	CONSTRAINT FK_Prov_X_Perif_PJ FOREIGN KEY (PJ_Codigo_Juego) REFERENCES Juegos (J_Codigo_Juego),
 	CONSTRAINT FK_Prov_X_Juegos_P FOREIGN KEY (PJ_Codigo_Proveedor) REFERENCES Proveedores (P_Codigo_Proveedor)
 GO
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- REGISTROS
 
 INSERT INTO Proveedores(P_Codigo_Proveedor,P_RazonSocial,P_Direccion,P_Ciudad,P_Provincia,P_Cuil,P_Telefono,P_Contacto,P_Web,P_Email,P_Estado)
@@ -403,7 +405,7 @@ INSERT INTO DetalleFactura_Perifericos (DP_Codigo_Factura, DP_Codigo_Periferico,
 	SELECT '6', '9', '1', '48500' UNION
 	SELECT '6', '6', '1', '31000' 
 	GO
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- PROCEDIMIENTOS ALMACENADOS
 
 -- JUEGOS
@@ -475,12 +477,23 @@ GO
 CREATE PROCEDURE SP_Update_Juegos
 (
 	@J_Codigo_Juego varchar(5),
-	@J_PrecioNuevo decimal(18,2),
-	@J_Stock int
+	@J_Codigo_Genero varchar(5),
+	@J_Codigo_PEGI varchar(5),
+	@J_Nombre varchar(50),
+	@J_Descripcion varchar(1000),
+	@J_Stock int,
+	@J_PrecioUnitario decimal(18,2),
+	@J_Imagen varchar(200)
 )
 AS
 UPDATE Juegos
-SET J_PrecioUnitario = @J_PrecioNuevo
+SET
+J_Codigo_Genero = @J_Codigo_Genero,
+J_Codigo_PEGI = @J_Codigo_PEGI,
+J_Nombre = @J_Nombre,
+J_Descripcion = @J_Descripcion,
+J_PrecioUnitario = @J_PrecioUnitario,
+J_Imagen = @J_Imagen
 WHERE J_Codigo_Juego = @J_Codigo_Juego
 
 IF(@J_Stock!=-1)
@@ -558,19 +571,34 @@ GO
 CREATE PROCEDURE SP_Update_Perifericos
 (
 	@PE_Codigo_Periferico varchar(5),
-	@PE_StockNuevo int,
-	@PE_PrecioNuevo decimal(18,2)
+	@PE_Codigo_TipoPerif varchar(5),
+	@PE_Codigo_Marca varchar(5),
+	@PE_Nombre varchar(50),
+	@PE_Descripcion varchar(1000),
+	@PE_Stock int,
+	@PE_PrecioUnitario decimal(18,2),
+	@PE_Imagen varchar(200)
 )
 AS
-IF(@PE_PrecioNuevo!=-1)
 UPDATE Perifericos
-SET PE_PrecioUnitario = @PE_PrecioNuevo
+SET
+PE_Codigo_TipoPerif = @PE_Codigo_TipoPerif,
+PE_Codigo_Marca = @PE_Codigo_Marca,
+PE_Nombre = @PE_Nombre,
+PE_Descripcion = @PE_Descripcion,
+PE_Imagen = @PE_Imagen
+
+
+IF(@PE_PrecioUnitario!=-1)
+UPDATE Perifericos
+SET PE_PrecioUnitario = @PE_PrecioUnitario
 WHERE PE_Codigo_Periferico = @PE_Codigo_Periferico
 
-IF(@PE_StockNuevo!=-1)
+IF(@PE_Stock!=-1)
 UPDATE Perifericos
-SET PE_Stock = @PE_StockNuevo
+SET PE_Stock = @PE_Stock
 WHERE PE_Codigo_Periferico = @PE_Codigo_Periferico
+
 GO
 
 -- PROVEEDORES
@@ -831,6 +859,24 @@ CREATE PROCEDURE SP_Activate_Noticias
 AS
 UPDATE Noticias
 SET N_Estado = '1'
+WHERE N_Codigo_Noticia = @N_Codigo_Noticia
+GO
+
+CREATE PROCEDURE SP_Update_Noticias
+(
+	@N_Codigo_Noticia varchar(5),
+	@N_Codigo_Juego varchar(5),
+	@N_Nombre varchar(200),
+	@N_Descripcion varchar(1000),
+	@N_Imagen varchar(200)
+)
+AS
+UPDATE Noticias
+SET
+N_Codigo_Juego = @N_Codigo_Juego,
+N_Nombre = @N_Nombre,
+N_Descripcion = @N_Descripcion,
+N_Imagen = @N_Imagen
 WHERE N_Codigo_Noticia = @N_Codigo_Noticia
 GO
 

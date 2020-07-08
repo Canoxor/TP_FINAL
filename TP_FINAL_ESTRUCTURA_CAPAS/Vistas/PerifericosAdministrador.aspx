@@ -162,6 +162,7 @@
                                         <span class="text-black">
                                                 <b><asp:Label ID="PE_NombreLabel0" runat="server" Text='<%# Eval("PE_Nombre") %>' Font-Size="22px"></asp:Label></b>
                                             <br />
+                                                <asp:Label ID="lblMarca" runat="server" Text='<%# Eval("M_Nombre") %>'></asp:Label>
                                             <br />
                                                 <asp:Label ID="PE_PrecioUnitarioLabel0" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>'></asp:Label>
                                             <br />
@@ -214,7 +215,7 @@
             </tr>
         </table>
         &nbsp;
-        <asp:SqlDataSource ID="DS_PerifericoAdmin" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario], [PE_Codigo_Periferico] FROM [Perifericos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="DS_PerifericoAdmin" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT * FROM [Perifericos] inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca"></asp:SqlDataSource>
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

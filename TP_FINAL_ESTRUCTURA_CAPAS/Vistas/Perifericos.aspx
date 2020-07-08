@@ -23,6 +23,7 @@
         .auto-style1 {
             width: 9.5%;
         }
+
         .auto-style3 {
             font-size: large;
         }
@@ -42,13 +43,13 @@
             <div class="collapse navbar-collapse justify-content-between blurb" id="navLinks">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="Juegos.aspx" class="nav-link" >Juegos</a>
+                        <a href="Juegos.aspx" class="nav-link">Juegos</a>
                     </li>
                     <li class="nav-item">
                         <a href="Noticias.aspx" class="nav-link">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Perifericos.aspx" class="nav-link" style="color:#8B8C91">Perifericos</a>
+                        <a href="Perifericos.aspx" class="nav-link" style="color: #8B8C91">Perifericos</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
@@ -57,7 +58,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item nav-link btn btn-secondary btn-l active" style="text-align: center" role="button" href="Usuarios.aspx">Mi Cuenta</a>
                             <div class="dropdown-divider"></div>
-                            <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
+                            <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" Style="position: center; text-align: center; width: 100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                         </div>
                     </li>
                 </ul>
@@ -76,22 +77,21 @@
                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            Filtar Perifericos</button>
                        <div class="dropdown-menu">
-                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarMarcas" runat="server" Style="position: center" Text="Marcas" OnClick="btnFiltrarMarcas_Click"/>
-                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarTipoPeriferico" runat="server" Style="position: center" Text="Tipo de Periferico" OnClick="btnFiltrarTipoPeriferico_Click"/>
+                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarMarcas" runat="server" Style="position: center" Text="Marcas" OnClick="btnFiltrarMarcas_Click" />
+                           <asp:Button class="dropdown-item btn btn-secondary" ID="btnFiltrarTipoPeriferico" runat="server" Style="position: center" Text="Tipo de Periferico" OnClick="btnFiltrarTipoPeriferico_Click" />
                        </div>
                    </div>
                </td>
                <td style="width: 33%; text-align: center">
-                    <asp:Button class="btn btn-secondary" ID="btnCarrito" runat="server" Style="position: center" Text="Ir a mi carrito" OnCommand="btnCarrito_Command"/>
+                   <asp:Button class="btn btn-secondary" ID="btnCarrito" runat="server" Style="position: center" Text="Ir a mi carrito" OnCommand="btnCarrito_Command" />
                </td>
            </tr>
-           </table>
+       </table>
         <br />
         <br />
-&nbsp;<table class="w-100">
+        &nbsp;<table class="w-100">
             <tr>
-                <td style="text-align: center" class="auto-style5">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                <td style="text-align: center" class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
                 <td style="text-align: center" class="auto-style4">
                     <asp:ListView ID="ListView" runat="server" Style="position: center" DataSourceID="Sql_DataSource" GroupItemCount="3">
@@ -146,28 +146,30 @@
                         <ItemTemplate>
                             <p align="center">
 
-                            
-                            <td class="card-columns">
-                                <td class="card border-dark mb-3" style="border-radius: 20px; border-width:medium;  width: 350px; align-content: center; align-items: center; padding-left:5%;padding-right:5%; padding-top:5%; background-color:#FFFFFF; margin-left:20%">
-                                    <asp:Image ID="Imagen" Style="border-radius: 20px" runat="server" Height="240px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="280px" />
-                                <br />
-                                <br />
-                                <span class="text-black">
-                                    <b><asp:Label ID="Nombre" runat="server" Text='<%# Eval("PE_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
-                                </span>
-                                <br />
-                                <br />
-                                <span style="color: black; font-size: 13pt"> $
+
+                                <td class="card-columns">
+                                    <td class="card border-dark mb-3" style="border-radius: 20px; border-width: medium; width: 350px; align-content: center; align-items: center; padding-left: 5%; padding-right: 5%; padding-top: 5%; background-color: #FFFFFF; margin-left: 20%">
+                                        <asp:Image ID="Imagen" Style="border-radius: 20px" runat="server" Height="240px" ImageUrl='<%# Eval("PE_Imagen") %>' Width="280px" />
+                                        <br />
+                                        <br />
+                                        <span class="text-black">
+                                            <b>
+                                                <asp:Label ID="Nombre" runat="server" Text='<%# Eval("PE_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
+                                        </span>
+                                        <br />
+                                        <asp:Label ID="lblMarca" runat="server" Text='<%# Eval("M_Nombre") %>'></asp:Label>
+                                        <br />
+                                        <span style="color: black; font-size: 13pt">$
                                     <asp:Label ID="PrecioUnitario" runat="server" Text='<%# Eval("PE_PrecioUnitario") %>' Font-Size="18px"></asp:Label>
-                                </span>
-                                <br />
-                                <br />
-                                <asp:Button ID="btn_Info" runat="server" Text='Ir al juego' CommandArgument='<%# Eval("PE_Codigo_Periferico") %>' CommandName="JuegoSeleccionado" OnCommand="btnInfo_Command"/>
-                                <br />
+                                        </span>
+                                        <br />
+                                        <br />
+                                        <asp:Button ID="btn_Info" runat="server" Text='Ir al juego' CommandArgument='<%# Eval("PE_Codigo_Periferico") %>' CommandName="JuegoSeleccionado" OnCommand="btnInfo_Command" />
+                                        <br />
+                                    </td>
                                 </td>
-                            </td>
-                                </p>
-                            
+                            </p>
+
                         </ItemTemplate>
                         <LayoutTemplate>
                             <table runat="server">
@@ -215,7 +217,7 @@
         &nbsp;<br />
         <br />
         <br />
-        <asp:SqlDataSource ID="Sql_DataSource" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [PE_Imagen], [PE_Nombre], [PE_PrecioUnitario], [PE_Codigo_Periferico], [PE_Estado] FROM [Perifericos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="Sql_DataSource" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT * FROM [Perifericos] inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca"></asp:SqlDataSource>
 
 
 

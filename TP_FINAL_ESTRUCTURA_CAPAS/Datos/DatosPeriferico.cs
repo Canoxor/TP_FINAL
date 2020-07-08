@@ -104,10 +104,20 @@ namespace Datos
             SqlParameter sqlParametros = new SqlParameter();
             sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.VarChar);
             sqlParametros.Value = p.Codigo_Periferico;
-            sqlParametros = comando.Parameters.Add("@PE_StockNuevo", SqlDbType.Int);
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_TipoPerif", SqlDbType.VarChar);
+            sqlParametros.Value = p.Codigo_TipoPerif;
+            sqlParametros = comando.Parameters.Add("@PE_Codigo_Marca", SqlDbType.VarChar);
+            sqlParametros.Value = p.Codigo_Marca;
+            sqlParametros = comando.Parameters.Add("@PE_Nombre", SqlDbType.VarChar);
+            sqlParametros.Value = p.Nombre;
+            sqlParametros = comando.Parameters.Add("@PE_Descripcion", SqlDbType.VarChar);
+            sqlParametros.Value = p.Descripcion;
+            sqlParametros = comando.Parameters.Add("@PE_Stock", SqlDbType.Int);
             sqlParametros.Value = p.Stock;
-            sqlParametros = comando.Parameters.Add("@PE_PrecioNuevo", SqlDbType.Decimal);
+            sqlParametros = comando.Parameters.Add("@PE_PrecioUnitario", SqlDbType.Decimal);
             sqlParametros.Value = p.Precio_Unitario;
+            sqlParametros = comando.Parameters.Add("@PE_Imagen", SqlDbType.VarChar);
+            sqlParametros.Value = p.Imagen_Url;
         }
 
         private void armarParametrosPerifericoAgregar(ref SqlCommand comando, Periferico p)

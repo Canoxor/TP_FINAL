@@ -163,11 +163,13 @@
                                     <b><asp:Label ID="Label1" runat="server" Text='<%# Eval("J_Nombre") %>' CssClass="auto-style3" Font-Size="22px"></asp:Label></b>
                                 </span>
                                 <br />
+                                    <asp:Label ID="lblPEGI" runat="server" Text='<%# Eval("PG_Nombre") %>' Font-Size="15px"></asp:Label>
+                                <br />
+                                    <asp:Label ID="lblGenero" runat="server" Text='<%# Eval("G_Nombre") %>' Font-Size="15px"></asp:Label>
                                 <br />
                                 <span style="color: black; font-size: 13pt"> $
                                     <asp:Label ID="Label2" runat="server" Text='<%# Eval("J_PrecioUnitario") %>' Font-Size="18px"></asp:Label>
                                 </span>
-                                <br />
                                 <br />
                                 <asp:Button ID="btn_Modificar" class="btn btn-secondary" runat="server" Text='Modificar' CommandArgument='<%# Eval("J_Codigo_Juego") %>' CommandName="JuegoSeleccionado" OnCommand="btn_Modificar_Command"/>
                                 <br />
@@ -221,7 +223,7 @@
         &nbsp;<br />
         <br />
         <br />
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="SELECT [J_Imagen], [J_Nombre], [J_PrecioUnitario], [J_Codigo_Juego] FROM [Juegos]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PARCIAL_LAB_3_Version_10ConnectionString2 %>" SelectCommand="Select * from Juegos inner join PEGI on J_Codigo_PEGI = PG_Codigo_PEGI inner join Generos on J_Codigo_Genero = G_Codigo_Genero"></asp:SqlDataSource>
 
 
     </form>

@@ -61,12 +61,12 @@ namespace Vistas
 
         protected void btnFiltrarMarcas_Click(object sender, EventArgs e)
         {
-            Sql_DataSource.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Estado = 1 ORDER BY PE_Codigo_Marca ASC";
+            Sql_DataSource.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca WHERE PE_Estado = 1 ORDER BY PE_Codigo_Marca ASC";
         }
 
         protected void btnFiltrarTipoPeriferico_Click(object sender, EventArgs e)
         {
-            Sql_DataSource.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Estado = 1 ORDER BY PE_Codigo_TipoPerif ASC";
+            Sql_DataSource.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca WHERE PE_Estado = 1 ORDER BY PE_Codigo_TipoPerif ASC";
         }
 
         protected void btnBuscarPerifericos_Click(object sender, EventArgs e)
@@ -74,11 +74,11 @@ namespace Vistas
             if (txtBusquedaPerifericos.Text == "")
             {
 
-                Sql_DataSource.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Estado = 1";
+                Sql_DataSource.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca WHERE PE_Estado = 1";
             }
             else
             {
-                Sql_DataSource.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Nombre = '" + txtBusquedaPerifericos.Text + "' AND PE_Estado = 1";
+                Sql_DataSource.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca WHERE PE_Nombre = '" + txtBusquedaPerifericos.Text + "' AND PE_Estado = 1";
             }
         }
     }

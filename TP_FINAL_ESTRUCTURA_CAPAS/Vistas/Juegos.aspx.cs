@@ -63,24 +63,24 @@ namespace Vistas
             if (txtBuscar.Text == "")
             {
 
-                Sql_DataSource.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos WHERE J_Estado = 1";
+                Sql_DataSource.SelectCommand = "Select * from Juegos inner join PEGI on J_Codigo_PEGI = PG_Codigo_PEGI inner join Generos on J_Codigo_Genero = G_Codigo_Genero WHERE J_Estado = 1";
             }
             else
             {
-                Sql_DataSource.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos WHERE J_Nombre = '" + txtBuscar.Text + "' AND J_Estado = 1";
+                Sql_DataSource.SelectCommand = "Select * from Juegos inner join PEGI on J_Codigo_PEGI = PG_Codigo_PEGI inner join Generos on J_Codigo_Genero = G_Codigo_Genero WHERE J_Nombre = '" + txtBuscar.Text + "' AND J_Estado = 1";
             }
         }
         protected void btnFiltroCategoria_Click(object sender, EventArgs e)
         {
-            Sql_DataSource.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos WHERE J_Estado = 1 ORDER BY J_Codigo_Genero ASC";
+            Sql_DataSource.SelectCommand = "Select * from Juegos inner join PEGI on J_Codigo_PEGI = PG_Codigo_PEGI inner join Generos on J_Codigo_Genero = G_Codigo_Genero WHERE J_Estado = 1 ORDER BY J_Codigo_Genero ASC";
         }
         protected void btnFiltroDesarrollador_Click(object sender, EventArgs e)
         {
-            Sql_DataSource.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos inner join Prov_X_Juego ON J_Codigo_Juego = PJ_Codigo_Juego WHERE J_Estado = 1 ORDER BY PJ_Codigo_Proveedor ASC";
+            Sql_DataSource.SelectCommand = "Select * from Juegos inner join PEGI on J_Codigo_PEGI = PG_Codigo_PEGI inner join Generos on J_Codigo_Genero = G_Codigo_Genero inner join Prov_X_Juego ON J_Codigo_Juego = PJ_Codigo_Juego WHERE J_Estado = 1 ORDER BY PJ_Codigo_Proveedor ASC";
         }
         protected void btnFiltroPegi_Click(object sender, EventArgs e)
         {
-            Sql_DataSource.SelectCommand = "SELECT J_Imagen, J_Nombre, J_PrecioUnitario, J_Codigo_Juego FROM Juegos WHERE J_Estado = 1 ORDER BY J_Codigo_PEGI ASC";
+            Sql_DataSource.SelectCommand = "Select * from Juegos inner join PEGI on J_Codigo_PEGI = PG_Codigo_PEGI inner join Generos on J_Codigo_Genero = G_Codigo_Genero WHERE J_Estado = 1 ORDER BY J_Codigo_PEGI ASC";
         }
             
     }

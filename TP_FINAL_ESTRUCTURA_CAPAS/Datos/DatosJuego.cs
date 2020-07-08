@@ -106,11 +106,21 @@ namespace Datos
         {
             SqlParameter sqlParametros = new SqlParameter();
             sqlParametros = comando.Parameters.Add("@J_Codigo_Juego", SqlDbType.VarChar);
-            sqlParametros.Value = j.Codigo_Juego;
-            sqlParametros = comando.Parameters.Add("@J_PrecioNuevo", SqlDbType.Decimal);
-            sqlParametros.Value = j.Precio_Unitario;
+            sqlParametros.Value = j.Codigo_Juego; 
+            sqlParametros = comando.Parameters.Add("@J_Codigo_Genero", SqlDbType.VarChar);
+            sqlParametros.Value = j.Codigo_Genero;
+            sqlParametros = comando.Parameters.Add("@J_Codigo_PEGI", SqlDbType.VarChar);
+            sqlParametros.Value = j.Codigo_PEGI;
+            sqlParametros = comando.Parameters.Add("@J_Nombre", SqlDbType.VarChar);
+            sqlParametros.Value = j.Nombre;
+            sqlParametros = comando.Parameters.Add("@J_Descripcion", SqlDbType.VarChar);
+            sqlParametros.Value = j.Descripcion;
             sqlParametros = comando.Parameters.Add("@J_Stock", SqlDbType.Int);
             sqlParametros.Value = j.Stock;
+            sqlParametros = comando.Parameters.Add("@J_PrecioUnitario", SqlDbType.Decimal);
+            sqlParametros.Value = j.Precio_Unitario;
+            sqlParametros = comando.Parameters.Add("@J_Imagen", SqlDbType.VarChar);
+            sqlParametros.Value = j.Imagen_Url;
         }
 
 

@@ -61,7 +61,6 @@ namespace Datos
 
         }
 
-
         public int agregarNoticia(Noticia n)
         {
             SqlCommand comando = new SqlCommand();
@@ -69,11 +68,34 @@ namespace Datos
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Noticias");
         }
 
+        public int editarNoticia(Noticia n)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametrosNoticiaEditar(ref comando, n);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Update_Noticias");
+        }
+
         private void armarParametrosNoticiaEliminar(ref SqlCommand comando, Noticia n)
         {
             SqlParameter sqlParametros = new SqlParameter();
             sqlParametros = comando.Parameters.Add("@N_Codigo_Noticia", SqlDbType.VarChar);
             sqlParametros.Value = n.Codigo_Noticia;
+        }
+
+
+        private void armarParametrosNoticiaEditar(ref SqlCommand comando, Noticia n)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@N_Codigo_Noticia", SqlDbType.VarChar);
+            sqlParametros.Value = n.Codigo_Noticia;
+            sqlParametros = comando.Parameters.Add("@N_Codigo_Juego", SqlDbType.VarChar);
+            sqlParametros.Value = n.Codigo_Juego;
+            sqlParametros = comando.Parameters.Add("@N_Nombre", SqlDbType.VarChar);
+            sqlParametros.Value = n.Nombre;
+            sqlParametros = comando.Parameters.Add("@N_Descripcion", SqlDbType.VarChar);
+            sqlParametros.Value = n.Descripcion;
+            sqlParametros = comando.Parameters.Add("@N_Imagen", SqlDbType.VarChar);
+            sqlParametros.Value = n.Imagen_Url;
         }
 
         private void armarParametrosNoticiaAgregar(ref SqlCommand comando, Noticia n)

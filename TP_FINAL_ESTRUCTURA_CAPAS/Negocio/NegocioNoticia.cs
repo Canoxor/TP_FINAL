@@ -73,5 +73,14 @@ namespace Negocio
             else
                 return false;
         }
+
+        public bool editarNoticia(Noticia n)
+        {
+            int cantidadFilas = D_Noticia.editarNoticia(n);
+            if (cantidadFilas > 0)
+                return true;
+            else
+                return false;
+        }
     }
 }

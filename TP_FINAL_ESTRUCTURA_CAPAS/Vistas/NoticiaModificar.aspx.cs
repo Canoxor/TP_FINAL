@@ -66,17 +66,17 @@ namespace Vistas
             noticia.Imagen_Url = txtURL.Text;
         }
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void btnEditar_Click(object sender, EventArgs e)
         {
             setNoticia();
-            if (N_Noticia.agregarNoticia(noticia))
+            if (N_Noticia.editarNoticia(noticia))
             {
 
-                lblMensaje.Text = "La noticia se creó con exito";
+                lblMensaje.Text = "La noticia se edito correctamente";
             }
             else
             {
-                lblMensaje.Text = "Ya existe una noticia con el mismo titulo, intente con otro";
+                lblMensaje.Text = "No se pudo editar la noticia, intentelo nuevamente";
             }
 
         }

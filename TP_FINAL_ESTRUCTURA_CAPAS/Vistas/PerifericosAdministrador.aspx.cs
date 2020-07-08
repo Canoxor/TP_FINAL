@@ -25,6 +25,8 @@ namespace Vistas
         {
             usuario = (Usuario)Session["usuarioLogedIn"];
             lblUsuario.Text = usuario.Nombre;
+          
+            
         }
         protected void btn_Detalle_Command(object sender, CommandEventArgs e)
         {
@@ -41,22 +43,22 @@ namespace Vistas
 
         protected void btnFiltrarMarcas_Click(object sender, EventArgs e)
         {
-            DS_PerifericoAdmin.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos ORDER BY PE_Codigo_Marca ASC";
+            DS_PerifericoAdmin.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca ORDER BY PE_Codigo_Marca ASC";
         }
 
         protected void btnFiltrarTipo_Click(object sender, EventArgs e)
         {
-            DS_PerifericoAdmin.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos ORDER BY PE_Codigo_TipoPerif ASC";
+            DS_PerifericoAdmin.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca ORDER BY PE_Codigo_TipoPerif ASC";
         }
 
         protected void btnFiltrarPerifericosActivos_Click(object sender, EventArgs e)
         {
-            DS_PerifericoAdmin.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Estado = 1";
+            DS_PerifericoAdmin.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca WHERE PE_Estado = 1";
         }
 
         protected void btnFiltrarPerifericosInactivos_Click(object sender, EventArgs e)
         {
-            DS_PerifericoAdmin.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Estado = 0";
+            DS_PerifericoAdmin.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca WHERE PE_Estado = 0";
         }
 
         protected void btnBuscarPerifericos_Click(object sender, EventArgs e)
@@ -64,11 +66,11 @@ namespace Vistas
             if (txtBusquedaPerifericos.Text == "")
             {
 
-                DS_PerifericoAdmin.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos";
+                DS_PerifericoAdmin.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca";
             }
             else
             {
-                DS_PerifericoAdmin.SelectCommand = "SELECT PE_Imagen, PE_Nombre, PE_PrecioUnitario, PE_Codigo_Periferico FROM Perifericos WHERE PE_Nombre = '" + txtBusquedaPerifericos.Text + "'";
+                DS_PerifericoAdmin.SelectCommand = "SELECT * FROM Perifericos inner join Marcas on PE_Codigo_Marca = M_Codigo_Marca WHERE PE_Nombre = '" + txtBusquedaPerifericos.Text + "'";
             }
         }
 

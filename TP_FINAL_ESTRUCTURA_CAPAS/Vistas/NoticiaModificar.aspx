@@ -34,6 +34,7 @@
             height: 30px;
             margin-left: 10px;
         }
+
         .columna {
             width: 25%;
             color: white;
@@ -44,11 +45,11 @@
         }
 
         .textoColumna {
-            text-align:end;
+            text-align: end;
         }
 
         .columna_3 {
-            margin-left:20px;
+            margin-left: 20px;
     </style>
 </head>
 <body>
@@ -82,7 +83,7 @@
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
                     <li class="nav-item align-content-lg-end">
-                        <asp:Label ID="lblUsuario" runat="server" Style="color: white;margin-right:20px"></asp:Label>
+                        <asp:Label ID="lblUsuario" runat="server" Style="color: white; margin-right: 20px"></asp:Label>
                     </li>
                     <li class="nav-item align-content-lg-end">
                         <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" Style="position: center; text-align: center; width: 100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
@@ -91,69 +92,71 @@
             </div>
         </nav>
 
-        <table align="center" cellpadding="4" cellspacing="2" class="w-100" style="margin-top:6%">
-        <tr class="fila">
-            <td class="columna">&nbsp;</td>
-            <td class="columna textoColumna">Codigo de Noticia: </td>
-            <td class="columna columna_3">
-                <asp:Label ID="lblCodigoNoticia" runat="server"></asp:Label>
-            </td>
-            <td class="columna">&nbsp;</td>
-        </tr>
-        <tr class="fila">
-            <td class="columna">&nbsp;</td>
-            <td class="columna textoColumna">Juego: </td>
-            <td class="columna columna_3">
-                <asp:DropDownList ID="ddlJuego" runat="server">
-                </asp:DropDownList>
-            </td>
-            <td class="columna"><asp:RequiredFieldValidator ID="rfvDropJuego" runat="server" ControlToValidate="ddlJuego" Font-Bold="True" ForeColor="Red" ValidationGroup="Grupo1" InitialValue="0">Guarde un Juego Primero</asp:RequiredFieldValidator></td>
-        </tr>
-        <tr class="fila">
-            <td class="columna">&nbsp;</td>
-            <td class="columna textoColumna">Nombre: </td>
-            <td class="columna columna_3">
-                <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-            </td>
-            <td class="columna">
-                <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ValidationGroup="Grupo1">Ingrese un Nombre</asp:RequiredFieldValidator>
-            </td>
-        </tr>
-        <tr class="fila">
-            <td class="columna">&nbsp;</td>
-            <td class="columna textoColumna">Descripcion: </td>
-            <td class="columna columna_3">
-                <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" style="width:75%" runat="server"></asp:TextBox>
-            </td>
-            <td class="columna">
-                <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="txtDescripcion" ValidationGroup="Grupo1">Ingrese una Descripcion</asp:RequiredFieldValidator>
-            </td>
-        </tr>       
-         <tr class="fila">
-            <td class="columna">&nbsp;</td>
-            <td class="columna textoColumna">URL Imagen: </td>
-            <td class="columna columna_3">
-                <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
-             </td>
-            <td class="columna">
-                <asp:RequiredFieldValidator ID="rfvURL" runat="server" ControlToValidate="txtURL" ValidationGroup="Grupo1">Ingrese una URL</asp:RequiredFieldValidator>
-             </td>
-        </tr>
-            
-    </table>
+        <table align="center" cellpadding="4" cellspacing="2" class="w-100" style="margin-top: 6%">
+            <tr class="fila">
+                <td class="columna">&nbsp;</td>
+                <td class="columna textoColumna">Codigo de Noticia: </td>
+                <td class="columna columna_3">
+                    <asp:Label ID="lblCodigoNoticia" runat="server"></asp:Label>
+                </td>
+                <td class="columna">&nbsp;</td>
+            </tr>
+            <tr class="fila">
+                <td class="columna">&nbsp;</td>
+                <td class="columna textoColumna">Juego: </td>
+                <td class="columna columna_3">
+                    <asp:DropDownList ID="ddlJuego" runat="server">
+                    </asp:DropDownList>
+                </td>
+                <td class="columna">
+                    <asp:RequiredFieldValidator ID="rfvDropJuego" runat="server" ControlToValidate="ddlJuego" Font-Bold="True" ForeColor="Red" ValidationGroup="Grupo1" InitialValue="0">Guarde un Juego Primero</asp:RequiredFieldValidator></td>
+            </tr>
+            <tr class="fila">
+                <td class="columna">&nbsp;</td>
+                <td class="columna textoColumna">Nombre: </td>
+                <td class="columna columna_3">
+                    <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                </td>
+                <td class="columna">
+                    <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ValidationGroup="Grupo1">Ingrese un Nombre</asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr class="fila">
+                <td class="columna">&nbsp;</td>
+                <td class="columna textoColumna">Descripcion: </td>
+                <td class="columna columna_3">
+                    <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" Style="width: 75%" runat="server"></asp:TextBox>
+                </td>
+                <td class="columna">
+                    <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="txtDescripcion" ValidationGroup="Grupo1">Ingrese una Descripcion</asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr class="fila">
+                <td class="columna">&nbsp;</td>
+                <td class="columna textoColumna">URL Imagen: </td>
+                <td class="columna columna_3">
+                    <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
+                </td>
+                <td class="columna">
+                    <asp:RequiredFieldValidator ID="rfvURL" runat="server" ControlToValidate="txtURL" ValidationGroup="Grupo1">Ingrese una URL</asp:RequiredFieldValidator>
+                </td>
+            </tr>
+
+        </table>
 
         <div style="width: 100%; margin-top: 2%; color: white">
 
             <div style="width: 100%; text-align: center; height: 30px; margin-top: 25px">
+                <asp:Button class="btn btn-primary btn-m" ID="btnEditar" runat="server" Style="position: center; margin-right: 10px" Text="Editar Noticia" OnClick="btnEditar_Click" />
                 <asp:Button class="btn btn-dark btn-m" ID="btnCancelar" runat="server" Style="position: center; margin-left: 10px" Text="Volver Atras" OnClick="btnCancelar_Click" />
             </div>
 
             <div style="width: 100%; text-align: center; height: 30px; margin-top: 20px">
-                <asp:Button class="btn btn-danger btn-m" ID="btnEliminar" runat="server" Style="position: center" Text="Eliminar Noticia" OnClick="btnEliminar_Click"/>
+                <asp:Button class="btn btn-danger btn-m" ID="btnEliminar" runat="server" Style="position: center" Text="Eliminar Noticia" OnClick="btnEliminar_Click" />
             </div>
 
             <div style="width: 100%; text-align: center; height: 30px; margin-top: 20px">
-                <asp:Button class="btn btn-warning btn-m" ID="btnActivar" runat="server" Style="position: center" Text="Activar Noticia" OnClick="btnActivar_Click"/>
+                <asp:Button class="btn btn-warning btn-m" ID="btnActivar" runat="server" Style="position: center" Text="Activar Noticia" OnClick="btnActivar_Click" />
             </div>
 
             <div style="width: 100%; text-align: center; margin-top: 30px">
