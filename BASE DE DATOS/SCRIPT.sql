@@ -1014,7 +1014,7 @@ AS
 	ORDER BY F_Fecha DESC
 GO
 ------------------------------------------------------------------------------------------------------------------------------------------------
--- PORCENTAJE VENTAS JUEGOS
+-- PORCENTAJE VENTAS JUEGOS GENERO DEL TOTAL
 CREATE PROCEDURE SP_PorcentajeGenero_Juego
 (
 	@Fecha_Minima date,
@@ -1054,7 +1054,203 @@ SELECT
 	AS [Porcentaje vendido]
 GO
 
--- PORCENTAJE VENTAS PERIFERICO
+-- PORCENTAJE VENTAS JUEGOS TODOS GENEROS
+CREATE PROCEDURE SP_PorcentajeGenero_Juego_TodosGeneros
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date
+)
+AS
+--Accion,Disparos,Estrategia,Simulacion,Deporte,Carreras,Aventura,Rol
+SELECT 
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = '1'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Accion],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = '2'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Disparos],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = '3'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Estrategia],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = '4'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Simulacion],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = '5'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Deporte],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = '6'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Carreras],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = '7'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Aventura],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Genero = '8'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Rol]
+GO
+EXEC SP_PorcentajeGenero_Juego_TodosGeneros '2019-5-5','2020-7-7'
+
+-- PORCENTAJE VENTAS PERIFERICO TIPO DEL TOTAL
 CREATE PROCEDURE SP_PorcentajeTipo_Periferico
 (
 	@Fecha_Minima date,
@@ -1094,7 +1290,7 @@ SELECT
 	AS [Porcentaje vendido]
 GO
 
--- VERIFICA STOCK PERIFERICOS
+-- VERIFICA STOCK PERIFERICOS ORD STOCK
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenStock
 (
 	@Orden int
@@ -1121,7 +1317,7 @@ ON PE_Codigo_TipoPerif = T_Codigo_TipoPerif
 ORDER BY PE_Stock ASC
 GO
 
--- VERIFICA STOCK PERIFERICOS
+-- VERIFICA STOCK PERIFERICOS ORD TIPO
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenTipo
 (
 	@Orden int
@@ -1148,7 +1344,7 @@ ON PE_Codigo_TipoPerif = T_Codigo_TipoPerif
 ORDER BY T_Nombre ASC
 GO
 
--- VERIFICA STOCK JUEGOS
+-- VERIFICA STOCK JUEGOS ORD STOCK
 CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenStock
 AS
 SELECT J_Codigo_Juego AS [Codigo],
@@ -1172,7 +1368,7 @@ ON J_Codigo_Genero = G_Codigo_Genero
 ORDER BY J_Stock ASC
 GO
 
--- VERIFICA STOCK JUEGOS
+-- VERIFICA STOCK JUEGOS ORD GENERO
 CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenGenero
 AS
 SELECT J_Codigo_Juego AS [Codigo],
