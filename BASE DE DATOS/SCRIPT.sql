@@ -1020,20 +1020,25 @@ AS
 GO
 ------------------------------------------------------------------------------------------------------------------------------------------------
 -- PORCENTAJE VENTAS JUEGOS GENERO DEL TOTAL
-CREATE PROCEDURE SP_PorcentajeGenero_Juego
+-- Recive fechas y un codigo de genero, devuelve la cantidad vendida
+-- y el porcentaje de ventas de ese genero con respecto a todos los 
+-- demas generos entre estas fechas.
+--EXEC SP_PorcentajeGenero_Juego_Cantidad '2019-5-5','2020-8-8','1'
+--GO
+CREATE PROCEDURE SP_PorcentajeGenero_Juego_Cantidad
 (
 	@Fecha_Minima date,
 	@Fecha_Maxima date,
 	@Genero varchar(5)
 )
 AS
-
 SELECT 
+	ISNULL(
 	(SELECT SUM(DJ_Cantidad) 
 	FROM DetalleFactura_Juegos
 		INNER JOIN Juegos
 		ON DJ_Codigo_Juego = J_Codigo_Juego
-	WHERE J_Codigo_Genero = @Genero) AS [Cantidad vendida],
+	WHERE J_Codigo_Genero = @Genero),0) AS [Cantidad vendida],
 	ISNULL(
 	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
 	FROM Factura 
@@ -1060,7 +1065,11 @@ SELECT
 GO
 
 -- PORCENTAJE VENTAS JUEGOS TODOS GENEROS
-CREATE PROCEDURE SP_PorcentajeGenero_Juego_TodosGeneros
+-- Recive fechas y devuelve el porcentaje de cada
+-- genero entre estas.
+--EXEC SP_PorcentajeGenero_Juego_TodosGeneros_Cantidad '2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_PorcentajeGenero_Juego_TodosGeneros_Cantidad
 (
 	@Fecha_Minima date,
 	@Fecha_Maxima date
@@ -1253,10 +1262,98 @@ SELECT
 		,0)
 	AS [Rol]
 GO
---EXEC SP_PorcentajeGenero_Juego_TodosGeneros '2019-5-5','2020-7-7'
+
+-- PORCENTAJE JUEGO DEL TOTAL RECAUDADO
+-- Recive fechas y un codigo de genero, devuelve el monto recaudado
+-- y el porcentaje que representa ese genero con respecto a todos los 
+-- demas recaudado entre estas fechas.
+--EXEC SP_Porcentaje_Juego_Monto '2019-5-5','2020-8-8','1'
+--GO
+CREATE PROCEDURE SP_Porcentaje_Juego_Monto
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date,
+	@Codigo varchar(5)
+)
+AS
+SELECT 
+	ISNULL(
+	(SELECT SUM(DJ_Cantidad*DJ_PrecioUnitario) 
+	FROM DetalleFactura_Juegos
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Juego = @Codigo),0) AS [Recaudacion],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad*DJ_PrecioUnitario)
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Juego = @Codigo
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(F_MontoTotal)
+	FROM Factura 
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje de recaudacion]
+GO
+
+-- PORCENTAJE PERIFERICO DEL TOTAL RECAUDADO
+-- Recive fechas y un codigo de periferico, devuelve el monto recaudado
+-- y el porcentaje que representa ese periferico con respecto a todos los 
+-- demas recaudado entre estas fechas.
+--EXEC SP_Porcentaje_Periferico_Monto '2019-5-5','2020-8-8','1'
+--GO
+CREATE PROCEDURE SP_Porcentaje_Periferico_Monto
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date,
+	@Codigo varchar(5)
+)
+AS
+SELECT 
+	ISNULL(
+	(SELECT SUM(DP_Cantidad*DP_PrecioUnitario) 
+	FROM DetalleFactura_Perifericos
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_Periferico = @Codigo),0) AS [Recaudacion],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad*DP_PrecioUnitario)
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_Periferico = @Codigo
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(F_MontoTotal)
+	FROM Factura 
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje de recaudacion]
+GO
+
+
 
 -- PORCENTAJE VENTAS PERIFERICO TIPO DEL TOTAL
-CREATE PROCEDURE SP_PorcentajeTipo_Periferico
+-- Recive fechas y un codigo de tipo, devuelve la cantidad vendida
+-- y el porcentaje de ventas de ese tipo con respecto a todos los 
+-- demas tipos entre estas fechas.
+--EXEC SP_PorcentajeTipo_Periferico_Cantidad '2019-5-5','2020-8-8','1'
+--GO
+CREATE PROCEDURE SP_PorcentajeTipo_Periferico_Cantidad
 (
 	@Fecha_Minima date,
 	@Fecha_Maxima date,
@@ -1296,7 +1393,11 @@ SELECT
 GO
 
 -- PORCENTAJE VENTAS PERIFERICO TODOS LOS TIPOS
-CREATE PROCEDURE SP_PorcentajeTipo_Periferico_TodosTipos
+-- Recive fechas y devuelve el porcentaje de cada
+-- genero entre estas.
+--EXEC SP_PorcentajeTipo_Periferico_TodosTipos_Cantidad '2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_PorcentajeTipo_Periferico_TodosTipos_Cantidad
 (
 	@Fecha_Minima date,
 	@Fecha_Maxima date
@@ -1443,14 +1544,12 @@ SELECT
 		,0)
 	AS [Auriculares]
 GO
-EXEC SP_PorcentajeTipo_Periferico_TodosTipos '2019-5-5','2020-7-7'
-GO
+
 
 -- VERIFICA STOCK PERIFERICOS ORD STOCK
+-- Informa el estado del stock de todos los perifericos
+-- ordenado con el stock de forma asc
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenStock
-(
-	@Orden int
-)
 AS
 SELECT PE_Codigo_Periferico AS [Codigo],
 	   T_Nombre AS [Tipo],
@@ -1474,10 +1573,9 @@ ORDER BY PE_Stock ASC
 GO
 
 -- VERIFICA STOCK PERIFERICOS ORD TIPO
+-- Informa el estado del stock de todos los perifericos
+-- ordenado con el tipo de forma asc
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenTipo
-(
-	@Orden int
-)
 AS
 SELECT PE_Codigo_Periferico AS [Codigo],
 	   T_Nombre AS [Tipo],
@@ -1501,6 +1599,8 @@ ORDER BY T_Nombre ASC
 GO
 
 -- VERIFICA STOCK JUEGOS ORD STOCK
+-- Informa el estado del stock de todos los juegos
+-- ordenado con el stock de forma asc
 CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenStock
 AS
 SELECT J_Codigo_Juego AS [Codigo],
@@ -1525,6 +1625,8 @@ ORDER BY J_Stock ASC
 GO
 
 -- VERIFICA STOCK JUEGOS ORD GENERO
+-- Informa el estado del stock de todos los juegos
+-- ordenado con el genero de forma asc
 CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenGenero
 AS
 SELECT J_Codigo_Juego AS [Codigo],
@@ -1548,42 +1650,161 @@ ON J_Codigo_Genero = G_Codigo_Genero
 ORDER BY G_Nombre ASC
 GO
 
+-- TOTAL RECAUDADO ENTRE FECHAS
+-- Recive fechas y devuelve lo recaudado entre estas.
+CREATE PROCEDURE SP_TotalRecaudado
+(
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT SUM(F_MontoTotal) FROM Factura
+	WHERE F_Fecha >= @Fecha_MIN
+	AND F_Fecha <= @Fecha_MAX 
+GO
+
+-- TOTAL RECAUDADO POR JUEGO ENTRE FECHAS
+-- Recive fechas y un codigo de juego, devuelve lo recaudado
+-- por el juego entre las fechas.
+--EXEC SP_TotalRecaudado_Juego '3','2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_TotalRecaudado_Juego
+(
+	@Juego varchar(5),
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT ISNULL(SUM(DJ_PrecioUnitario * DJ_Cantidad),0) FROM Factura
+	INNER JOIN DetalleFactura_Juegos
+	ON F_Codigo_Factura = DJ_Codigo_Factura
+		WHERE DJ_Codigo_Juego = @Juego
+		AND F_Fecha >= @Fecha_MIN
+		AND F_Fecha <= @Fecha_MAX
+
+GO
+
+-- TOTAL RECAUDADO POR PERIFERICO ENTRE FECHAS
+-- Recive fechas y un codigo de juego, devuelve lo recaudado
+-- por el juego entre las fechas.
+--EXEC SP_TotalRecaudado_Periferico '1','2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_TotalRecaudado_Periferico
+(
+	@Periferico varchar(5),
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT ISNULL(SUM(DP_PrecioUnitario*DP_Cantidad),0) FROM Factura
+	INNER JOIN DetalleFactura_Perifericos
+	ON F_Codigo_Factura = DP_Codigo_Factura
+		WHERE DP_Codigo_Periferico = @Periferico
+		AND F_Fecha >= @Fecha_MIN
+		AND F_Fecha <= @Fecha_MAX
+GO
+
+-- TOTAL RECAUDADO POR TODOS LOS PERIFERICOS ENTRE FECHAS
+-- Recive fechas y devuelve lo recaudado por todos los
+-- perifericos entre estas.
+--EXEC SP_TotalRecaudado_TodosPerifericos '2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_TotalRecaudado_TodosPerifericos
+(
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT SUM(F_MontoTotal) AS [Total recaudado] 
+FROM Factura
+	INNER JOIN DetalleFactura_Perifericos
+	ON F_Codigo_Factura = DP_Codigo_Factura
+		AND F_Fecha >= @Fecha_MIN
+		AND F_Fecha <= @Fecha_MAX
+GO
+
+-- TOTAL RECAUDADO POR TODOS LOS JUEGOS ENTRE FECHAS
+-- Recive fechas y devuelve lo recaudado por todos los
+-- juegos entre estas.
+--EXEC SP_TotalRecaudado_TodosJuegos '2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_TotalRecaudado_TodosJuegos
+(
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT SUM(F_MontoTotal) AS [Total recaudado] 
+FROM Factura
+	INNER JOIN DetalleFactura_Juegos
+	ON F_Codigo_Factura = DJ_Codigo_Factura
+		AND F_Fecha >= @Fecha_MIN
+		AND F_Fecha <= @Fecha_MAX
+GO
+
+
 -- VENTAS POR CADA USUARIOS ENTRE FECHAS
-CREATE PROCEDURE SP_ComprasRealizadas
+-- Recive fechas y un codigo de usuario y devuelve
+-- la cantidad de compras realizadas por ese usuario
+--EXEC SP_ComprasRealizadas_Usuario '1','2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_ComprasRealizadas_Usuario
 (
 	@Usuario varchar(5),
 	@Fecha_MIN date,
 	@Fecha_MAX date
 )
 AS
-SELECT COUNT(*) AS [Compras realidazas] FROM Factura WHERE F_Codigo_Usuario = @Usuario
-														AND F_Fecha >= @Fecha_MIN
-														AND F_Fecha <= @Fecha_MAX
+SELECT COUNT(*) AS [Compras realidazas]
+FROM Factura 
+	WHERE F_Codigo_Usuario = @Usuario
+		AND F_Fecha >= @Fecha_MIN
+		AND F_Fecha <= @Fecha_MAX
 GO
 
--- FACTURAS DE CADA USUARIO
-CREATE PROCEDURE SP_VentasPorUsuario_Ord_Usuario
+-- COMPRAS X USUARIOS ORD FECHA ASC
+-- Recive fechas y devuelve las compras realizadas por todos
+-- los usuarios ordenado por fecha desc
+--EXEC SP_ComprasPorUsuario_Ord_FechaASC '2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_ComprasPorUsuario_Ord_FechaASC
 (
 	@Fecha_MIN date,
 	@Fecha_MAX date
 )
 AS
-SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Factura 
+SELECT F_Codigo_Factura AS [Factura N°],
+		F_Fecha AS [Fecha],
+		F_MontoTotal AS [Monto],
+		F_Codigo_Usuario AS [Usuario],
+		U_Nombre AS [Nombre],
+		U_Dni_Usuario AS [Dni N°]
+		FROM Factura 
 	INNER JOIN Usuarios
 	ON F_Codigo_Usuario = U_Codigo_Usuario
 	WHERE F_Fecha >= @Fecha_MIN
 	AND F_Fecha <= @Fecha_MAX 
-	ORDER BY F_Codigo_Usuario ASC
+	ORDER BY F_Fecha ASC
 GO
 
--- COMPAS X USUARIOS ORD FECHA DESC
-CREATE PROCEDURE SP_VentasPorUsuario_Ord_FechaDESC
+-- COMPRAS X USUARIOS ORD FECHA DESC
+-- Recive fechas y devuelve las compras realizadas por todos
+-- los usuarios ordenado por fecha desc
+--EXEC SP_ComprasPorUsuario_Ord_FechaDESC '2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_ComprasPorUsuario_Ord_FechaDESC
 (
 	@Fecha_MIN date,
 	@Fecha_MAX date
 )
 AS
-SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Factura 
+SELECT F_Codigo_Factura AS [Factura N°],
+		F_Fecha AS [Fecha],
+		F_MontoTotal AS [Monto],
+		F_Codigo_Usuario AS [Usuario],
+		U_Nombre AS [Nombre],
+		U_Dni_Usuario AS [Dni N°]
+		FROM Factura 
 	INNER JOIN Usuarios
 	ON F_Codigo_Usuario = U_Codigo_Usuario
 	WHERE F_Fecha >= @Fecha_MIN
@@ -1591,22 +1812,9 @@ SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Fac
 	ORDER BY F_Fecha DESC
 GO
 
--- COMPAS X USUARIOS ORD FECHA ASC
-CREATE PROCEDURE SP_VentasPorUsuario_Ord_FechaASC
-(
-	@Fecha_MIN date,
-	@Fecha_MAX date
-)
-AS
-SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Factura 
-	INNER JOIN Usuarios
-	ON F_Codigo_Usuario = U_Codigo_Usuario
-	WHERE F_Fecha >= @Fecha_MIN
-	AND F_Fecha <= @Fecha_MAX 
-	ORDER BY F_Fecha DESC
-GO
-
--- USUARIOS CREADOS EN RANGO FECHAS
+-- USUARIOS CREADOS EN RANGO FECHAS ASC
+-- Recive fechas y devuelve los usuarios que
+-- se crearon entre estas ordenados de forma ASC
 CREATE PROCEDURE SP_UsuariosCreados_FechaASC
 (
 	@Fecha_MIN DATE,
@@ -1624,6 +1832,9 @@ SELECT U_Codigo_Usuario AS [Codigo],
 	ORDER BY U_Fecha_Creacion ASC
 GO
 
+-- USUARIOS CREADOS EN RANGO FECHAS DESC
+-- Recive fechas y devuelve los usuarios que
+-- se crearon entre estas ordenados de forma DESC
 CREATE PROCEDURE SP_UsuariosCreados_FechaDESC
 (
 	@Fecha_MIN DATE,
@@ -1640,9 +1851,8 @@ SELECT U_Codigo_Usuario AS [Codigo],
 	AND U_Fecha_Creacion <= @Fecha_MAX
 	ORDER BY U_Fecha_Creacion DESC
 GO
-EXEC SP_UsuariosCreados '2019-5-5','2020-10-7'
-GO
-
+--EXEC SP_UsuariosCreados_FechaASC '2019-5-5','2020-8-8'
+--GO
 -----------------------------------------------------------------------------------------------------------------------------
 /*
 SELECT * FROM DetalleFactura_Juegos
