@@ -17,12 +17,16 @@ namespace Vistas
         {
             if(!IsPostBack)
             {
-                // STOCK
-                grd_ReporteS.Visible = false;
-                // VENTAS
-                grd_ReporteV.Visible = false;
+                
             }
         }
+
+        public void cargarGridViewStock(int opc)
+        {
+            grd_ReporteS.DataSource = neg_Juego.StockOrdenadoJuegos(opc);
+            grd_ReporteS.DataBind();
+        }
+
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             Session["usuarioLogedIn"] = null;
@@ -42,6 +46,11 @@ namespace Vistas
         {
             if(chk_Stock.Checked==true)
             {
+                cargarGridViewStock(1);
+            }
+            if(chk_Genero.Checked == true)
+            {
+                cargarGridViewStock(2);
             }
         }
         protected void chk_TodosGeneros_CheckedChanged(object sender, EventArgs e)
@@ -56,6 +65,14 @@ namespace Vistas
                 txt_CodigoJuego.Enabled = true;
             }
 
+        }
+
+        protected void btn_LimpiarS_Click(object sender, EventArgs e)
+        {
+            chk_Stock.Checked = false;
+            chk_Genero.Checked = false;
+            grd_ReporteS.DataSource = null;
+            grd_ReporteS.DataBind();
         }
     }
 }

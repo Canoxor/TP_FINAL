@@ -91,12 +91,61 @@ namespace Datos
             armarParametrosPerifericoAgregar(ref comando, p);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Perifericos");
         }
+        //Procedimientos Reporte
+        private int reportePorcentajeTipoPeriferico(DateTime fechaMinima, DateTime fechaMaxima, int tipoPerif)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametrosPorcentajeTipoPeriferico(ref comando, fechaMinima, fechaMaxima, tipoPerif);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_PorcentajeTipo_Periferico");
+        }
+
+        private int reportePorcentajeTodosLosTipoPeriferico(DateTime fechaMinima, DateTime fechaMaxima)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametrosPorcentajeTodosLosTipoPeriferico(ref comando, fechaMinima, fechaMaxima);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_PorcentajeTipo_Periferico_TodosTipos");
+        }
+
+        private int reporteVerificarStockOrdenadoStock()
+        {
+            SqlCommand comando = new SqlCommand();
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_VerificarStock_Perifericos_OrdenStock");
+        }
+
+        private int reporteVerificarStockOrdenadoTipoPeriferico()
+        {
+            SqlCommand comando = new SqlCommand();
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_VerificarStock_Perifericos_OrdenStock");
+        }
+
+        //FIN
 
         private void armarParametrosPerifericoEliminar(ref SqlCommand comando, Periferico p)
         {
             SqlParameter sqlParametros = new SqlParameter();
             sqlParametros = comando.Parameters.Add("@PE_Codigo_Periferico", SqlDbType.VarChar);
             sqlParametros.Value = p.Codigo_Periferico;
+        }
+        
+
+        private void armarParametrosPorcentajeTipoPeriferico(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima, int tipoPerif)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@Fecha_Minima", SqlDbType.Date);
+            sqlParametros.Value = fechaMinima;
+            sqlParametros = comando.Parameters.Add("@Fecha_Maxima", SqlDbType.Date);
+            sqlParametros.Value = fechaMaxima;
+            sqlParametros = comando.Parameters.Add("@TipoPerif", SqlDbType.VarChar);
+            sqlParametros.Value = tipoPerif;
+        }
+
+        private void armarParametrosPorcentajeTodosLosTipoPeriferico(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@Fecha_Minima", SqlDbType.Date);
+            sqlParametros.Value = fechaMinima;
+            sqlParametros = comando.Parameters.Add("@Fecha_Maxima", SqlDbType.Date);
+            sqlParametros.Value = fechaMaxima;
         }
 
         private void armarParametrosPerifericoEditar(ref SqlCommand comando, Periferico p)

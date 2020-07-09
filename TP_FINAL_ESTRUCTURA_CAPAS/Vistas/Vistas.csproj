@@ -103,6 +103,7 @@
     <Content Include="Usuarios.aspx" />
     <Content Include="UsuariosAdministrador.aspx" />
     <Content Include="UsuariosModificar.aspx" />
+    <Content Include="vistaArreglo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -326,6 +327,13 @@
     </Compile>
     <Compile Include="UsuariosModificar.aspx.designer.cs">
       <DependentUpon>UsuariosModificar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vistaArreglo.aspx.cs">
+      <DependentUpon>vistaArreglo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vistaArreglo.aspx.designer.cs">
+      <DependentUpon>vistaArreglo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -1250,6 +1250,54 @@ SELECT
 GO
 --EXEC SP_PorcentajeGenero_Juego_TodosGeneros '2019-5-5','2020-7-7'
 
+-- VERIFICA STOCK JUEGOS ORD STOCK
+CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenStock
+AS
+SELECT J_Codigo_Juego AS [Codigo],
+	   G_Nombre AS [Genero],
+	   J_Nombre AS [Nombre],
+	   J_Stock AS [Stock],
+	   [Estado del Stock] =
+	CASE
+		WHEN J_Stock <= 10 THEN 'Escaso'
+		WHEN J_Stock > 10 AND
+			 J_Stock <= 20 THEN 'Por escasear'
+		WHEN J_Stock > 20 AND
+			 J_Stock <= 30 THEN 'Regular'
+		WHEN J_Stock > 30 AND
+			 J_Stock <= 40 THEN 'En condiciones'
+		ELSE 'Excelente'
+	END
+FROM Juegos
+INNER JOIN Generos
+ON J_Codigo_Genero = G_Codigo_Genero
+ORDER BY J_Stock ASC
+GO
+
+-- VERIFICA STOCK JUEGOS ORD GENERO
+CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenGenero
+AS
+SELECT J_Codigo_Juego AS [Codigo],
+	   G_Nombre AS [Genero],
+	   J_Nombre AS [Nombre],
+	   J_Stock AS [Stock],
+	   [Estado del Stock] =
+	CASE
+		WHEN J_Stock <= 10 THEN 'Escaso'
+		WHEN J_Stock > 10 AND
+			 J_Stock <= 20 THEN 'Por escasear'
+		WHEN J_Stock > 20 AND
+			 J_Stock <= 30 THEN 'Regular'
+		WHEN J_Stock > 30 AND
+			 J_Stock <= 40 THEN 'En condiciones'
+		ELSE 'Excelente'
+	END
+FROM Juegos
+INNER JOIN Generos
+ON J_Codigo_Genero = G_Codigo_Genero
+ORDER BY G_Nombre ASC
+GO
+
 -- PORCENTAJE VENTAS PERIFERICO TIPO DEL TOTAL
 CREATE PROCEDURE SP_PorcentajeTipo_Periferico
 (
@@ -1442,9 +1490,6 @@ EXEC SP_PorcentajeTipo_Periferico_TodosTipos '2019-5-5','2020-7-7'
 
 -- VERIFICA STOCK PERIFERICOS ORD STOCK
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenStock
-(
-	@Orden int
-)
 AS
 SELECT PE_Codigo_Periferico AS [Codigo],
 	   T_Nombre AS [Tipo],
@@ -1469,9 +1514,6 @@ GO
 
 -- VERIFICA STOCK PERIFERICOS ORD TIPO
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenTipo
-(
-	@Orden int
-)
 AS
 SELECT PE_Codigo_Periferico AS [Codigo],
 	   T_Nombre AS [Tipo],
@@ -1492,54 +1534,6 @@ FROM Perifericos
 INNER JOIN TipoPerif
 ON PE_Codigo_TipoPerif = T_Codigo_TipoPerif
 ORDER BY T_Nombre ASC
-GO
-
--- VERIFICA STOCK JUEGOS ORD STOCK
-CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenStock
-AS
-SELECT J_Codigo_Juego AS [Codigo],
-	   G_Nombre AS [Genero],
-	   J_Nombre AS [Nombre],
-	   J_Stock AS [Stock],
-	   [Estado del Stock] =
-	CASE
-		WHEN J_Stock <= 10 THEN 'Escaso'
-		WHEN J_Stock > 10 AND
-			 J_Stock <= 20 THEN 'Por escasear'
-		WHEN J_Stock > 20 AND
-			 J_Stock <= 30 THEN 'Regular'
-		WHEN J_Stock > 30 AND
-			 J_Stock <= 40 THEN 'En condiciones'
-		ELSE 'Excelente'
-	END
-FROM Juegos
-INNER JOIN Generos
-ON J_Codigo_Genero = G_Codigo_Genero
-ORDER BY J_Stock ASC
-GO
-
--- VERIFICA STOCK JUEGOS ORD GENERO
-CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenGenero
-AS
-SELECT J_Codigo_Juego AS [Codigo],
-	   G_Nombre AS [Genero],
-	   J_Nombre AS [Nombre],
-	   J_Stock AS [Stock],
-	   [Estado del Stock] =
-	CASE
-		WHEN J_Stock <= 10 THEN 'Escaso'
-		WHEN J_Stock > 10 AND
-			 J_Stock <= 20 THEN 'Por escasear'
-		WHEN J_Stock > 20 AND
-			 J_Stock <= 30 THEN 'Regular'
-		WHEN J_Stock > 30 AND
-			 J_Stock <= 40 THEN 'En condiciones'
-		ELSE 'Excelente'
-	END
-FROM Juegos
-INNER JOIN Generos
-ON J_Codigo_Genero = G_Codigo_Genero
-ORDER BY G_Nombre ASC
 GO
 
 -- VENTAS POR CADA USUARIOS ENTRE FECHAS

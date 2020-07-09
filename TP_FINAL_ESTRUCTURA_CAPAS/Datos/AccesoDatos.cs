@@ -48,6 +48,20 @@ namespace Datos
             }
         }
 
+        public SqlDataAdapter ObtenerAdaptadorReporte(SqlCommand sc)
+        {
+            SqlDataAdapter adaptador;
+            try
+            {
+                adaptador = new SqlDataAdapter(sc);
+                return adaptador;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public DataTable ObtenerTabla(String NombreTabla, String Sql)
         {
             DataSet ds = new DataSet();
@@ -71,6 +85,20 @@ namespace Datos
             FilasCambiadas = cmd.ExecuteNonQuery();
             Conexion.Close();
             return FilasCambiadas;
+        }
+
+        public DataTable EjecutarProcedimientoAlmacenadoReporte(SqlCommand Comando, String NombreSP, String nombreTabla)
+        {
+            DataSet ds = new DataSet();
+            SqlConnection Conexion = ObtenerConexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd = Comando;
+            cmd.Connection = Conexion;
+            cmd.CommandText = NombreSP;
+            SqlDataAdapter Adaptador = ObtenerAdaptadorReporte(cmd);
+            Adaptador.Fill(ds, nombreTabla);
+            Conexion.Close();
+            return ds.Tables[nombreTabla];
         }
 
         

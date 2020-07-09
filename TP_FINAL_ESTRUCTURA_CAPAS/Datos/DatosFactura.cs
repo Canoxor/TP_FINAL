@@ -82,6 +82,15 @@ namespace Datos
             armarParametrosDetallePerifericoAgregar(ref comando, dp);
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Detalle_Periferico");
         }
+        // Reporte
+        public int reporteTotalDeVentasPorFecha(DateTime fMin, DateTime fMax)
+        {
+            SqlCommand comando = new SqlCommand();
+            armarParametrosInformeTotalVentas(ref comando, fMin, fMax);
+            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_TotalVentas_X_Fechas");
+        }
+
+        //FIN
 
         private void armarParametrosFacturaAgregar(ref SqlCommand comando, FacturaProductos f)
         {
@@ -105,6 +114,16 @@ namespace Datos
             sqlParametros.Value = dj.Cantidad;
             sqlParametros = comando.Parameters.Add("@DJ_PrecioUnitario", SqlDbType.Decimal);
             sqlParametros.Value = dj.PrecioUnitario;
+        }
+
+        private void armarParametrosInformeTotalVentas(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@Fecha_Minima", SqlDbType.Date);
+            sqlParametros.Value = fechaMinima;
+            sqlParametros = comando.Parameters.Add("@Fecha_Maxima", SqlDbType.Date);
+            sqlParametros.Value = fechaMaxima;
+
         }
 
         private void armarParametrosDetallePerifericoAgregar(ref SqlCommand comando, DetalleFacturaPeriferico dp)

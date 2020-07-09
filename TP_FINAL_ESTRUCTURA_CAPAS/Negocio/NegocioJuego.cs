@@ -30,6 +30,11 @@ namespace Negocio
             return D_Juego.ultimoId();
         }
 
+        public DataTable StockOrdenadoJuegos(int opc)
+        {
+            return D_Juego.reporteVerificarStockOrdenado(opc);
+        }
+
         public DataTable tablaPegi()
         {
             return D_Juego.traerPegi();
