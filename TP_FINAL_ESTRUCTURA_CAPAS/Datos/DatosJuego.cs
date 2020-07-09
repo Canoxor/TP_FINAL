@@ -97,20 +97,6 @@ namespace Datos
 
         //Procedimientos Reporte
 
-        public int reportePorcentajeGeneroEspecifico(DateTime fechaMinima, DateTime fechaMaxima, int codGenero)
-        {
-            SqlCommand comando = new SqlCommand();
-            armarParametrosPorcentajeGenero(ref comando, fechaMinima, fechaMaxima, codGenero);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_PorcentajeGenero_Juego");
-        }
-
-        public int reportePorcentajeTodosLosGeneros(DateTime fechaMinima, DateTime fechaMaxima)
-        {
-            SqlCommand comando = new SqlCommand();
-            armarParametrosPorcentajeTodosLosGeneros(ref comando, fechaMinima, fechaMaxima);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_PorcentajeGenero_Juego_TodosGeneros");
-        }
-
         public DataTable reporteVerificarStockOrdenado(int opc)
         {
             SqlCommand comando = new SqlCommand();
@@ -122,6 +108,26 @@ namespace Datos
                     break;
                 case 2:
                     tabla =  ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_VerificarStock_Juegos_OrdenGenero", "StockOrdenadoGenero");
+                    break;
+                default:
+                    break;
+            }
+            return tabla;
+        }
+
+        public DataTable reportePorcentajeGeneroVendido(int opc, DateTime fechaMinima, DateTime fechaMaxima, int codGenero)
+        {
+            SqlCommand comando = new SqlCommand();
+            DataTable tabla = null;
+            switch (opc)
+            {
+                case 1:
+                    armarParametrosPorcentajeGenero(ref comando, fechaMinima, fechaMaxima, codGenero);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeGenero_Juego", "GeneroPorID");
+                    break;
+                case 2:
+                    armarParametrosPorcentajeTodosLosGeneros(ref comando, fechaMinima, fechaMaxima);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeGenero_Juego_TodosGeneros", "TodosLosGeneros");
                     break;
                 default:
                     break;

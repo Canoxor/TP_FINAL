@@ -15,22 +15,13 @@ namespace Vistas
     {
 
         /// <summary>
-        /// Control formLandingPageAdministrador.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formLandingPageAdministrador;
-
-        /// <summary>
-        /// Control btnCerrarSesion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// Control chk_Stock.
@@ -42,13 +33,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.CheckBox chk_Stock;
 
         /// <summary>
-        /// Control chk_Genero.
+        /// Control chk_TipoDePeriferico.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk_Genero;
+        protected global::System.Web.UI.WebControls.CheckBox chk_TipoDePeriferico;
 
         /// <summary>
         /// Control btn_FiltrarS.
@@ -78,66 +69,102 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.GridView grd_ReporteS;
 
         /// <summary>
-        /// Control txt_FechaMin.
+        /// Control txtFechaInicialGeneros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_FechaMin;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaInicialGeneros;
 
         /// <summary>
-        /// Control txt_FechaMax.
+        /// Control rfvFechaInicialGeneros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_FechaMax;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaInicialGeneros;
 
         /// <summary>
-        /// Control txt_CodigoPerif.
+        /// Control txtFechaFinalGeneros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_CodigoPerif;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFinalGeneros;
 
         /// <summary>
-        /// Control chk_TotosTipos.
+        /// Control rfvFechaFinalGeneros0.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk_TotosTipos;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaFinalGeneros0;
 
         /// <summary>
-        /// Control btn_FiltrarV.
+        /// Control ddlTipoDePerifericos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_FiltrarV;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoDePerifericos;
 
         /// <summary>
-        /// Control btn_LimpiarV.
+        /// Control lblMensajeErrorDDLTipoPerifericos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_LimpiarV;
+        protected global::System.Web.UI.WebControls.Label lblMensajeErrorDDLTipoPerifericos;
 
         /// <summary>
-        /// Control grd_ReporteV.
+        /// Control chk_TodosTiposDeGeneros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grd_ReporteV;
+        protected global::System.Web.UI.WebControls.CheckBox chk_TodosTiposDeGeneros;
+
+        /// <summary>
+        /// Control btn_FiltrarG.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_FiltrarG;
+
+        /// <summary>
+        /// Control btn_LimpiarG.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_LimpiarG;
+
+        /// <summary>
+        /// Control grdReporteTipoPerifericos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdReporteTipoPerifericos;
+
+        /// <summary>
+        /// Control lblMensajeAclarativoGrdGeneros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeAclarativoGrdGeneros;
     }
 }

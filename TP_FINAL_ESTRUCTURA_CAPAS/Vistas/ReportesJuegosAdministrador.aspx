@@ -51,33 +51,40 @@
             </div>
         </div>
         <div style="width: 100%; text-align: center; margin-top: 2%;color:white">
-            <h2>Calcular el porcentaje de venta de un determinado juego</h2>
+            <h2>Calcular el porcentaje de venta de los distintos generos</h2>
             <div style="width: 100%">
                 <table class="w-100" style="padding: 10px">
                     <tr>
                         <td style="width: 50%; text-align: right">De esta fecha:</td>
                         <td style="width: 50%; text-align: left">
-                            <asp:TextBox ID="TextBox1" runat="server" TextMode="Date" CssClass="auto-style41"></asp:TextBox></td>
+                            <asp:TextBox ID="txtFechaInicialGeneros" runat="server" TextMode="Date" CssClass="auto-style41"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvFechaInicialGeneros" runat="server" ControlToValidate="txtFechaInicialGeneros" ValidationGroup="Grupo1">Ingrese una fecha inicial</asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td style="width: 50%; text-align: right">Hasta esta fecha:</td>
                         <td style="width: 50%; text-align: left">
-                            <asp:TextBox ID="txt_FechaMax" runat="server" TextMode="Date" CssClass="auto-style41"></asp:TextBox></td>
+                            <asp:TextBox ID="txtFechaFinalGeneros" runat="server" TextMode="Date" CssClass="auto-style41"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfvFechaFinalGeneros0" runat="server" ControlToValidate="txtFechaFinalGeneros" ValidationGroup="Grupo1">Ingrese una fecha final</asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="width: 50%; text-align: right">Codigo del juego: </td>
+                        <td style="width: 50%; text-align: right">Filtrar por un genero en especifico: </td>
                         <td style="width: 50%; text-align: left">
-                            <asp:TextBox ID="txt_CodigoJuego" runat="server" TextMode="Number" CssClass="auto-style41" Width="94px"></asp:TextBox></td>
+                            <asp:DropDownList ID="ddlGeneros" runat="server">
+                            </asp:DropDownList>
+                            <asp:Label ID="lblMensajeErrorDDLGeneros" runat="server"></asp:Label>
+                        </td>
                     </tr>
                 </table>
             </div>
             <asp:CheckBox ID="chk_TodosGeneros" runat="server" Style="margin-top: 10px" CssClass="auto-style7" Text="Todos los generos" TextAlign="Left" OnCheckedChanged="chk_TodosGeneros_CheckedChanged" AutoPostBack="true" />
             <div style="margin-top: 10px">
-                <asp:Button CssClass="btn btn-primary" ID="btn_FiltrarV" Style="margin-right: 10px" runat="server" Text="Filtrar" />
-                <asp:Button CssClass="btn btn-secondary" ID="btn_LimpiarV" Style="margin-left: 10px" runat="server" Text="Limpiar filtros" />
+                <asp:Button CssClass="btn btn-primary" ID="btn_FiltrarG" Style="margin-right: 10px" runat="server" Text="Filtrar" ValidationGroup="Grupo1" OnClick="btn_FiltrarG_Click" />
+                <asp:Button CssClass="btn btn-secondary" ID="btn_LimpiarG" Style="margin-left: 10px" runat="server" Text="Limpiar filtros" OnClick="btn_LimpiarG_Click" />
             </div>
-            <div style="width: 100%; background-color: rosybrown;margin-top:1%">
-                <asp:GridView ID="grd_ReporteV" Style="margin-left: 30%" runat="server" AutoGenerateColumns="False" CellPadding="4" CssClass="auto-style33" ForeColor="#333333" GridLines="None">
+            <div style="width: 100%; text-align:center;margin-top:1%">
+                <asp:GridView ID="grdReporteGeneros" Style="margin-left: 30%" runat="server" CellPadding="4" CssClass="auto-style33" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -90,6 +97,7 @@
                     <SortedDescendingCellStyle BackColor="#E9EBEF" />
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
+                <asp:Label ID="lblMensajeAclarativoGrdGeneros" runat="server"></asp:Label>
             </div>
 
 

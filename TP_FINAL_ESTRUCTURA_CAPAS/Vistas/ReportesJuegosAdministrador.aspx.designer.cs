@@ -69,31 +69,58 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.GridView grd_ReporteS;
 
         /// <summary>
-        /// Control TextBox1.
+        /// Control txtFechaInicialGeneros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaInicialGeneros;
 
         /// <summary>
-        /// Control txt_FechaMax.
+        /// Control rfvFechaInicialGeneros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_FechaMax;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaInicialGeneros;
 
         /// <summary>
-        /// Control txt_CodigoJuego.
+        /// Control txtFechaFinalGeneros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_CodigoJuego;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFinalGeneros;
+
+        /// <summary>
+        /// Control rfvFechaFinalGeneros0.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaFinalGeneros0;
+
+        /// <summary>
+        /// Control ddlGeneros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlGeneros;
+
+        /// <summary>
+        /// Control lblMensajeErrorDDLGeneros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeErrorDDLGeneros;
 
         /// <summary>
         /// Control chk_TodosGeneros.
@@ -105,30 +132,39 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.CheckBox chk_TodosGeneros;
 
         /// <summary>
-        /// Control btn_FiltrarV.
+        /// Control btn_FiltrarG.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_FiltrarV;
+        protected global::System.Web.UI.WebControls.Button btn_FiltrarG;
 
         /// <summary>
-        /// Control btn_LimpiarV.
+        /// Control btn_LimpiarG.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_LimpiarV;
+        protected global::System.Web.UI.WebControls.Button btn_LimpiarG;
 
         /// <summary>
-        /// Control grd_ReporteV.
+        /// Control grdReporteGeneros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grd_ReporteV;
+        protected global::System.Web.UI.WebControls.GridView grdReporteGeneros;
+
+        /// <summary>
+        /// Control lblMensajeAclarativoGrdGeneros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeAclarativoGrdGeneros;
     }
 }

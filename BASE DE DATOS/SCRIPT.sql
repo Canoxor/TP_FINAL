@@ -995,9 +995,9 @@ SELECT
 	@DP_Cantidad,
 	@DP_PrecioUnitario
 GO
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- REPORTES
-
+--CARGADO
 CREATE PROCEDURE SP_TotalVentas_X_Fechas
 (
 	@Fecha_Minima date,
@@ -1013,8 +1013,9 @@ AS
 		AND F_Fecha > @Fecha_Minima
 	ORDER BY F_Fecha DESC
 GO
-------------------------------------------------------------------------------------------------------------------------------------------------
+
 -- PORCENTAJE VENTAS JUEGOS GENERO DEL TOTAL
+--CARGADO
 CREATE PROCEDURE SP_PorcentajeGenero_Juego
 (
 	@Fecha_Minima date,
@@ -1054,7 +1055,10 @@ SELECT
 	AS [Porcentaje vendido]
 GO
 
+--EXEC SP_PorcentajeGenero_Juego '2019-5-5','2020-7-7', '1'
+
 -- PORCENTAJE VENTAS JUEGOS TODOS GENEROS
+--CARGADO
 CREATE PROCEDURE SP_PorcentajeGenero_Juego_TodosGeneros
 (
 	@Fecha_Minima date,
@@ -1251,6 +1255,7 @@ GO
 --EXEC SP_PorcentajeGenero_Juego_TodosGeneros '2019-5-5','2020-7-7'
 
 -- VERIFICA STOCK JUEGOS ORD STOCK
+--CARGADO
 CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenStock
 AS
 SELECT J_Codigo_Juego AS [Codigo],
@@ -1275,6 +1280,7 @@ ORDER BY J_Stock ASC
 GO
 
 -- VERIFICA STOCK JUEGOS ORD GENERO
+--CARGADO
 CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenGenero
 AS
 SELECT J_Codigo_Juego AS [Codigo],
@@ -1299,6 +1305,7 @@ ORDER BY G_Nombre ASC
 GO
 
 -- PORCENTAJE VENTAS PERIFERICO TIPO DEL TOTAL
+--CARGADO
 CREATE PROCEDURE SP_PorcentajeTipo_Periferico
 (
 	@Fecha_Minima date,
@@ -1339,6 +1346,7 @@ SELECT
 GO
 
 -- PORCENTAJE VENTAS PERIFERICO TODOS LOS TIPOS
+--CARGADO
 CREATE PROCEDURE SP_PorcentajeTipo_Periferico_TodosTipos
 (
 	@Fecha_Minima date,
@@ -1486,9 +1494,11 @@ SELECT
 		,0)
 	AS [Auriculares]
 GO
-EXEC SP_PorcentajeTipo_Periferico_TodosTipos '2019-5-5','2020-7-7'
+
+--EXEC SP_PorcentajeTipo_Periferico_TodosTipos '2019-5-5','2020-7-7'
 
 -- VERIFICA STOCK PERIFERICOS ORD STOCK
+--CARGADO
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenStock
 AS
 SELECT PE_Codigo_Periferico AS [Codigo],
@@ -1513,6 +1523,7 @@ ORDER BY PE_Stock ASC
 GO
 
 -- VERIFICA STOCK PERIFERICOS ORD TIPO
+--CARGADO
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenTipo
 AS
 SELECT PE_Codigo_Periferico AS [Codigo],
@@ -1536,7 +1547,7 @@ ON PE_Codigo_TipoPerif = T_Codigo_TipoPerif
 ORDER BY T_Nombre ASC
 GO
 
--- VENTAS POR CADA USUARIOS ENTRE FECHAS
+-- COMPRAS POR CADA USUARIOS ENTRE FECHAS
 CREATE PROCEDURE SP_ComprasRealizadas
 (
 	@Usuario varchar(5),
@@ -1564,7 +1575,7 @@ SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Fac
 	ORDER BY F_Codigo_Usuario ASC
 GO
 
--- COMPAS X USUARIOS ORD FECHA DESC
+-- COMPRAS X USUARIOS ORD FECHA DESC
 CREATE PROCEDURE SP_VentasPorUsuario_Ord_FechaDESC
 (
 	@Fecha_MIN date,
@@ -1579,7 +1590,7 @@ SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Fac
 	ORDER BY F_Fecha DESC
 GO
 
--- COMPAS X USUARIOS ORD FECHA ASC
+-- COMPRAS X USUARIOS ORD FECHA ASC
 CREATE PROCEDURE SP_VentasPorUsuario_Ord_FechaASC
 (
 	@Fecha_MIN date,

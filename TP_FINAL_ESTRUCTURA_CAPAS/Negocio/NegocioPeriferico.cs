@@ -27,6 +27,16 @@ namespace Negocio
             return D_Periferico.estaActivo(p);
         }
 
+        public DataTable StockOrdenadoPerifericos(int opc)
+        {
+            return D_Periferico.reporteVerificarStockOrdenado(opc);
+        }
+
+        public DataTable porcentajeTipoPerifericosVendidos(int opc, DateTime fechaMinima, DateTime fechaMaxima, int codPTipoPerif)
+        {
+            return D_Periferico.reportePorcentajeTipoPerifericosVendido(opc, fechaMinima, fechaMaxima, codPTipoPerif);
+        }
+
         public bool activarPeriferico(Periferico p)
         {
             int activo = D_Periferico.activarrPeriferico(p);

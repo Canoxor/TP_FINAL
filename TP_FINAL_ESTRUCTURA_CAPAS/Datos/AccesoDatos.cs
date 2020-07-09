@@ -94,6 +94,7 @@ namespace Datos
             SqlCommand cmd = new SqlCommand();
             cmd = Comando;
             cmd.Connection = Conexion;
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = NombreSP;
             SqlDataAdapter Adaptador = ObtenerAdaptadorReporte(cmd);
             Adaptador.Fill(ds, nombreTabla);

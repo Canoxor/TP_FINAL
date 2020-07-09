@@ -35,6 +35,11 @@ namespace Negocio
             return D_Juego.reporteVerificarStockOrdenado(opc);
         }
 
+        public DataTable porcentajeGenerosVendidos(int opc, DateTime fechaMinima, DateTime fechaMaxima, int codGenero)
+        {
+            return D_Juego.reportePorcentajeGeneroVendido(opc, fechaMinima, fechaMaxima, codGenero);
+        }
+
         public DataTable tablaPegi()
         {
             return D_Juego.traerPegi();

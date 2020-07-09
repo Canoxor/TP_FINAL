@@ -92,30 +92,43 @@ namespace Datos
             return ds.EjecutarProcedimientoAlmacenado(comando, "SP_Insert_Perifericos");
         }
         //Procedimientos Reporte
-        private int reportePorcentajeTipoPeriferico(DateTime fechaMinima, DateTime fechaMaxima, int tipoPerif)
+
+        public DataTable reporteVerificarStockOrdenado(int opc)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametrosPorcentajeTipoPeriferico(ref comando, fechaMinima, fechaMaxima, tipoPerif);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_PorcentajeTipo_Periferico");
+            DataTable tabla = null;
+            switch (opc)
+            {
+                case 1:
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_VerificarStock_Perifericos_OrdenStock", "StockOrdenadoStock");
+                    break;
+                case 2:
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_VerificarStock_Perifericos_OrdenTipo", "StockOrdenadoTipoPerif");
+                    break;
+                default:
+                    break;
+            }
+            return tabla;
         }
 
-        private int reportePorcentajeTodosLosTipoPeriferico(DateTime fechaMinima, DateTime fechaMaxima)
+        public DataTable reportePorcentajeTipoPerifericosVendido(int opc, DateTime fechaMinima, DateTime fechaMaxima, int codPerif)
         {
             SqlCommand comando = new SqlCommand();
-            armarParametrosPorcentajeTodosLosTipoPeriferico(ref comando, fechaMinima, fechaMaxima);
-            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_PorcentajeTipo_Periferico_TodosTipos");
-        }
-
-        private int reporteVerificarStockOrdenadoStock()
-        {
-            SqlCommand comando = new SqlCommand();
-            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_VerificarStock_Perifericos_OrdenStock");
-        }
-
-        private int reporteVerificarStockOrdenadoTipoPeriferico()
-        {
-            SqlCommand comando = new SqlCommand();
-            return ds.EjecutarProcedimientoAlmacenado(comando, "SP_VerificarStock_Perifericos_OrdenStock");
+            DataTable tabla = null;
+            switch (opc)
+            {
+                case 1:
+                    armarParametrosPorcentajeTipoPeriferico(ref comando, fechaMinima, fechaMaxima, codPerif);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeTipo_Periferico", "TipoPerifericoPorID");
+                    break;
+                case 2:
+                    armarParametrosPorcentajeTodosLosTipoPeriferico(ref comando, fechaMinima, fechaMaxima);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeTipo_Periferico_TodosTipos", "TodosLosTipoPerifericos");
+                    break;
+                default:
+                    break;
+            }
+            return tabla;
         }
 
         //FIN
