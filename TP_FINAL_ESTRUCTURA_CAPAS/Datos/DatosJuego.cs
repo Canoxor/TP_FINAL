@@ -123,11 +123,11 @@ namespace Datos
             {
                 case 1:
                     armarParametrosPorcentajeGenero(ref comando, fechaMinima, fechaMaxima, codGenero);
-                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeGenero_Juego", "GeneroPorID");
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_Genero_Cantidad", "GeneroPorID");
                     break;
                 case 2:
                     armarParametrosPorcentajeTodosLosGeneros(ref comando, fechaMinima, fechaMaxima);
-                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeGenero_Juego_TodosGeneros", "TodosLosGeneros");
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_TodosGeneros_Cantidad", "TodosLosGeneros");
                     break;
                 default:
                     break;

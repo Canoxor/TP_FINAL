@@ -95,5 +95,9 @@ namespace Negocio
             return D_Usuario.existeDniUsuario(dni);
         }
 
+        public DataTable Procedimientos(int opc, int Codigo, DateTime FechaInicio, DateTime FechaFin)
+        {
+            return D_Usuario.CargarProcedimiento(opc, Codigo, FechaInicio, FechaFin);
+        }
     }
 }

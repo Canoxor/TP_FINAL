@@ -19,17 +19,30 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games Administrador</title>
-        <style type="text/css">
-        .auto-style11 {
-            width: 9.5%;
+    <style type="text/css">
+        .auto-style2 {
+            font-weight: bold;
         }
-        .auto-style21 {
-            width: 20%
+        .auto-style4 {
+            font-size: xx-large;
+            color: #FFFFFF;
+            text-decoration: underline;
         }
-        </style>
+        .auto-style5 {
+            font-size: x-large;
+            color: #FFCC00;
+        }
+        .auto-style6 {
+            font-size: x-large;
+            color: #FFFFFF;
+        }
+        .auto-style7 {
+            color: #0066FF;
+        }
+    </style>
 </head>
 <body>
-    <form id="formPerifericosAdministrador" runat="server">
+    <form id="formUsuariosAdministrador" runat="server">
         <!-- Navbar -->
 
         <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0" style="background: rgb(42, 40, 48)">
@@ -48,21 +61,24 @@
                         <a href="NoticiasAdministrador.aspx" class="nav-link">Noticias</a>
                     </li>
                     <li class="nav-item">
-                        <a href="PerifericosAdministrador.aspx" class="nav-link" style="color: #8B8C91">Perifericos</a>
+                        <a href="PerifericosAdministrador.aspx" class="nav-link">Perifericos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="UsuariosAdministrador.aspx" class="nav-link">Usuarios</a>
+                        <a href="UsuariosAdministrador.aspx" class="nav-link" style="color: #8B8C91">Usuarios</a>
                     </li>
                     <li class="nav-item">
                         <a href="FacturasAdministrador.aspx" class="nav-link">Facturas</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="FacturasAdministrador.aspx" class="nav-link">Reportes</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
                     <li class="nav-item align-content-lg-end">
-                        <asp:Label ID="lblUsuario" runat="server" Style="color: white;margin-right:20px"></asp:Label>
+                        <asp:Label ID="lblUsuario" runat="server" Style="color: white; margin-right: 20px"></asp:Label>
                     </li>
                     <li class="nav-item align-content-lg-end">
-                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" style="position: center;text-align: center; width:100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
+                        <asp:Button class="btn btn-secondary" ID="btnCerrarSesion" runat="server" Style="position: center; text-align: center; width: 100%" Text="Cerrar Sesion" OnClick="btnCerrarSesion_Click" />
                     </li>
                 </ul>
             </div>

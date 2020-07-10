@@ -152,6 +152,59 @@ namespace Datos
             sqlParametros = comando.Parameters.Add("@U_Contrasenia", SqlDbType.VarChar);
             sqlParametros.Value = u.Contraseña;
         }
-      
+
+        public DataTable CargarProcedimiento(int opc, int usuario, DateTime fechaMinima, DateTime fechaMaxima)
+        {
+            SqlCommand comando = new SqlCommand();
+            DataTable tabla = null;
+            switch (opc)
+            {
+                case 1:
+                    ArmarParametrosFechasConUsuario(ref comando, fechaMinima, fechaMaxima, usuario);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_ComprasRealizadas_Usuario", "Compras_U");
+                    break;
+                case 21:
+                    ArmarParametrosSoloFechas(ref comando, fechaMinima, fechaMaxima);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_ComprasPorUsuario_Ord_FechaASC", "ComprasTotales_U_Asc");
+                    break;
+                case 22:
+                    ArmarParametrosSoloFechas(ref comando, fechaMinima, fechaMaxima);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_ComprasPorUsuario_Ord_FechaDESC", "ComprasTotales_U_Desc");
+                    break;
+                case 31:
+                    ArmarParametrosSoloFechas(ref comando, fechaMinima, fechaMaxima);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_UsuariosCreados_FechaASC", "U_Creados_Asc");
+                    break;
+                case 32:
+                    ArmarParametrosSoloFechas(ref comando, fechaMinima, fechaMaxima);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_UsuariosCreados_FechaDESC", "U_Creados_Desc");
+                    break;
+                default:
+                    break;
+            }
+            return tabla;
+        }
+
+        private void ArmarParametrosSoloFechas(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@Fecha_MIN", SqlDbType.Date);
+            sqlParametros.Value = fechaMinima;
+            sqlParametros = comando.Parameters.Add("@Fecha_MAX", SqlDbType.Date);
+            sqlParametros.Value = fechaMaxima;
+        }
+
+        private void ArmarParametrosFechasConUsuario(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima, int usuario)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@Usuario", SqlDbType.VarChar);
+            sqlParametros.Value = usuario;
+            sqlParametros = comando.Parameters.Add("@Fecha_MIN", SqlDbType.Date);
+            sqlParametros.Value = fechaMinima;
+            sqlParametros = comando.Parameters.Add("@Fecha_MAX", SqlDbType.Date);
+            sqlParametros.Value = fechaMaxima;
+            
+        }
+
     }
 }

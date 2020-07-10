@@ -119,11 +119,11 @@ namespace Datos
             {
                 case 1:
                     armarParametrosPorcentajeTipoPeriferico(ref comando, fechaMinima, fechaMaxima, codPerif);
-                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeTipo_Periferico", "TipoPerifericoPorID");
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_TipoPerif_Cantidad", "TipoPerifericoPorID");
                     break;
                 case 2:
                     armarParametrosPorcentajeTodosLosTipoPeriferico(ref comando, fechaMinima, fechaMaxima);
-                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeTipo_Periferico_TodosTipos", "TodosLosTipoPerifericos");
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_TodosTipos_Cantidad", "TodosLosTipoPerifericos");
                     break;
                 default:
                     break;

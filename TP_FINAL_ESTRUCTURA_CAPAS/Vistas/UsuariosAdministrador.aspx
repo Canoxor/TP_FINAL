@@ -19,6 +19,27 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games Administrador</title>
+    <style type="text/css">
+        .auto-style2 {
+            font-weight: bold;
+        }
+        .auto-style4 {
+            font-size: xx-large;
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        .auto-style5 {
+            font-size: x-large;
+            color: #FFCC00;
+        }
+        .auto-style6 {
+            font-size: x-large;
+            color: #FFFFFF;
+        }
+        .auto-style7 {
+            color: #0066FF;
+        }
+    </style>
 </head>
 <body>
     <form id="formUsuariosAdministrador" runat="server">
@@ -47,6 +68,9 @@
                     </li>
                     <li class="nav-item">
                         <a href="FacturasAdministrador.aspx" class="nav-link">Facturas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="FacturasAdministrador.aspx" class="nav-link">Reportes</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
