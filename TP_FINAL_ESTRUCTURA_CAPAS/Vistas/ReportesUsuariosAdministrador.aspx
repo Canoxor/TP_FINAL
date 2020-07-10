@@ -55,7 +55,7 @@
                         <a href="FacturasAdministrador.aspx" class="nav-link">Facturas</a>
                     </li>
                     <li class="nav-item">
-                        <a href="ReportesAdministrador.aspx" class="nav-link"style="color: #8B8C91">Reportes</a>
+                        <a href="ReportesAdministrador.aspx" class="nav-link" style="color: #8B8C91">Reportes</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
@@ -68,25 +68,25 @@
                 </ul>
             </div>
         </nav>
-        <div style="width: 100%; text-align: center;color:white">
-        <div style="text-align: center; margin-top: 2%;color:white" class="w-100">
-            <div style="width: 100%">
-                <table class="w-100" style="padding: 10px">
-                    <tr>
-                        <td class="text-right">
-                <asp:Button CssClass="btn btn-primary" ID="btn_Menu" Style="margin-right: 10px" runat="server" Text="Volver al menú" OnClick="btn_Menu_Click" Width="123px" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1"><strong>Reportes de Usuarios</strong></td>
-                    </tr>
+        <div style="width: 100%; text-align: center; color: white">
+            <div style="text-align: center; margin-top: 2%; color: white" class="w-100">
+                <div style="width: 100%">
+                    <table class="w-100" style="padding: 10px">
+                        <tr>
+                            <td class="text-right">
+                                <asp:Button CssClass="btn btn-primary" ID="btn_Menu" Style="margin-right: 10px" runat="server" Text="Volver al menú" OnClick="btn_Menu_Click" Width="123px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1"><strong>Reportes de Usuarios</strong></td>
+                        </tr>
                     </table>
+                </div>
+
+
             </div>
-
-
         </div>
-        </div>
-        <div style="width: 100%; text-align: center; margin-top: 2%;color:white">
+        <div style="width: 100%; text-align: center; margin-top: 2%; color: white">
             <h2><strong>Calcular la cantidad de compras que realizó un usuarioCalcular la cantidad de compras que realizó un usuario</strong></h2>
             <div style="width: 100%">
                 <table class="w-100" style="padding: 10px">
@@ -117,7 +117,7 @@
                 <asp:Button CssClass="btn btn-primary" ID="btn_Filtrar_1" Style="margin-right: 10px" runat="server" Text="Filtrar" ValidationGroup="Grupo_1" OnClick="btn_Filtrar_1_Click" />
                 <asp:Button CssClass="btn btn-secondary" ID="btn_Limpiar_1" Style="margin-left: 10px" runat="server" Text="Limpiar filtros" OnClick="btn_Limpiar_1_Click" />
             </div>
-            <div style="width: 100%; text-align:center;margin-top:1%">
+            <div style="width: 100%; text-align: center; margin-top: 1%">
                 <asp:GridView ID="grdReporteUsuarios_1" Style="margin-left: 47%" runat="server" CellPadding="4" CssClass="auto-style33" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
@@ -136,13 +136,8 @@
 
 
         </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-        <div style="width: 100%; text-align: center; margin-top: 2%;color:white">
+
+        <div style="width: 100%; text-align: center; margin-top: 2%; color: white">
             <h2><strong>Informar las compras que realizaron los usuarios</strong></h2>
             <div style="width: 100%">
                 <table class="w-100" style="padding: 10px">
@@ -173,7 +168,7 @@
                 <asp:Button CssClass="btn btn-primary" ID="btn_Filtrar_2" Style="margin-right: 10px" runat="server" Text="Filtrar" ValidationGroup="Grupo_2" OnClick="btn_Filtrar_2_Click" />
                 <asp:Button CssClass="btn btn-secondary" ID="btn_Limpiar_2" Style="margin-left: 10px" runat="server" Text="Limpiar filtros" OnClick="btn_Limpiar_2_Click" />
             </div>
-            <div style="width: 100%; text-align:center;margin-top:1%">
+            <div style="width: 100%; text-align: center; margin-top: 1%">
                 <asp:GridView ID="grdReporteUsuarios_2" Style="margin-left: 38%" runat="server" CellPadding="4" CssClass="auto-style33" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
@@ -192,7 +187,7 @@
 
 
         </div>
-        <div style="text-align: center; margin-top: 2%;color:white" class="w-100">
+        <div style="text-align: center; margin-top: 2%; color: white" class="w-100">
             <h2><strong>Informar los usuarios creados</strong></h2>
             <div style="width: 100%">
                 <table class="w-100" style="padding: 10px">
@@ -223,7 +218,7 @@
                 <asp:Button CssClass="btn btn-primary" ID="btn_Filtrar_3" Style="margin-right: 10px" runat="server" Text="Filtrar" ValidationGroup="Grupo_3" OnClick="btn_Filtrar_3_Click" />
                 <asp:Button CssClass="btn btn-secondary" ID="btn_Limpiar_3" Style="margin-left: 10px" runat="server" Text="Limpiar filtros" OnClick="btn_Limpiar_3_Click" />
             </div>
-            <div style="width: 100%; text-align:center;margin-top:1%">
+            <div style="width: 100%; text-align: center; margin-top: 1%">
                 <asp:GridView ID="grdReporteUsuarios_3" Style="margin-left: 38%" runat="server" CellPadding="4" CssClass="auto-style33" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
@@ -242,8 +237,13 @@
                 <br />
                 <br />
             </div>
-
-
         </div>
     </form>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>

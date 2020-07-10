@@ -11,17 +11,17 @@ namespace Vistas
 {
 
 
-    public partial class NoticiasAdministrador
+    public partial class FacturasAdministrador
     {
 
         /// <summary>
-        /// Control formNoticiasAdministrador.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formNoticiasAdministrador;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// Control lblUsuario.
@@ -42,57 +42,75 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
 
         /// <summary>
-        /// Control btnFiltrarPorJuegos.
+        /// Control txtBusquedaFactura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFiltrarPorJuegos;
+        protected global::System.Web.UI.WebControls.TextBox txtBusquedaFactura;
 
         /// <summary>
-        /// Control btnFiltrarActivas.
+        /// Control btnBuscarFactura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFiltrarActivas;
+        protected global::System.Web.UI.WebControls.Button btnBuscarFactura;
 
         /// <summary>
-        /// Control btnFiltrarInactivas.
+        /// Control btnFiltrarFechaReciente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFiltrarInactivas;
+        protected global::System.Web.UI.WebControls.Button btnFiltrarFechaReciente;
 
         /// <summary>
-        /// Control btnAgregarNoticia.
+        /// Control btnFiltrarFechaMenosReciente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarNoticia;
+        protected global::System.Web.UI.WebControls.Button btnFiltrarFechaMenosReciente;
 
         /// <summary>
-        /// Control lvNoticias.
+        /// Control btnFiltrarMontoDesc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvNoticias;
+        protected global::System.Web.UI.WebControls.Button btnFiltrarMontoDesc;
 
         /// <summary>
-        /// Control SqlDataNoticias.
+        /// Control btnFiltrarMontoAsc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataNoticias;
+        protected global::System.Web.UI.WebControls.Button btnFiltrarMontoAsc;
+
+        /// <summary>
+        /// Control btnFiltrarUsuarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFiltrarUsuarios;
+
+        /// <summary>
+        /// Control grdFacturas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdFacturas;
     }
 }

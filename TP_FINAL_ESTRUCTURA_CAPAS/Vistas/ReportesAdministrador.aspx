@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <script src="https://kit.fontawesome.com/ccd9a07f5e.js" crossorigin="anonymous"></script>
 
@@ -20,31 +20,18 @@
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games Administrador</title>
     <style type="text/css">
-        .auto-style2 {
-            font-weight: bold;
+        .fondoPrimarioCard {
+            background-color: #C9C7D0;
+            width: 70%;
         }
-        .auto-style4 {
-            font-size: xx-large;
-            color: #FFFFFF;
-            text-decoration: underline;
-        }
-        .auto-style5 {
-            font-size: x-large;
-            color: #FFCC00;
-        }
-        .auto-style6 {
-            font-size: x-large;
-            color: #FFFFFF;
-        }
-        .auto-style7 {
-            color: #0066FF;
+
+        .fondoSecundarioCard {
+            background-color: #AEACB3;
         }
     </style>
 </head>
 <body>
-    <form id="formUsuariosAdministrador" runat="server">
-        <!-- Navbar -->
-
+    <form id="form1" runat="server">
         <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0" style="background: rgb(42, 40, 48)">
             <a href="LandingPageAdministrador.aspx" class="navbar-brand">
                 <img src="imgs/LogoPagina.png" />
@@ -67,10 +54,10 @@
                         <a href="UsuariosAdministrador.aspx" class="nav-link">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="FacturasAdministrador.aspx" class="nav-link">Facturas</a>
+                        <a href="FacturasAdministrador.aspx" class="nav-link" >Facturas</a>
                     </li>
                     <li class="nav-item">
-                        <a href="FacturasAdministrador.aspx" class="nav-link"style="color: #8B8C91">Reportes</a>
+                        <a href="ReportesAdministrador.aspx" class="nav-link" style="color: #8B8C91">Reportes</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
@@ -83,41 +70,54 @@
                 </ul>
             </div>
         </nav>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+
+        <div style="text-align: center; margin-top:1%; margin-left: 23%">
+
+            <div class="card text-center fondoPrimarioCard">
+                <div class="card-header fondoSecundarioCard">
+                    Juegos
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Reporte Juegos</h5>
+                    <p class="card-text">Al oprimir el boton que se encuentra debajo, usted sera redirigido al panel de Reportes de Juegos, donde podra visualisar muchos datos</p>
+                    <a href="ReportesJuegosAdministrador.aspx" class="btn btn-primary">Ir a Reporte Juegos</a>
+                </div>
+            </div>
+
+            &nbsp
+
+            <div class="card text-center fondoPrimarioCard">
+                <div class="card-header fondoSecundarioCard">
+                    Perifericos
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Reporte Perifericos</h5>
+                    <p class="card-text">Al oprimir el boton que se encuentra debajo, usted sera redirigido al panel de Reportes de Perifericos, donde podra visualisar muchos datos</p>
+                    <a href="ReportesPerifericosAdministrador.aspx" class="btn btn-primary">Ir a Reporte Perifericos</a>
+                </div>
+            </div>
+
+            &nbsp
+
+            <div class="card text-center fondoPrimarioCard">
+                <div class="card-header fondoSecundarioCard">
+                    Usuarios
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Reporte Usuarios</h5>
+                    <p class="card-text">Al oprimir el boton que se encuentra debajo, usted sera redirigido al panel de Reportes de Usuario, donde podra visualisar muchos datos</p>
+                    <a href="ReportesUsuariosAdministrador.aspx" class="btn btn-primary">Ir a Reporte Usuarios</a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-        <div>
-            <div class="text-center">
-                <br />
-                <strong><span class="auto-style4">Menú de reportes</span></strong><br />
-            </div>
-            <table align="center" class="w-100">
-                <tr>
-                    <td class="text-center"><strong><span class="auto-style6">Ver reportes de: </span><span class="auto-style5">JUEGOS</span><br />
-                        <br />
-                        <asp:Button ID="Button1" runat="server" CssClass="auto-style7" Text="Ir al reporte" />
-                        </strong></td>
-                </tr>
-                <tr>
-                    <td class="text-center"><strong><span class="auto-style6">Ver reportes de: </span><span class="auto-style5">PERIFERICOS</span><br />
-                        <br />
-                        <asp:Button ID="Button4" runat="server" CssClass="auto-style7" Text="Ir al reporte" />
-                        </strong></td>
-                </tr>
-                <tr>
-                    <td class="text-center"><strong><span class="auto-style6">Ver reportes de: </span><span class="auto-style5">U</span></strong><span class="auto-style2"><span class="auto-style5">SUARIOS</span><br />
-                        <br />
-                        <asp:Button ID="Button5" runat="server" CssClass="auto-style7" Text="Ir al reporte" />
-                        </span></td>
-                </tr>
-            </table>
-            <br />
-            <br />
-            <br />
-        </div>
-    </form>
 </body>
 </html>
+

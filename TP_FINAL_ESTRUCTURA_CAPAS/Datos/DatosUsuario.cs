@@ -203,7 +203,7 @@ namespace Datos
             sqlParametros.Value = fechaMinima;
             sqlParametros = comando.Parameters.Add("@Fecha_MAX", SqlDbType.Date);
             sqlParametros.Value = fechaMaxima;
-            
+
         }
 
     }

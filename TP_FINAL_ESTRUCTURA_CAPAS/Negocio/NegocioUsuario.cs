@@ -99,5 +99,6 @@ namespace Negocio
         {
             return D_Usuario.CargarProcedimiento(opc, Codigo, FechaInicio, FechaFin);
         }
+
     }
 }

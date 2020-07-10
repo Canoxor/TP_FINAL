@@ -19,13 +19,6 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="shortcut icon" href="imgs/LogoPagina.png" />
     <title>True Games Administrador</title>
-    <style type="text/css">
-        .auto-style1 {
-            text-align: center;
-            font-size: xx-large;
-            color: #FFCC00;
-        }
-    </style>
 </head>
 <body>
     <form id="formUsuariosAdministrador" runat="server">
@@ -33,7 +26,8 @@
 
         <nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md py-0" style="background: rgb(42, 40, 48)">
             <a href="LandingPageAdministrador.aspx" class="navbar-brand">
-                <img src="imgs/LogoPagina.png" />True Games AdministradorTrue Games Administrador</a>
+                <img src="imgs/LogoPagina.png" />
+                True Games Administrador</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,7 +49,7 @@
                         <a href="FacturasAdministrador.aspx" class="nav-link">Facturas</a>
                     </li>
                     <li class="nav-item">
-                        <a href="ReportesAdministrador.aspx" class="nav-link">Reportes</a>
+                        <a href="ReportesAdministrador.aspx" class="nav-link" >Reportes</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">

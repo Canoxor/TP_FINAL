@@ -135,6 +135,30 @@ namespace Datos
             return tabla;
         }
 
+        public DataTable reportePorcentajeJuegosVendidos(int opc, DateTime fechaMinima, DateTime fechaMaxima, int codJuego)
+        {
+            SqlCommand comando = new SqlCommand();
+            DataTable tabla = null;
+            switch (opc)
+            {
+                case 1:
+                    armarParametrosPorcentajeJuegos(ref comando, fechaMinima, fechaMaxima, codJuego);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_Juego_Cantidad", "PorcentajeCantidadJuego");
+                    break;
+                case 2:
+                    armarParametrosPorcentajeJuegos(ref comando, fechaMinima, fechaMaxima, codJuego);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_Juego_Monto", "PorcentajeMontoJuego");
+                    break;
+                case 3:
+                    armarParametrosPorcentajeTodosLosGeneros(ref comando, fechaMinima, fechaMaxima);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_TotalRecaudado_TodosJuegos", "TotalRecaudadoTodosJuegos");
+                    break;
+                default:
+                    break;
+            }
+            return tabla;
+        }
+
         //FIN
 
         private void armarParametrosPorcentajeTodosLosGeneros(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima)
@@ -162,6 +186,17 @@ namespace Datos
             sqlParametros.Value = fechaMaxima;
             sqlParametros = comando.Parameters.Add("@Genero", SqlDbType.VarChar);
             sqlParametros.Value = codGenero;
+        }
+
+        private void armarParametrosPorcentajeJuegos(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima, int codJuego)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@Fecha_Minima", SqlDbType.Date);
+            sqlParametros.Value = fechaMinima;
+            sqlParametros = comando.Parameters.Add("@Fecha_Maxima", SqlDbType.Date);
+            sqlParametros.Value = fechaMaxima;
+            sqlParametros = comando.Parameters.Add("@Juego", SqlDbType.VarChar);
+            sqlParametros.Value = codJuego;
         }
 
         private void armarParametrosJuegoEditar(ref SqlCommand comando, Juego j)

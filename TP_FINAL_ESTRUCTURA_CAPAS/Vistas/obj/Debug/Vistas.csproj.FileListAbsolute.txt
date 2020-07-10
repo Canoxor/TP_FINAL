@@ -122,3 +122,5 @@ N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\obj\Debug\Vi
 N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\obj\Debug\Vistas.csproj.CopyComplete
 N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\obj\Debug\Vistas.dll
 N:\UTN - FRGP\TP PROG-LAB\TP_FINAL\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\obj\Debug\Vistas.pdb
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\bin\Datos.dll
+D:\Escritorio\UTN\Programacion III\TP_FINAL_ESTRUCTURA_CAPAS\Vistas\bin\Datos.pdb

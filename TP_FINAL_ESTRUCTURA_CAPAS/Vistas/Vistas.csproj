@@ -78,6 +78,7 @@
     <Content Include="DetalleJuego.aspx" />
     <Content Include="DetallePeriferico.aspx" />
     <Content Include="Factura.aspx" />
+    <Content Include="FacturasAdministrador.aspx" />
     <Content Include="HistorialFacturas.aspx" />
     <Content Include="imgs\crearUsuario.png" />
     <Content Include="imgs\LogoPagina.png" />
@@ -104,7 +105,6 @@
     <Content Include="Usuarios.aspx" />
     <Content Include="UsuariosAdministrador.aspx" />
     <Content Include="UsuariosModificar.aspx" />
-    <Content Include="vistaArreglo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +152,7 @@
     </Compile>
     <Compile Include="DetalleFactura.aspx.cs">
       <DependentUpon>DetalleFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DetalleFactura.aspx.designer.cs">
       <DependentUpon>DetalleFactura.aspx</DependentUpon>
@@ -177,8 +178,16 @@
     <Compile Include="Factura.aspx.designer.cs">
       <DependentUpon>Factura.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FacturasAdministrador.aspx.cs">
+      <DependentUpon>FacturasAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FacturasAdministrador.aspx.designer.cs">
+      <DependentUpon>FacturasAdministrador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HistorialFacturas.aspx.cs">
       <DependentUpon>HistorialFacturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="HistorialFacturas.aspx.designer.cs">
       <DependentUpon>HistorialFacturas.aspx</DependentUpon>
@@ -298,12 +307,14 @@
     </Compile>
     <Compile Include="ReportesJuegosAdministrador.aspx.cs">
       <DependentUpon>ReportesJuegosAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ReportesJuegosAdministrador.aspx.designer.cs">
       <DependentUpon>ReportesJuegosAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReportesPerifericosAdministrador.aspx.cs">
       <DependentUpon>ReportesPerifericosAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ReportesPerifericosAdministrador.aspx.designer.cs">
       <DependentUpon>ReportesPerifericosAdministrador.aspx</DependentUpon>
@@ -335,13 +346,6 @@
     </Compile>
     <Compile Include="UsuariosModificar.aspx.designer.cs">
       <DependentUpon>UsuariosModificar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="vistaArreglo.aspx.cs">
-      <DependentUpon>vistaArreglo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="vistaArreglo.aspx.designer.cs">
-      <DependentUpon>vistaArreglo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

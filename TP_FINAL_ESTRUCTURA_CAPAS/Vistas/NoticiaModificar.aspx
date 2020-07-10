@@ -80,6 +80,9 @@
                     <li class="nav-item">
                         <a href="FacturasAdministrador.aspx" class="nav-link">Facturas</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="ReportesAdministrador.aspx" class="nav-link" >Reportes</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav" style="margin-right: 30px">
                     <li class="nav-item align-content-lg-end">
