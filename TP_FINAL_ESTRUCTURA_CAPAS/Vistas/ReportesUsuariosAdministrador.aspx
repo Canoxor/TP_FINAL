@@ -169,7 +169,7 @@
                 <asp:Button CssClass="btn btn-secondary" ID="btn_Limpiar_2" Style="margin-left: 10px" runat="server" Text="Limpiar filtros" OnClick="btn_Limpiar_2_Click" />
             </div>
             <div style="width: 100%; text-align: center; margin-top: 1%">
-                <asp:GridView ID="grdReporteUsuarios_2" Style="margin-left: 38%" runat="server" CellPadding="4" CssClass="auto-style33" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="grdReporteUsuarios_2" Style="margin-left: 38%" runat="server" CellPadding="4" CssClass="auto-style33" ForeColor="#333333" GridLines="None" AllowPaging="True" OnPageIndexChanging="GridView_2_PageIndexChanging" PageSize="4">
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -219,7 +219,7 @@
                 <asp:Button CssClass="btn btn-secondary" ID="btn_Limpiar_3" Style="margin-left: 10px" runat="server" Text="Limpiar filtros" OnClick="btn_Limpiar_3_Click" />
             </div>
             <div style="width: 100%; text-align: center; margin-top: 1%">
-                <asp:GridView ID="grdReporteUsuarios_3" Style="margin-left: 38%" runat="server" CellPadding="4" CssClass="auto-style33" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="grdReporteUsuarios_3" Style="margin-left: 38%" runat="server" CellPadding="4" CssClass="auto-style33" ForeColor="#333333" GridLines="None" AllowPaging="True" OnPageIndexChanging="GridView_3_PageIndexChanging" PageSize="3">
                     <AlternatingRowStyle BackColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

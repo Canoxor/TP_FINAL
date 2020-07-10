@@ -106,7 +106,7 @@ namespace Vistas
                 FechaInicio = Convert.ToDateTime(txtFechaInicial_2.Text);
                 FechaFin = Convert.ToDateTime(txtFechaFinal_2.Text);
                 grdReporteUsuarios_2.DataSource = neg_Usuario.Procedimientos(Opcion, Codigo, FechaInicio, FechaFin);
-                grdReporteUsuarios_2.DataBind();
+            grdReporteUsuarios_2.DataBind();
             }
             public void CargarGridView_3(int Opcion)
             {
@@ -117,7 +117,7 @@ namespace Vistas
                 FechaInicio = Convert.ToDateTime(txtFechaInicial_3.Text);
                 FechaFin = Convert.ToDateTime(txtFechaFinal_3.Text);
                 grdReporteUsuarios_3.DataSource = neg_Usuario.Procedimientos(Opcion, Codigo, FechaInicio, FechaFin);
-                grdReporteUsuarios_3.DataBind();
+            grdReporteUsuarios_3.DataBind();
             }
 
             protected void btn_Limpiar_1_Click(object sender, EventArgs e)
@@ -140,5 +140,39 @@ namespace Vistas
             {
                 Response.Redirect("ReportesAdministrador.aspx");
             }
+        protected void GridView_2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdReporteUsuarios_2.PageIndex = e.NewPageIndex;
+            int Opcion;
+
+            if (int.Parse(txtOrden_2.Text) == 1)
+            {
+                Opcion = 21;
+                CargarGridView_2(Opcion);
+            }
+            else if (int.Parse(txtOrden_2.Text) == 2)
+            {
+                Opcion = 22;
+                CargarGridView_2(Opcion);
+            }
+        }
+        protected void GridView_3_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdReporteUsuarios_3.PageIndex = e.NewPageIndex;
+            int Opcion;
+
+            if (int.Parse(txtOrden_3.Text) == 1)
+            {
+                Opcion = 31;
+                CargarGridView_3(Opcion);
+            }
+            else if (int.Parse(txtOrden_3.Text) == 2)
+            {
+                Opcion = 32;
+                CargarGridView_3(Opcion);
+            }
+        }
+       
+
         }
 }
