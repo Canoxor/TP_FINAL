@@ -1,5 +1,4 @@
-
--- CREACION DE LA BD + TABLAS
+ï»¿-- CREACION DE LA BD + TABLAS
 -- DROP TABLE PARCIAL_LAB_3_Version_4
 
 CREATE DATABASE PARCIAL_LAB_3_Version_10
@@ -197,6 +196,7 @@ CREATE TABLE Usuarios
 	U_Admin bit not null,
 	U_Email varchar(100) not null,
 	U_Contrasenia varchar(20) not null,
+	U_Fecha_Creacion date,
 	U_Estado bit default '1'
 )
 GO
@@ -273,41 +273,41 @@ INSERT INTO Proveedores(P_Codigo_Proveedor,P_RazonSocial,P_Direccion,P_Ciudad,P_
 GO
 
 INSERT INTO PEGI (PG_Codigo_PEGI,PG_Nombre,PG_Descripcion)
-	SELECT '1','PEGI 3','Es la etiqueta que se utiliza en los juegos adecuados para todas las edades. Estos no deben contener palabras malsonantes, contenido que pueda asustar a los pequeños ni personajes que puedan ser identificables en la vida real.' UNION
-	SELECT '2','PEGI 7','Indica que el juego sigue siendo apto para todos los públicos, pero puede contener imágenes o sonidos que asusten a parte de los espectadores.' UNION
-	SELECT '3','PEGI 12','Los juegos con esta etiqueta presentan un lenguaje más adulto y escenas de violencia gráfica en contextos de fantasía. Se contempla la desnudez parcial y la violencia menos explícita contra personas y/o animales.' UNION
+	SELECT '1','PEGI 3','Es la etiqueta que se utiliza en los juegos adecuados para todas las edades. Estos no deben contener palabras malsonantes, contenido que pueda asustar a los pequeÃ±os ni personajes que puedan ser identificables en la vida real.' UNION
+	SELECT '2','PEGI 7','Indica que el juego sigue siendo apto para todos los pÃºblicos, pero puede contener imÃ¡genes o sonidos que asusten a parte de los espectadores.' UNION
+	SELECT '3','PEGI 12','Los juegos con esta etiqueta presentan un lenguaje mÃ¡s adulto y escenas de violencia grÃ¡fica en contextos de fantasÃ­a. Se contempla la desnudez parcial y la violencia menos explÃ­cita contra personas y/o animales.' UNION
 	SELECT '4','PEGI 16','Se utiliza en los juegos que representan situaciones violentas y delictivas propias de la vida real. Incluyen lenguaje soez, representaciones sexuales y el uso de drogas en muchos casos.' UNION
 	SELECT '5','PEGI 18','Es la etiqueta que representa un contenido totalmente adulto. Los juegos incluyen escenas brutales de violencia y representaciones que pueden ser consideradas obscenas o repugnantes para parte de los espectadores.' UNION
-	SELECT '6','PEGI OK','Se trata de una etiqueta diseñada específicamente para portales web o juegos en línea. Indica que estos sitios son aptos para todas las edades y que no contienen ninguno de los descriptores relacionados con los demas PEGI.'
+	SELECT '6','PEGI OK','Se trata de una etiqueta diseÃ±ada especÃ­ficamente para portales web o juegos en lÃ­nea. Indica que estos sitios son aptos para todas las edades y que no contienen ninguno de los descriptores relacionados con los demas PEGI.'
 GO
 
 INSERT INTO Generos (G_Codigo_Genero,G_Nombre,G_Descripcion)
-	SELECT '1','Accion','Los videojuegos de acción requieren que el jugador haga uso de sus reflejos, puntería y habilidad, a menudo en un contexto de combate o de superación de obstáculos y peligros. Dentro de este amplio género se encuadran varios subgéneros de gran popularidad, como los juegos de disparos, los de lucha, los arcades y los de plataformas, entre otros.' UNION
-	SELECT '2','Disparos','Considerados a menudo como una gran subcategoría dentro del género de acción, en los videojuegos de disparos -también conocidos como shooters- el protagonista hace un uso continuado de armas de fuego para abrirse paso en el juego.' UNION
-	SELECT '3','Estrategia','Se caracterizan por la necesidad de manipular a un numeroso grupo de personajes, objetos o datos, haciendo uso de la inteligencia y la planificación, para lograr los objetivos. Aunque la mayoría de estos juegos son fundamentalmente de temática bélica, los hay también de estrategia económica, empresarial o social.' UNION
-	SELECT '4','Simulacion','Este género se caracteriza por recrear situaciones o actividades del mundo real, dejando al jugador tomar el control de lo que ocurre. En ocasiones la simulación pretende un alto grado de verosimilitud, lo que le otorga una componente didáctica. Los tipos de simulación más populares son los de manejo de vehículos, los de construcción, o los de vida.' UNION
-	SELECT '5','Deporte','Los videojuegos de deportes son aquellos que simulan deportes del mundo real. Entre ellos encontramos golf, tenis, fútbol, hockey, juegos olímpicos, etc. La mecánica del juego es la misma que en el deporte original, aunque a veces incorpora algunos añadidos.' UNION																																																																																																																																												
-	SELECT '6','Carreras','A veces considerados como una subcategoría dentro de los videojuegos de deportes o los de simulación, los videojuegos de carreras o de conducción sitúan al jugador en un recorrido en el que debe llegar a una meta antes que sus contrincantes o dentro de un tiempo límite. Habitualmente el jugador maneja un vehículo a motor, como un coche, aunque existen otras posibilidades.' UNION
+	SELECT '1','Accion','Los videojuegos de acciÃ³n requieren que el jugador haga uso de sus reflejos, punterÃ­a y habilidad, a menudo en un contexto de combate o de superaciÃ³n de obstÃ¡culos y peligros. Dentro de este amplio gÃ©nero se encuadran varios subgÃ©neros de gran popularidad, como los juegos de disparos, los de lucha, los arcades y los de plataformas, entre otros.' UNION
+	SELECT '2','Disparos','Considerados a menudo como una gran subcategorÃ­a dentro del gÃ©nero de acciÃ³n, en los videojuegos de disparos -tambiÃ©n conocidos como shooters- el protagonista hace un uso continuado de armas de fuego para abrirse paso en el juego.' UNION
+	SELECT '3','Estrategia','Se caracterizan por la necesidad de manipular a un numeroso grupo de personajes, objetos o datos, haciendo uso de la inteligencia y la planificaciÃ³n, para lograr los objetivos. Aunque la mayorÃ­a de estos juegos son fundamentalmente de temÃ¡tica bÃ©lica, los hay tambiÃ©n de estrategia econÃ³mica, empresarial o social.' UNION
+	SELECT '4','Simulacion','Este gÃ©nero se caracteriza por recrear situaciones o actividades del mundo real, dejando al jugador tomar el control de lo que ocurre. En ocasiones la simulaciÃ³n pretende un alto grado de verosimilitud, lo que le otorga una componente didÃ¡ctica. Los tipos de simulaciÃ³n mÃ¡s populares son los de manejo de vehÃ­culos, los de construcciÃ³n, o los de vida.' UNION
+	SELECT '5','Deporte','Los videojuegos de deportes son aquellos que simulan deportes del mundo real. Entre ellos encontramos golf, tenis, fÃºtbol, hockey, juegos olÃ­mpicos, etc. La mecÃ¡nica del juego es la misma que en el deporte original, aunque a veces incorpora algunos aÃ±adidos.' UNION																																																																																																																																												
+	SELECT '6','Carreras','A veces considerados como una subcategorÃ­a dentro de los videojuegos de deportes o los de simulaciÃ³n, los videojuegos de carreras o de conducciÃ³n sitÃºan al jugador en un recorrido en el que debe llegar a una meta antes que sus contrincantes o dentro de un tiempo lÃ­mite. Habitualmente el jugador maneja un vehÃ­culo a motor, como un coche, aunque existen otras posibilidades.' UNION
 	SELECT '7','Aventura','Son videojuegos en los que el protagonista debe avanzar en la trama interactuando con diversos personajes y objetos.' UNION
-	SELECT '8','Rol','Emparentados con los de aventura, los videojuegos de rol, o RPG, se caracterizan por la interacción con el personaje, una historia profunda y una evolución del personaje a medida que la historia avanza. Para lograr la evolución generalmente se hace que el jugador se enfrasque en una aventura donde irá conociendo nuevos personajes, explorando el mundo para ir juntando armas, experiencia, aliados e incluso magia. Es habitual, desde la aparición del CD-ROM, la inclusión de videos (cinemáticas) durante el juego, que complementan la narración de la historia y hacen que el jugador se sienta como dentro de una película.'
+	SELECT '8','Rol','Emparentados con los de aventura, los videojuegos de rol, o RPG, se caracterizan por la interacciÃ³n con el personaje, una historia profunda y una evoluciÃ³n del personaje a medida que la historia avanza. Para lograr la evoluciÃ³n generalmente se hace que el jugador se enfrasque en una aventura donde irÃ¡ conociendo nuevos personajes, explorando el mundo para ir juntando armas, experiencia, aliados e incluso magia. Es habitual, desde la apariciÃ³n del CD-ROM, la inclusiÃ³n de videos (cinemÃ¡ticas) durante el juego, que complementan la narraciÃ³n de la historia y hacen que el jugador se sienta como dentro de una pelÃ­cula.'
 GO
 
 INSERT INTO Juegos (J_Imagen,J_Codigo_Juego,J_Codigo_Genero,J_Codigo_PEGI,J_Nombre,J_Descripcion,J_Stock,J_PrecioUnitario,J_Estado)
-	SELECT 'https://cdn-products.eneba.com/resized-products/PHQ5ei2mYthRdM-FhrUqQkUIcKOxYNP6sN_-BSfxp5A_390x400_1x-0.jpeg','1','2','5','Metro Exodus','Un poderoso videojuego basado en las novelas superventas de Dmitri Glujovski. El shooter en primera persona vuelve a apostar por una ambientación postapocalítica muy cuidada, y por mezclar lugares angustiosos, claustrofóbicos y lúgubres con secciones mucho más abiertas.',100,2000,'1' UNION
-	SELECT 'https://http2.mlstatic.com/mafia-3-ps4-fisico-nuevo-sellado-original-D_NQ_NP_764140-MLA31041880928_062019-F.jpg','2','1','5','Mafia 3','un juego de mundo abierto y acción en tercera persona, El juego está ambientado en la ciudad ficticia de New Bordeaux, basada en la Nueva Orleans de 1968, con un diseño de mundo abierto que permite explorar a los jugadores libremente en el juego.',80,3100,'1' UNION
-	SELECT 'https://store-images.s-microsoft.com/image/apps.18799.14047496556148589.9fda5cef-7995-4dbb-a626-66d2ab3feb4f.1e167626-8b7d-47b4-9fe5-d06a43ac6677','3','7','2','Ori and the Will of the Wisps','Embárcate en una aventura totalmente nueva dentro de un inmenso mundo repleto de nuevos amigos y enemigos que cobran vida gracias a un impecable trabajo de diseño artesanal.',40,150,'1' UNION
-	SELECT 'https://hipertextual.com/files/2020/03/hipertextual-call-of-duty-modern-warfare-2-remastered-es-real-se-filtra-su-primera-imagen-2020296416.jpg','4','2','5','Call of Duty Modern Warfare 2 Remaster','Es una edición remasterizada sobre el modo historia del exitoso FPS que garantiza texturas y animaciones mejoradas, renderizado físico, iluminación HDR y otras mejoras gráficas.',105,2800,'1' UNION
-	SELECT 'https://cdn-cms.bnea.io/sites/default/files/games/boxart/196040508899500.jpg','5','8','3','Dragon Ball Z Kakarot','Es un juego de acción y rol y acción a cargo de Cyberconnect y Bandai Namco basado en la conocida marca Dragon Ball, que nos propone revivir los mejores momentos de la serie de Akira Toriyama con una gran aventura de rol que incluye, claro, emocionantes combates contra personajes tan icónicos como Vegeta, Raditz o Freezer. De hecho, el arco de Buu se incluirá en el juego.',55,7000,'1'
+	SELECT 'https://cdn-products.eneba.com/resized-products/PHQ5ei2mYthRdM-FhrUqQkUIcKOxYNP6sN_-BSfxp5A_390x400_1x-0.jpeg','1','2','5','Metro Exodus','Un poderoso videojuego basado en las novelas superventas de Dmitri Glujovski. El shooter en primera persona vuelve a apostar por una ambientaciÃ³n postapocalÃ­tica muy cuidada, y por mezclar lugares angustiosos, claustrofÃ³bicos y lÃºgubres con secciones mucho mÃ¡s abiertas.',100,2000,'1' UNION
+	SELECT 'https://http2.mlstatic.com/mafia-3-ps4-fisico-nuevo-sellado-original-D_NQ_NP_764140-MLA31041880928_062019-F.jpg','2','1','5','Mafia 3','un juego de mundo abierto y acciÃ³n en tercera persona, El juego estÃ¡ ambientado en la ciudad ficticia de New Bordeaux, basada en la Nueva Orleans de 1968, con un diseÃ±o de mundo abierto que permite explorar a los jugadores libremente en el juego.',80,3100,'1' UNION
+	SELECT 'https://store-images.s-microsoft.com/image/apps.18799.14047496556148589.9fda5cef-7995-4dbb-a626-66d2ab3feb4f.1e167626-8b7d-47b4-9fe5-d06a43ac6677','3','7','2','Ori and the Will of the Wisps','EmbÃ¡rcate en una aventura totalmente nueva dentro de un inmenso mundo repleto de nuevos amigos y enemigos que cobran vida gracias a un impecable trabajo de diseÃ±o artesanal.',40,150,'1' UNION
+	SELECT 'https://hipertextual.com/files/2020/03/hipertextual-call-of-duty-modern-warfare-2-remastered-es-real-se-filtra-su-primera-imagen-2020296416.jpg','4','2','5','Call of Duty Modern Warfare 2 Remaster','Es una ediciÃ³n remasterizada sobre el modo historia del exitoso FPS que garantiza texturas y animaciones mejoradas, renderizado fÃ­sico, iluminaciÃ³n HDR y otras mejoras grÃ¡ficas.',105,2800,'1' UNION
+	SELECT 'https://cdn-cms.bnea.io/sites/default/files/games/boxart/196040508899500.jpg','5','8','3','Dragon Ball Z Kakarot','Es un juego de acciÃ³n y rol y acciÃ³n a cargo de Cyberconnect y Bandai Namco basado en la conocida marca Dragon Ball, que nos propone revivir los mejores momentos de la serie de Akira Toriyama con una gran aventura de rol que incluye, claro, emocionantes combates contra personajes tan icÃ³nicos como Vegeta, Raditz o Freezer. De hecho, el arco de Buu se incluirÃ¡ en el juego.',55,7000,'1'
 GO
 
 INSERT INTO TipoPerif(T_Codigo_TipoPerif,T_Nombre,T_Descripcion)
-	SELECT '1','Teclado','Es un dispositivo o periférico de entrada, en parte inspirado en el teclado de las máquinas de escribir, que utiliza un sistema de botones o teclas, para que actúen como palancas mecánicas o interruptores electrónicos que envían toda la información a la computadora.' UNION
-	SELECT '2','Raton','Es un dispositivo apuntador utilizado para facilitar el manejo de un entorno gráfico en una computadora.' UNION
-	SELECT '3','Cámara web','Es una pequeña cámara digital conectada a una computadora la cual puede capturar imágenes y transmitirlas a través de Internet, ya sea a una página web u otras computadoras de forma privada.' UNION
-	SELECT '4','Micrófono','Es un dispositivo de entrada de audio. Se pueden conectar a la computadora para grabar sonido o para comunicarse por internet con otras personas.' UNION
-	SELECT '5','Monitor','Es el principal dispositivo de salida (interfaz), que muestra datos o información al usuario.' UNION
-	SELECT '6','Altavoz','Son dispositivos que permiten la amplificación del sonido. ' UNION
-	SELECT '7','Auriculares','Son transductores que reciben una señal eléctrica de un tocador de medios de comunicación o el receptor y usan altavoces colocados en la proximidad cercana a los oídos para convertir la señal en ondas sonoras audibles.'
+	SELECT '1','Teclado','Es un dispositivo o perifÃ©rico de entrada, en parte inspirado en el teclado de las mÃ¡quinas de escribir, que utiliza un sistema de botones o teclas, para que actÃºen como palancas mecÃ¡nicas o interruptores electrÃ³nicos que envÃ­an toda la informaciÃ³n a la computadora.' UNION
+	SELECT '2','Raton','Es un dispositivo apuntador utilizado para facilitar el manejo de un entorno grÃ¡fico en una computadora.' UNION
+	SELECT '3','CÃ¡mara web','Es una pequeÃ±a cÃ¡mara digital conectada a una computadora la cual puede capturar imÃ¡genes y transmitirlas a travÃ©s de Internet, ya sea a una pÃ¡gina web u otras computadoras de forma privada.' UNION
+	SELECT '4','MicrÃ³fono','Es un dispositivo de entrada de audio. Se pueden conectar a la computadora para grabar sonido o para comunicarse por internet con otras personas.' UNION
+	SELECT '5','Monitor','Es el principal dispositivo de salida (interfaz), que muestra datos o informaciÃ³n al usuario.' UNION
+	SELECT '6','Altavoz','Son dispositivos que permiten la amplificaciÃ³n del sonido. ' UNION
+	SELECT '7','Auriculares','Son transductores que reciben una seÃ±al elÃ©ctrica de un tocador de medios de comunicaciÃ³n o el receptor y usan altavoces colocados en la proximidad cercana a los oÃ­dos para convertir la seÃ±al en ondas sonoras audibles.'
 GO
 
 INSERT INTO Marcas (M_Codigo_Marca,M_Nombre)
@@ -358,10 +358,11 @@ INSERT INTO Prov_X_Juego (PJ_Codigo_Proveedor,PJ_Codigo_Juego,PJ_PrecioCompra)
 	SELECT '3','5',6000 
 GO
 
-INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin, U_Email,U_Contrasenia,U_Estado)
-	SELECT '1','1000','Nicolas','Rodriguez','1','Nico@gmail.com','1111','1' UNION
-	SELECT '2','1001','Mateo','De Benedictis Maza','1','Mateo@gmail.com','2222','1' UNION
-	SELECT '3','1002','Fernando','Lozas','0','Fernando@gmail.com','fernando','1'
+INSERT INTO Usuarios (U_Codigo_Usuario,U_Dni_Usuario,U_Nombre,U_Apellido,U_Admin, U_Email,U_Contrasenia,U_Fecha_Creacion,U_Estado)
+	SELECT '1','1000','Nicolas','Rodriguez','1','Nico@gmail.com','1111','2020-4-4','1' UNION
+	SELECT '2','1001','Mateo','De Benedictis Maza','1','Mateo@gmail.com','2222','2020-5-5','1' UNION
+	SELECT '3','1002','Fernando','Lozas','0','Fernando@gmail.com','fernando','2020-6-6','1' UNION
+	SELECT '4','1003','Nicolas','Rodriguez','0','NicoNormal@gmail.com','Nico123','2020-7-8','1'
 GO
 
 INSERT INTO CodigosDeDescuento (CD_Codigo_CodDescuento,CD_Descripcion,CD_Habilitado,CD_Usos)
@@ -372,11 +373,11 @@ INSERT INTO CodigosDeDescuento (CD_Codigo_CodDescuento,CD_Descripcion,CD_Habilit
 GO
 
 INSERT INTO Noticias (N_Imagen,N_Codigo_Noticia,N_Codigo_Juego,N_Nombre,N_Descripcion,N_Estado)
-	SELECT 'https://as.com/meristation/imagenes/2018/12/28/noticias/1545998865_939497_1545998958_noticia_normal.jpg','1','1','Metro Exodus y las aterradoras criaturas de su mundo','El capítulo ¿final? de la saga Metro cada día luce mejor, mostrando nuevas imágenes que le hacen postularse como uno de los grandes shooters de 2019.
-Metro Exodus tiene tantas ganas de mostrarse al mundo que lo último que hemos sabido del juego es que ha adelantado su fecha de lanzamiento. El tercer y presumiblemente último juego de la saga se ha mostrado en cinco nuevas imágenes sobre los habitantes humanos —y los "no tan humanos"— que nos aguardarán (y acompañarán) en nuestro regreso a la Rusia post-nuclear.','1' UNION
-	SELECT 'https://as01.epimg.net/meristation/imagenes/2019/03/01/noticias/1551419963_392862_1551420039_noticia_normal.jpg','2','4','Call of Duty: Modern Warfare 2 Remastered debuta con cifras millonarias','El modo campaña relanzado del segundo Modern Warfare pone de manifiesto que sigue habiendo interés en experiencias single player.
-La saga Call of Duty se encuentra en su mejor momento de los últimos diez años. Tras el éxito cosechado por Call of Duty: Modern Warfare y su vertiente battle royale comercializada de forma independiente y gratuita (free to play), Warzone, desde SuperData reflejan ahora el exitoso debut que ha tenido Call of Duty: Modern Warfare 2 Remastered, el relanzamiento remasterizado de la campaña para un solo jugador de dicha entrega, que ha sumado solo en abril 3.4 millones de copias en formato digital en todo el mundo; 4 millones en total si sumamos las del último día de marzo.','1' UNION
-	SELECT 'https://media.vandal.net/i/1024x576/5-2020/2020541224503_1.jpg','3','5','Desafía al Dios de la destrucción en Dragon Ball Z Kakarot','Dragon Ball Z Kakarot presenta con El despertar de un nuevo poder - Parte 1 su primer DLC de historia. En él, conoceremos a Whis y Bills (Beerus en el original), y tendremos que despertar un nuevo nivel de poder saiyan para poder afrontar el desafío. Para llegar a ello, Whis nos propondrá una serie de misiones que sirven de entrenamiento.','1' 
+	SELECT 'https://as.com/meristation/imagenes/2018/12/28/noticias/1545998865_939497_1545998958_noticia_normal.jpg','1','1','Metro Exodus y las aterradoras criaturas de su mundo','El capÃ­tulo Â¿final? de la saga Metro cada dÃ­a luce mejor, mostrando nuevas imÃ¡genes que le hacen postularse como uno de los grandes shooters de 2019.
+Metro Exodus tiene tantas ganas de mostrarse al mundo que lo Ãºltimo que hemos sabido del juego es que ha adelantado su fecha de lanzamiento. El tercer y presumiblemente Ãºltimo juego de la saga se ha mostrado en cinco nuevas imÃ¡genes sobre los habitantes humanos Â—y los "no tan humanos"Â— que nos aguardarÃ¡n (y acompaÃ±arÃ¡n) en nuestro regreso a la Rusia post-nuclear.','1' UNION
+	SELECT 'https://as01.epimg.net/meristation/imagenes/2019/03/01/noticias/1551419963_392862_1551420039_noticia_normal.jpg','2','4','Call of Duty: Modern Warfare 2 Remastered debuta con cifras millonarias','El modo campaÃ±a relanzado del segundo Modern Warfare pone de manifiesto que sigue habiendo interÃ©s en experiencias single player.
+La saga Call of Duty se encuentra en su mejor momento de los Ãºltimos diez aÃ±os. Tras el Ã©xito cosechado por Call of Duty: Modern Warfare y su vertiente battle royale comercializada de forma independiente y gratuita (free to play), Warzone, desde SuperData reflejan ahora el exitoso debut que ha tenido Call of Duty: Modern Warfare 2 Remastered, el relanzamiento remasterizado de la campaÃ±a para un solo jugador de dicha entrega, que ha sumado solo en abril 3.4 millones de copias en formato digital en todo el mundo; 4 millones en total si sumamos las del Ãºltimo dÃ­a de marzo.','1' UNION
+	SELECT 'https://media.vandal.net/i/1024x576/5-2020/2020541224503_1.jpg','3','5','DesafÃ­a al Dios de la destrucciÃ³n en Dragon Ball Z Kakarot','Dragon Ball Z Kakarot presenta con El despertar de un nuevo poder - Parte 1 su primer DLC de historia. En Ã©l, conoceremos a Whis y Bills (Beerus en el original), y tendremos que despertar un nuevo nivel de poder saiyan para poder afrontar el desafÃ­o. Para llegar a ello, Whis nos propondrÃ¡ una serie de misiones que sirven de entrenamiento.','1' 
 GO
 
 INSERT INTO Factura (F_Codigo_Factura, F_Codigo_Usuario, F_Codigo_CodDescuento, F_MontoTotal, F_Fecha)
@@ -726,7 +727,8 @@ CREATE PROCEDURE SP_Insert_Usuarios
 	@U_Contrasenia varchar(20)
 )
 AS
-
+DECLARE @U_Fecha_Creacion date
+SET @U_Fecha_Creacion = (SELECT CAST(YEAR(GETDATE()) AS VARCHAR(5)) +'-'+ CAST(MONTH(GETDATE()) AS VARCHAR(3)) +'-'+ CAST(DAY(GETDATE()) AS VARCHAR(3)))
 DECLARE @U_Codigo_Usuario varchar(5)
 SET @U_Codigo_Usuario = (select top 1 (U_Codigo_Usuario)+1
 from Usuarios
@@ -747,6 +749,7 @@ INSERT INTO Usuarios
 	U_Telefono,
 	U_Admin,
 	U_Email,
+	U_Fecha_Creacion,
 	U_Contrasenia
 )
 SELECT 
@@ -758,6 +761,7 @@ SELECT
 	@U_Telefono,
 	@U_Admin,
 	@U_Email,
+	@U_Fecha_Creacion,
 	@U_Contrasenia
 GO
 
@@ -995,9 +999,10 @@ SELECT
 	@DP_Cantidad,
 	@DP_PrecioUnitario
 GO
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 -- REPORTES
---CARGADO
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+--AGREGADO FACTURAS
 CREATE PROCEDURE SP_TotalVentas_X_Fechas
 (
 	@Fecha_Minima date,
@@ -1013,23 +1018,119 @@ AS
 		AND F_Fecha > @Fecha_Minima
 	ORDER BY F_Fecha DESC
 GO
+------------------------------------------------------------------------------------------------------------------------------------------------
+-- PORCENTAJE VENTAS JUEGOS JUEGO DEL TOTAL
+-- Recive fechas y un codigo de genero, devuelve la cantidad vendida
+-- y el porcentaje de ventas de ese JUEGO con respecto a todos los 
+-- demas JUEGOS entre estas fechas.
+--EXEC SP_Porcentaje_Juego_Cantidad '2019-5-5','2020-8-8','1'
+--GO
+--AGREGADO JUEGO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_Porcentaje_Juego_Cantidad
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date,
+	@Juego varchar(5)
+)
+AS
+SELECT 
+	ISNULL(
+	(SELECT SUM(DJ_Cantidad) 
+	FROM DetalleFactura_Juegos
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Juego = @Juego),0) AS [Cantidad vendida],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Juego = @Juego
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DJ_Cantidad) AS [Juegos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje vendido]
+GO
+
+-- PORCENTAJE VENTAS PERIFERICO PERIFERICO DEL TOTAL
+-- Recive fechas y un codigo de periferico, devuelve la cantidad vendida
+-- y el porcentaje de ventas de ese PERIFERICO con respecto a todos los 
+-- demas PERIFERICOS entre estas fechas.
+--EXEC SP_Porcentaje_Periferico_Cantidad '2019-5-5','2020-8-8','1'
+--GO
+CREATE PROCEDURE SP_Porcentaje_Periferico_Cantidad
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date,
+	@Periferico varchar(5)
+)
+AS
+SELECT 
+	ISNULL(
+	(SELECT SUM(DP_Cantidad) 
+	FROM DetalleFactura_Perifericos
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_Periferico = @Periferico),0) AS [Cantidad vendida],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad) AS [Perifericos Vendidos]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_Periferico = @Periferico
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DP_Cantidad) AS [Perifericos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje vendido]
+GO
 
 -- PORCENTAJE VENTAS JUEGOS GENERO DEL TOTAL
---CARGADO
-CREATE PROCEDURE SP_PorcentajeGenero_Juego
+-- Recive fechas y un codigo de genero, devuelve la cantidad vendida
+-- y el porcentaje de ventas de ese GENERO con respecto a todos los 
+-- demas GENEROS entre estas fechas.
+--EXEC SP_PorcentajeGenero_Juego_Cantidad '2019-5-5','2020-8-8','1'
+--GO
+--AGREGADO JUEGO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_Porcentaje_Genero_Cantidad
 (
 	@Fecha_Minima date,
 	@Fecha_Maxima date,
 	@Genero varchar(5)
 )
 AS
-
 SELECT 
+	ISNULL(
 	(SELECT SUM(DJ_Cantidad) 
 	FROM DetalleFactura_Juegos
 		INNER JOIN Juegos
 		ON DJ_Codigo_Juego = J_Codigo_Juego
-	WHERE J_Codigo_Genero = @Genero) AS [Cantidad vendida],
+	WHERE J_Codigo_Genero = @Genero),0) AS [Cantidad vendida],
 	ISNULL(
 	((SELECT SUM(DJ_Cantidad) AS [Juegos vendidos genero]
 	FROM Factura 
@@ -1055,11 +1156,13 @@ SELECT
 	AS [Porcentaje vendido]
 GO
 
---EXEC SP_PorcentajeGenero_Juego '2019-5-5','2020-7-7', '1'
-
 -- PORCENTAJE VENTAS JUEGOS TODOS GENEROS
---CARGADO
-CREATE PROCEDURE SP_PorcentajeGenero_Juego_TodosGeneros
+-- Recive fechas y devuelve el porcentaje de cada
+-- genero entre estas.
+--EXEC SP_PorcentajeGenero_Juego_TodosGeneros_Cantidad '2019-5-5','2020-8-8'
+--GO
+--AGREGADO JUEGO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_Porcentaje_TodosGeneros_Cantidad
 (
 	@Fecha_Minima date,
 	@Fecha_Maxima date
@@ -1252,61 +1355,101 @@ SELECT
 		,0)
 	AS [Rol]
 GO
---EXEC SP_PorcentajeGenero_Juego_TodosGeneros '2019-5-5','2020-7-7'
 
--- VERIFICA STOCK JUEGOS ORD STOCK
---CARGADO
-CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenStock
+-- PORCENTAJE JUEGO DEL TOTAL RECAUDADO
+-- Recive fechas y un codigo de genero, devuelve el monto recaudado
+-- y el porcentaje que representa ese genero con respecto a todos los 
+-- demas recaudado entre estas fechas.
+--EXEC SP_Porcentaje_Juego_Monto '2019-5-5','2020-8-8','1'
+--GO
+--AGREGADO JUEGO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_Porcentaje_Juego_Monto
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date,
+	@Juego varchar(5)
+)
 AS
-SELECT J_Codigo_Juego AS [Codigo],
-	   G_Nombre AS [Genero],
-	   J_Nombre AS [Nombre],
-	   J_Stock AS [Stock],
-	   [Estado del Stock] =
-	CASE
-		WHEN J_Stock <= 10 THEN 'Escaso'
-		WHEN J_Stock > 10 AND
-			 J_Stock <= 20 THEN 'Por escasear'
-		WHEN J_Stock > 20 AND
-			 J_Stock <= 30 THEN 'Regular'
-		WHEN J_Stock > 30 AND
-			 J_Stock <= 40 THEN 'En condiciones'
-		ELSE 'Excelente'
-	END
-FROM Juegos
-INNER JOIN Generos
-ON J_Codigo_Genero = G_Codigo_Genero
-ORDER BY J_Stock ASC
+SELECT 
+	ISNULL(
+	(SELECT SUM(DJ_Cantidad*DJ_PrecioUnitario) 
+	FROM DetalleFactura_Juegos
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Juego = @Juego),0) AS [Recaudacion],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad*DJ_PrecioUnitario)
+	FROM Factura 
+		INNER JOIN DetalleFactura_Juegos
+		ON F_Codigo_Factura = DJ_Codigo_Factura
+		INNER JOIN Juegos
+		ON DJ_Codigo_Juego = J_Codigo_Juego
+	WHERE J_Codigo_Juego = @Juego
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(F_MontoTotal)
+	FROM Factura 
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje de recaudacion]
 GO
 
--- VERIFICA STOCK JUEGOS ORD GENERO
---CARGADO
-CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenGenero
+-- PORCENTAJE PERIFERICO DEL TOTAL RECAUDADO
+-- Recive fechas y un codigo de periferico, devuelve el monto recaudado
+-- y el porcentaje que representa ese periferico con respecto a todos los 
+-- demas recaudado entre estas fechas.
+--EXEC SP_Porcentaje_Periferico_Monto '2019-5-5','2020-8-8','1'
+--GO
+--AGREGADO PERIFERICO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_Porcentaje_Periferico_Monto
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date,
+	@Periferico varchar(5)
+)
 AS
-SELECT J_Codigo_Juego AS [Codigo],
-	   G_Nombre AS [Genero],
-	   J_Nombre AS [Nombre],
-	   J_Stock AS [Stock],
-	   [Estado del Stock] =
-	CASE
-		WHEN J_Stock <= 10 THEN 'Escaso'
-		WHEN J_Stock > 10 AND
-			 J_Stock <= 20 THEN 'Por escasear'
-		WHEN J_Stock > 20 AND
-			 J_Stock <= 30 THEN 'Regular'
-		WHEN J_Stock > 30 AND
-			 J_Stock <= 40 THEN 'En condiciones'
-		ELSE 'Excelente'
-	END
-FROM Juegos
-INNER JOIN Generos
-ON J_Codigo_Genero = G_Codigo_Genero
-ORDER BY G_Nombre ASC
+SELECT 
+	ISNULL(
+	(SELECT SUM(DP_Cantidad*DP_PrecioUnitario) 
+	FROM DetalleFactura_Perifericos
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_Periferico = @Periferico),0) AS [Recaudacion],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad*DP_PrecioUnitario)
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_Periferico = @Periferico
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(F_MontoTotal)
+	FROM Factura 
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje de recaudacion]
 GO
+
+
 
 -- PORCENTAJE VENTAS PERIFERICO TIPO DEL TOTAL
---CARGADO
-CREATE PROCEDURE SP_PorcentajeTipo_Periferico
+-- Recive fechas y un codigo de tipo, devuelve la cantidad vendida
+-- y el porcentaje de ventas de ese tipo con respecto a todos los 
+-- demas tipos entre estas fechas.
+--EXEC SP_PorcentajeTipo_Periferico_Cantidad '2019-5-5','2020-8-8','1'
+--GO
+--AGREGADO PERIFERICO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_Porcentaje_TipoPerif_Cantidad
 (
 	@Fecha_Minima date,
 	@Fecha_Maxima date,
@@ -1346,14 +1489,18 @@ SELECT
 GO
 
 -- PORCENTAJE VENTAS PERIFERICO TODOS LOS TIPOS
---CARGADO
-CREATE PROCEDURE SP_PorcentajeTipo_Periferico_TodosTipos
+-- Recive fechas y devuelve el porcentaje de cada
+-- genero entre estas.
+--EXEC SP_PorcentajeTipo_Periferico_TodosTipos_Cantidad '2019-5-5','2020-8-8'
+--GO
+--AGREGADO PERIFERICO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_Porcentaje_TodosTipos_Cantidad
 (
 	@Fecha_Minima date,
 	@Fecha_Maxima date
 )
 AS
---Teclado,Raton,Cámara web,Micrófono,Altavoz,Auriculares
+--Teclado,Raton,CÃ¡mara web,MicrÃ³fono,Monitor,Altavoz,Auriculares
 SELECT
     ISNULL(
 	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
@@ -1423,7 +1570,7 @@ SELECT
 	WHERE F_Fecha > @Fecha_Minima
 		AND F_Fecha < @Fecha_Maxima)
 		,0)
-	AS [Cámara web],
+	AS [CÃ¡mara web],
 	ISNULL(
 	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
 	FROM Factura 
@@ -1446,7 +1593,7 @@ SELECT
 	WHERE F_Fecha > @Fecha_Minima
 		AND F_Fecha < @Fecha_Maxima)
 		,0)
-	AS [Micrófono],
+	AS [MicrÃ³fono],
 	ISNULL(
 	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
 	FROM Factura 
@@ -1469,7 +1616,7 @@ SELECT
 	WHERE F_Fecha > @Fecha_Minima
 		AND F_Fecha < @Fecha_Maxima)
 		,0)
-	AS [Altavoz],
+	AS [Monitor],
 	ISNULL(
 	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
 	FROM Factura 
@@ -1492,13 +1639,37 @@ SELECT
 	WHERE F_Fecha > @Fecha_Minima
 		AND F_Fecha < @Fecha_Maxima)
 		,0)
+	AS [Altavoz],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad) AS [Perifericos vendidos tipo]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE PE_Codigo_TipoPerif = '7'
+		AND F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(DP_Cantidad) AS [Perifericos vendidos totales]
+	FROM Factura 
+		INNER JOIN DetalleFactura_Perifericos
+		ON F_Codigo_Factura = DP_Codigo_Factura
+		INNER JOIN Perifericos
+		ON DP_Codigo_Periferico = PE_Codigo_Periferico
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
 	AS [Auriculares]
 GO
 
---EXEC SP_PorcentajeTipo_Periferico_TodosTipos '2019-5-5','2020-7-7'
 
 -- VERIFICA STOCK PERIFERICOS ORD STOCK
---CARGADO
+-- Informa el estado del stock de todos los perifericos
+-- ordenado con el stock de forma asc
+--AGREGADO PERIFERICO------------------------------------------------------------------------------
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenStock
 AS
 SELECT PE_Codigo_Periferico AS [Codigo],
@@ -1523,7 +1694,9 @@ ORDER BY PE_Stock ASC
 GO
 
 -- VERIFICA STOCK PERIFERICOS ORD TIPO
---CARGADO
+-- Informa el estado del stock de todos los perifericos
+-- ordenado con el tipo de forma asc
+--AGREGADO PERIFERICO------------------------------------------------------------------------------
 CREATE PROCEDURE SP_VerificarStock_Perifericos_OrdenTipo
 AS
 SELECT PE_Codigo_Periferico AS [Codigo],
@@ -1547,88 +1720,323 @@ ON PE_Codigo_TipoPerif = T_Codigo_TipoPerif
 ORDER BY T_Nombre ASC
 GO
 
--- COMPRAS POR CADA USUARIOS ENTRE FECHAS
-CREATE PROCEDURE SP_ComprasRealizadas
+-- VERIFICA STOCK JUEGOS ORD STOCK
+-- Informa el estado del stock de todos los juegos
+-- ordenado con el stock de forma asc
+--AGREGADO JUEGO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenStock
+AS
+SELECT J_Codigo_Juego AS [Codigo],
+	   G_Nombre AS [Genero],
+	   J_Nombre AS [Nombre],
+	   J_Stock AS [Stock],
+	   [Estado del Stock] =
+	CASE
+		WHEN J_Stock <= 10 THEN 'Escaso'
+		WHEN J_Stock > 10 AND
+			 J_Stock <= 20 THEN 'Por escasear'
+		WHEN J_Stock > 20 AND
+			 J_Stock <= 30 THEN 'Regular'
+		WHEN J_Stock > 30 AND
+			 J_Stock <= 40 THEN 'En condiciones'
+		ELSE 'Excelente'
+	END
+FROM Juegos
+INNER JOIN Generos
+ON J_Codigo_Genero = G_Codigo_Genero
+ORDER BY J_Stock ASC
+GO
+
+-- VERIFICA STOCK JUEGOS ORD GENERO
+-- Informa el estado del stock de todos los juegos
+-- ordenado con el genero de forma asc
+--AGREGADO JUEGO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_VerificarStock_Juegos_OrdenGenero
+AS
+SELECT J_Codigo_Juego AS [Codigo],
+	   G_Nombre AS [Genero],
+	   J_Nombre AS [Nombre],
+	   J_Stock AS [Stock],
+	   [Estado del Stock] =
+	CASE
+		WHEN J_Stock <= 10 THEN 'Escaso'
+		WHEN J_Stock > 10 AND
+			 J_Stock <= 20 THEN 'Por escasear'
+		WHEN J_Stock > 20 AND
+			 J_Stock <= 30 THEN 'Regular'
+		WHEN J_Stock > 30 AND
+			 J_Stock <= 40 THEN 'En condiciones'
+		ELSE 'Excelente'
+	END
+FROM Juegos
+INNER JOIN Generos
+ON J_Codigo_Genero = G_Codigo_Genero
+ORDER BY G_Nombre ASC
+GO
+
+-- TOTAL RECAUDADO ENTRE FECHAS
+-- Recive fechas y devuelve lo recaudado entre estas.
+--AGREGADO FACTURAS
+CREATE PROCEDURE SP_TotalRecaudado
+(
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT SUM(F_MontoTotal) FROM Factura
+	WHERE F_Fecha >= @Fecha_MIN
+	AND F_Fecha <= @Fecha_MAX 
+GO
+
+-- TOTAL RECAUDADO POR JUEGO ENTRE FECHAS
+-- Recive fechas y un codigo de juego, devuelve lo recaudado
+-- por el juego entre las fechas.
+--EXEC SP_TotalRecaudado_Juego '2019-5-5','2020-8-8','5'
+--GO
+--AGREGADO JUEGO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_TotalRecaudado_Juego
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date,
+	@Juego varchar(5)
+)
+AS
+SELECT ISNULL(SUM(DJ_PrecioUnitario * DJ_Cantidad),0) FROM Factura
+	INNER JOIN DetalleFactura_Juegos
+	ON F_Codigo_Factura = DJ_Codigo_Factura
+		WHERE DJ_Codigo_Juego = @Juego
+		AND F_Fecha >= @Fecha_Minima
+		AND F_Fecha <= @Fecha_Maxima
+
+GO
+
+-- TOTAL RECAUDADO POR PERIFERICO ENTRE FECHAS
+-- Recive fechas y un codigo de juego, devuelve lo recaudado
+-- por el juego entre las fechas.
+--EXEC SP_TotalRecaudado_Periferico '1','2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_TotalRecaudado_Periferico
+(
+	@Periferico varchar(5),
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT ISNULL(SUM(DP_PrecioUnitario*DP_Cantidad),0) FROM Factura
+	INNER JOIN DetalleFactura_Perifericos
+	ON F_Codigo_Factura = DP_Codigo_Factura
+		WHERE DP_Codigo_Periferico = @Periferico
+		AND F_Fecha >= @Fecha_MIN
+		AND F_Fecha <= @Fecha_MAX
+GO
+
+-- TOTAL RECAUDADO POR TODOS LOS PERIFERICOS ENTRE FECHAS
+-- Recive fechas y devuelve lo recaudado por todos los
+-- perifericos entre estas.
+--EXEC SP_TotalRecaudado_TodosPerifericos '2019-5-5','2020-8-8'
+--GO
+--AGREGADO PERIFERICO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_TotalRecaudado_TodosPerifericos
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date
+)
+AS
+SELECT 
+	ISNULL(
+	(SELECT SUM(DP_Cantidad*DP_PrecioUnitario) 
+	FROM DetalleFactura_Perifericos
+	inner join Factura
+	on F_Codigo_Factura = DP_Codigo_Factura
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima),0) 
+	AS [Recaudacion],
+	ISNULL(
+	((SELECT SUM(DP_Cantidad*DP_PrecioUnitario) 
+	FROM DetalleFactura_Perifericos 
+	inner join Factura
+	on F_Codigo_Factura = DP_Codigo_Factura
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(F_MontoTotal)
+	FROM Factura 
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje de recaudacion]
+GO
+
+-- TOTAL RECAUDADO POR TODOS LOS JUEGOS ENTRE FECHAS
+-- Recive fechas y devuelve lo recaudado por todos los
+-- juegos entre estas.
+--EXEC SP_TotalRecaudado_TodosJuegos '2019-5-5','2020-8-8'
+--GO
+--AGREGADO JUEGO------------------------------------------------------------------------------
+CREATE PROCEDURE SP_TotalRecaudado_TodosJuegos
+(
+	@Fecha_Minima date,
+	@Fecha_Maxima date
+)
+AS
+SELECT 
+	ISNULL(
+	(SELECT SUM(DJ_Cantidad*DJ_PrecioUnitario) 
+	FROM DetalleFactura_Juegos
+	inner join Factura
+	on F_Codigo_Factura = DJ_Codigo_Factura
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima),0) 
+	AS [Recaudacion],
+	ISNULL(
+	((SELECT SUM(DJ_Cantidad*DJ_PrecioUnitario) 
+	FROM DetalleFactura_Juegos 
+	inner join Factura
+	on F_Codigo_Factura = DJ_Codigo_Factura
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+
+		*100)/
+
+	(SELECT SUM(F_MontoTotal)
+	FROM Factura 
+	WHERE F_Fecha > @Fecha_Minima
+		AND F_Fecha < @Fecha_Maxima)
+		,0)
+	AS [Porcentaje de recaudacion]
+GO
+
+-- VENTAS POR CADA USUARIOS ENTRE FECHAS
+-- Recive fechas y un codigo de usuario y devuelve
+-- la cantidad de compras realizadas por ese usuario
+--EXEC SP_ComprasRealizadas_Usuario '1','2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_ComprasRealizadas_Usuario
 (
 	@Usuario varchar(5),
 	@Fecha_MIN date,
 	@Fecha_MAX date
 )
 AS
-SELECT COUNT(*) AS [Compras realidazas] FROM Factura WHERE F_Codigo_Usuario = @Usuario
-														AND F_Fecha >= @Fecha_MIN
-														AND F_Fecha <= @Fecha_MAX
-GO
-
--- FACTURAS DE CADA USUARIO
-CREATE PROCEDURE SP_VentasPorUsuario_Ord_Usuario
-(
-	@Fecha_MIN date,
-	@Fecha_MAX date
-)
-AS
-SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Factura 
-	INNER JOIN Usuarios
-	ON F_Codigo_Usuario = U_Codigo_Usuario
-	WHERE F_Fecha >= @Fecha_MIN
-	AND F_Fecha <= @Fecha_MAX 
-	ORDER BY F_Codigo_Usuario ASC
-GO
-
--- COMPRAS X USUARIOS ORD FECHA DESC
-CREATE PROCEDURE SP_VentasPorUsuario_Ord_FechaDESC
-(
-	@Fecha_MIN date,
-	@Fecha_MAX date
-)
-AS
-SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Factura 
-	INNER JOIN Usuarios
-	ON F_Codigo_Usuario = U_Codigo_Usuario
-	WHERE F_Fecha >= @Fecha_MIN
-	AND F_Fecha <= @Fecha_MAX 
-	ORDER BY F_Fecha DESC
+SELECT COUNT(*) AS [Compras realidazas]
+FROM Factura 
+	WHERE F_Codigo_Usuario = @Usuario
+		AND F_Fecha >= @Fecha_MIN
+		AND F_Fecha <= @Fecha_MAX
 GO
 
 -- COMPRAS X USUARIOS ORD FECHA ASC
-CREATE PROCEDURE SP_VentasPorUsuario_Ord_FechaASC
+-- Recive fechas y devuelve las compras realizadas por todos
+-- los usuarios ordenado por fecha desc
+--EXEC SP_ComprasPorUsuario_Ord_FechaASC '2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_ComprasPorUsuario_Ord_FechaASC
 (
 	@Fecha_MIN date,
 	@Fecha_MAX date
 )
 AS
-SELECT F_Codigo_Usuario,U_Nombre,U_Dni_Usuario,F_Codigo_Factura,F_Fecha FROM Factura 
+SELECT F_Codigo_Factura AS [Factura NÂ°],
+		F_Fecha AS [Fecha],
+		F_MontoTotal AS [Monto],
+		F_Codigo_Usuario AS [Usuario],
+		U_Nombre AS [Nombre],
+		U_Dni_Usuario AS [Dni NÂ°]
+		FROM Factura 
+	INNER JOIN Usuarios
+	ON F_Codigo_Usuario = U_Codigo_Usuario
+	WHERE F_Fecha >= @Fecha_MIN
+	AND F_Fecha <= @Fecha_MAX 
+	ORDER BY F_Fecha ASC
+GO
+
+-- COMPRAS X USUARIOS ORD FECHA DESC
+-- Recive fechas y devuelve las compras realizadas por todos
+-- los usuarios ordenado por fecha desc
+--EXEC SP_ComprasPorUsuario_Ord_FechaDESC '2019-5-5','2020-8-8'
+--GO
+CREATE PROCEDURE SP_ComprasPorUsuario_Ord_FechaDESC
+(
+	@Fecha_MIN date,
+	@Fecha_MAX date
+)
+AS
+SELECT F_Codigo_Factura AS [Factura NÂ°],
+		F_Fecha AS [Fecha],
+		F_MontoTotal AS [Monto],
+		F_Codigo_Usuario AS [Usuario],
+		U_Nombre AS [Nombre],
+		U_Dni_Usuario AS [Dni NÂ°]
+		FROM Factura 
 	INNER JOIN Usuarios
 	ON F_Codigo_Usuario = U_Codigo_Usuario
 	WHERE F_Fecha >= @Fecha_MIN
 	AND F_Fecha <= @Fecha_MAX 
 	ORDER BY F_Fecha DESC
 GO
+
+-- USUARIOS CREADOS EN RANGO FECHAS ASC
+-- Recive fechas y devuelve los usuarios que
+-- se crearon entre estas ordenados de forma ASC
+CREATE PROCEDURE SP_UsuariosCreados_FechaASC
+(
+	@Fecha_MIN DATE,
+	@Fecha_MAX DATE
+)
+AS
+SELECT U_Codigo_Usuario AS [Codigo],
+	   U_Nombre AS [Nombre],
+	   U_Apellido AS [Apellido],
+	   U_Dni_Usuario AS [Dni],
+	   U_Fecha_Creacion [Fecha] 
+	   FROM Usuarios
+	WHERE U_Fecha_Creacion >= @Fecha_MIN
+	AND U_Fecha_Creacion <= @Fecha_MAX
+	ORDER BY U_Fecha_Creacion ASC
+GO
+
+-- USUARIOS CREADOS EN RANGO FECHAS DESC
+-- Recive fechas y devuelve los usuarios que
+-- se crearon entre estas ordenados de forma DESC
+CREATE PROCEDURE SP_UsuariosCreados_FechaDESC
+(
+	@Fecha_MIN DATE,
+	@Fecha_MAX DATE
+)
+AS
+SELECT U_Codigo_Usuario AS [Codigo],
+	   U_Nombre AS [Nombre],
+	   U_Apellido AS [Apellido],
+	   U_Dni_Usuario AS [Dni],
+	   U_Fecha_Creacion [Fecha] 
+	   FROM Usuarios
+	WHERE U_Fecha_Creacion >= @Fecha_MIN
+	AND U_Fecha_Creacion <= @Fecha_MAX
+	ORDER BY U_Fecha_Creacion DESC
+GO
+--EXEC SP_UsuariosCreados_FechaASC '2019-5-5','2020-8-8'
+--GO
 -----------------------------------------------------------------------------------------------------------------------------
 /*
 SELECT * FROM DetalleFactura_Juegos
 GO
-SELECT * FROM DetalleFactura_Perifericos
-GO
-
 SELECT *
 FROM Factura
 WHERE F_Fecha >= '2019-5-5'
 AND F_Fecha <= '2019-5-5'
-
 EXEC SP_PorcentajeGenero_Juego '2019-5-5','2020-7-7','1'
 GO
 EXEC SP_PorcentajeTipo_Periferico '2019-5-5','2020-7-7','1'
 GO
 EXEC SP_VerificarStock_Juegos_OrdenStock
 GO
-
 SELECT SUM(DJ_Cantidad)
 FROM Factura INNER JOIN DetalleFactura_Juegos
 ON F_Codigo_Factura = DJ_Codigo_Factura
 WHERE F_Fecha > '2019-5-5'
 AND F_Fecha < '2020-7-7'
-
 -- TOTAL VENDIDOS DE TAL FECHA
 SELECT SUM(DJ_Cantidad) AS [Juegos vendidos]
 FROM Factura 
@@ -1638,7 +2046,6 @@ INNER JOIN Juegos
 ON DJ_Codigo_Juego = J_Codigo_Juego
 WHERE F_Fecha > '2019-5-5'
 AND F_Fecha < '2020-7-7'
-
 -- TOTAL VENDIDOS DE TAL FECHA + GENERO
 SELECT SUM(DJ_Cantidad) AS [Juegos vendidos]
 FROM Factura 
@@ -1649,13 +2056,9 @@ ON DJ_Codigo_Juego = J_Codigo_Juego
 WHERE J_Codigo_Genero = '1'
 AND F_Fecha > '2019-5-5'
 AND F_Fecha < '2020-7-7'
-
 --EXEC SP_Insert_Detalle_Periferico '1',2,100
-
 --SELECT * FROM DetalleFactura_Perifericos WHERE DP_Codigo_Factura = (SELECT MAX(DP_Codigo_Factura) FROM DetalleFactura_Perifericos)
-
 -- CONSULTAS 
-
 -- Verificar STOCK escaso
 SELECT PE_Codigo_Periferico AS [Codigo], 
 	   PE_Nombre AS [Nombre], 
@@ -1672,7 +2075,6 @@ SELECT PE_Codigo_Periferico AS [Codigo],
 	END
 FROM Perifericos
 GO
-
 -- Verificar STOCK = 0
 IF EXISTS (SELECT * FROM Perifericos
 		   WHERE PE_Stock = 0)
@@ -1683,12 +2085,10 @@ IF EXISTS (SELECT * FROM Perifericos
 ELSE
 	SELECT 'Ningun periferico esta sin stock' AS [Mensaje]
 GO
-
 -- Retorna la fecha actual
 --SELECT CAST(DAY(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(MONTH(GETDATE()) AS VARCHAR(3)) +'/'+ CAST(YEAR(GETDATE()) AS VARCHAR(5));
 --GO
-
--- Suma la recaudacion total de todos los años
+-- Suma la recaudacion total de todos los aÃ±os
 */
 
 --TRIGGERS
@@ -1710,8 +2110,8 @@ UPDATE Juegos
 SET J_Stock = (J_Stock - (SELECT DJ_Cantidad FROM inserted))
 WHERE J_Codigo_Juego = (SELECT DJ_Codigo_Juego FROM inserted)
 GO
+
 --SELECT * FROM Perifericos WHERE PE_Codigo_Periferico = '3'
 --GO
 --EXEC SP_Insert_Detalle_Periferico '3',2,2000
 --GO
-

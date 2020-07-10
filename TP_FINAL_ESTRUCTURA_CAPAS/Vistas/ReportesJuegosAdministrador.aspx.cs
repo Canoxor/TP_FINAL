@@ -16,12 +16,17 @@ namespace Vistas
         protected DataTable tabla = new DataTable();
         protected NegocioJuego neg_Juego = new NegocioJuego();
         protected Juego juego = new Juego();
+        protected NegocioNoticia N_Noticia = new NegocioNoticia();
+        protected Usuario usuario = new Usuario();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
-                cargarDDLGeneros();
+                cargarTodosLosDDL();
+                setLabelUsuario();
             }
+            setLabelUsuario();
         }
 
         public void cargarGridViewStock(int opc)
@@ -34,6 +39,12 @@ namespace Vistas
         {
             grdReporteGeneros.DataSource = neg_Juego.porcentajeGenerosVendidos(opc, fechaInicio, fechaFin, codGenero);
             grdReporteGeneros.DataBind();
+        }
+
+        public void cargarGridViewJuegos(int opc, DateTime fechaInicio, DateTime fechaFin, int codJuego, GridView grd)
+        {
+            grd.DataSource = neg_Juego.reportePorcentajeJuegosVendidos(opc, fechaInicio, fechaFin, codJuego);
+            grd.DataBind();
         }
 
         public void cargarDDLGeneros()
@@ -52,6 +63,31 @@ namespace Vistas
             ddlGeneros.Items.Insert(0, new ListItem("--Seleccione Genero--", "0"));
             ddlGeneros.SelectedValue = "0";
             
+        }
+
+        protected void cargarTodosLosDDL()
+        {
+            cargarDDLGeneros();
+            cargarDDLJuegos(ddlJuegosCantVendidos);
+            cargarDDLJuegos(ddlJuegosPorcentajeMonto);
+        }
+
+        protected void cargarDDLJuegos(DropDownList ddlJuego)
+        {
+
+            tabla = N_Noticia.tablaJuegos();
+
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                ListItem item = new ListItem(tabla.Rows[i][3].ToString(), tabla.Rows[i][0].ToString());
+                ddlJuego.Items.Add(item);
+            }
+
+            ddlJuego.DataTextField = "J_Nombre";
+            ddlJuego.DataValueField = "J_Codigo_Juego";
+            ddlJuego.DataBind();
+            ddlJuego.Items.Insert(0, new ListItem("--Seleccione Juego--", "0"));
+            ddlJuego.SelectedValue = "0";
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -134,5 +170,73 @@ namespace Vistas
                 lblMensajeAclarativoGrdGeneros.Text = "El valor de cada columna corresponde al porcentaje sobre 100 de la cantidad de titulos vendidos de cada genero";
             }
         }
+
+        protected void btnFiltrarCantJuegosVendidos_Click(object sender, EventArgs e)
+        {
+            cargarGridViewJuegos(1, Convert.ToDateTime(txtFechaInicialCantVendidos.Text), Convert.ToDateTime(txtFechaFinalCantVendidos.Text), Convert.ToInt32(ddlJuegosCantVendidos.SelectedValue), grdCantJuegosVendidos);
+        }
+
+        protected void btnLimpiarFiltrosCantJuegosVendidos_Click(object sender, EventArgs e)
+        {
+            txtFechaInicialCantVendidos.Text = "";
+            txtFechaFinalCantVendidos.Text = "";
+            ddlJuegosCantVendidos.SelectedIndex = 0;
+            grdCantJuegosVendidos.DataSource = null;
+            grdCantJuegosVendidos.DataBind();
+        }
+
+        protected void btnFiltrarPorcentajeMonto_Click(object sender, EventArgs e)
+        {
+            lblMensajeAclarativoMontoJuego.Text = "";
+            lblValidacionDDLJuegos.Text = "";
+            if (!cb_JuegosMonto.Checked)
+            {
+                if (Convert.ToInt32(ddlJuegosPorcentajeMonto.SelectedValue) == 0)
+                {
+                    lblValidacionDDLJuegos.Text = "Ingrese un Juego";
+                }
+                else
+                {
+                    cargarGridViewJuegos(2, Convert.ToDateTime(txtFechaInicialPorcentajeMonto.Text), Convert.ToDateTime(txtFechaFinalPorcentajeMonto.Text), Convert.ToInt32(ddlJuegosPorcentajeMonto.SelectedValue), grdPorcentajeMontoJuego);
+                    lblMensajeAclarativoMontoJuego.Text = "El Porcentaje de recaudacion que se muestra en pantalla corresponde a la ganancia obtenida de este juego por sobre el total facturado (Juegos + Perifericos)";
+                }
+
+            }
+            else
+            {
+                cargarGridViewJuegos(3, Convert.ToDateTime(txtFechaInicialPorcentajeMonto.Text), Convert.ToDateTime(txtFechaFinalPorcentajeMonto.Text), 1, grdPorcentajeMontoJuego);
+                lblMensajeAclarativoMontoJuego.Text = "El Porcentaje de recaudacion que se muestra en pantalla corresponde a la ganancia obtenida de los juegos por sobre el total facturado (Juegos + Perifericos)";
+            }
+        }
+
+        protected void btnLimpiarFiltrosPorcentajeMonto_Click(object sender, EventArgs e)
+        {
+            txtFechaInicialPorcentajeMonto.Text = "";
+            txtFechaFinalPorcentajeMonto.Text = "";
+            lblMensajeAclarativoMontoJuego.Text = "";
+            lblValidacionDDLJuegos.Text = "";
+            ddlJuegosPorcentajeMonto.SelectedIndex = 0;
+            grdPorcentajeMontoJuego.DataSource = null;
+            grdPorcentajeMontoJuego.DataBind();
+        }
+
+        protected void cb_JuegosMonto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_JuegosMonto.Checked == true)
+            {
+                ddlJuegosPorcentajeMonto.Enabled = false;
+            }
+            else
+            {
+                ddlJuegosPorcentajeMonto.Enabled = true;
+            }
+        }
+
+        protected void setLabelUsuario()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblUsuario.Text = usuario.Nombre;
+        }
+
     }
 }

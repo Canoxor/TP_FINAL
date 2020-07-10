@@ -37,6 +37,11 @@ namespace Negocio
             return D_Periferico.reportePorcentajeTipoPerifericosVendido(opc, fechaMinima, fechaMaxima, codPTipoPerif);
         }
 
+        public DataTable reportePorcentajePerifericosVendidos(int opc, DateTime fechaMinima, DateTime fechaMaxima, int codPeriferico)
+        {
+            return D_Periferico.reportePorcentajePerifericosVendidos(opc, fechaMinima, fechaMaxima, codPeriferico);
+        }
+
         public bool activarPeriferico(Periferico p)
         {
             int activo = D_Periferico.activarrPeriferico(p);
@@ -58,6 +63,11 @@ namespace Negocio
         public DataTable tablaTipoPerifericos()
         {
             return D_Periferico.traerTipoPeriferico();
+        }
+
+        public DataTable tablaPerifericos()
+        {
+            return D_Periferico.traerPerifericos();
         }
 
         public bool BajaPeriferico(int id)

@@ -126,6 +126,19 @@ namespace Datos
 
         }
 
+        private void armarParametrosInformeTotalRecaudado(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@Fecha_MIN", SqlDbType.Date);
+            sqlParametros.Value = fechaMinima;
+            sqlParametros = comando.Parameters.Add("@Fecha_MAX", SqlDbType.Date);
+            sqlParametros.Value = fechaMaxima;
+
+        }
+
+
+
+
         private void armarParametrosDetallePerifericoAgregar(ref SqlCommand comando, DetalleFacturaPeriferico dp)
         {
             SqlParameter sqlParametros = new SqlParameter();

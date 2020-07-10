@@ -42,6 +42,12 @@ namespace Datos
             return tabla;
         }
 
+        public DataTable traerPerifericos()
+        {
+            DataTable tabla = ds.ObtenerTabla("Perifericos", "Select * from Perifericos");
+            return tabla;
+        }
+
         public DataTable traerTipoPeriferico()
         {
             DataTable tabla = ds.ObtenerTabla("TipoPerif", "Select * from TipoPerif");
@@ -119,17 +125,43 @@ namespace Datos
             {
                 case 1:
                     armarParametrosPorcentajeTipoPeriferico(ref comando, fechaMinima, fechaMaxima, codPerif);
-                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeTipo_Periferico", "TipoPerifericoPorID");
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_TipoPerif_Cantidad", "TipoPerifericoPorID");
                     break;
                 case 2:
                     armarParametrosPorcentajeTodosLosTipoPeriferico(ref comando, fechaMinima, fechaMaxima);
-                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_PorcentajeTipo_Periferico_TodosTipos", "TodosLosTipoPerifericos");
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_TodosTipos_Cantidad", "TodosLosTipoPerifericos");
                     break;
                 default:
                     break;
             }
             return tabla;
         }
+
+
+        public DataTable reportePorcentajePerifericosVendidos(int opc, DateTime fechaMinima, DateTime fechaMaxima, int codPeriferico)
+        {
+            SqlCommand comando = new SqlCommand();
+            DataTable tabla = null;
+            switch (opc)
+            {
+                case 1:
+                    armarParametrosPorcentajePeriferico(ref comando, fechaMinima, fechaMaxima, codPeriferico);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_Periferico_Cantidad", "PorcentajeCantidadPeriferico");
+                    break;
+                case 2:
+                    armarParametrosPorcentajePeriferico(ref comando, fechaMinima, fechaMaxima, codPeriferico);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_Porcentaje_Periferico_Monto", "PorcentajeMontoPeriferico");
+                    break;
+                case 3:
+                    armarParametrosPorcentajeTodosLosTipoPeriferico(ref comando, fechaMinima, fechaMaxima);
+                    tabla = ds.EjecutarProcedimientoAlmacenadoReporte(comando, "SP_TotalRecaudado_TodosPerifericos", "TotalRecaudadoTodosPeriferico");
+                    break;
+                default:
+                    break;
+            }
+            return tabla;
+        }
+
 
         //FIN
 
@@ -150,6 +182,17 @@ namespace Datos
             sqlParametros.Value = fechaMaxima;
             sqlParametros = comando.Parameters.Add("@TipoPerif", SqlDbType.VarChar);
             sqlParametros.Value = tipoPerif;
+        }
+
+        private void armarParametrosPorcentajePeriferico(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima, int codPeriferico)
+        {
+            SqlParameter sqlParametros = new SqlParameter();
+            sqlParametros = comando.Parameters.Add("@Fecha_Minima", SqlDbType.Date);
+            sqlParametros.Value = fechaMinima;
+            sqlParametros = comando.Parameters.Add("@Fecha_Maxima", SqlDbType.Date);
+            sqlParametros.Value = fechaMaxima;
+            sqlParametros = comando.Parameters.Add("@Periferico", SqlDbType.VarChar);
+            sqlParametros.Value = codPeriferico;
         }
 
         private void armarParametrosPorcentajeTodosLosTipoPeriferico(ref SqlCommand comando, DateTime fechaMinima, DateTime fechaMaxima)

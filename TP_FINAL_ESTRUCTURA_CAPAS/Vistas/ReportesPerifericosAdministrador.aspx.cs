@@ -15,12 +15,22 @@ namespace Vistas
         protected NegocioPeriferico nPeriferico = new NegocioPeriferico();
         protected Periferico periferico = new Periferico();
         protected DataTable tabla = new DataTable();
+        protected Usuario usuario = new Usuario();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                cargarDDLTipoDePerifericos();
+                cargarTodosLosDDL();
+                setLabelUsuario();
             }
+            setLabelUsuario();
+        }
+
+        protected void setLabelUsuario()
+        {
+            usuario = (Usuario)Session["usuarioLogedIn"];
+            lblUsuario.Text = usuario.Nombre;
         }
 
         public void cargarGridViewStock(int opc)
@@ -33,6 +43,20 @@ namespace Vistas
         {
             grdReporteTipoPerifericos.DataSource = nPeriferico.porcentajeTipoPerifericosVendidos(opc, fechaInicio, fechaFin, codTipPerif);
             grdReporteTipoPerifericos.DataBind();
+        }
+
+        public void cargarGridViewPeriferico(int opc, DateTime fechaInicio, DateTime fechaFin, int codPeriferico, GridView grd)
+        {
+            grd.DataSource = nPeriferico.reportePorcentajePerifericosVendidos(opc, fechaInicio, fechaFin, codPeriferico);
+            grd.DataBind();
+        }
+
+
+        protected void cargarTodosLosDDL()
+        {
+            cargarDDLTipoDePerifericos();
+            cargarDDLPerifericos(ddlPerifericosCantVendidos);
+            cargarDDLPerifericos(ddlPerifericosPorcentajeMonto);
         }
 
         public void cargarDDLTipoDePerifericos()
@@ -134,5 +158,87 @@ namespace Vistas
                 lblMensajeAclarativoGrdGeneros.Text = "El valor de cada columna corresponde al porcentaje sobre 100 de la cantidad de perifericos vendidos de cada Tipo de Periferico";
             }
         }
+
+        //---------------------------------------------------------NEW----------------------------------------------------
+
+        protected void cargarDDLPerifericos(DropDownList ddlPerifericos)
+        {
+
+            tabla = nPeriferico.tablaPerifericos();
+
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                ListItem item = new ListItem(tabla.Rows[i][3].ToString(), tabla.Rows[i][0].ToString());
+                ddlPerifericos.Items.Add(item);
+            }
+
+            ddlPerifericos.DataTextField = "PE_Nombre";
+            ddlPerifericos.DataValueField = "PE_Codigo_Periferico";
+            ddlPerifericos.DataBind();
+            ddlPerifericos.Items.Insert(0, new ListItem("--Seleccione Periferico--", "0"));
+            ddlPerifericos.SelectedValue = "0";
+        }
+
+        protected void btnFiltrarCantJuegosVendidos_Click(object sender, EventArgs e)
+        {
+            cargarGridViewPeriferico(1, Convert.ToDateTime(txtFechaInicialCantVendidos.Text), Convert.ToDateTime(txtFechaFinalCantVendidos.Text), Convert.ToInt32(ddlPerifericosCantVendidos.SelectedValue), grdCantPerifericosVendidos);
+        }
+
+        protected void btnLimpiarFiltrosCantJuegosVendidos_Click(object sender, EventArgs e)
+        {
+            txtFechaInicialCantVendidos.Text = "";
+            txtFechaFinalCantVendidos.Text = "";
+            ddlPerifericosCantVendidos.SelectedIndex = 0;
+            grdCantPerifericosVendidos.DataSource = null;
+            grdCantPerifericosVendidos.DataBind();
+        }
+
+        protected void btnFiltrarPorcentajeMonto_Click(object sender, EventArgs e)
+        {
+            lblMensajeAclarativoMontoPeriferico.Text = "";
+            lblMensajeAclarativoMontoPeriferico.Text = "";
+            if (!cb_PerifericosMonto.Checked)
+            {
+                if (Convert.ToInt32(ddlPerifericosPorcentajeMonto.SelectedValue) == 0)
+                {
+                    lblValidacionDDLPerifericos.Text = "Ingrese un Periferico";
+                }
+                else
+                {
+                    cargarGridViewPeriferico(2, Convert.ToDateTime(txtFechaInicialPorcentajeMonto.Text), Convert.ToDateTime(txtFechaFinalPorcentajeMonto.Text), Convert.ToInt32(ddlPerifericosPorcentajeMonto.SelectedValue), grdPorcentajeMontoPeriferico);
+                    lblMensajeAclarativoMontoPeriferico.Text = "El Porcentaje de recaudacion que se muestra en pantalla corresponde a la ganancia obtenida de este periferico por sobre el total facturado (Juegos + Perifericos)";
+                }
+
+            }
+            else
+            {
+                cargarGridViewPeriferico(3, Convert.ToDateTime(txtFechaInicialPorcentajeMonto.Text), Convert.ToDateTime(txtFechaFinalPorcentajeMonto.Text), 1, grdPorcentajeMontoPeriferico);
+                lblMensajeAclarativoMontoPeriferico.Text = "El Porcentaje de recaudacion que se muestra en pantalla corresponde a la ganancia obtenida de los perifericos por sobre el total facturado (Juegos + Perifericos)";
+            }
+        }
+
+        protected void btnLimpiarFiltrosPorcentajeMonto_Click(object sender, EventArgs e)
+        {
+            txtFechaInicialPorcentajeMonto.Text = "";
+            txtFechaFinalPorcentajeMonto.Text = "";
+            lblMensajeAclarativoMontoPeriferico.Text = "";
+            lblValidacionDDLPerifericos.Text = "";
+            ddlPerifericosPorcentajeMonto.SelectedIndex = 0;
+            grdPorcentajeMontoPeriferico.DataSource = null;
+            grdPorcentajeMontoPeriferico.DataBind();
+        }
+
+        protected void cb_JuegosMonto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_PerifericosMonto.Checked == true)
+            {
+                ddlPerifericosPorcentajeMonto.Enabled = false;
+            }
+            else
+            {
+                ddlPerifericosPorcentajeMonto.Enabled = true;
+            }
+        }
+
     }
 }
