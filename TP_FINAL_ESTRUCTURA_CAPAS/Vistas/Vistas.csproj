@@ -78,7 +78,6 @@
     <Content Include="DetalleJuego.aspx" />
     <Content Include="DetallePeriferico.aspx" />
     <Content Include="Factura.aspx" />
-    <Content Include="FacturasAdministrador.aspx" />
     <Content Include="HistorialFacturas.aspx" />
     <Content Include="imgs\crearUsuario.png" />
     <Content Include="imgs\LogoPagina.png" />
@@ -98,8 +97,10 @@
     <Content Include="PerifericosAdministrador.aspx" />
     <Content Include="PerifericosAgregar.aspx" />
     <Content Include="PerifericosModificar.aspx" />
+    <Content Include="ReportesAdministrador.aspx" />
     <Content Include="ReportesJuegosAdministrador.aspx" />
     <Content Include="ReportesPerifericosAdministrador.aspx" />
+    <Content Include="ReportesUsuariosAdministrador.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="UsuariosAdministrador.aspx" />
     <Content Include="UsuariosModificar.aspx" />
@@ -175,13 +176,6 @@
     </Compile>
     <Compile Include="Factura.aspx.designer.cs">
       <DependentUpon>Factura.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FacturasAdministrador.aspx.cs">
-      <DependentUpon>FacturasAdministrador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FacturasAdministrador.aspx.designer.cs">
-      <DependentUpon>FacturasAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="HistorialFacturas.aspx.cs">
       <DependentUpon>HistorialFacturas.aspx</DependentUpon>
@@ -295,6 +289,13 @@
       <DependentUpon>PerifericosModificar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportesAdministrador.aspx.cs">
+      <DependentUpon>ReportesAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportesAdministrador.aspx.designer.cs">
+      <DependentUpon>ReportesAdministrador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReportesJuegosAdministrador.aspx.cs">
       <DependentUpon>ReportesJuegosAdministrador.aspx</DependentUpon>
     </Compile>
@@ -306,6 +307,13 @@
     </Compile>
     <Compile Include="ReportesPerifericosAdministrador.aspx.designer.cs">
       <DependentUpon>ReportesPerifericosAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesUsuariosAdministrador.aspx.cs">
+      <DependentUpon>ReportesUsuariosAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportesUsuariosAdministrador.aspx.designer.cs">
+      <DependentUpon>ReportesUsuariosAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
