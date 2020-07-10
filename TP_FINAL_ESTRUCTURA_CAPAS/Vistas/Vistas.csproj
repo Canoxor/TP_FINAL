@@ -78,7 +78,6 @@
     <Content Include="DetalleJuego.aspx" />
     <Content Include="DetallePeriferico.aspx" />
     <Content Include="Factura.aspx" />
-    <Content Include="FacturasAdministrador.aspx" />
     <Content Include="HistorialFacturas.aspx" />
     <Content Include="imgs\crearUsuario.png" />
     <Content Include="imgs\LogoPagina.png" />
@@ -177,13 +176,6 @@
     </Compile>
     <Compile Include="Factura.aspx.designer.cs">
       <DependentUpon>Factura.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FacturasAdministrador.aspx.cs">
-      <DependentUpon>FacturasAdministrador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FacturasAdministrador.aspx.designer.cs">
-      <DependentUpon>FacturasAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="HistorialFacturas.aspx.cs">
       <DependentUpon>HistorialFacturas.aspx</DependentUpon>
