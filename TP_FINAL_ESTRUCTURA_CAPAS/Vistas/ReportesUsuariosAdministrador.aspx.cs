@@ -103,8 +103,8 @@ namespace Vistas
                 DateTime FechaInicio, FechaFin;
 
                 Codigo = 0;
-                FechaInicio = Convert.ToDateTime(txtFechaInicial_1.Text);
-                FechaFin = Convert.ToDateTime(txtFechaFinal_1.Text);
+                FechaInicio = Convert.ToDateTime(txtFechaInicial_2.Text);
+                FechaFin = Convert.ToDateTime(txtFechaFinal_2.Text);
                 grdReporteUsuarios_2.DataSource = neg_Usuario.Procedimientos(Opcion, Codigo, FechaInicio, FechaFin);
                 grdReporteUsuarios_2.DataBind();
             }
@@ -114,8 +114,8 @@ namespace Vistas
                 DateTime FechaInicio, FechaFin;
 
                 Codigo = 0;
-                FechaInicio = Convert.ToDateTime(txtFechaInicial_1.Text);
-                FechaFin = Convert.ToDateTime(txtFechaFinal_1.Text);
+                FechaInicio = Convert.ToDateTime(txtFechaInicial_3.Text);
+                FechaFin = Convert.ToDateTime(txtFechaFinal_3.Text);
                 grdReporteUsuarios_3.DataSource = neg_Usuario.Procedimientos(Opcion, Codigo, FechaInicio, FechaFin);
                 grdReporteUsuarios_3.DataBind();
             }
